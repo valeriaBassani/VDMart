@@ -1,3 +1,4 @@
+import Footer from "../components/footer/Footer";
 import User from "../components/User/User";
 
 export default function LogIn() {
@@ -5,6 +6,7 @@ export default function LogIn() {
         <>
             <h4>Le tue credenziali</h4>
             <User firstName="valeria" secondName="bassani" mail="valeria@gmail.com" />
+            <Footer />
         </>
     )
 }

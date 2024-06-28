@@ -28,6 +28,7 @@ body{
 h1,h2,h4{
     font-family: "Red Hat Display", sans-serif;
     font-weight: medium;
+    margin: 0px;
 }
 
 h1{
