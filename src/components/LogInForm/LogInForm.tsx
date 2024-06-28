@@ -1,12 +1,13 @@
 import { useState } from "react";
-import './Components.css';
+import './LogInForm.css';
+import { Link } from "react-router-dom";
 
 export default function LogIn() {
     const [formData, setFormData] = useState({
         email: "",
-        psw: "",
+        password: "",
     });
-    const dati = formData.email + ' ' + formData.psw; //variabie di stato sarebbe ridondante
+    // const dati = formData.email + ' ' + formData.psw; //variabie di stato sarebbe ridondante
 
     const HandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = e.target;
@@ -18,13 +19,11 @@ export default function LogIn() {
 
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
-        console.log(formData.email, formData.psw);
+        console.log(formData.email, formData.password);
     }
 
     return (
         <>
-            <h4>Login</h4>
-            <h2>Bentornato!</h2>
             <form onSubmit={handleSubmit} className="Form">
                 <div className="Field">
                     <label>Nome*</label>
@@ -32,13 +31,13 @@ export default function LogIn() {
                 </div>
                 <div className="Field">
                     <label>Password*</label>
-                    <input type="password" name="psw" placeholder="password" value={formData.psw} onChange={HandleChange}></input>
+                    <input type="password" name="password" placeholder="password" value={formData.password} onChange={HandleChange}></input>
                 </div>
                 <p>* campo obbligatorio</p>
                 <input type="submit"></input>
-                <p>Non sei registrato? <a href="SingIn.tsx">Registrati</a></p>
+                <p>Non sei registrato? <Link to={`/signUp`}>Registrati</Link></p>
             </form>
-            <h1>{dati}</h1>
+            {/* <h1>{dati}</h1> */}
         </>
     )
 }

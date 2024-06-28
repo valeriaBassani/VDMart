@@ -1,17 +1,17 @@
 import { useState } from "react";
-import './Components.css';
+import './User.css';
 
 type Props = {
-    nome: string;
-    cognome: string;
+    firstName: string;
+    secondName: string;
     mail: string;
 };
 
-export default function User({ nome, cognome, mail }: Props) {
+export default function User({ firstName, secondName, mail }: Props) {
 
     const [Data, setData] = useState({
-        nome2: nome,
-        cognome2: cognome,
+        firstName2: firstName,
+        secondName2: secondName,
         mail2: mail,
     });
 
@@ -35,33 +35,31 @@ export default function User({ nome, cognome, mail }: Props) {
         e.preventDefault();
         setDisplay('none')
         setDisplay2('block')
-        console.log(Data.nome2, Data.cognome2);
+        console.log(Data.firstName2, Data.secondName2);
     }
 
     return (
         <>
-            <h4>Le tue credenziali</h4>
             <form style={{ display: display }} className="Form">
                 <div className="Field">
                     <label>Nome*</label>
-                    <input type="text" name="nome2" value={Data.nome2} placeholder={Data.nome2} onChange={HandleChange}></input><br></br>
+                    <input type="text" name="firstName2" value={Data.firstName2} placeholder={Data.firstName2} onChange={HandleChange}></input><br></br>
                 </div>
                 <div className="Field">
                     <label>Cognome*</label>
-                    <input type="text" name="cognome2" value={Data.cognome2} placeholder={Data.nome2} onChange={HandleChange}></input><br></br>
+                    <input type="text" name="secondName2" value={Data.secondName2} placeholder={Data.firstName2} onChange={HandleChange}></input><br></br>
                 </div>
                 <div className="Field">
                     <label>Mail*</label>
-                    <input type="text" name="mail2" value={Data.mail2} placeholder={Data.nome2} onChange={HandleChange}></input><br></br>
+                    <input type="text" name="mail2" value={Data.mail2} placeholder={Data.firstName2} onChange={HandleChange}></input><br></br>
                 </div>
                 <input type="submit" onClick={handleSubmit} value="Salva"></input>
             </form>
             <div style={{ display: display2 }} className="Form">
-                <p>{Data.nome2}</p>
-                <p>{Data.cognome2}</p>
+                <p>{Data.firstName2}</p>
+                <p>{Data.secondName2}</p>
                 <p>{Data.mail2}</p>
                 <input type="submit" onClick={handleClick} value="Modifica"></input>
-                {/* <button onClick={handleClick} className="Edit">Modifica</button> */}
             </div>
         </>
     )

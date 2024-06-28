@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
 body{
+    max-width:100%;
     background-color: var(--background);
     font-family: "Red Hat Display", sans-serif;
 }
@@ -16,6 +17,7 @@ body{
     --accentHover:rgba(136, 13, 30, 0.74);
     --textPlaceholder:#6E6E6E;
     --errors:#B00C0C;
+    --text:black;
 
     --font-size-p:16px;
     --font-weight-SemiBold:600;
