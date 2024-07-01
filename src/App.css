@@ -7,7 +7,7 @@ body{
 }
 
 :root{
-    --background:#F9F9F9;
+    --background:#f4f4f4;
     --primary:#007FA3;
     --primaryHover:#00303D;
     --secondary:#25283D;
@@ -23,6 +23,7 @@ body{
     --font-weight-SemiBold:600;
     --font-weight-light:350;
     --font-size-small:12px;
+    --border-radius:4px;
 }
 
 h1,h2,h4{
@@ -54,5 +55,37 @@ h5{
 }
 
 p{
+    font-size: var(--font-size-p);
+}
+
+.link{
+    color: var(--primary);
+    text-decoration: underline;
+    font-weight: var(--font-weight-SemiBold);
+}
+
+.Secondary{
+    background-color: var(--secondary);
+    color: white;
+    width: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: var(--font-size-p);
+}
+
+.Primary{
+    background-color: var(--primary);
+    color: white;
+    width: 8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    border-radius: var(--border-radius);
+    text-decoration: none;
     font-size: var(--font-size-p);
 }

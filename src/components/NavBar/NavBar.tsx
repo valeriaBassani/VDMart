@@ -9,9 +9,9 @@ export default function NavBar() {
             <div className="Actions">
                 <Link to={`/favourites`} className="NavLink">Preferiti</Link>
                 <Link to={`/messages`} className="NavLink">Messaggi</Link>
-                <Link to={`/CreateAdv`}>Crea un annuncio</Link>
-                <Link to={`/signUp`} className="NavLink">Registrati</Link>
-                <Link to={`/login`}>Accedi</Link>
+                <Link to={`/signUp`} className="Secondary">Crea un annuncio</Link>
+                <Link to={`/signUp`} className="link">Registrati</Link>
+                <Link to={`/login`} className="Primary">Accedi</Link>
             </div>
         </div>
     )

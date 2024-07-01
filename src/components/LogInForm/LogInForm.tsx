@@ -25,6 +25,7 @@ export default function LogIn() {
     return (
         <>
             <form onSubmit={handleSubmit} className="Form">
+                <h4>Accedi al tuo profilo</h4>
                 <div className="Field">
                     <label>Nome*</label>
                     <input type="text" name="nome" placeholder="nome" value={formData.email} onChange={HandleChange}></input>
@@ -33,10 +34,13 @@ export default function LogIn() {
                     <label>Password*</label>
                     <input type="password" name="password" placeholder="password" value={formData.password} onChange={HandleChange}></input>
                 </div>
-                <p>* campo obbligatorio</p>
-                <input type="submit"></input>
-                <p>Non sei registrato? <Link to={`/signUp`}>Registrati</Link></p>
+                <Link to={`/signUp`} className="link">Password dimenticata?</Link>
             </form>
+            <div>
+                <input type="submit" value="Accedi" className="Primary"></input>
+                <p>Non sei registrato? <Link to={`/signUp`} className="link">Registrati</Link></p>
+            </div>
+
             {/* <h1>{dati}</h1> */}
         </>
     )

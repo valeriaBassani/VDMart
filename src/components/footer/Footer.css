@@ -1,5 +1,5 @@
 .Footer{
-    background-color: #ECECEC;
+    background-color: var(--lightGrey);
     position: relative;
     bottom: 0px;
     display: flex;
