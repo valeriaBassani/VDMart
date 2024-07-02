@@ -1,17 +1,21 @@
 import { useState } from "react";
 import './User.css';
 
+
+
 type Props = {
-    firstName: string;
-    secondName: string;
+    firstname: string;
+    lastname: string;
     mail: string;
-};
+}
 
-export default function User({ firstName, secondName, mail }: Props) {
 
+export default function User({ firstname, lastname, mail }: Props) {
+
+    //modifica campi
     const [Data, setData] = useState({
-        firstName2: firstName,
-        secondName2: secondName,
+        firstName2: firstname,
+        secondName2: lastname,
         mail2: mail,
     });
 

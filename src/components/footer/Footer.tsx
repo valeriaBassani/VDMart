@@ -4,7 +4,7 @@ import './Footer.css';
 export default function Footer() {
     return (
         <div className="Footer">
-            <Link to={`/`}>Home</Link>
+            <Link to={`/home`}>Home</Link>
             <div className="Action">
                 <Link to={`/favourites`} className="NavLink">Assistenza</Link>
                 <Link to={`/messages`} className="NavLink">Privacy</Link>

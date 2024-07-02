@@ -5,7 +5,7 @@ export default function NavBar() {
     return (
         <div className="NavBar">
             {/* <a href={`/login`}>Your Name</a>  questa sintassi non utilizza il router, ma esegue un nuovo richiamo URL */}
-            <Link to={`/`}>Home</Link>
+            <Link to={`/home`}>Home</Link>
             <div className="Actions">
                 <Link to={`/favourites`} className="NavLink">Preferiti</Link>
                 <Link to={`/messages`} className="NavLink">Messaggi</Link>

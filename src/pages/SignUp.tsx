@@ -1,6 +1,6 @@
 import Footer from "../components/footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
-import SignUpForm from "../components/SignUpForm/SignUpForm";
+import SignUpForm from "../components/SignUpLogiInForm/SignUpForm";
 import './Pages.css';
 import '../App.css';
 import { Link } from "react-router-dom";

@@ -1,5 +1,5 @@
 import Footer from "../components/footer/Footer";
-import LogInForm from "../components/LogInForm/LogInForm";
+import LogInForm from "../components/SignUpLogiInForm/LogInForm";
 import NavBar from "../components/NavBar/NavBar";
 import './Pages.css';
 import '../App.css';

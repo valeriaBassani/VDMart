@@ -14,19 +14,17 @@
     flex-direction: column;
     border: solid 1px var(--lightGrey);
     border-radius: 4px;
-    width: 24em;
     justify-content: center;
     padding: 20px;
     gap: 12px;
 }
 
-input {
+input{
     font-family: "Red Hat Display", sans-serif;
     border: solid 1px var(--lightGrey);
     border-radius: 4px;
     padding-left: 8px;
     height: 40px;
-    width: 100;
 }
 
 .Field{
