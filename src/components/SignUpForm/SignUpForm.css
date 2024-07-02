@@ -1,6 +1,14 @@
 @import url('../../App.css');
 
 .Form{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    gap: 12px;
+}
+
+.Fields{
     background-color: white;
     display: flex;
     flex-direction: column;

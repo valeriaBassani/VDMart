@@ -1,7 +1,6 @@
 import { useReducer } from "react";
 import './SignUpForm.css';
 import { Link } from "react-router-dom";
-import { log } from "console";
 
 type State = {
     firstname: string;
@@ -87,58 +86,58 @@ export default function SingUpForm() {
     return (
         <>
             <form onSubmit={handleSubmit} className="Form">
-                <h4>Inzia a fare affari, crea il tuo account</h4>
-                <div className="Field">
-                    <label>Nome*</label>
-                    <input type="text" name="firstname" placeholder="nome" value={state.firstname} onChange={handleChange}></input>
-                </div>
-                <div className="Field">
-                    <label>Cognome*</label>
-                    <input type="text" name="lastname" placeholder="cognome" value={state.lastname} onChange={handleChange}></input>
-                </div>
-                <div className="Field">
-                    <label>Telefono*</label>
-                    <input type="text" name="phone" placeholder="telefono" value={state.phone} onChange={handleChange}></input>
-                </div>
-                <div className="Multiple">
-                    <div className="Field" style={{ width: '80%' }}>
-                        <label>Indirizzo*</label>
-                        <input type="text" name="street" placeholder="via" value={state.address.street} onChange={handleAddressChange}></input>
+                <div className="Fields">
+                    <h4>Inzia a fare affari, crea il tuo account</h4>
+                    <div className="Field">
+                        <label>Nome*</label>
+                        <input type="text" name="firstname" placeholder="nome" value={state.firstname} onChange={handleChange}></input>
                     </div>
-                    <div className="Field" style={{ width: '20%' }}>
-                        <label>n*</label>
-                        <input type="text" name="number" placeholder="n." value={state.address.number} onChange={handleAddressChange}></input>
+                    <div className="Field">
+                        <label>Cognome*</label>
+                        <input type="text" name="lastname" placeholder="cognome" value={state.lastname} onChange={handleChange}></input>
+                    </div>
+                    <div className="Field">
+                        <label>Telefono*</label>
+                        <input type="text" name="phone" placeholder="telefono" value={state.phone} onChange={handleChange}></input>
+                    </div>
+                    <div className="Multiple">
+                        <div className="Field" style={{ width: '80%' }}>
+                            <label>Indirizzo*</label>
+                            <input type="text" name="street" placeholder="via" value={state.address.street} onChange={handleAddressChange}></input>
+                        </div>
+                        <div className="Field" style={{ width: '20%' }}>
+                            <label>n*</label>
+                            <input type="text" name="number" placeholder="n." value={state.address.number} onChange={handleAddressChange}></input>
+                        </div>
+                    </div>
+                    <div className="Multiple">
+                        <div className="Field" style={{ width: '80%' }}>
+                            <label>Città*</label>
+                            <input type="text" name="city" placeholder="città" value={state.address.city} onChange={handleAddressChange}></input>
+                        </div>
+                        <div className="Field" style={{ width: '20%' }}>
+                            <label>Pv*</label>
+                            <input type="text" name="provincia" placeholder="Pv" value={state.address.provincia} onChange={handleAddressChange}></input>
+                        </div>
+                    </div>
+                    <div className="Field">
+                        <label>Email*</label>
+                        <input type="mail" name="mail" placeholder="mail" value={state.mail} onChange={handleChange}></input>
+                    </div>
+                    <div className="Field">
+                        <label>Password*</label>
+                        <input type="password" name="password" placeholder="password" value={state.password} onChange={handleChange}></input>
+                        <label className="Suggestion">la password deve essere di almeno 7 caratteri, 2 numeri e 1 carattere speciale</label>
+                    </div>
+                    <div className="Field">
+                        <label>Conferma password*</label>
+                        <input type="password" name="confirmPassword" placeholder="conferma password" value={state.confirmPassword} onChange={handleChange}></input>
+                        <p style={{ marginBottom: '0' }}>* campo obbligatorio</p>
                     </div>
                 </div>
-                <div className="Multiple">
-                    <div className="Field" style={{ width: '80%' }}>
-                        <label>Città*</label>
-                        <input type="text" name="city" placeholder="città" value={state.address.city} onChange={handleAddressChange}></input>
-                    </div>
-                    <div className="Field" style={{ width: '20%' }}>
-                        <label>Pv*</label>
-                        <input type="text" name="provincia" placeholder="Pv" value={state.address.provincia} onChange={handleAddressChange}></input>
-                    </div>
-                </div>
-                <div className="Field">
-                    <label>Email*</label>
-                    <input type="mail" name="mail" placeholder="mail" value={state.mail} onChange={handleChange}></input>
-                </div>
-                <div className="Field">
-                    <label>Password*</label>
-                    <input type="password" name="password" placeholder="password" value={state.password} onChange={handleChange}></input>
-                    <label className="Suggestion">la password deve essere di almeno 7 caratteri, 2 numeri e 1 carattere speciale</label>
-                </div>
-                <div className="Field">
-                    <label>Conferma password*</label>
-                    <input type="password" name="confirmPassword" placeholder="conferma password" value={state.confirmPassword} onChange={handleChange}></input>
-                    <p style={{ marginBottom: '0' }}>* campo obbligatorio</p>
-                </div>
-            </form >
-            <div className="Links">
                 <input type="submit" value="Registrati" className="Primary"></input>
                 <p>Sei già registrato? <Link to={`/login`} className="link">Accedi</Link></p>
-            </div>
+            </form >
         </>
     )
 };
