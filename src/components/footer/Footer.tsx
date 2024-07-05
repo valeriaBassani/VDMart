@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import './Footer.css';
+import Icon from "../Icon";
+import logo from './logo.svg';
 
 export default function Footer() {
     return (
         <div className="Footer">
-            <Link to={`/home`}>Home</Link>
+            <Link to={`/home`}><Icon url={logo} /></Link>
             <div className="Action">
                 <Link to={`/favourites`} className="NavLink">Assistenza</Link>
                 <Link to={`/messages`} className="NavLink">Privacy</Link>

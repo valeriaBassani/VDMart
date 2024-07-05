@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './SearchFilter.css';
 
-export default function PriceFilter() {
+export default function Shipping() {
 
     const [checked, setIsChecked] = useState(false);
 

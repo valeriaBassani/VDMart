@@ -1,0 +1,35 @@
+@import url('../../App.css');
+
+.Search{
+    background-color: white;
+    max-width: 40em;
+    display: flex;
+    border: solid 1px var(--lightGrey);
+    justify-content: space-between;
+    border-radius: var(--border-radius);
+}
+
+.Search input{
+    border: none;
+}
+
+.Lens{
+    border-radius: 100%;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.8em;
+    margin: 0.2em;
+    padding: 0.6em;
+}
+
+.Mobile{
+    visibility: hidden;
+}
+
+@media screen and (max-width: 545px) {
+    .Mobile{
+        visibility: visible;
+    }
+  }

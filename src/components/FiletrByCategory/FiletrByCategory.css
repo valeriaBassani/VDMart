@@ -1,0 +1,29 @@
+@import url('../../App.css');
+
+.Checkbox{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    height: 2em;
+}
+input[type="checkbox"]{
+    appearance: none;
+    font-family: "Red Hat Display", sans-serif;
+    border: solid 2px var(--lightGrey);
+    border-radius: 4px;
+    cursor: pointer;
+    height: 1.5em;
+    width:  1.5em;
+    background-color: white;
+} 
+input[type="checkbox"]:hover {
+    border: solid 2px var(--accentHover);
+}
+.Checkbox input.checked{
+    background-color: var(--accent);
+    background-image: url(check.svg);
+    background-size: contain;
+    border: solid 2px var(--accent);
+}
+
+

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 export default function LogIn() {
+    const [checked, setIsChecked] = useState(false);
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -21,10 +24,14 @@ export default function LogIn() {
         console.log(formData.email, formData.password);
     }
 
+    const handleCheck = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        setIsChecked(!checked);
+    };
+
     return (
         <>
-            <form onSubmit={handleSubmit} className="Form">
-                <div className="Fields">
+            <form onSubmit={handleSubmit} className="Form ">
+                <div className="Fields container-md">
                     <h4>Accedi al tuo profilo</h4>
                     <div className="Field">
                         <label>Nome*</label>
@@ -36,12 +43,15 @@ export default function LogIn() {
                     </div>
                     <Link to={`/signUp`} className="link">Password dimenticata?</Link>
                 </div>
-                <div>
-                    <input type="submit" value="Accedi" className="Primary"></input>
-                    <p>Non sei registrato? <Link to={`/signUp`} className="link">Registrati</Link></p>
+                <div className="Checkbox">
+                    <input type="checkbox" className={checked ? "checked" : ""} name="rememberMe" value="rememberMe" checked={checked} onChange={handleCheck}></input>
+                    <label htmlFor="rememberMe">Ricordami</label>
                 </div>
+                <Button label="Accedi" className='Primary' />
+                {/* <input type="submit" value="Accedi" className="Primary"></input> */}
+                <p>Non sei registrato? <Link to={`/signUp`} className="link">Registrati</Link></p>
+
             </form>
-            {/* <h1>{dati}</h1> */}
         </>
     )
 }

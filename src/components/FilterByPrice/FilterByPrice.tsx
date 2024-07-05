@@ -1,5 +1,5 @@
 import { useState } from "react"
-import './SearchFilter.css';
+import Button from "../Button/Button";
 
 export default function PriceFilter() {
 
@@ -44,10 +44,11 @@ export default function PriceFilter() {
                     </div>
                 </div>
                 <div className="Actions" style={{ gap: '8px' }}>
-                    <input type="submit" value="Cerca" className='ConfirmButton' ></input>
-                    <input type="submit" value="Ripristina" className='ResetButton' onClick={handleReset}></input>
+                    <Button label="Cerca" className='Confirm' />
+                    <Button label="Ripristina" onClick={handleReset} className='Reset' />
+                    {/* <input type="submit" value="Cerca" className='ConfirmButton' ></input> */}
+                    {/* <input type="submit" value="Ripristina" className='ResetButton' onClick={handleReset}></input> */}
                 </div>
-
             </form>
         </>
     )

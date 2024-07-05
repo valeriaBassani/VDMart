@@ -1,4 +1,4 @@
-import Footer from "../components/footer/Footer";
+import Footer from "../components/Footer/Footer";
 //import User from "../components/User/User";
 
 export default function LogIn() {

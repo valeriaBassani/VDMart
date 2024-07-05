@@ -1,8 +1,10 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 
 import NavBar from './components/NavBar/NavBar';
 import ErrorPage from "./pages/error-page";

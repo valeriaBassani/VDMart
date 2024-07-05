@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './SearchFilter.css';
+import './FiletrByCategory.css';
+import Button from '../Button/Button';
 
 type CheckedState = {
     vehicles: boolean;
@@ -29,7 +30,7 @@ export default function CategoryFilter() {
         }));
     };
 
-    const handleSubmit = (e: React.SyntheticEvent): void => {
+    const handleReset = (e: React.SyntheticEvent): void => {
         e.preventDefault();
         setIsChecked({
             vehicles: false,
@@ -63,7 +64,8 @@ export default function CategoryFilter() {
                 <input type="checkbox" className={checked.animals ? "checked" : ""} name="animals" value="animals" checked={checked.animals} onChange={handleChange}></input>
                 <label htmlFor="animals">Animali</label>
             </div>
-            <input type="submit" value="Ripristina" className='ResetButton' onClick={handleSubmit}></input>
+            <Button label="Ripristina" onClick={handleReset} className='Confirm' />
+            {/* <input type="submit" value="Ripristina" className='ResetButton' onClick={handleSubmit}></input> */}
         </div>
     )
 }

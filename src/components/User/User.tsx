@@ -1,14 +1,12 @@
 import { useState } from "react";
 import './User.css';
-
-
+import Button from "../Button/Button";
 
 type Props = {
     firstname: string;
     lastname: string;
     mail: string;
 }
-
 
 export default function User({ firstname, lastname, mail }: Props) {
 
@@ -63,7 +61,8 @@ export default function User({ firstname, lastname, mail }: Props) {
                 <p>{Data.firstName2}</p>
                 <p>{Data.secondName2}</p>
                 <p>{Data.mail2}</p>
-                <input type="submit" onClick={handleClick} value="Modifica"></input>
+                <Button label="Modifica" onClick={handleClick} className="Primary" />
+                {/* <input type="submit" onClick={handleClick} value="Modifica"></input> */}
             </div>
         </>
     )

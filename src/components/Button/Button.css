@@ -1,0 +1,46 @@
+@import url('../../App.css');
+
+.Secondary{
+    background-color: var(--secondary);
+    color: white;
+    min-width: fit-content;
+    padding: 0em 3em 0em 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: var(--font-size-p);
+    cursor: pointer;
+}
+
+.Primary{
+    background-color: var(--primary);
+    color: white;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    padding: 0em 2em 0em 2em;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: var(--font-size-p);
+    cursor: pointer;
+}
+
+.Reset{
+    height: 2.5em;
+    background-color: var(--lightGrey);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.Confirm{
+    height: 2.5em;
+    background-color: var(--secondary);
+    border: solid 2px var(--secondary);
+    color: white;
+    cursor: pointer;
+}

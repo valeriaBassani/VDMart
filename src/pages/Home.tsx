@@ -1,32 +1,40 @@
-import Footer from "../components/footer/Footer";
+import { useState } from "react";
+import CategoryFilter from "../components/FiletrByCategory/FiletrByCategory";
+import PriceFilter from "../components/FilterByPrice/FilterByPrice";
+import Shipping from "../components/FilterByShipping/FilterByShipping";
+import Footer from "../components/Footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
+import SearchBar from "../components/SearchBar/SearchBar";
 import './Pages.css';
-import '../App.css';
-import CategoryFilter from "../components/SearchFilter/Category";
-import PriceFilter from "../components/SearchFilter/Price";
-import Shipping from "../components/SearchFilter/Shipping";
 
-export default function LogIn() {
+export default function Home() {
     return (
-        <div>
+        <>
             <NavBar />
-            <div className="Content">
-                {/* <div className="SearchBar">
-                    <SearchBar />
-                </div> */}
-                <div className="Board">
-                    <div className="Filters">
-                        <CategoryFilter />
-                        <PriceFilter />
-                        <Shipping />
-                    </div>
-                    <div className="Ads">
-                        <p>ads</p>
+            <div className="container-lg">
+                <div className="row my-4">
+                    <div className="col">
+                        <SearchBar />
                     </div>
                 </div>
-
+                <div className="row gap-3 Board">
+                    <div className="col-3  Filters">
+                        <div className="row">
+                            <div className="col d-flex flex-column gap-3">
+                                <CategoryFilter />
+                                <PriceFilter />
+                                <Shipping />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col Ads">
+                        <p>Ads</p>
+                    </div>
+                </div>
             </div>
             <Footer />
-        </div>
+        </>
+
     )
+
 }
