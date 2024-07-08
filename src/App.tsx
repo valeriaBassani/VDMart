@@ -11,6 +11,7 @@ import ErrorPage from "./pages/error-page";
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Home from './pages/Home';
+import Create from './pages/Create';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/signUp",
     element: <SignUp />,
+  },
+  {
+    path: "/create",
+    element: <Create />,
   },
 ]);
 

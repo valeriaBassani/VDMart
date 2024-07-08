@@ -1,0 +1,36 @@
+@import url('../../App.css');
+.Fav{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    
+}
+
+.Fav button{
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--placeholder);
+    font-weight: var(--font-weight-SemiBold);
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    fill: rgba(255, 255, 255, 0);
+    stroke: var(--placeholder);
+}
+
+.Fav button:hover{
+    color: var(--accent);
+}
+
+.Fav button:hover .feather-heart {
+    stroke: var(--accent);
+}
+
+.Active{
+    color: var(--accent) !important;
+}
+
+.Active svg{
+    fill: var(--accent);
+    stroke: var(--accent);
+}

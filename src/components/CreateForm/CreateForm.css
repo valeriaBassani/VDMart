@@ -1,0 +1,48 @@
+.Create{
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    width: 100%;
+    padding: 2em;
+}
+
+.Section{
+    background-color: white;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.MultiField{
+    display: flex;
+    align-items: end;
+    gap: 1em;
+}
+
+.Img{
+    width: 5em;
+    height: 5em;
+    background-color: white;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-image: url(plus.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    padding: 2em;
+}
+
+.Next{
+    width: 5em;
+    height: 5em;
+    background-color: white;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-image: url(camera.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    padding: 1.8em;
+}

@@ -1,0 +1,9 @@
+.Adv img{
+    width: 15em;
+    height: 15em;
+}
+
+.Adv{
+    display: flex;
+    border: solid 1px var(--lightGrey);
+}

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import './SearchFilter.css';
+import './FilterByShipping.css';
 
 export default function Shipping() {
 

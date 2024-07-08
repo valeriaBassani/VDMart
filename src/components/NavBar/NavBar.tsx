@@ -24,7 +24,7 @@ export default function NavBar() {
                     <div className="col d-flex align-items-center justify-content-end gap-4">
                         <Link to={`/favourites`} className="NavLink"><Icon url={heart} />Preferiti</Link>
                         <Link to={`/messages`} className="NavLink"><Icon url={message} />Messaggi</Link>
-                        <Link to={`/signUp`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
+                        <Link to={`/create`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
                         <Link to={`/signUp`} className="link">Registrati</Link>
                         <Link to={`/login`} className="Primary">Accedi</Link>
                     </div>

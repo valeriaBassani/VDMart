@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CategoryFilter from "../components/FiletrByCategory/FiletrByCategory";
 import PriceFilter from "../components/FilterByPrice/FilterByPrice";
 import Shipping from "../components/FilterByShipping/FilterByShipping";
@@ -17,8 +16,8 @@ export default function Home() {
                         <SearchBar />
                     </div>
                 </div>
-                <div className="row gap-3 Board">
-                    <div className="col-3  Filters">
+                <div className="row gap-3 Board mb-5">
+                    <div className="col-3 Filters">
                         <div className="row">
                             <div className="col d-flex flex-column gap-3">
                                 <CategoryFilter />
@@ -34,7 +33,5 @@ export default function Home() {
             </div>
             <Footer />
         </>
-
     )
-
 }
