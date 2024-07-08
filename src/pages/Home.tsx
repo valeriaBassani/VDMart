@@ -1,3 +1,5 @@
+import Adv from "../components/Adv/Adv";
+import Button from "../components/Button/Button";
 import CategoryFilter from "../components/FiletrByCategory/FiletrByCategory";
 import PriceFilter from "../components/FilterByPrice/FilterByPrice";
 import Shipping from "../components/FilterByShipping/FilterByShipping";
@@ -27,7 +29,19 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="col Ads">
-                        <p>Ads</p>
+                        <div className="row justify-content-between">
+                            <div className="col">
+                                <h4>Annunci</h4>
+                                <p>64 risultati</p>
+                            </div>
+                            <div className="col">
+                                <Button label="Ordina per"></Button>
+                            </div>
+                        </div>
+                        <div className="row justify-content-center p-2 gap-3 ">
+                            <Adv />
+                            <Adv />
+                        </div>
                     </div>
                 </div>
             </div>

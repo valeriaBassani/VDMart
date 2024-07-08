@@ -10,6 +10,7 @@ body{
 :root{
     --background:#f4f4f4;
     --primary:#007FA3;
+    --primaryDark:#006480;
     --primaryHover:#00303D;
     --secondary:#25283D;
     --secondaryHover:#12141E;

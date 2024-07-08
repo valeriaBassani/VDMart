@@ -1,9 +1,36 @@
 .Adv img{
-    width: 15em;
-    height: 15em;
+    width: 10em;
+    height: 10em;
 }
 
 .Adv{
     display: flex;
     border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    padding: 1em;
+    width: 100%;
+}
+#category{
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    width: fit-content;
+    padding: 0px 1em 0px 1em;
+}
+
+#shipping{
+    background-color: rgba(0, 104, 133, 0.2);
+    color: var(--primaryDark);
+    border-radius: var(--border-radius);
+    background-image: url(truck.svg);
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-origin:content-box ;
+    background-position: center;
+    padding: 0.1em;
+    width: 2.8em;
+    height: 1.8em;
+}
+
+#price{
+    color: var(--primary);
 }
