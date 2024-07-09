@@ -6,11 +6,11 @@ export default function Favourites() {
     return (
         <>
             <NavBar />
-            <div className="container-sm my-5">
+            <div className="container-sm my-3 p-4">
                 <div className="row">
                     <div className="col d-flex flex-column gap-3">
                         <h4>Annunci preferiti</h4>
-                        <div className="row Fields">
+                        <div className="row Ads">
                             <div className="col">
                                 <div className="row py-2">
                                     <div className="col d-flex justify-content-end">

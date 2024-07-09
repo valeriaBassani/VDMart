@@ -1,8 +1,7 @@
 @import url('../../App.css');
 .Adv img{
-    width: 100%;
+    width: 15em;
     height: 100%;
-    max-width: 30vw;
 }
 .Info{
     flex-wrap: nowrap;
@@ -10,6 +9,7 @@
 .Adv{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
+    padding-right: 1em;
 }
 
 #category{
@@ -49,11 +49,15 @@
     display: flex;
     flex-direction: column;
     align-items: end;
-    
-  }
+    justify-content: space-between;
+}
 
-@media screen and (max-width: 545px) {
+@media screen and (max-width: 760px) {
     .Dsk {
       display: none;
+    }
+    .Adv img{
+        width: 9em;
+        height: 9em;
     }
   }

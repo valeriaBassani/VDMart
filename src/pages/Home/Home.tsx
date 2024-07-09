@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <body>
             <NavBar />
-            <div className="container lg p-4">
+            <div className="container sm p-4">
                 <div className="row mt-5 ">
                     <div className="col" >
                         <SearchBar />

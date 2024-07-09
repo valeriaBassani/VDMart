@@ -24,7 +24,7 @@ export default function SearchBar() {
                                 <img src={lens} className="Lens"></img>
                             </div>
                         </div>
-                        <div className="col-auto p-0 Mobile">
+                        <div className="col-auto p-0 MobileFilter">
                             <Submit label='Filtri' className='Primary' onClick={handleClick} />
                         </div>
                     </div>

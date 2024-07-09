@@ -11,7 +11,7 @@ export default function Adv() {
                     <div className="row">
                         <div className="col" >
                             <div className="row Info">
-                                <div className="col-4">
+                                <div className="col-auto pe-0">
                                     <img src={ipad}></img>
                                 </div>
                                 <div className="col d-flex flex-column gap-4 py-3" >
@@ -21,35 +21,43 @@ export default function Adv() {
                                                 <div className="col">
                                                     <h5 id="category">Tecnologia</h5>
                                                 </div>
-                                                <div className="col-auto Mobile">
+                                                <div className="col-auto MobileFilter ps-0 pe-4">
                                                     <Favourite />
                                                 </div>
                                             </div>
                                             <p id="date">07/10/2023</p>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <h4>Ipad 3</h4>
+                                    <div className="row gap-2">
+                                        <h4>Ipad terza generazione nuovo</h4>
                                         <div className="col d-flex gap-1">
                                             <h3 id="price">145,00€</h3>
                                             <div id="shipping"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-auto py-4 px-5 Dsk ">
-                                    <Favourite />
+                                <div className="col-auto Dsk py-3 px-4">
+                                    <div className="row">
+                                        <div className="col">
+                                            <Favourite />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col">
+                                            <Review mail="Ilaria" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col d-flex flex-column align-items-end pb-3 px-5" >
+                    <div className="row MobileFilter">
+                        <div className="col d-flex flex-column align-items-start pb-3 px-4" >
                             <Review mail="Ilaria" />
                         </div>
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

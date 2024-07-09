@@ -41,7 +41,7 @@
     display: block;
 }
 
-@media screen and (max-width: 545px) {
+@media screen and (max-width: 760px) {
     .Fav label {
       display: none;
     }

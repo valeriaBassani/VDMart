@@ -98,3 +98,66 @@ label{
     font-size: var(--font-size-small);
     color: var(--placeholder);
 }
+
+@media screen and (max-width: 516px) {
+    h2{
+        font-size: 2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    
+    }
+    
+    h3{
+        font-size: 1.5rem;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    
+    }
+    
+    h4{
+        font-size: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    h5{
+        font-size:0.6rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    
+    }
+    
+    p{
+        margin: 0px;
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    
+    }
+    
+    .link{
+        color: var(--primary);
+        text-decoration: underline;
+        font-weight: var(--font-weight-SemiBold);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    
+    }
+    
+    label{
+        font-size: 12px;
+        font-weight: var(--font-weight-SemiBold);
+        margin: 0;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .small{
+        font-size: var(--font-size-small);
+        color: var(--placeholder);
+    }
+  }

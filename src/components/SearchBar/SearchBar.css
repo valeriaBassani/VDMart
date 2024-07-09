@@ -27,12 +27,14 @@
     padding: 0.6em;
 }
 
-.Mobile{
+.MobileFilter{
     visibility: hidden;
+    display: none;
 }
 
-@media screen and (max-width: 545px) {
-    .Mobile{
+@media screen and (max-width: 780px) {
+    .MobileFilter{
         visibility: visible;
+        display: block;
     }
   }
