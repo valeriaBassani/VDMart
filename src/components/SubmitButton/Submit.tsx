@@ -1,4 +1,4 @@
-import './Button.css';
+import './Submit.css';
 
 type Props = {
     label?: string;
@@ -6,7 +6,7 @@ type Props = {
     className?: string;
 }
 
-export default function Button({ label, onClick, className }: Props) {
+export default function Submit({ label, onClick, className }: Props) {
     return (
         <>
             <input type="submit" value={label} className={className} onClick={onClick}></input>

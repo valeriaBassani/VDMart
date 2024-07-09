@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './FiletrByCategory.css';
-import Button from '../Button/Button';
+import Submit from '../SubmitButton/Submit';
 
 type CheckedState = {
     vehicles: boolean;
@@ -64,7 +64,7 @@ export default function CategoryFilter() {
                 <input type="checkbox" className={checked.animals ? "checked" : ""} name="animals" value="animals" checked={checked.animals} onChange={handleChange}></input>
                 <label htmlFor="animals">Animali</label>
             </div>
-            <Button label="Ripristina" onClick={handleReset} className='Confirm' />
+            <Submit label="Ripristina" onClick={handleReset} className='Confirm' />
             {/* <input type="submit" value="Ripristina" className='ResetButton' onClick={handleSubmit}></input> */}
         </div>
     )

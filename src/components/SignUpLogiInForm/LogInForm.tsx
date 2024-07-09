@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+import Submit from "../SubmitButton/Submit";
 
 export default function LogIn() {
     const [checked, setIsChecked] = useState(false);
@@ -47,7 +47,7 @@ export default function LogIn() {
                     <input type="checkbox" className={checked ? "checked" : ""} name="rememberMe" value="rememberMe" checked={checked} onChange={handleCheck}></input>
                     <label htmlFor="rememberMe">Ricordami</label>
                 </div>
-                <Button label="Accedi" className='Primary' />
+                <Submit label="Accedi" className='Primary' />
                 {/* <input type="submit" value="Accedi" className="Primary"></input> */}
                 <p>Non sei registrato? <Link to={`/signUp`} className="link">Registrati</Link></p>
 

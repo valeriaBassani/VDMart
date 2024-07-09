@@ -1,7 +1,7 @@
 import { useReducer, useState } from 'react';
-import Button from '../Button/Button';
 import './CreateForm.css';
 import Categories from '../Categories/Categories';
+import Submit from '../SubmitButton/Submit';
 
 type State = {
     article: string;
@@ -162,7 +162,7 @@ export default function CreateForm() {
                             </div>
                         </div>
                         <p>* campo obbligatorio</p>
-                        <Button label="Pubblica l'annuncio" className="Primary" onClick={handleSubmit} />
+                        <Submit label="Pubblica l'annuncio" className="Primary" onClick={handleSubmit} />
                     </div>
                 </div>
             </div >

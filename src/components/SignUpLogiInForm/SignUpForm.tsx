@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import "./SignUpForm.css";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+import Submit from "../SubmitButton/Submit";
 
 type State = {
     firstname: string;
@@ -278,7 +278,7 @@ export default function SingUpForm() {
                     </div>
                 </div>
                 <p>* campo obbligatorio</p>
-                <Button label="Registrati" className="Primary" />
+                <Submit label="Registrati" className="Primary" />
                 {/* <input type="submit" value="Registrati" className="Primary"></input> */}
                 <p>
                     Sei già registrato?{" "}

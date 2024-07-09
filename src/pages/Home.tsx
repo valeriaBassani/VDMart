@@ -1,5 +1,5 @@
 import Adv from "../components/Adv/Adv";
-import Button from "../components/Button/Button";
+import Button from "../components/SubmitButton/Submit";
 import CategoryFilter from "../components/FiletrByCategory/FiletrByCategory";
 import PriceFilter from "../components/FilterByPrice/FilterByPrice";
 import Shipping from "../components/FilterByShipping/FilterByShipping";
@@ -7,6 +7,7 @@ import Footer from "../components/Footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
 import SearchBar from "../components/SearchBar/SearchBar";
 import './Pages.css';
+import Submit from "../components/SubmitButton/Submit";
 
 export default function Home() {
     return (
@@ -35,7 +36,7 @@ export default function Home() {
                                 <p>64 risultati</p>
                             </div>
                             <div className="col">
-                                <Button label="Ordina per"></Button>
+                                <Submit label="Ordina per" />
                             </div>
                         </div>
                         <div className="row justify-content-center p-2 gap-3 ">

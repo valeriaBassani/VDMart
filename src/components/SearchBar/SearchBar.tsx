@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Button from "../Button/Button"
 import "./SearchBar.css"
 import lens from "./lens.svg"
 import CategoryFilter from "../FiletrByCategory/FiletrByCategory";
 import PriceFilter from "../FilterByPrice/FilterByPrice";
 import Shipping from "../FilterByShipping/FilterByShipping";
+import Submit from "../SubmitButton/Submit";
 
 export default function SearchBar() {
 
@@ -25,7 +25,7 @@ export default function SearchBar() {
                             </div>
                         </div>
                         <div className="col-3 Mobile">
-                            <Button label='Filtri' className='Primary' onClick={handleClick}></Button>
+                            <Submit label='Filtri' className='Primary' onClick={handleClick} />
                         </div>
                     </div>
                     <div className={`row ${visible ? 'Visible' : 'Invisible'}`}>

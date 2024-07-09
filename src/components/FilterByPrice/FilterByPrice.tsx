@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Button from "../Button/Button";
+import Submit from "../SubmitButton/Submit";
 
 export default function PriceFilter() {
 
@@ -44,8 +44,8 @@ export default function PriceFilter() {
                     </div>
                 </div>
                 <div className="Actions" style={{ gap: '8px' }}>
-                    <Button label="Cerca" className='Confirm' />
-                    <Button label="Ripristina" onClick={handleReset} className='Reset' />
+                    <Submit label="Cerca" className='Confirm' />
+                    <Submit label="Ripristina" onClick={handleReset} className='Reset' />
                     {/* <input type="submit" value="Cerca" className='ConfirmButton' ></input> */}
                     {/* <input type="submit" value="Ripristina" className='ResetButton' onClick={handleReset}></input> */}
                 </div>

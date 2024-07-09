@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './User.css';
-import Button from "../Button/Button";
+import Button from "../SubmitButton/Submit";
 
 type Props = {
     firstname: string;
