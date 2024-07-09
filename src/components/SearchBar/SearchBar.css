@@ -13,13 +13,16 @@
     border: none;
 }
 
+.Search
+
 .Lens{
     border-radius: 100%;
     background-color: var(--secondary);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.8em;
+    width: 2.6em;
+    height: 2.6;
     margin: 0.2em;
     padding: 0.6em;
 }

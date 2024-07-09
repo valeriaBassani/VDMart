@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Submit from "../SubmitButton/Submit";
+import "./FilterByPrice.css"
 
 export default function PriceFilter() {
 
@@ -31,25 +32,29 @@ export default function PriceFilter() {
 
     return (
         <>
-            <form className="Fields" onSubmit={handleSubmit}>
-                <h4>Prezzo</h4>
-                <div className="Multiple">
-                    <div className="Field" style={{ width: '46%' }}>
-                        <label>Da</label>
-                        <input type="text" name="min" placeholder="min" value={data.min} onChange={HandleChange}></input>
+            <div className="row-sm Fields">
+                <div className="col p-0">
+                    <h4>Prezzo</h4>
+                    <div className="row Range">
+                        <div className="InputContainer">
+                            <div className="In">
+                                <label>Da</label>
+                                <input type="text" name="min" placeholder="min" value={data.min} onChange={HandleChange}></input>
+                            </div>
+                            <div className="In">
+                                <label>A</label>
+                                <input type="text" name="max" placeholder="max" value={data.max} onChange={HandleChange}></input>
+                            </div>
+                        </div>
                     </div>
-                    <div className="Field" style={{ width: '46%' }}>
-                        <label>A</label>
-                        <input type="text" name="max" placeholder="max" value={data.max} onChange={HandleChange}></input>
+                    <div className="row py-3 Range">
+                        <div className="InputContainer">
+                            <Submit label="Cerca" className='Confirm' onClick={handleSubmit} />
+                            <Submit label="Ripristina" onClick={handleReset} className='Reset' />
+                        </div>
                     </div>
                 </div>
-                <div className="Actions" style={{ gap: '8px' }}>
-                    <Submit label="Cerca" className='Confirm' />
-                    <Submit label="Ripristina" onClick={handleReset} className='Reset' />
-                    {/* <input type="submit" value="Cerca" className='ConfirmButton' ></input> */}
-                    {/* <input type="submit" value="Ripristina" className='ResetButton' onClick={handleReset}></input> */}
-                </div>
-            </form>
+            </div>
         </>
     )
 }

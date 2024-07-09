@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     gap: 0.5em;
+    width: fit-content;
     
 }
 
@@ -16,6 +17,7 @@
     gap: 0.5em;
     fill: rgba(255, 255, 255, 0);
     stroke: var(--placeholder);
+    padding: 0;
 }
 
 .Fav button:hover{
@@ -34,3 +36,13 @@
     fill: var(--accent);
     stroke: var(--accent);
 }
+
+.Fav label{
+    display: block;
+}
+
+@media screen and (max-width: 545px) {
+    .Fav label {
+      display: none;
+    }
+  }

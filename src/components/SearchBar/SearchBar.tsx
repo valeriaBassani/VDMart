@@ -16,15 +16,15 @@ export default function SearchBar() {
     return (
         <>
             <div className="row">
-                <div className="col d-flex flex-column gap-3">
-                    <div className="row align-items-center">
-                        <div className="col">
+                <div className="col d-flex flex-column">
+                    <div className="row align-items-center gap-2">
+                        <div className="col p-0">
                             <div className="Search">
                                 <input type="text" placeholder="Nome, marca, caratteristica"></input>
                                 <img src={lens} className="Lens"></img>
                             </div>
                         </div>
-                        <div className="col-3 Mobile">
+                        <div className="col-auto p-0 Mobile">
                             <Submit label='Filtri' className='Primary' onClick={handleClick} />
                         </div>
                     </div>

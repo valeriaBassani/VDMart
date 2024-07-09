@@ -1,0 +1,23 @@
+
+@import url('../../App.css');
+.Filters{
+    display: block;
+}
+
+@media screen and (max-width: 545px) {
+    .Filters{
+        display: none;
+    }
+  }
+
+
+.Board{
+    border-top: solid 1px var(--lightGrey);
+}
+
+.Ads{
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-color: white
+}
+

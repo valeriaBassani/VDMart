@@ -1,20 +1,28 @@
+@import url('../../App.css');
 .Adv img{
-    width: 10em;
-    height: 10em;
+    width: 100%;
+    height: 100%;
+    max-width: 30vw;
 }
-
+.Info{
+    flex-wrap: nowrap;
+}
 .Adv{
-    display: flex;
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     padding: 1em;
-    width: 100%;
 }
+
 #category{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     width: fit-content;
-    padding: 0px 1em 0px 1em;
+    padding: 1.5px 1em 1.5px 1em;
+    color: var(--secondary);
+}
+#date{
+    font-size: var(--font-size-small);
+    color: var(--placeholder);
 }
 #shipping{
     background-color: rgba(0, 104, 133, 0.2);
@@ -33,3 +41,20 @@
 #price{
     color: var(--primary);
 }
+
+.Rev{
+    width: 100%;
+}
+
+.Dsk {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    
+  }
+
+@media screen and (max-width: 545px) {
+    .Dsk {
+      display: none;
+    }
+  }

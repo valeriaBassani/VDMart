@@ -15,7 +15,7 @@
     width: 30em;
 }
 
-.Filters{
+/* .Filters{
     display: block;
 }
 
@@ -33,10 +33,6 @@
 .Ads{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 1em;
     background-color: white
-}
+} */
 

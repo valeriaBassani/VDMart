@@ -10,7 +10,6 @@ type CheckedState = {
     animals: boolean;
 };
 
-
 export default function CategoryFilter() {
 
     const [checked, setIsChecked] = useState<CheckedState>({
