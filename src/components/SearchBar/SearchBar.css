@@ -7,9 +7,11 @@
     border: solid 1px var(--lightGrey);
     justify-content: space-between;
     border-radius: var(--border-radius);
+    margin-top: 0.5em;
 }
 
 .Search input{
+    width: 100%;
     border: none;
 }
 

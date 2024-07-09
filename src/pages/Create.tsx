@@ -3,11 +3,13 @@ import NavBar from "../components/NavBar/NavBar";
 import './Pages.css';
 import '../App.css';
 import CreateForm from "../components/CreateForm/CreateForm";
+import BreadCrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
 export default function LogIn() {
     return (
         <>
             <NavBar />
+            <BreadCrumbs />
             <div className="container-lg my-5">
                 <div className="row">
                     <div className="col d-flex flex-column gap-3">
@@ -15,7 +17,6 @@ export default function LogIn() {
                         <CreateForm />
                     </div>
                 </div>
-
             </div>
             <Footer />
         </>

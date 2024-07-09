@@ -19,6 +19,7 @@ export default function SearchBar() {
                 <div className="col d-flex flex-column">
                     <div className="row align-items-center gap-2">
                         <div className="col p-0">
+                            <h4>Ricerca un articolo</h4>
                             <div className="Search">
                                 <input type="text" placeholder="Nome, marca, caratteristica"></input>
                                 <img src={lens} className="Lens"></img>

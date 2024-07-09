@@ -14,6 +14,7 @@ import Home from './pages/Home/Home';
 import Create from './pages/Create';
 import Favourite from './components/Favourite/Favourite';
 import Favourites from './pages/Favourites';
+import Restore from './pages/RestorePsw';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/favourites",
     element: <Favourites />,
+  },
+  {
+    path: "/restore",
+    element: <Restore />,
   },
 ]);
 

@@ -3,12 +3,14 @@ import NavBar from "../components/NavBar/NavBar";
 import SignUpForm from "../components/SignUpLogiInForm/SignUpForm";
 import './Pages.css';
 import '../App.css';
+import BreadCrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
 export default function SignUp() {
     return (
         <>
             <NavBar />
-            <div className="row mt-5 mb-5 ml-3 mr-3 justify-content-center">
+            <BreadCrumbs />
+            <div className="row my-5 mx-3 justify-content-center">
                 <div className="col d-flex justify-content-center">
                     <div className="Input">
                         <h4>SignUp</h4>

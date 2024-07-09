@@ -7,14 +7,16 @@ import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import './Home.css';
 import OrderBy from "../../components/OrderBy/OrderBy";
+import BreadCrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 
 export default function Home() {
     return (
         <body>
             <NavBar />
+            <BreadCrumbs />
             <div className="container sm p-4">
-                <div className="row mt-5 ">
-                    <div className="col" >
+                <div className="row ">
+                    <div className="col d-flex flex-column gap-2" >
                         <SearchBar />
                     </div>
                 </div>
