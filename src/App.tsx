@@ -36,19 +36,19 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/signUp",
+    path: "/registrazione",
     element: <SignUp />,
   },
   {
-    path: "/create",
+    path: "/Vendi",
     element: <Create />,
   },
   {
-    path: "/favourites",
+    path: "/preferiti",
     element: <Favourites />,
   },
   {
-    path: "/restore",
+    path: "/recupera-password",
     element: <Restore />,
   },
 ]);

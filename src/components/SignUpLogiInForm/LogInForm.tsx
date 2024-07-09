@@ -41,7 +41,7 @@ export default function LogIn() {
                         <label>Password*</label>
                         <input type="password" name="password" placeholder="password" value={formData.password} onChange={HandleChange}></input>
                     </div>
-                    <Link to={`/restore`} className="link">Password dimenticata?</Link>
+                    <Link to={`/recupera-password`} className="link">Password dimenticata?</Link>
                 </div>
                 <div className="Checkbox">
                     <input type="checkbox" className={checked ? "checked" : ""} name="rememberMe" value="rememberMe" checked={checked} onChange={handleCheck}></input>
