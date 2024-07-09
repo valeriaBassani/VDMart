@@ -93,3 +93,8 @@ label{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.small{
+    font-size: var(--font-size-small);
+    color: var(--placeholder);
+}

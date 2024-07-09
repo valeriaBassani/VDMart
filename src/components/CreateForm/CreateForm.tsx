@@ -40,11 +40,30 @@ function reducer(state: State, action: actionType): State {
 
 export default function CreateForm() {
 
+    const maxLentghDescription = 200
+
     const [selectedOption, setSelectedOption] = useState('');
+    const [count, setCount] = useState(0);
 
     const handleOptionChange = (value: string) => {
         setSelectedOption(value);
     };
+
+    const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+
+        const newValue = e.target.value;
+        const isDeleting = newValue.length < count;
+
+        if (newValue.length <= maxLentghDescription || isDeleting) {
+            dispatch({
+                type: "change",
+                field: e.target.name,
+                value: newValue,
+            });
+            setCount(newValue.length);
+        }
+
+    }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         dispatch({
@@ -61,6 +80,7 @@ export default function CreateForm() {
     };
     const [state, dispatch] = useReducer(reducer, initialState);
     const [checked, setIsChecked] = useState(false);
+
     return (
         <>
             <div className="container-lg Create">
@@ -91,9 +111,8 @@ export default function CreateForm() {
                                                 type="text"
                                                 name="number"
                                                 placeholder="n."
-                                                value='$'
+                                                value='€'
                                             ></input>
-                                            <p className="Errors">{ }</p>
                                         </div>
                                     </div>
                                 </div>
@@ -102,8 +121,8 @@ export default function CreateForm() {
                             <label>Categoria*</label>
                             <Categories onOptionChange={handleOptionChange} />
                             {/* <p>Opzione:{selectedOption}</p> */}
-                            <div className="row">
-                                <div className="col">
+                            <div className="row my-2 gap-2">
+                                <div className="col-auto">
                                     <div className="Field">
                                         <label>Disponibile per la spedizione*</label>
                                         <label className="Suggestion">
@@ -111,7 +130,7 @@ export default function CreateForm() {
                                         </label>
                                     </div>
                                 </div>
-                                <div className="col-4">
+                                <div className="col-auto">
                                     <div className="Toggle">
                                         <input type="checkbox" className={checked ? "checked" : ""} onChange={() => setIsChecked((prev) => !prev)}  ></input>
                                         <span className="Round"></span>
@@ -135,12 +154,12 @@ export default function CreateForm() {
                                         <div className="row">
                                             <div className="col">
                                                 <label>Immagini*</label>
-                                                <p>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
+                                                <p className='Suggestion'>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
                                             </div>
                                         </div>
                                         <div className="row text-end">
                                             <div className="col">
-                                                <p>Caricate 0/6</p>
+                                                <p className='Suggestion'>Caricate 0/6</p>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -156,7 +175,12 @@ export default function CreateForm() {
                                     </div>
                                     <div className="Field">
                                         <label>Descrizione*</label>
-                                        <input type="text" name="description" placeholder="Testo" value={state.description} onChange={handleChange} style={{ height: '7em', textAlign: 'start' }}></input>
+                                        <div className="row text-end">
+                                            <div className="col">
+                                                <p className='Suggestion'>{count}/{maxLentghDescription}</p>
+                                            </div>
+                                        </div>
+                                        <textarea name="description" value={state.description} onChange={handleDescriptionChange} className='Description'></textarea>
                                     </div>
                                 </div>
                             </div>

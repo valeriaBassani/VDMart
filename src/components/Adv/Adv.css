@@ -10,7 +10,6 @@
 .Adv{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
-    padding: 1em;
 }
 
 #category{

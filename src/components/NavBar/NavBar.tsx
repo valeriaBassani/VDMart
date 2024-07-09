@@ -36,7 +36,7 @@ export default function NavBar() {
                         <Link to={`/home`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex justify-content-end gap-3">
-                        <Link to={`/signUp`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
+                        <Link to={`/create`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
                         <Link to={`/login`} className="Primary">Accedi</Link>
                         <button className="Icon" onClick={handleClick}></button>
                     </div>
@@ -64,7 +64,7 @@ export default function NavBar() {
                 <div className={`row text-end justify-content-end ${visible ? 'Visible' : 'Invisible'}`}>
                     <div className="col d-flex justify-content-end">
                         <div className={" More"}>
-                            <Link to={`/signUp`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
+                            <Link to={`/create`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
                             <Link to={`/favourites`} className="NavLink"><Icon url={heart} />Preferiti</Link>
                             <Link to={`/messages`} className="NavLink"><Icon url={message} />Messaggi</Link>
                             <Link to={`/signUp`} className="link">Registrati</Link>

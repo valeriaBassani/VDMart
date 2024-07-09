@@ -9,8 +9,13 @@ export default function LogIn() {
         <>
             <NavBar />
             <div className="container-lg my-5">
-                <h4>Crea il tuo annuncio</h4>
-                <CreateForm />
+                <div className="row">
+                    <div className="col d-flex flex-column gap-3">
+                        <h4>Crea il tuo annuncio</h4>
+                        <CreateForm />
+                    </div>
+                </div>
+
             </div>
             <Footer />
         </>

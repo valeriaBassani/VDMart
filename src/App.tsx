@@ -12,6 +12,8 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Home from './pages/Home/Home';
 import Create from './pages/Create';
+import Favourite from './components/Favourite/Favourite';
+import Favourites from './pages/Favourites';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/create",
     element: <Create />,
+  },
+  {
+    path: "/favourites",
+    element: <Favourites />,
   },
 ]);
 

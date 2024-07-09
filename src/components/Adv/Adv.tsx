@@ -14,7 +14,7 @@ export default function Adv() {
                                 <div className="col-4">
                                     <img src={ipad}></img>
                                 </div>
-                                <div className="col d-flex flex-column gap-4 ps-0" >
+                                <div className="col d-flex flex-column gap-4 py-3" >
                                     <div className="row ">
                                         <div className="col">
                                             <div className="row justify-content-between">
@@ -36,14 +36,14 @@ export default function Adv() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-auto ps-0 Dsk">
+                                <div className="col-auto py-4 px-5 Dsk ">
                                     <Favourite />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col d-flex flex-column align-items-end " >
+                        <div className="col d-flex flex-column align-items-end pb-3 px-5" >
                             <Review mail="Ilaria" />
                         </div>
                     </div>
