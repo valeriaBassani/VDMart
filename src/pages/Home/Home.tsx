@@ -6,7 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import './Home.css';
-import Submit from "../../components/SubmitButton/Submit";
+import OrderBy from "../../components/OrderBy/OrderBy";
 
 export default function Home() {
     return (
@@ -33,7 +33,7 @@ export default function Home() {
                                 <p>64 risultati</p>
                             </div>
                             <div className="col-auto">
-                                <Submit label="Ordina per" />
+                                <OrderBy />
                             </div>
                         </div>
                         <div className="row align-items-center">
