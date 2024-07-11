@@ -23,7 +23,7 @@ export default function LogIn() {
             <form onSubmit={handleSubmit} className="Form ">
                 <div className="Fields container-md">
                     <h4>Accedi al tuo profilo</h4>
-                    <InputField label="Email" type="text" name="email" placeholder="email" required={true} ></InputField>
+                    <InputField label="Email" type="email" name="email" placeholder="email" required={true} ></InputField>
                     <InputField label="Password" type="password" name="password" placeholder="password" required={true} suggest="password boh" ></InputField>
                     <Link to={`/recupera-password`} className="link">Password dimenticata?</Link>
                 </div>

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Submit from "../SubmitButton/Submit";
+import InputField from "../InputField/InputField";
 
 
 export default function PriceFilter() {
@@ -9,13 +10,13 @@ export default function PriceFilter() {
         max: 0,
     });
 
-    const HandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { name, value } = e.target;
+    const handleChange = (id: string, value: string | number) => {
+        console.log("here");
         setData({
             ...data,
-            [name]: value,
+            [id]: value,
         });
-    }
+    };
 
     const handleReset = (e: React.SyntheticEvent): void => {
         e.preventDefault();
@@ -27,36 +28,31 @@ export default function PriceFilter() {
 
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
+        console.log(data);
         console.log(data.min, data.max);
     }
 
     return (
         <>
-            <div className="Fields">
+            <form onSubmit={handleSubmit} className="Fields">
                 <h4>Prezzo</h4>
                 <div className="row">
                     <div className="col-6">
-                        <div className="Field">
-                            <label>Da</label>
-                            <input type="text" name="min" placeholder="min" value={data.min} onChange={HandleChange}></input>
-                        </div>
+                        <InputField type="text" name="min" placeholder="min" value={data.min} onChange={handleChange}></InputField>
                     </div>
                     <div className="col-6">
-                        <div className="Field">
-                            <label>A</label>
-                            <input type="text" name="max" placeholder="max" value={data.max} onChange={HandleChange}></input>
-                        </div>
+                        <InputField type="text" name="max" placeholder="max" value={data.max} onChange={handleChange}></InputField>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        <Submit label="Cerca" className='Confirm' onClick={handleSubmit} />
+                        <Submit label="Cerca" className='Confirm' />
                     </div>
                     <div className="col">
                         <Submit label="Ripristina" onClick={handleReset} className='Reset' />
                     </div>
                 </div>
-            </div>
+            </form>
         </>
     )
 }

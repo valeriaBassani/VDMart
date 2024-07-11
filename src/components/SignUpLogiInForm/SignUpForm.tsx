@@ -35,8 +35,8 @@ export default function SingUpForm() {
                             <InputField label="Pv" type="text" name="provincia" placeholder="Pv" required={true}></InputField>
                         </div>
                     </div>
-                    <InputField label="Telefono" type="number" name="phone" placeholder="Tel." required={true}></InputField>
-                    <InputField label="Email" type="mail" name="mail" placeholder="Email" required={true}></InputField>
+                    <InputField label="Telefono" type="tel" name="phone" placeholder="Tel." required={true}></InputField>
+                    <InputField label="Email" type="email" name="mail" placeholder="Email" required={true}></InputField>
                     <InputField label="Password" type="password" name="password" placeholder="Password" required={true} suggest="la password deve essere di almeno 7 caratteri, contenere 2 numeri e 1 carattere speciale"></InputField>
                     <InputField label="Conferma password" type="password" name="confirmPassword" required={true} placeholder="Password"></InputField>
                 </div>

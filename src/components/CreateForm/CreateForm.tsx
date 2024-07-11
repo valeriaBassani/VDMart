@@ -5,6 +5,7 @@ import Submit from '../SubmitButton/Submit';
 import PopUp from '../PopUp/PopUp';
 import InputField from '../InputField/InputField';
 import TextArea from '../textArea/textArea';
+import ImageUpload from '../ImageUpload/ImageUpload';
 
 
 export default function CreateForm() {
@@ -27,6 +28,12 @@ export default function CreateForm() {
         console.log(selectedOption);
         console.log(checked);
         setShow(true)
+    }
+
+    const [contImages, setContImages] = useState(0);
+
+    const handleCount = (count: number) => {
+        setContImages(count);
     }
 
     return (
@@ -67,43 +74,44 @@ export default function CreateForm() {
                                 <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." required={true}></InputField>
                             </div>
                         </div>
-                        <div className="col Section">
-                            <div className="row">
-                                <div className="col">
-                                    <div className="Form">
-                                        <div className="Field">
-                                            <div className="row">
-                                                <div className="col">
-                                                    <label>Immagini*</label>
-                                                    <p className='Suggestion'>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
-                                                </div>
-                                            </div>
-                                            <div className="row text-end">
-                                                <div className="col">
-                                                    <p className='Suggestion'>Caricate 0/6</p>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col d-flex flex-wrap gap-2">
-                                                    <div className="Next"></div>
-                                                    <div className="Img"></div>
-                                                    <div className="Img"></div>
-                                                    <div className="Img"></div>
-                                                    <div className="Img"></div>
-                                                    <div className="Img"></div>
-                                                </div>
+                        <div className="col justify-content-between Section">
+                            <div className="row Form align-items-center">
+                                <div className="row">
+                                    <div className="col">
+                                        <label>Immagini*</label>
+                                        <p className='Suggestion'>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
+                                        <div className="row text-end">
+                                            <div className="col">
+                                                <p className='Suggestion'>Caricate {contImages}/6</p>
                                             </div>
                                         </div>
+                                        <div className="row">
+                                            <div className="col d-flex flex-wrap gap-2">
+                                                <ImageUpload upCount={handleCount} />
+                                                <ImageUpload upCount={handleCount} />
+                                                <ImageUpload upCount={handleCount} />
+                                                <ImageUpload upCount={handleCount} />
+                                                <ImageUpload upCount={handleCount} />
+                                                <ImageUpload upCount={handleCount} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col">
                                         <TextArea label='Descrizione' name='descripion' maxLength={200} required={true} />
                                     </div>
                                 </div>
                             </div>
-                            <p>* campo obbligatorio</p>
-                            <Submit label="Pubblica l'annuncio" className="Primary" />
+                            <div className="row">
+                                <div className="col">
+                                    <p>* campo obbligatorio</p>
+                                    <Submit label="Pubblica l'annuncio" className="Primary" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div >
-
             </form>
             <div className="container">
                 {show && <PopUp
