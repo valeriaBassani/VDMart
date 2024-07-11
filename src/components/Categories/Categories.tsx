@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './Categories.css';
-import Checkbox from "../checkbox/checkbox";
+import Checkbox from "../Checkbox/checkbox";
 
 interface RadioButtonsProps {
     onOptionChange: (value: string) => void;
