@@ -15,6 +15,11 @@
     cursor: pointer;
 }
 
+.Secondary:hover{
+    background-color: var(--secondaryHover);
+    text-decoration: underline;
+}
+
 .Primary{
     background-color: var(--primary);
     color: white;
@@ -28,22 +33,41 @@
     text-decoration: none;
     font-size: var(--font-size-p);
     cursor: pointer;
+    transition: 0.5s;
 }
 
+.Primary:hover{
+    background-color: var(--primaryHover);
+    text-decoration: underline;
+}
+
+
 .Reset{
-    height: 2.5em;
+    height: 2em;
     background-color: var(--lightGrey);
     color: var(--text);
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.Reset:hover{
+    background-color: var(--lightGreyHover);
+    text-decoration: underline;
 }
 
 .Confirm{
-    height: 2.5em;
+    height: 2em;
     background-color: var(--secondary);
     border: solid 2px var(--secondary);
     color: white;
     cursor: pointer;
 }
+
+.Confirm:hover{
+    background-color: var(--secondaryHover);
+    text-decoration: underline;
+}
+
 
 @media screen and (max-width: 516px) {
     .Secondary{

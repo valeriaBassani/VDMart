@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Submit from "../SubmitButton/Submit";
-import "./FilterByPrice.css"
+
 
 export default function PriceFilter() {
 
@@ -32,26 +32,28 @@ export default function PriceFilter() {
 
     return (
         <>
-            <div className="row-sm Fields">
-                <div className="col p-0">
-                    <h4>Prezzo</h4>
-                    <div className="row Range">
-                        <div className="InputContainer">
-                            <div className="In">
-                                <label>Da</label>
-                                <input type="text" name="min" placeholder="min" value={data.min} onChange={HandleChange}></input>
-                            </div>
-                            <div className="In">
-                                <label>A</label>
-                                <input type="text" name="max" placeholder="max" value={data.max} onChange={HandleChange}></input>
-                            </div>
+            <div className="Fields">
+                <h4>Prezzo</h4>
+                <div className="row">
+                    <div className="col-6">
+                        <div className="Field">
+                            <label>Da</label>
+                            <input type="text" name="min" placeholder="min" value={data.min} onChange={HandleChange}></input>
                         </div>
                     </div>
-                    <div className="row py-3 Range">
-                        <div className="InputContainer">
-                            <Submit label="Cerca" className='Confirm' onClick={handleSubmit} />
-                            <Submit label="Ripristina" onClick={handleReset} className='Reset' />
+                    <div className="col-6">
+                        <div className="Field">
+                            <label>A</label>
+                            <input type="text" name="max" placeholder="max" value={data.max} onChange={HandleChange}></input>
                         </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <Submit label="Cerca" className='Confirm' onClick={handleSubmit} />
+                    </div>
+                    <div className="col">
+                        <Submit label="Ripristina" onClick={handleReset} className='Reset' />
                     </div>
                 </div>
             </div>

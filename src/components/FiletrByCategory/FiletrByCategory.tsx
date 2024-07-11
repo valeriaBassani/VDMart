@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './FiletrByCategory.css';
 import Submit from '../SubmitButton/Submit';
+import Checkbox from '../checkbox/checkbox';
 
 type CheckedState = {
     vehicles: boolean;
@@ -12,7 +13,7 @@ type CheckedState = {
 
 export default function CategoryFilter() {
 
-    const [checked, setIsChecked] = useState<CheckedState>({
+    const [isChecked, setIsChecked] = useState<CheckedState>({
         vehicles: false,
         tech: false,
         home: false,
@@ -20,13 +21,11 @@ export default function CategoryFilter() {
         animals: false,
     });
 
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { name } = e.target;
-        setIsChecked(prevState => ({
-            ...prevState,
-            [name]: !prevState[name as keyof CheckedState]  // Inverti lo stato corrente per il nome della checkbox cliccata
-        }));
+    const handleOptionChange = (id: string, checked: boolean) => {
+        setIsChecked({
+            ...isChecked,
+            [id]: checked,
+        });
     };
 
     const handleReset = (e: React.SyntheticEvent): void => {
@@ -43,28 +42,33 @@ export default function CategoryFilter() {
     return (
         <div className="Fields">
             <h4>Categoria</h4>
-            <div className="Checkbox">
-                <input type="checkbox" className={checked.vehicles ? "checked" : ""} id="vehicles" name="vehicles" value="vehicles" checked={checked.vehicles} onChange={handleChange} />
-                <label htmlFor="vehicles">Motori</label>
-            </div>
-            <div className="Checkbox">
-                <input type="checkbox" className={checked.tech ? "checked" : ""} name="tech" value="tech" checked={checked.tech} onChange={handleChange}></input>
-                <label htmlFor="tech">Tecnologia</label>
-            </div>
-            <div className="Checkbox">
-                <input type="checkbox" className={checked.dresses ? "checked" : ""} name="dresses" value="dresses" checked={checked.dresses} onChange={handleChange}></input>
-                <label htmlFor="dresses">Abbigliamento</label>
-            </div>
-            <div className="Checkbox">
-                <input type="checkbox" className={checked.home ? "checked" : ""} name="home" value="home" checked={checked.home} onChange={handleChange}></input>
-                <label htmlFor="home">Casa</label>
-            </div>
-            <div className="Checkbox">
-                <input type="checkbox" className={checked.animals ? "checked" : ""} name="animals" value="animals" checked={checked.animals} onChange={handleChange}></input>
-                <label htmlFor="animals">Animali</label>
-            </div>
-            <Submit label="Ripristina" onClick={handleReset} className='Confirm' />
-            {/* <input type="submit" value="Ripristina" className='ResetButton' onClick={handleSubmit}></input> */}
+            <Checkbox label="Motori" id="vehicles" checked={isChecked.vehicles} onChange={handleOptionChange} />
+            <Checkbox label="Tecnologia" id="tech" checked={isChecked.tech} onChange={handleOptionChange} />
+            <Checkbox label="Abbigliamento" id="dresses" checked={isChecked.dresses} onChange={handleOptionChange} />
+            <Checkbox label="Casa" id="home" checked={isChecked.home} onChange={handleOptionChange} />
+            <Checkbox label="Animali" id="animals" checked={isChecked.animals} onChange={handleOptionChange} />
+            <Submit label="Ripristina" className='Reset' onClick={handleReset} />
         </div>
     )
 }
+
+//  <div className="Checkbox">
+//                 <input type="checkbox" className={checked.vehicles ? "checked" : ""} id="vehicles" name="vehicles" value="vehicles" checked={checked.vehicles} onChange={handleChange} />
+//                 <label htmlFor="vehicles">Motori</label>
+//             </div>
+//             <div className="Checkbox">
+//                 <input type="checkbox" className={checked.tech ? "checked" : ""} name="tech" value="tech" checked={checked.tech} onChange={handleChange}></input>
+//                 <label htmlFor="tech">Tecnologia</label>
+//             </div>
+//             <div className="Checkbox">
+//                 <input type="checkbox" className={checked.dresses ? "checked" : ""} name="dresses" value="dresses" checked={checked.dresses} onChange={handleChange}></input>
+//                 <label htmlFor="dresses">Abbigliamento</label>
+//             </div>
+//             <div className="Checkbox">
+//                 <input type="checkbox" className={checked.home ? "checked" : ""} name="home" value="home" checked={checked.home} onChange={handleChange}></input>
+//                 <label htmlFor="home">Casa</label>
+//             </div>
+//             <div className="Checkbox">
+//                 <input type="checkbox" className={checked.animals ? "checked" : ""} name="animals" value="animals" checked={checked.animals} onChange={handleChange}></input>
+//                 <label htmlFor="animals">Animali</label>
+//             </div> 

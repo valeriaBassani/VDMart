@@ -16,6 +16,7 @@ body{
     --secondary:#25283D;
     --secondaryHover:#12141E;
     --lightGrey:#DDE2E5;
+    --lightGreyHover:#d4d6d7;
     --accent:#880D1E;
     --accentHover:rgba(136, 13, 30, 0.74);
     --placeholder:#6E6E6E;
@@ -78,11 +79,14 @@ p{
 
 .link{
     color: var(--primary);
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: var(--font-weight-SemiBold);
     overflow: hidden;
     text-overflow: ellipsis;
+}
 
+.link:hover{
+    text-decoration: underline;
 }
 
 label{
