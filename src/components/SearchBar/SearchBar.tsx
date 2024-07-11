@@ -15,9 +15,9 @@ export default function SearchBar() {
     };
     return (
         <>
-            <div className="row">
-                <div className="col d-flex flex-column">
-                    <div className="row align-items-center gap-2">
+            <div className="row ">
+                <div className="col d-flex flex-column ">
+                    <div className="row align-items-end gap-2">
                         <div className="col p-0">
                             <h4>Ricerca un articolo</h4>
                             <div className="Search">
@@ -25,7 +25,7 @@ export default function SearchBar() {
                                 <img src={lens} className="Lens"></img>
                             </div>
                         </div>
-                        <div className="col-auto p-0 MobileFilter">
+                        <div className="col-auto p-0 MobileFilter" >
                             <Submit label='Filtri' className='Primary' onClick={handleClick} />
                         </div>
                     </div>

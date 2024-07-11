@@ -1,295 +1,104 @@
-import { useReducer } from "react";
 import "./SignUpForm.css";
 import { Link } from "react-router-dom";
 import Submit from "../SubmitButton/Submit";
-
-type State = {
-    firstname: string;
-    lastname: string;
-    date: string;
-    phone: string;
-    address: {
-        street: string;
-        number: string;
-        city: string;
-        provincia: string;
-    };
-    mail: string;
-    password: string;
-    confirmPassword: string;
-};
-const initialState: State = {
-    firstname: "",
-    lastname: "",
-    date: "",
-    phone: "",
-    address: {
-        street: "",
-        number: "",
-        city: "",
-        provincia: "",
-    },
-    mail: "",
-    password: "",
-    confirmPassword: "",
-};
-
-type actionType =
-    | { type: "change"; field: string; value: string }
-    | { type: "changeAddress"; field: keyof State["address"]; value: string }
-    | { type: "submit" };
-
-function reducer(state: State, action: actionType): State {
-    switch (action.type) {
-        case "change":
-            return {
-                ...state,
-                [action.field]: action.value,
-            };
-        case "submit":
-            return state;
-        default:
-            return state;
-    }
-}
-
-// interface Errors{
-//     firstname: boolean ;
-//     lastname: boolean ;
-//     phone: boolean ;
-//     address: {
-//         street: boolean;
-//         number: boolean;
-//         city: boolean ;
-//         provincia: boolean ;
-//     },
-//     mail: boolean;
-//     password: boolean ;
-//     confirmPassword: boolean ;
-// }
+import InputField from "../InputField/InputField";
 
 export default function SingUpForm() {
-    // const [errors, setErrors] = useState<Errors>({
-    //     firstname: false,
-    //     lastname: false,
-    //     phone: false,
-    //     address: {
-    //         street: false,
-    //         number: false,
-    //         city: false,
-    //         provincia: false,
-    //     },
-    //     mail: false,
-    //     password: false,
-    //     confirmPassword: false,
-    // });
-
-    // const catchError = (state: State): void => {
-    //     var hasErrors=false
-    //     var states = (Object.keys(state) as Array<keyof typeof state>)
-    //     var error = (Object.keys(errors) as Array<keyof typeof errors>)
-    //     states.forEach(key => {
-    //         if (state[key] === "") {
-    //             error[key]=false;
-    //             //     console.log(key);
-    //             //     setErrors(prevErrors => ({
-    //             //     ...prevErrors,
-    //             //     [key]: true
-    //             //  }));
-    //         }
-    //     })
-
-    //     if (hasErrors) {
-    //         setErrors(newErrors);
-    //         console.log('Form has errors:', newErrors);
-    //         // Puoi fare altro come mostrare un messaggio all'utente o altro
-    //       } else {
-    //         // Se non ci sono errori, procedi con l'invio della form
-    //         console.log('No errori');
-    //         // Esempio: invio dei dati a un server
-    //       }
-    // }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        dispatch({
-            type: "change",
-            field: e.target.name,
-            value: e.target.value,
-        });
-    };
-
-    const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch({
-            type: "changeAddress",
-            field: e.target.name as keyof State["address"],
-            value: e.target.value,
-        });
-    };
-
-    const handleSubmit = (e: React.SyntheticEvent): void => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-    };
+        const formData = new FormData(e.currentTarget);
+        formData.forEach((value, key) => {
+            console.log(`${key}: ${value}`);
+        });
+    }
 
-    // useEffect(() => {
-    //     // Questo effetto si attiva ogni volta che 'test' cambia
-    //     console.log("test", errors);
-    //   }, [errors]);
-
-    const [state, dispatch] = useReducer(reducer, initialState);
     return (
         <>
-            <form onSubmit={handleSubmit} className="Form">
-                <div className="Fields container-lg">
+            <form onSubmit={handleSubmit} className="Form ">
+                <div className="Fields container-md">
                     <h4>Inizia a fare affari, crea il tuo account</h4>
-                    <div className="Field">
-                        <label>Nome*</label>
-                        <input
-                            type="text"
-                            name="firstname"
-                            placeholder="nome"
-                            value={state.firstname}
-                            onChange={handleChange}
-                        ></input>
-                    </div>
-                    <div className="Field">
-                        <label>Cognome*</label>
-                        <input
-                            type="text"
-                            name="lastname"
-                            placeholder="cognome"
-                            value={state.lastname}
-                            onChange={handleChange}
-                        ></input>
-                        <p className="Errors">{ }</p>
-                    </div>
-                    <div className="Field">
-                        <label>Data di nascita*</label>
-                        <input
-                            type="text"
-                            name="date"
-                            placeholder="data"
-                            value={state.date}
-                            onChange={handleChange}
-                        ></input>
-                        <p className="Errors">{ }</p>
-                    </div>
+                    <InputField label="Nome" type="text" name="name" placeholder="Nome" request={true}></InputField>
+                    <InputField label="Cognome" type="text" name="lastname" placeholder="Cognome" request={true}></InputField>
                     <div className="row">
                         <div className="col">
-                            <div className="Field">
-                                <label>Indirizzo*</label>
-                                <input
-                                    type="text"
-                                    name="street"
-                                    placeholder="via"
-                                    value={state.address.street}
-                                    onChange={handleAddressChange}
-                                ></input>
-                                <p className="Errors">{ }</p>
-                            </div>
+                            <InputField label="Indirizzo" type="text" name="street" placeholder="Via" request={true}></InputField>
                         </div>
-                        <div className="col-2 p-0">
-                            <div className="Field">
-                                <label>n*</label>
-                                <input
-                                    type="text"
-                                    name="number"
-                                    placeholder="n."
-                                    value={state.address.number}
-                                    onChange={handleAddressChange}
-                                ></input>
-                                <p className="Errors">{ }</p>
-                            </div>
+                        <div className="col-4">
+                            <InputField label="N." type="number" name="number" placeholder="N." request={true}></InputField>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <div className="Field">
-                                <label>Città*</label>
-                                <input
-                                    type="text"
-                                    name="city"
-                                    placeholder="città"
-                                    value={state.address.city}
-                                    onChange={handleAddressChange}
-                                ></input>
-                                <p className="Errors">{ }</p>
-                            </div>
+                            <InputField label="Città" type="text" name="city" placeholder="Città" request={true}></InputField>
                         </div>
-                        <div className="col-2 p-0">
-                            <div className="Field">
-                                <label>Pv*</label>
-                                <input
-                                    type="text"
-                                    name="provincia"
-                                    placeholder="Pv"
-                                    value={state.address.provincia}
-                                    onChange={handleAddressChange}
-                                ></input>
-                                <p className="Errors">{ }</p>
-                            </div>
+                        <div className="col-4">
+                            <InputField label="Pv" type="text" name="provincia" placeholder="Pv" request={true}></InputField>
                         </div>
                     </div>
-                    <div className="Field">
-                        <label>Telefono*</label>
-                        <input
-                            type="text"
-                            name="phone"
-                            placeholder="telefono"
-                            value={state.phone}
-                            onChange={handleChange}
-                        ></input>
-                        <p className="Errors">{ }</p>
-                    </div>
-                    <div className="Field">
-                        <label>Email*</label>
-                        <input
-                            type="mail"
-                            name="mail"
-                            placeholder="mail"
-                            value={state.mail}
-                            onChange={handleChange}
-                        ></input>
-                    </div>
-                    <div className="Field">
-                        <label>Password*</label>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="password"
-                            value={state.password}
-                            onChange={handleChange}
-                        ></input>
-                        <label className="Suggestion">
-                            la password deve essere di almeno 7 caratteri, 2 numeri e 1
-                            carattere speciale
-                        </label>
-                        <p className="Errors">{ }</p>
-                    </div>
-                    <div className="Field">
-                        <label>Conferma password*</label>
-                        <input
-                            type="password"
-                            name="confirmPassword"
-                            placeholder="conferma password"
-                            value={state.confirmPassword}
-                            onChange={handleChange}
-                        ></input>
-                        <p className="Errors">{ }</p>
-                    </div>
+                    <InputField label="Telefono" type="number" name="phone" placeholder="Tel." request={true}></InputField>
+                    <InputField label="Email" type="mail" name="mail" placeholder="Email" request={true}></InputField>
+                    <InputField label="Password" type="password" name="password" placeholder="Password" request={true} suggest="la password deve essere di almeno 7 caratteri, contenere 2 numeri e 1 carattere speciale"></InputField>
+                    <InputField label="Conferma password" type="password" name="confirmPassword" request={true} placeholder="Password"></InputField>
                 </div>
                 <p>* campo obbligatorio</p>
-                <Submit label="Registrati" className="Primary" />
-                {/* <input type="submit" value="Registrati" className="Primary"></input> */}
-                <p>
-                    Sei già registrato?{" "}
-                    <Link to={`/login`} className="link">
-                        Accedi
-                    </Link>
-                </p>
+                <Submit label="Registrati" className='Primary' />
+                <p>Sei già registrato?<Link to={`/login`} className="link">Accedi</Link></p>
             </form>
         </>
     );
 }
+
+
+//reducer
+// type State = {
+//     firstname: string;
+//     lastname: string;
+//     date: string;
+//     phone: string;
+//     address: {
+//         street: string;
+//         number: string;
+//         city: string;
+//         provincia: string;
+//     };
+//     mail: string;
+//     password: string;
+//     confirmPassword: string;
+// };
+// const initialState: State = {
+//     firstname: "",
+//     lastname: "",
+//     date: "",
+//     phone: "",
+//     address: {
+//         street: "",
+//         number: "",
+//         city: "",
+//         provincia: "",
+//     },
+//     mail: "",
+//     password: "",
+//     confirmPassword: "",
+// };
+
+// type actionType =
+//     | { type: "change"; field: string; value: string }
+//     | { type: "changeAddress"; field: keyof State["address"]; value: string }
+//     | { type: "submit" };
+
+// function reducer(state: State, action: actionType): State {
+//     switch (action.type) {
+//         case "change":
+//             return {
+//                 ...state,
+//                 [action.field]: action.value,
+//             };
+//         case "submit":
+//             return state;
+//         default:
+//             return state;
+//     }
+// }
 
 // if (key === "address") {
 //     console.log("address");
@@ -315,6 +124,26 @@ export default function SingUpForm() {
 //     }
 // });
 
+// const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+//     dispatch({
+//         type: "change",
+//         field: e.target.name,
+//         value: e.target.value,
+//     });
+// };
+
+// const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     dispatch({
+//         type: "changeAddress",
+//         field: e.target.name as keyof State["address"],
+//         value: e.target.value,
+//     });
+// };
+
+// const handleSubmit = (e: React.SyntheticEvent): void => {
+//     e.preventDefault();
+// };
+
 // errors: {
 //     firstname: boolean | null;
 //     lastname: boolean | null;
@@ -329,6 +158,159 @@ export default function SingUpForm() {
 //     password: boolean | null;
 //     confirmPassword: boolean | null;
 // }
+
+//const [state, dispatch] = useReducer(reducer, initialState);
+
+
+//  <form onSubmit={handleSubmit} className="Form">
+//                 <div className="Fields container-lg">
+//                     <h4>Inizia a fare affari, crea il tuo account</h4>
+//                     <div className="Field">
+//                         <label>Nome*</label>
+//                         <input
+//                             type="text"
+//                             name="firstname"
+//                             placeholder="nome"
+//                             value={state.firstname}
+//                             onChange={handleChange}
+//                         ></input>
+//                     </div>
+//                     <div className="Field">
+//                         <label>Cognome*</label>
+//                         <input
+//                             type="text"
+//                             name="lastname"
+//                             placeholder="cognome"
+//                             value={state.lastname}
+//                             onChange={handleChange}
+//                         ></input>
+//                         <p className="Errors">{ }</p>
+//                     </div>
+//                     <div className="Field">
+//                         <label>Data di nascita*</label>
+//                         <input
+//                             type="text"
+//                             name="date"
+//                             placeholder="data"
+//                             value={state.date}
+//                             onChange={handleChange}
+//                         ></input>
+//                         <p className="Errors">{ }</p>
+//                     </div>
+//                     <div className="row">
+//                         <div className="col">
+//                             <div className="Field">
+//                                 <label>Indirizzo*</label>
+//                                 <input
+//                                     type="text"
+//                                     name="street"
+//                                     placeholder="via"
+//                                     value={state.address.street}
+//                                     onChange={handleAddressChange}
+//                                 ></input>
+//                                 <p className="Errors">{ }</p>
+//                             </div>
+//                         </div>
+//                         <div className="col-2 p-0">
+//                             <div className="Field">
+//                                 <label>n*</label>
+//                                 <input
+//                                     type="text"
+//                                     name="number"
+//                                     placeholder="n."
+//                                     value={state.address.number}
+//                                     onChange={handleAddressChange}
+//                                 ></input>
+//                                 <p className="Errors">{ }</p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                     <div className="row">
+//                         <div className="col">
+//                             <div className="Field">
+//                                 <label>Città*</label>
+//                                 <input
+//                                     type="text"
+//                                     name="city"
+//                                     placeholder="città"
+//                                     value={state.address.city}
+//                                     onChange={handleAddressChange}
+//                                 ></input>
+//                                 <p className="Errors">{ }</p>
+//                             </div>
+//                         </div>
+//                         <div className="col-2 p-0">
+//                             <div className="Field">
+//                                 <label>Pv*</label>
+//                                 <input
+//                                     type="text"
+//                                     name="provincia"
+//                                     placeholder="Pv"
+//                                     value={state.address.provincia}
+//                                     onChange={handleAddressChange}
+//                                 ></input>
+//                                 <p className="Errors">{ }</p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                     <div className="Field">
+//                         <label>Telefono*</label>
+//                         <input
+//                             type="text"
+//                             name="phone"
+//                             placeholder="telefono"
+//                             value={state.phone}
+//                             onChange={handleChange}
+//                         ></input>
+//                         <p className="Errors">{ }</p>
+//                     </div>
+//                     <div className="Field">
+//                         <label>Email*</label>
+//                         <input
+//                             type="mail"
+//                             name="mail"
+//                             placeholder="mail"
+//                             value={state.mail}
+//                             onChange={handleChange}
+//                         ></input>
+//                     </div>
+//                     <div className="Field">
+//                         <label>Password*</label>
+//                         <input
+//                             type="password"
+//                             name="password"
+//                             placeholder="password"
+//                             value={state.password}
+//                             onChange={handleChange}
+//                         ></input>
+//                         <label className="Suggestion">
+//                             la password deve essere di almeno 7 caratteri, 2 numeri e 1
+//                             carattere speciale
+//                         </label>
+//                         <p className="Errors">{ }</p>
+//                     </div>
+//                     <div className="Field">
+//                         <label>Conferma password*</label>
+//                         <input
+//                             type="password"
+//                             name="confirmPassword"
+//                             placeholder="conferma password"
+//                             value={state.confirmPassword}
+//                             onChange={handleChange}
+//                         ></input>
+//                         <p className="Errors">{ }</p>
+//                     </div>
+//                 </div>
+//                 <p>* campo obbligatorio</p>
+//                 <Submit label="Registrati" className="Primary" />
+//                 <input type="submit" value="Registrati" className="Primary"></input>
+//                 <p>
+//                     Sei già registrato?{" "}
+//                     <Link to={`/login`} className="link">
+//                         Accedi
+//                     </Link>
+//                 </p>
+//             </form>
 
 // const initialErrors: Errors = {
 //     firstname: false,

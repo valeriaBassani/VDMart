@@ -20,61 +20,6 @@
     overflow: hidden;
 }
 
-input{
-    font-family: "Red Hat Display", sans-serif;
-    border: solid 1px var(--lightGrey);
-    border-radius: var(--border-radius);
-    padding-left: 0.7em;
-    height: 3em;
-}
-
-::placeholder {
-    color: var(--placeholder);
-    font-size: 0.8rem !important;
-    line-height: 0px ;
-}
-
-.Fields input:hover{
-    border: solid 2px var(--accentHover);
-}
-
-.Fields input:focus{
-    border: solid 2px var(--accentHover);
-}
-
-.Field{
-    display: flex;
-    flex-direction: column;
-    gap: 0.2em;
-}
-
-.Suggestion{
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-light);
-    margin: 0;
-    color: grey;
-}
-
-.Errors{
-    display: block;
-    margin: 0;
-    font-size: var(--font-size-p);
-    color: var(--errors);
-    font-weight: var(--font-weight-SemiBold);
-}
-
 input[type="submit"]{
     width: 100%;
-}
-
-input[type="submit"]:hover{
-    background-color: var(--primaryHover);
-    color: white;
-    border: none;
-    transition: 1s;
-}
-
-.Multiple{
-    display: flex;
-    gap: 0.5em;
 }

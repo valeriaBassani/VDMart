@@ -42,3 +42,9 @@
 .Up{
     display: none;
 }
+
+@media screen and (max-width: 780px) {
+    .Option{
+        font-size: 12px;
+    }
+  }
