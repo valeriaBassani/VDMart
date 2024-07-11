@@ -18,6 +18,7 @@
 .Ads{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
-    background-color: white
+    background-color: white;
+    padding-bottom: 1em;
 }
 

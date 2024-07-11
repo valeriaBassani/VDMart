@@ -160,4 +160,8 @@ label{
         font-size: var(--font-size-small);
         color: var(--placeholder);
     }
+
+    .link{
+        font-size: 12px;
+    }
   }

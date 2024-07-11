@@ -53,7 +53,7 @@ export default function NavBar() {
             </div>
             <div className="container-fluid p-4 Hamburger Mobile">
                 <div className="row mb-3">
-                    <div className="col-1 d-flex align-items-center">
+                    <div className="col-1 d-flex align-items-center Logo">
                         <Link to={`/home`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex justify-content-end gap-1">

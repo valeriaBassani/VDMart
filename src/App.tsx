@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,7 +13,6 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Home from './pages/Home/Home';
 import Create from './pages/Create';
-import Favourite from './components/Favourite/Favourite';
 import Favourites from './pages/Favourites';
 import Restore from './pages/RestorePsw';
 const router = createBrowserRouter([

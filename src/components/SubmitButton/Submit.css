@@ -44,3 +44,21 @@
     color: white;
     cursor: pointer;
 }
+
+@media screen and (max-width: 516px) {
+    .Secondary{
+        font-size: 12px;
+    }
+
+    .Primary{
+        font-size: 12px;
+    }
+
+    .Reset{
+        font-size: 12px;
+    }
+    
+    .Confirm{
+        font-size: 12px;
+    }
+}

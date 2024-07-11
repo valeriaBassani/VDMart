@@ -14,3 +14,14 @@
     flex-direction: column;
     gap: 1em;
 }
+
+@media screen and (max-width: 545px) {
+    .Footer{
+      font-size: 12px;
+    }
+
+    .Footer img{
+        width: 7em;
+    }
+   
+  }

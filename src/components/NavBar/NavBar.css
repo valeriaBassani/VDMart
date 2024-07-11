@@ -83,9 +83,11 @@
 @media screen and (max-width: 1024px) {
   .NavBar {
     display: none;
+    
   }
   .Hamburger {
     display: block;
+    
   }
   .Mobile{
     display: none;
@@ -102,5 +104,14 @@
 
   .Mobile{
     display: block;
+    font-size: 12px;
+  }
+
+  .Mobile img{
+    width: 1.5em;
+  }
+
+  .Mobile .Logo img{
+    width: 8em;
   }
 }

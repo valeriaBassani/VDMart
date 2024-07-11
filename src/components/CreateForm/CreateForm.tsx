@@ -2,6 +2,7 @@ import { useReducer, useState } from 'react';
 import './CreateForm.css';
 import Categories from '../Categories/Categories';
 import Submit from '../SubmitButton/Submit';
+import PopUp from '../PopUp/PopUp';
 
 type State = {
     article: string;
@@ -40,6 +41,8 @@ function reducer(state: State, action: actionType): State {
 
 export default function CreateForm() {
 
+    const [show, setShow] = useState(false);
+
     const maxLentghDescription = 200
 
     const [selectedOption, setSelectedOption] = useState('');
@@ -76,7 +79,7 @@ export default function CreateForm() {
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
         console.log(state);
-
+        setShow(true)
     };
     const [state, dispatch] = useReducer(reducer, initialState);
     const [checked, setIsChecked] = useState(false);
@@ -190,6 +193,16 @@ export default function CreateForm() {
                     </div>
                 </div>
             </div >
+            <div className="container">
+                {show && <PopUp
+                    type="success"
+                    title="Pubblica annuncio"
+                    label="Annuncio pubblicato con successo!"
+                    description="Il tuo articolo ora è in vendita sulla bacheca degli annunci. Vedi il tuoi annunci o torna alla home"
+                    assistance={true}
+                    primaryLink={{ to: "/registrazione", label: "Area riservata", className: "Primary" }}
+                    secondaryLink={{ to: "/home", label: "Home", className: "Secondary" }} />}
+            </div>
         </>
     )
 
