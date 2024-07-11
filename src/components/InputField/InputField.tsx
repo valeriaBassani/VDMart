@@ -7,10 +7,10 @@ type Props = {
     name: string,
     placeholder: string,
     suggest?: string,
-    request?: boolean,
+    required?: boolean,
 }
 
-export default function InputField({ label, type, name, placeholder, suggest, request }: Props) {
+export default function InputField({ label, type, name, placeholder, suggest, required }: Props) {
 
     const [inputValue, setInputValue] = useState("");
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -22,7 +22,7 @@ export default function InputField({ label, type, name, placeholder, suggest, re
             <div className="Field">
                 <div className="Label">
                     <label>{label}</label>
-                    {request && <p>*</p>}
+                    {required && <p>*</p>}
                 </div>
                 <input type={type} name={name} placeholder={placeholder} value={inputValue} onChange={handleChange}></input>
                 <label className="Suggestion">

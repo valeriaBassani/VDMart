@@ -36,10 +36,10 @@ export default function CreateForm() {
                     <div className="row gap-3">
                         <div className="col Section">
                             <div className="Form">
-                                <InputField label="Titolo" type="text" name="title" placeholder="Titolo" request={true} ></InputField>
+                                <InputField label="Titolo" type="text" name="title" placeholder="Titolo" required={true} ></InputField>
                                 <div className="row align-items-center">
                                     <div className="col">
-                                        <InputField label="Prezzo di vendita" type="number" name="price" placeholder="0000,00" request={true}></InputField>
+                                        <InputField label="Prezzo di vendita" type="number" name="price" placeholder="0000,00" required={true}></InputField>
                                     </div>
                                     <div className="col-1 pt-4 px-0">
                                         <h4>€</h4>
@@ -64,7 +64,7 @@ export default function CreateForm() {
                                         </div>
                                     </div>
                                 </div>
-                                <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." request={true}></InputField>
+                                <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." required={true}></InputField>
                             </div>
                         </div>
                         <div className="col Section">
@@ -94,7 +94,7 @@ export default function CreateForm() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <TextArea label='Descrizione' name='descripion' maxLength={200} request={true} />
+                                        <TextArea label='Descrizione' name='descripion' maxLength={200} required={true} />
                                     </div>
                                 </div>
                             </div>

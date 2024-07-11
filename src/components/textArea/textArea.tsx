@@ -4,9 +4,9 @@ type Props = {
     label?: string,
     name: string,
     maxLength: number,
-    request?: boolean,
+    required?: boolean,
 }
-export default function TextArea({ label, name, maxLength, request }: Props) {
+export default function TextArea({ label, name, maxLength, required }: Props) {
 
     const [count, setCount] = useState(0);
     const [inputValue, setInputValue] = useState("");
@@ -25,7 +25,7 @@ export default function TextArea({ label, name, maxLength, request }: Props) {
             <div className="Field">
                 <div className="Label">
                     <label>{label}</label>
-                    {request && <p>*</p>}
+                    {required && <p>*</p>}
                 </div>
                 <div className="row text-end">
                     <div className="col">

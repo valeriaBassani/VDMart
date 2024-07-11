@@ -17,28 +17,28 @@ export default function SingUpForm() {
             <form onSubmit={handleSubmit} className="Form ">
                 <div className="Fields container-md">
                     <h4>Inizia a fare affari, crea il tuo account</h4>
-                    <InputField label="Nome" type="text" name="name" placeholder="Nome" request={true}></InputField>
-                    <InputField label="Cognome" type="text" name="lastname" placeholder="Cognome" request={true}></InputField>
+                    <InputField label="Nome" type="text" name="name" placeholder="Nome" required={true}></InputField>
+                    <InputField label="Cognome" type="text" name="lastname" placeholder="Cognome" required={true}></InputField>
                     <div className="row">
                         <div className="col">
-                            <InputField label="Indirizzo" type="text" name="street" placeholder="Via" request={true}></InputField>
+                            <InputField label="Indirizzo" type="text" name="street" placeholder="Via" required={true}></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label="N." type="number" name="number" placeholder="N." request={true}></InputField>
+                            <InputField label="N." type="number" name="number" placeholder="N." required={true}></InputField>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <InputField label="Città" type="text" name="city" placeholder="Città" request={true}></InputField>
+                            <InputField label="Città" type="text" name="city" placeholder="Città" required={true}></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label="Pv" type="text" name="provincia" placeholder="Pv" request={true}></InputField>
+                            <InputField label="Pv" type="text" name="provincia" placeholder="Pv" required={true}></InputField>
                         </div>
                     </div>
-                    <InputField label="Telefono" type="number" name="phone" placeholder="Tel." request={true}></InputField>
-                    <InputField label="Email" type="mail" name="mail" placeholder="Email" request={true}></InputField>
-                    <InputField label="Password" type="password" name="password" placeholder="Password" request={true} suggest="la password deve essere di almeno 7 caratteri, contenere 2 numeri e 1 carattere speciale"></InputField>
-                    <InputField label="Conferma password" type="password" name="confirmPassword" request={true} placeholder="Password"></InputField>
+                    <InputField label="Telefono" type="number" name="phone" placeholder="Tel." required={true}></InputField>
+                    <InputField label="Email" type="mail" name="mail" placeholder="Email" required={true}></InputField>
+                    <InputField label="Password" type="password" name="password" placeholder="Password" required={true} suggest="la password deve essere di almeno 7 caratteri, contenere 2 numeri e 1 carattere speciale"></InputField>
+                    <InputField label="Conferma password" type="password" name="confirmPassword" required={true} placeholder="Password"></InputField>
                 </div>
                 <p>* campo obbligatorio</p>
                 <Submit label="Registrati" className='Primary' />
