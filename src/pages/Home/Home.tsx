@@ -2,18 +2,13 @@ import Adv from "../../components/Adv/Adv";
 import CategoryFilter from "../../components/FiletrByCategory/FiletrByCategory";
 import PriceFilter from "../../components/FilterByPrice/FilterByPrice";
 import Shipping from "../../components/FilterByShipping/FilterByShipping";
-import Footer from "../../components/Footer/Footer";
-import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import './Home.css';
 import OrderBy from "../../components/OrderBy/OrderBy";
-import BreadCrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 
 export default function Home() {
     return (
         <body>
-            <NavBar />
-            <BreadCrumbs />
             <div className="container sm p-4">
                 <div className="row ">
                     <div className="col d-flex flex-column gap-2" >
@@ -48,7 +43,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </body>
     )
 }

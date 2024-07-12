@@ -1,15 +1,10 @@
-import Footer from "../components/Footer/Footer";
 import LogInForm from "../components/SignUpLogiInForm/LogInForm";
-import NavBar from "../components/NavBar/NavBar";
 import './Pages.css';
 import '../App.css';
-import BreadCrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
 export default function LogIn() {
     return (
         <>
-            <NavBar />
-            <BreadCrumbs />
             <div className="row my-5 mx-3 justify-content-center">
                 <div className="col d-flex justify-content-center">
                     <div className="Input">
@@ -19,7 +14,6 @@ export default function LogIn() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
 
     )

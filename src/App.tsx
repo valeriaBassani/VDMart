@@ -3,10 +3,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   createBrowserRouter,
+  Outlet,
   RouterProvider,
 } from "react-router-dom";
-
-
 import NavBar from './components/NavBar/NavBar';
 import ErrorPage from "./pages/error-page";
 import Login from './pages/Login';
@@ -16,11 +15,58 @@ import Create from './pages/Create';
 import Favourites from './pages/Favourites';
 import Restore from './pages/RestorePsw';
 import Support from './pages/Support';
+import AdvDetails from './pages/AdvDetails';
+import Footer from './components/Footer/Footer';
+import BreadCrumbs from './components/Breadcrumbs/Breadcrumbs';
+
+const Main = () => (
+  <>
+    <NavBar />
+    <BreadCrumbs />
+    <Outlet />
+    <Footer />
+  </>
+)
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavBar />,
+    element: <Main />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/registrazione",
+        element: <SignUp />,
+      },
+      {
+        path: "/Vendi",
+        element: <Create />,
+      },
+      {
+        path: "/preferiti",
+        element: <Favourites />,
+      },
+      {
+        path: "/recupera-password",
+        element: <Restore />,
+      },
+      {
+        path: "/assistenza",
+        element: <Support />,
+      },
+
+      {
+        path: "/dettagli-annuncio",
+        element: <AdvDetails />,
+      },
+    ]
     // children: [ se voglio che il link venga aperto nella stessa pagina, ma, per esempio, in una sezione diversa
     //   {
     //     path: "login",
@@ -28,34 +74,7 @@ const router = createBrowserRouter([
     //   },
     // ],
   },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/registrazione",
-    element: <SignUp />,
-  },
-  {
-    path: "/Vendi",
-    element: <Create />,
-  },
-  {
-    path: "/preferiti",
-    element: <Favourites />,
-  },
-  {
-    path: "/recupera-password",
-    element: <Restore />,
-  },
-  {
-    path: "/assistenza",
-    element: <Support />,
-  },
+
 ]);
 
 export default function App() {

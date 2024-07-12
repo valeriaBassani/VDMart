@@ -19,7 +19,7 @@ export default function NavBar() {
             <div className="container-fluid p-4 NavBar">
                 <div className="row">
                     <div className="col-1 d-flex align-items-center">
-                        <Link to={`/home`}><Icon url={logo} /></Link>
+                        <Link to={`/`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex align-items-center justify-content-end gap-4">
                         <Link to={`/preferiti`} className="NavLink"><Icon url={heart} />Preferiti</Link>
@@ -33,7 +33,7 @@ export default function NavBar() {
             <div className="container-fluid p-4 Hamburger">
                 <div className="row mb-3">
                     <div className="col-1 d-flex align-items-center">
-                        <Link to={`/home`}><Icon url={logo} /></Link>
+                        <Link to={`/`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex justify-content-end gap-3">
                         <Link to={`/Vendi`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
@@ -54,7 +54,7 @@ export default function NavBar() {
             <div className="container-fluid p-4 Hamburger Mobile">
                 <div className="row mb-3">
                     <div className="col-1 d-flex align-items-center Logo">
-                        <Link to={`/home`}><Icon url={logo} /></Link>
+                        <Link to={`/`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex justify-content-end gap-1">
                         <Link to={`/login`} className="Secondary">Accedi</Link>

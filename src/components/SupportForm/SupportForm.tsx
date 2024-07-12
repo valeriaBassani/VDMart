@@ -19,7 +19,7 @@ export default function SupportForm() {
         <>
             <form onSubmit={handleSubmit} className="Form ">
                 <div className="Fields container-md">
-                    <h4>Accedi al tuo profilo</h4>
+                    <h4>Scrivici</h4>
                     <InputField label="Email" type="email" name="email" placeholder="email" required={true} ></InputField>
                     <TextArea label="Messaggio" name="text" maxLength={300} required={true} />
                 </div>

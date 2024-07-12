@@ -6,7 +6,7 @@
     color: var(--primary);
     align-items: center;
     width: 100vw;
-    padding: 2em;
+    padding: 2em 2em 0em 2em;
   }
   
   .breadcrumb-item + .breadcrumb-item::before {
