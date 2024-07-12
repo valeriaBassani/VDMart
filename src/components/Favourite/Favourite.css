@@ -22,10 +22,16 @@
 
 .Fav button:hover{
     color: var(--accent);
+    cursor: pointer;
+}
+
+.Fav label:hover{
+    cursor: pointer;
 }
 
 .Fav button:hover .feather-heart {
     stroke: var(--accent);
+    cursor: pointer;
 }
 
 .Active{

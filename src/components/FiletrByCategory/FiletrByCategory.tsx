@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import './FiletrByCategory.css';
 import Submit from '../SubmitButton/Submit';
-import Checkbox from '../Checkbox/checkbox';
+import Checkbox from '../Checkbox/Checkbox';
 
 type CheckedState = {
     vehicles: boolean;

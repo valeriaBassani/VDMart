@@ -5,6 +5,7 @@ export default function Favourite() {
     const [favourite, setAsFavourite] = useState(false);
 
     const handleClick = (e: React.SyntheticEvent): void => {
+        e.stopPropagation();
         setAsFavourite(!favourite);
     };
     return (

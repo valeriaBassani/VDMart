@@ -2,11 +2,18 @@ import ipad from "./ipad.jpg"
 import './Adv.css';
 import Favourite from "../Favourite/Favourite";
 import Review from "../Review/Review";
+import { useNavigate } from "react-router-dom";
 
 export default function Adv() {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/dettagli-annuncio');
+    }
     return (
         <>
-            <div className="Adv">
+            <div className="Adv" onClick={handleClick}>
                 <div className="col">
                     <div className="row">
                         <div className="col" >

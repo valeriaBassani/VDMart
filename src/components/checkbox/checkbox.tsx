@@ -1,3 +1,5 @@
+import "./Checkbox.css"
+
 type Props = {
     id: string,
     label: string,
@@ -15,13 +17,14 @@ export default function Checkbox({ id, label, checked, onChange }: Props) {
 
     return (
         <>
-            <div className={`RadioButton ${checked ? 'checked' : ''}`}>
+            <div className="Checkbox" >
                 <input
                     id={id}
                     type="checkbox"
                     value="vehicles"
                     checked={checked}
                     onChange={handleOptionChange}
+                    className={`${checked ? 'checked' : ''}`}
                 />
                 <label htmlFor={id}>{label}</label>
             </div>
