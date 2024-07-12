@@ -1,12 +1,11 @@
 type Props = {
     url: string;
-    className?: string
 }
 
-export default function Icon({ url, className }: Props) {
+export default function Icon({ url }: Props) {
     return (
         <>
-            <img src={url} style={{ marginRight: "0.5em" }} className={className}></img>
+            <img src={url} style={{ marginRight: "0.5em" }}></img>
         </>
     )
 }

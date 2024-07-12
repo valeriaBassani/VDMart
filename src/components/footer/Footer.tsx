@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="Footer">
             <Link to={`/home`}><Icon url={logo} /></Link>
             <div className="Action">
-                <Link to={`/favourites`} className="NavLink">Assistenza</Link>
+                <Link to={`/assistenza`} className="NavLink">Assistenza</Link>
                 <Link to={`/messages`} className="NavLink">Privacy</Link>
                 <Link to={`/CreateAdv`} className="NavLink">Crea un annuncio</Link>
                 <Link to={`/signUp`} className="NavLink">Mappa del sito</Link>

@@ -15,6 +15,7 @@ import Home from './pages/Home/Home';
 import Create from './pages/Create';
 import Favourites from './pages/Favourites';
 import Restore from './pages/RestorePsw';
+import Support from './pages/Support';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/recupera-password",
     element: <Restore />,
+  },
+  {
+    path: "/assistenza",
+    element: <Support />,
   },
 ]);
 

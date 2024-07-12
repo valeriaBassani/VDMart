@@ -1,0 +1,59 @@
+.SupportCategory{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-color: white;
+    padding: 2em 1em 2em 1em;
+    gap: 0.5em;
+    min-height: fit-content;
+    overflow-y: scroll;
+    justify-content: center;
+    width: 100%;
+}
+
+.SupportCategory:hover{
+    border: solid 2px var(--accent);
+}
+
+.SupportCategory:hover h4{
+    text-decoration: underline;
+}
+
+.MobileSupport{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-color: white;
+    padding: 1.2em 1em 1.2em 1em;
+    gap: 0.5em;
+    justify-content: center;
+}
+
+.Clicked{
+    background-color: var(--accent);
+    color: white;
+}
+
+.Clicked h4{
+    text-decoration: underline;
+}
+
+.MoreSupport{
+    display: none;
+}
+
+.Visible{
+    display:block;
+}
+
+@media screen and (max-width: 512px) {
+    .MobileSupport{
+        display: block;
+    }
+
+    .SupportCategory{
+        display: none;
+    }
+  }
