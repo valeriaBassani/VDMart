@@ -1,0 +1,65 @@
+@import url('../../App.css');
+.Description{
+    border-top: solid 1px var(--lightGrey);
+    padding-top: 1em ;
+    max-width: 35em;
+}
+
+@import url('../../App.css');
+.Adv img{
+    width: 15em;
+    height: 100%;
+}
+.Info{
+    flex-wrap: nowrap;
+}
+.Adv{
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    padding-right: 1em;
+}
+
+#category{
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    width: fit-content;
+    padding: 1.5px 1em 1.5px 1em;
+    color: var(--secondary);
+}
+#date{
+    font-size: var(--font-size-small);
+    color: var(--placeholder);
+}
+
+#shipping2{
+    background-color: rgba(0, 104, 133, 0.2);
+    color: var(--primaryDark);
+    border-radius: var(--border-radius);
+    padding: 0em 0.5em 0em 0.5em;
+    width: fit-content;
+}
+
+#price{
+    color: var(--primary);
+}
+
+.Rev{
+    width: 100%;
+}
+
+.Dsk {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 760px) {
+    .Dsk {
+      display: none;
+    }
+    .Adv img{
+        width: 9em;
+        height: 9em;
+    }
+  }
