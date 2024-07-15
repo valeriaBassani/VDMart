@@ -5,6 +5,10 @@
     padding: 0em;
 }
 
+.Container{
+    min-width: 15em;
+}
+
 .Pictures img{
     width: 100%;
     object-fit: cover;

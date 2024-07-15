@@ -27,7 +27,7 @@ export default function CreateForm() {
         });
         console.log(selectedOption);
         console.log(checked);
-        setShow(true)
+        setShow(!show)
     }
 
     const [contImages, setContImages] = useState(0);

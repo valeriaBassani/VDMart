@@ -1,6 +1,8 @@
+import { useState } from "react"
 import AdvImages from "../AdvImages/AdvImages"
 import Favourite from "../Favourite/Favourite"
 import Review from "../Review/Review"
+import RiepilogoPopUp from "../RiepilogoPopUp/RiepilogoPopUp"
 import Submit from "../SubmitButton/Submit"
 import "./AdvsDetails.css"
 
@@ -10,6 +12,12 @@ type Props = {
 }
 
 export default function AdvDetails({ article, details }: Props) {
+    const [show, setShow] = useState(false)
+    const showEpilogue = () => {
+        console.log(show);
+
+        setShow(!show)
+    }
     return (
         <>
             <div className="container-lg mb-5">
@@ -35,7 +43,7 @@ export default function AdvDetails({ article, details }: Props) {
                             </div>
                             <div className="row">
                                 <div className="col d-flex flex-column gap-2 ">
-                                    <Submit className="Primary" label="Acquista questo articolo"></Submit>
+                                    <Submit className="Primary" label="Acquista questo articolo" onClick={showEpilogue}></Submit>
                                     <div className="row">
                                         <div className="col">
                                             <p id="shipping2">Spedizione disponibile</p>
@@ -61,6 +69,9 @@ export default function AdvDetails({ article, details }: Props) {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="container">
+                {show && <RiepilogoPopUp article="bici" />}
             </div>
 
         </>

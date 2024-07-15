@@ -84,18 +84,6 @@ const MyVerticallyCenteredModal: React.FC<MyVerticallyCenteredModalProps> = ({
                             </div>
                         </>
                     )}
-                    {/* if(src){
-                        <img src={src} alt="Icon" />
-                    }
-                    <img src={icon[type]} alt="Icon" />
-                    <div className="Text">
-                        <label>{label}</label>
-                        <p>{description}</p>
-                        <div className="Actions">
-                            <Link to={secondaryLink.to} className={secondaryLink.className || "Secondary"}>{secondaryLink.label}</Link>
-                            <Link to={primaryLink.to} className={primaryLink.className || "Primary"}>{primaryLink.label}</Link>
-                        </div>
-                    </div> */}
                 </div>
             </Modal.Body>
             <Modal.Footer>

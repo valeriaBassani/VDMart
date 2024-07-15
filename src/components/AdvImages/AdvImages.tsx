@@ -17,7 +17,7 @@ export default function AdvImages() {
 
     return (
         <>
-            <div className="row gap-2">
+            <div className="row gap-2 Container">
                 <div className="row">
                     <div className="col Pictures">
                         <img src={main} />
