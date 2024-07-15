@@ -41,8 +41,9 @@ export default function ImageUpload({ label, upCount }: Props) {
     }
 
     const showImage = () => {
-        setShow(true)
+        setShow(!show)
     }
+
 
     return (
         <>

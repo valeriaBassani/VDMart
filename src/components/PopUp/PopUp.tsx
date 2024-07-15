@@ -69,7 +69,6 @@ const MyVerticallyCenteredModal: React.FC<MyVerticallyCenteredModalProps> = ({
                         <>
                             <div className="Preview">
                                 <img src={src} alt="Icon" />
-
                             </div>
                         </>
                     ) : (
