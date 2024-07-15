@@ -70,6 +70,16 @@ export default function CreateForm() {
                                             <label htmlFor="tech"><p>{checked ? "si" : "no"}</p></label>
                                         </div>
                                     </div>
+                                    <div className={checked ? "" : "Invisible"}>
+                                        <div className="row align-items-center">
+                                            <div className="col">
+                                                <InputField label="Costo spedizione" type="number" name="shippingPrice" placeholder="000,00" required={true}></InputField>
+                                            </div>
+                                            <div className="col-1 pt-4 px-0">
+                                                <h4>€</h4>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." required={true}></InputField>
                             </div>

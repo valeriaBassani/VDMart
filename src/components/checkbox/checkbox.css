@@ -24,7 +24,7 @@ input[type="checkbox"]{
 input[type="checkbox"]:hover {
     border: solid 2px var(--accentHover);
 }
-input[type="checkbox"].checked{
+.Checkbox input[type="checkbox"].checked{
     background-color: var(--accent);
     background-image: url(check.svg);
     background-size: contain;

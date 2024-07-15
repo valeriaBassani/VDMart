@@ -24,7 +24,9 @@ export default function Adv() {
                                 <h5 id="category">Tecnologia</h5>
                                 <p id="date">07/10/2023</p>
                             </div>
-                            <Favourite />
+                            <div className="Mobile">
+                                <Favourite />
+                            </div>
                         </div>
                         <div>
                             <h4>Ipad terza generazione nuovo</h4>
@@ -41,7 +43,7 @@ export default function Adv() {
                         </div>
                     </div>
                 </div>
-                <div className=" row d-flex flex-column align-items-start pb-3 px-4">
+                <div className="row d-flex flex-column align-items-start pb-0 px-4">
                     <div className="col Mobile">
                         <Review mail="Ilaria" />
                     </div>

@@ -64,7 +64,8 @@ export default function ImageUpload({ label, upCount }: Props) {
             <div className="container" style={{ position: 'absolute' }}>
                 {show && <PopUp
                     type="success"
-                    title="Immagine articolo"
+                    title="Immagine"
+                    src={image}
                     label="Annuncio pubblicato con successo!"
                     description="Il tuo articolo ora è in vendita sulla bacheca degli annunci. Vedi il tuoi annunci o torna alla home"
                     primaryLink={{ to: "/registrazione", label: "Area riservata", className: "Primary" }}

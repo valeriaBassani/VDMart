@@ -11,6 +11,7 @@ type Props = {
     type: "success" | "insuccess" | "request" | "mail";
     title: string,
     label: string,
+    src?: string,
     description: string,
     assistance?: boolean,
     primaryLink: { to: string; label: string; className?: string };
@@ -23,6 +24,7 @@ type MyVerticallyCenteredModalProps = {
     type: "success" | "insuccess" | "request" | "mail";
     title: string,
     label: string,
+    src?: string,
     description: string,
     assistance?: boolean,
     primaryLink: { to: string; label: string; className?: string };
@@ -34,6 +36,7 @@ const MyVerticallyCenteredModal: React.FC<MyVerticallyCenteredModalProps> = ({
     onHide,
     type,
     title,
+    src,
     label,
     description,
     assistance,
@@ -62,6 +65,29 @@ const MyVerticallyCenteredModal: React.FC<MyVerticallyCenteredModalProps> = ({
             </Modal.Header>
             <Modal.Body>
                 <div className="Contents">
+                    {src ? (
+                        <>
+                            <div className="Preview">
+                                <img src={src} alt="Icon" />
+
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <img src={icon[type]} alt="Icon" />
+                            <div className="Text">
+                                <label>{label}</label>
+                                <p>{description}</p>
+                                <div className="Actions">
+                                    <Link to={secondaryLink.to} className={secondaryLink.className || "Secondary"}>{secondaryLink.label}</Link>
+                                    <Link to={primaryLink.to} className={primaryLink.className || "Primary"}>{primaryLink.label}</Link>
+                                </div>
+                            </div>
+                        </>
+                    )}
+                    {/* if(src){
+                        <img src={src} alt="Icon" />
+                    }
                     <img src={icon[type]} alt="Icon" />
                     <div className="Text">
                         <label>{label}</label>
@@ -70,7 +96,7 @@ const MyVerticallyCenteredModal: React.FC<MyVerticallyCenteredModalProps> = ({
                             <Link to={secondaryLink.to} className={secondaryLink.className || "Secondary"}>{secondaryLink.label}</Link>
                             <Link to={primaryLink.to} className={primaryLink.className || "Primary"}>{primaryLink.label}</Link>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </Modal.Body>
             <Modal.Footer>
@@ -82,7 +108,7 @@ const MyVerticallyCenteredModal: React.FC<MyVerticallyCenteredModalProps> = ({
     );
 };
 
-export default function PopUp({ type, title, label, description, assistance, primaryLink, secondaryLink }: Props) {
+export default function PopUp({ type, title, label, src, description, assistance, primaryLink, secondaryLink }: Props) {
     const [show, setShow] = useState(true);
 
     const handleClose = () => setShow(false);
@@ -93,6 +119,7 @@ export default function PopUp({ type, title, label, description, assistance, pri
                 onHide={handleClose}
                 type={type}
                 title={title}
+                src={src}
                 label={label}
                 description={description}
                 assistance={assistance}

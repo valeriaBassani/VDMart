@@ -2,6 +2,8 @@
 .Adv img{
     width: 15em;
     height: 100%;
+    object-fit: cover;
+    aspect-ratio: 3/2;
 }
 .Info{
     flex-wrap: nowrap;

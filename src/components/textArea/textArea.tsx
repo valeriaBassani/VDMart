@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./textArea.css"
 
 type Props = {
     label?: string,
