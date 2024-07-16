@@ -2,7 +2,7 @@ import { useState } from "react"
 import AdvImages from "../AdvImages/AdvImages"
 import Favourite from "../Favourite/Favourite"
 import Review from "../Review/Review"
-import RiepilogoPopUp from "../RiepilogoPopUp/RiepilogoPopUp"
+import PopUpPurchase from "../PopUpPurchase/PopUpPurchase"
 import Submit from "../SubmitButton/Submit"
 import "./AdvsDetails.css"
 
@@ -47,7 +47,6 @@ export default function AdvDetails({ article, details }: Props) {
                                     <div className="row">
                                         <div className="col-auto ">
                                             <div className="col d-flex gap-2" id="shipping">
-
                                                 <p>Spedizione disponibile: </p>
                                                 <b>24,90€</b>
                                             </div>
@@ -74,7 +73,7 @@ export default function AdvDetails({ article, details }: Props) {
                 </div>
             </div>
             <div className="container">
-                {show && <RiepilogoPopUp article="bici" />}
+                {show && <PopUpPurchase title="riepilogo acquisto" article="bici" />}
             </div>
 
         </>

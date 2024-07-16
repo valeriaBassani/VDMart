@@ -1,13 +1,6 @@
 @import url('../../App.css');
-.Adv img{
-    width: 15em;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: 3/2;
-}
-.Info{
-    flex-wrap: nowrap;
-}
+
+
 .Adv{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
@@ -15,7 +8,15 @@
     background-color: white;
     padding: 1em;
 }
-
+.Info{
+    flex-wrap: nowrap;
+}
+.Info img{
+    width: 15em;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 3/2;
+}
 #category{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);

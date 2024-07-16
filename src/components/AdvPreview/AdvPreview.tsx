@@ -3,8 +3,7 @@ import './AdvPreview.css';
 import Favourite from "../Favourite/Favourite";
 import Review from "../Review/Review";
 import { useNavigate } from "react-router-dom";
-import truck from "./truck.svg"
-import Icon from "../Icon";
+
 
 export default function Adv() {
 
