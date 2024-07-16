@@ -18,12 +18,14 @@ import Support from './pages/Support';
 import AdvDetails from './pages/AdvDetails';
 import Footer from './components/Footer/Footer';
 import BreadCrumbs from './components/Breadcrumbs/Breadcrumbs';
+import SupportLink from './components/SupportLink/SupportLink';
 
 const Main = () => (
   <>
     <NavBar />
     <BreadCrumbs />
     <Outlet />
+    <SupportLink />
     <Footer />
   </>
 )

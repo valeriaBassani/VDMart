@@ -4,7 +4,11 @@ import Submit from "../SubmitButton/Submit";
 import InputField from "../InputField/InputField";
 import TextArea from "../textArea/textArea";
 
-export default function SupportForm() {
+type Props = {
+    category: string
+}
+
+export default function SupportForm({ category }: Props) {
 
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
@@ -21,10 +25,18 @@ export default function SupportForm() {
                 <div className="Fields container-md">
                     <h4>Scrivici</h4>
                     <InputField label="Email" type="email" name="email" placeholder="email" required={true} ></InputField>
-                    <TextArea label="Messaggio" name="text" maxLength={300} required={true} />
+                    <div className="Section">
+                        <div className="row">
+                            <div className="col d-flex gap-2 py-2">
+                                <label>Oggetto:</label>
+                                <label style={{ color: "var(--primary)" }}> {category} </label>
+                            </div>
+                        </div>
+                        <TextArea label="Messaggio" name="text" maxLength={300} required={true} />
+                    </div>
                 </div>
                 <Submit label="Invia" className='Primary' />
-            </form>
+            </form >
         </>
     )
 }

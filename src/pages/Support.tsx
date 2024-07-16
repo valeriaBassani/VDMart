@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SupportCategory from "../components/SupportForm/SupportCategory";
+import SupportCategory from "../components/SupportCategories/SupportCategory";
 import SupportForm from "../components/SupportForm/SupportForm";
 
 export default function Support() {
@@ -40,7 +40,7 @@ export default function Support() {
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <SupportForm />
+                                    <SupportForm category={selected} />
                                 </div>
                             </div>
                         </div>
