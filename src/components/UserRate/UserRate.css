@@ -1,5 +1,5 @@
 @import url('../../App.css');
-.Review{
+.UserRate{
     display: flex;
     flex-direction: column;
     justify-content: center;

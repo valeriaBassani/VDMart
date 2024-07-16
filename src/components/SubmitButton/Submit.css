@@ -45,6 +45,7 @@
 .Reset{
     height: 2em;
     background-color: var(--lightGrey);
+    border-radius: var(--border-radius);
     color: var(--text);
     cursor: pointer;
     transition: 0.5s;
@@ -59,6 +60,7 @@
     height: 2em;
     background-color: var(--secondary);
     border: solid 2px var(--secondary);
+    border-radius: var(--border-radius);
     color: white;
     cursor: pointer;
 }

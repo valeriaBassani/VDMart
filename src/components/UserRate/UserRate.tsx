@@ -6,7 +6,7 @@ type Props = {
 export default function UserRate({ mail }: Props) {
     return (
         <>
-            <div className="Review">
+            <div className="UserRate">
                 <p>{mail}</p>
                 <div className="Stars">
                     <Star fill="#880D1E" />
