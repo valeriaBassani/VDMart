@@ -1,4 +1,4 @@
-import Adv from "../components/Adv/Adv";
+import Adv from "../components/AdvPreview/AdvPreview";
 import Footer from "../components/Footer/Footer";
 
 export default function Favourites() {

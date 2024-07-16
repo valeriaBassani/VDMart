@@ -9,7 +9,7 @@ export default function BreadCrumbs() {
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                    <h5><Link to="/home">Home</Link></h5>
+                    <h5><Link to="/">Home</Link></h5>
                 </li>
                 {pathnames.map((value, index) => {
                     const to = `/${pathnames.slice(0, index + 1).join('/')}`;

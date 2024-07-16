@@ -45,17 +45,20 @@ export default function AdvDetails({ article, details }: Props) {
                                 <div className="col d-flex flex-column gap-2 ">
                                     <Submit className="Primary" label="Acquista questo articolo" onClick={showEpilogue}></Submit>
                                     <div className="row">
-                                        <div className="col">
-                                            <p id="shipping2">Spedizione disponibile</p>
-                                        </div>
-                                        <div className="col-auto">
-                                            <p>costo</p>
+                                        <div className="col-auto ">
+                                            <div className="col d-flex gap-2" id="shipping">
+
+                                                <p>Spedizione disponibile: </p>
+                                                <b>24,90€</b>
+                                            </div>
                                         </div>
                                     </div>
-                                    <Submit className="Secondary" label="Contatta il venditore"></Submit>
-                                    <div className="row gap-2 justify-content-end">
-                                        <div className="col-auto">
-                                            <Review mail={"Luigi"} />
+                                    <div className="col-6 mt-3 d-flex flex-column gap-2">
+                                        <Submit className="Secondary" label="Contatta il venditore"></Submit>
+                                        <div className="row gap-2 ">
+                                            <div className="col-auto">
+                                                <Review mail={"Luigi"} />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

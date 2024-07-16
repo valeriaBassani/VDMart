@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: end;
     border-top: solid 2px var(--lightGrey);
     padding-top: 0.5em;
     width: fit-content;

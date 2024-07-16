@@ -1,4 +1,4 @@
-import Adv from "../../components/Adv/Adv";
+import AdvPreview from "../../components/AdvPreview/AdvPreview";
 import CategoryFilter from "../../components/FiletrByCategory/FiletrByCategory";
 import PriceFilter from "../../components/FilterByPrice/FilterByPrice";
 import Shipping from "../../components/FilterByShipping/FilterByShipping";
@@ -35,9 +35,9 @@ export default function Home() {
                         </div>
                         <div className="row align-items-center">
                             <div className="col d-flex flex-column justify-content-center gap-3">
-                                <Adv />
-                                <Adv />
-                                <Adv />
+                                <AdvPreview />
+                                <AdvPreview />
+                                <AdvPreview />
                             </div>
                         </div>
                     </div>

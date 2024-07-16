@@ -1,8 +1,10 @@
 import ipad from "./ipad.jpg"
-import './Adv.css';
+import './AdvPreview.css';
 import Favourite from "../Favourite/Favourite";
 import Review from "../Review/Review";
 import { useNavigate } from "react-router-dom";
+import truck from "./truck.svg"
+import Icon from "../Icon";
 
 export default function Adv() {
 
@@ -24,27 +26,17 @@ export default function Adv() {
                                 <h5 id="category">Tecnologia</h5>
                                 <p id="date">07/10/2023</p>
                             </div>
-                            <div className="Mobile">
-                                <Favourite />
-                            </div>
+                            <Favourite />
                         </div>
                         <div>
                             <h4>Ipad terza generazione nuovo</h4>
-                            <div className="d-flex gap-1">
-                                <h3 id="price">145,00€</h3>
-                                <div id="shipping"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-auto Dsk py-3 px-4 d-flex flex-column gap-2">
-                        <div className="col Dsk">
-                            <Favourite />
-                            <Review mail="Ilaria" />
+                            <h3 id="price">145,00€</h3>
+                            <p id="shipping">Spedizione disponibile</p>
                         </div>
                     </div>
                 </div>
-                <div className="row d-flex flex-column align-items-start pb-0 px-4">
-                    <div className="col Mobile">
+                <div className="row p-3">
+                    <div className="col">
                         <Review mail="Ilaria" />
                     </div>
                 </div>

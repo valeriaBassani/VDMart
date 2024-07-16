@@ -22,9 +22,9 @@ export default function NavBar() {
                         <Link to={`/`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex align-items-center justify-content-end gap-4">
-                        <Link to={`/preferiti`} className="NavLink"><Icon url={heart} />Preferiti</Link>
-                        <Link to={`/messages`} className="NavLink"><Icon url={message} />Messaggi</Link>
-                        <Link to={`/Vendi`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
+                        <Link to={`/preferiti`} className="NavLink"><Icon url={heart} margin="0.5em" />Preferiti</Link>
+                        <Link to={`/messages`} className="NavLink"><Icon url={message} margin="0.5em" />Messaggi</Link>
+                        <Link to={`/Vendi`} className="Secondary"><Icon url={plus} margin="0.5em" />Crea un annuncio</Link>
                         <Link to={`/registrazione`} className="link">Registrati</Link>
                         <Link to={`/login`} className="Primary">Accedi</Link>
                     </div>
@@ -36,7 +36,7 @@ export default function NavBar() {
                         <Link to={`/`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex justify-content-end gap-3">
-                        <Link to={`/Vendi`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
+                        <Link to={`/Vendi`} className="Secondary"><Icon url={plus} margin="0.5em" />Crea un annuncio</Link>
                         <Link to={`/login`} className="Primary">Accedi</Link>
                         <button className="Icon" onClick={handleClick}></button>
                     </div>
@@ -44,8 +44,8 @@ export default function NavBar() {
                 <div className={`row text-end justify-content-end ${visible ? 'Visible' : 'Invisible'}`}>
                     <div className="col d-flex justify-content-end">
                         <div className={" More"}>
-                            <Link to={`/preferiti`} className="NavLink"><Icon url={heart} />Preferiti</Link>
-                            <Link to={`/messages`} className="NavLink"><Icon url={message} />Messaggi</Link>
+                            <Link to={`/preferiti`} className="NavLink"><Icon url={heart} margin="0.5em" />Preferiti</Link>
+                            <Link to={`/messages`} className="NavLink"><Icon url={message} margin="0.5em" />Messaggi</Link>
                             <Link to={`/registrazione`} className="link">Registrati</Link>
                         </div>
                     </div>
@@ -64,9 +64,9 @@ export default function NavBar() {
                 <div className={`row text-end justify-content-end ${visible ? 'Visible' : 'Invisible'}`}>
                     <div className="col d-flex justify-content-end">
                         <div className={" More"}>
-                            <Link to={`/Vendi`} className="Secondary"><Icon url={plus} />Crea un annuncio</Link>
-                            <Link to={`/preferiti`} className="NavLink"><Icon url={heart} />Preferiti</Link>
-                            <Link to={`/messages`} className="NavLink"><Icon url={message} />Messaggi</Link>
+                            <Link to={`/Vendi`} className="Secondary"><Icon url={plus} margin="0.5em" />Crea un annuncio</Link>
+                            <Link to={`/preferiti`} className="NavLink"><Icon url={heart} margin="0.5em" />Preferiti</Link>
+                            <Link to={`/messages`} className="NavLink"><Icon url={message} margin="0.5em" />Messaggi</Link>
                             <Link to={`/registrazione`} className="link">Registrati</Link>
                         </div>
                     </div>

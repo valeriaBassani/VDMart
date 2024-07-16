@@ -25,20 +25,14 @@
     font-size: var(--font-size-small);
     color: var(--placeholder);
 }
+
 #shipping{
     background-color: rgba(0, 104, 133, 0.2);
     color: var(--primaryDark);
     border-radius: var(--border-radius);
-    background-image: url(truck.svg);
-    background-repeat: no-repeat;
-    background-size:contain;
-    background-origin:content-box ;
-    background-position: center;
-    padding: 0.1em;
-    width: 2.8em;
-    height: 1.8em;
+    padding: 0em 0.5em 0em 0.5em;
+    width: fit-content;
 }
-
 #price{
     color: var(--primary);
 }
@@ -48,10 +42,7 @@
 }
 
 .Dsk {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: space-between;
+    display: contents;
 }
 
 @media screen and (max-width: 760px) {
