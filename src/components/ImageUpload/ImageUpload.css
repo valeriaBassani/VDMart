@@ -69,3 +69,12 @@ input[type="file"]{
 .Delete:hover{
     border: solid 1px var(--accentHover);
 }
+
+.IsNext{
+    border: solid 1px var(--accent);
+    background-image: url(camera.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    padding: 1.8em;
+}

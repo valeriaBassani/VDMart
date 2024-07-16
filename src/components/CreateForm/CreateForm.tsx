@@ -32,8 +32,33 @@ export default function CreateForm() {
 
     const [contImages, setContImages] = useState(0);
 
+    const [isNext, setIsNext] = useState({
+        0: true,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+    })
+
     const handleCount = (count: number) => {
-        setContImages(count);
+        setContImages(prevCount => {
+            const newCount = prevCount + count;
+            setNext(newCount);
+            return newCount;
+        });
+    }
+
+    const setNext = (newCount: number) => {
+        setIsNext({
+            0: false,
+            1: false,
+            2: false,
+            3: false,
+            4: false,
+            5: false,
+            [newCount]: true,
+        });
     }
 
     return (
@@ -97,12 +122,12 @@ export default function CreateForm() {
                                         </div>
                                         <div className="row">
                                             <div className="col d-flex flex-wrap gap-2">
-                                                <ImageUpload upCount={handleCount} />
-                                                <ImageUpload upCount={handleCount} />
-                                                <ImageUpload upCount={handleCount} />
-                                                <ImageUpload upCount={handleCount} />
-                                                <ImageUpload upCount={handleCount} />
-                                                <ImageUpload upCount={handleCount} />
+                                                <ImageUpload upCount={handleCount} isNext={isNext[0]} />
+                                                <ImageUpload upCount={handleCount} isNext={isNext[1]} />
+                                                <ImageUpload upCount={handleCount} isNext={isNext[2]} />
+                                                <ImageUpload upCount={handleCount} isNext={isNext[3]} />
+                                                <ImageUpload upCount={handleCount} isNext={isNext[4]} />
+                                                <ImageUpload upCount={handleCount} isNext={isNext[5]} />
                                             </div>
                                         </div>
                                     </div>

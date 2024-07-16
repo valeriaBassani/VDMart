@@ -5,9 +5,10 @@ import "./ImageUpload.css"
 type Props = {
     label?: string,
     upCount?: (count: number) => void,
+    isNext?: boolean
 }
 
-export default function ImageUpload({ label, upCount }: Props) {
+export default function ImageUpload({ label, upCount, isNext }: Props) {
     const inputRef = useRef<HTMLInputElement>(null);
     const [image, setImage] = useState<string>();
     const [show, setShow] = useState(false);
@@ -21,7 +22,7 @@ export default function ImageUpload({ label, upCount }: Props) {
         const imageUrl = URL.createObjectURL(selectedFile);
         setImage(imageUrl);
         if (upCount) {
-            upCount(1)
+            upCount(+1)
         }
 
     };
@@ -36,14 +37,13 @@ export default function ImageUpload({ label, upCount }: Props) {
     const handleDelete = () => {
         setImage("");
         if (upCount) {
-            upCount(0)
+            upCount(-1)
         }
     }
 
     const showImage = () => {
         setShow(!show)
     }
-
 
     return (
         <>
@@ -57,8 +57,16 @@ export default function ImageUpload({ label, upCount }: Props) {
                     </>
                 ) : (
                     <>
-                        <button onClick={handleButtonClick} className="InputFile" />
-                        <input ref={inputRef} type='file' hidden onChange={handleFileUpload} />
+                        {isNext ? (
+                            <>
+                                <button onClick={handleButtonClick} className="InputFile IsNext" />
+                                <input ref={inputRef} type='file' hidden onChange={handleFileUpload} />
+                            </>
+                        ) : (
+                            <>
+                                <div className="InputFile"></div>
+                            </>
+                        )}
                     </>
                 )}
             </div >
