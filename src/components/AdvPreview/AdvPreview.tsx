@@ -1,9 +1,8 @@
 import ipad from "./ipad.jpg"
 import './AdvPreview.css';
 import Favourite from "../Favourite/Favourite";
-import Review from "../Review/Review";
 import { useNavigate } from "react-router-dom";
-
+import UserRate from "../UserRate/UserRate";
 
 export default function Adv() {
 
@@ -36,7 +35,7 @@ export default function Adv() {
                 </div>
                 <div className="row pt-3">
                     <div className="col">
-                        <Review mail="Ilaria" />
+                        <UserRate mail="Ilaria" />
                     </div>
                 </div>
             </div>

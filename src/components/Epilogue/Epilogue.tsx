@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Review from "../Review/Review";
 import Submit from "../SubmitButton/Submit";
 import ipad from "./ipad.jpg"
+import UserRate from "../UserRate/UserRate";
 type Props = {
     article: string,
 }
@@ -19,7 +19,7 @@ export default function Epilogue({ article }: Props) {
                         <div className="col d-flex flex-column gap-1 py-3 pe-4">
                             <h5 id="category">Tecnologia</h5>
                             <h4>Ipad terza generazione nuovo</h4>
-                            <Review mail="Ilaria" />
+                            <UserRate mail="Ilaria" />
                         </div>
                     </div>
                     <div className="row border-top pt-4 align-items-center">

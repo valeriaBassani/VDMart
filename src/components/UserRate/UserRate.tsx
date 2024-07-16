@@ -1,9 +1,9 @@
 import { ReactComponent as Star } from "./star.svg"
-import "./Review.css"
+import "./UserRate.css"
 type Props = {
     mail: string,
 }
-export default function Review({ mail }: Props) {
+export default function UserRate({ mail }: Props) {
     return (
         <>
             <div className="Review">

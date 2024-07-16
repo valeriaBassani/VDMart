@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Modal from "react-bootstrap/esm/Modal";
-import { Link } from "react-router-dom";
 import InputField from "../InputField/InputField";
-import Review from "../Review/Review";
 import Submit from "../SubmitButton/Submit";
 import ipad from "./ipad.jpg"
+import Button from "../Buttons/Buttons";
+import UserRate from "../UserRate/UserRate";
+
 
 type Props = {
     title: string,
@@ -51,7 +52,7 @@ export default function PopUpPurchase({ title, article }: Props) {
                                         <div className="col d-flex flex-column gap-1 py-3 pe-4">
                                             <h5 id="category">Tecnologia</h5>
                                             <h4>Ipad terza generazione nuovo</h4>
-                                            <Review mail="Ilaria" />
+                                            <UserRate mail="Ilaria" />
                                         </div>
                                     </div>
                                     <div className="row border-top pt-4 align-items-center">
@@ -66,12 +67,12 @@ export default function PopUpPurchase({ title, article }: Props) {
                                 <div className="row mt-4">
                                     <div className="col d-flex flex-column gap-2">
                                         <label>Acquisto a distanza</label>
-                                        <Submit className="Primary" label="Checkout" onClick={showSecond} ></Submit>
+                                        <Button className="Primary" wide={true} onClick={showSecond}>Checkout</Button>
                                         <p id="shipping">spedizione 45,00€</p>
                                     </div>
                                     <div className="col">
                                         <label>Scambio a mano</label>
-                                        <Link to={`/login`} className="Secondary" style={{ width: "100%" }}>Contatta il venditore</Link>
+                                        <Button className="Secondary" wide={true}>Contatta il venditore</Button>
                                     </div>
                                 </div>
                             </div>

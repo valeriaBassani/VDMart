@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Submit from "../SubmitButton/Submit";
 import InputField from "../InputField/InputField";
 
 export default function LogIn() {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/area-riservata');
+    }
 
     const [checked, setIsChecked] = useState(false);
     const handleCheck = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -31,7 +37,7 @@ export default function LogIn() {
                     <input type="checkbox" className={checked ? "checked" : ""} name="rememberMe" value="rememberMe" checked={checked} onChange={handleCheck}></input>
                     <label htmlFor="rememberMe">Ricordami</label>
                 </div>
-                <Submit label="Accedi" className='Primary' />
+                <Submit label="Accedi" className='Primary' onClick={handleClick} />
                 <p>Non sei registrato? <Link to={`/signUp`} className="link">Registrati</Link></p>
             </form>
         </>

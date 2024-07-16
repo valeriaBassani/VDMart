@@ -19,6 +19,7 @@ import AdvDetails from './pages/AdvDetails';
 import Footer from './components/Footer/Footer';
 import BreadCrumbs from './components/Breadcrumbs/Breadcrumbs';
 import SupportLink from './components/SupportLink/SupportLink';
+import PrivateArea from './pages/PrivateArea';
 
 const Main = () => (
   <>
@@ -63,10 +64,13 @@ const router = createBrowserRouter([
         path: "/assistenza",
         element: <Support />,
       },
-
       {
         path: "/dettagli-annuncio",
         element: <AdvDetails />,
+      },
+      {
+        path: "/area-riservata",
+        element: <PrivateArea />,
       },
     ]
     // children: [ se voglio che il link venga aperto nella stessa pagina, ma, per esempio, in una sezione diversa

@@ -44,10 +44,6 @@
     display: none;
 }
 
-.Visible{
-    display:block;
-}
-
 @media screen and (max-width: 512px) {
     .MobileSupport{
         display: block;

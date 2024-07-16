@@ -1,11 +1,12 @@
-//import User from "../components/User/User";
+import User from "../components/User/User";
 
-export default function LogIn() {
+export default function PrivateArea() {
     return (
         <>
-            <h4>Le tue credenziali</h4>
-            {/* <User firstName="valeria" secondName="bassani" mail="valeria@gmail.com" /> */}
-
+            <div className="container-sm">
+                <h4>Il tuo profilo</h4>
+                <User mail="valeria@gmail.com" />
+            </div>
         </>
     )
 }
