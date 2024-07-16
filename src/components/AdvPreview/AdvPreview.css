@@ -12,6 +12,8 @@
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     padding-right: 1em;
+    background-color: white;
+    padding: 1em;
 }
 
 #category{

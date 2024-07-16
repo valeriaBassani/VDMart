@@ -1,4 +1,5 @@
 .Create{
+    background-color: var(--section);
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     width: 100%;
@@ -6,7 +7,7 @@
 }
 
 .Section{
-    background-color: white;
+   background-color: var(--background);
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     padding: 1em;

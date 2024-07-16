@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
 body{
-    max-width:100vw;
+    width:100vw;
     min-height: 100vh;
     overflow-x: hidden;
     background-color: var(--background) !important;
@@ -9,7 +9,10 @@ body{
 }
 
 :root{
-    --background:#f4f4f4;
+    /* --background:#f4f4f4; */
+    --background:white;
+    --section:#f4f4f46d;
+    --background:white;
     --primary:#007FA3;
     --primaryDark:#006480;
     --primaryHover:#00303D;

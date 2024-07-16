@@ -4,7 +4,7 @@
     display: block;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 516px) {
     .Filters{
         display: none;
     }
@@ -13,12 +13,13 @@
 
 .Board{
     border-top: solid 1px var(--lightGrey);
+    flex-wrap: nowrap;
 }
 
 .Ads{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
-    background-color: white;
+    background-color: var(--section);
     padding-bottom: 1em;
 }
 

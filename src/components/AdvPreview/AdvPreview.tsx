@@ -20,7 +20,7 @@ export default function Adv() {
                     <div className="col-auto pe-0">
                         <img src={ipad} alt="Ipad"></img>
                     </div>
-                    <div className="col d-flex flex-column gap-4 py-3">
+                    <div className="col d-flex flex-column gap-4 py-3 pe-4">
                         <div className="d-flex justify-content-between align-items-start">
                             <div>
                                 <h5 id="category">Tecnologia</h5>
@@ -35,7 +35,7 @@ export default function Adv() {
                         </div>
                     </div>
                 </div>
-                <div className="row p-3">
+                <div className="row pt-3">
                     <div className="col">
                         <Review mail="Ilaria" />
                     </div>

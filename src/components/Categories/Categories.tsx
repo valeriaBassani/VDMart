@@ -15,7 +15,7 @@ export default function Categories({ onOptionChange }: RadioButtonsProps) {
 
     return (
         <>
-            <div className="Fields">
+            <div className="Fields" style={{ backgroundColor: "white" }}>
                 <Checkbox label="Motori" id="vehicles" checked={selectedOption === 'vehicles'} onChange={handleOptionChange} />
                 <Checkbox label="Tecnologia" id="tech" checked={selectedOption === 'tech'} onChange={handleOptionChange} />
                 <Checkbox label="Abbigliamento" id="dresses" checked={selectedOption === 'dresses'} onChange={handleOptionChange} />

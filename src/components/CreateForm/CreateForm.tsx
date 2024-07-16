@@ -56,7 +56,7 @@ export default function CreateForm() {
                                 <Categories onOptionChange={handleOptionChange} />
                                 <div className="row my-2 gap-2">
                                     <div className="col-auto">
-                                        <div className="Field">
+                                        <div className="Field" >
                                             <label>Disponibile per la spedizione*</label>
                                             <label className="Suggestion">
                                                 Scegli se fornire l’opzione di spedizione o se preferisci lo scambio a mano

@@ -29,11 +29,13 @@ export default function SearchBar() {
                             <Submit label='Filtri' className='Primary' onClick={handleClick} />
                         </div>
                     </div>
-                    <div className={`row ${visible ? 'Visible' : 'Invisible'}`}>
-                        <div className="col d-flex flex-column gap-2">
-                            <CategoryFilter />
-                            <PriceFilter />
-                            <Shipping />
+                    <div className={`row ${visible ? 'Visible' : 'Invisible'} my-3`}>
+                        <div className="Section">
+                            <div className="col d-flex flex-column gap-2 p-0">
+                                <CategoryFilter />
+                                <PriceFilter />
+                                <Shipping />
+                            </div>
                         </div>
                     </div>
                 </div>

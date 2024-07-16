@@ -32,8 +32,7 @@
     visibility: hidden;
     display: none;
 }
-
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 516px) {
     .MobileFilter{
         visibility: visible;
         display: block;
