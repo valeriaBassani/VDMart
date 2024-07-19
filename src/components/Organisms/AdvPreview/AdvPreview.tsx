@@ -13,23 +13,23 @@ export default function Adv() {
     }
     return (
         <>
-            <div className="Adv" onClick={handleClick}>
-                <div className="row Info">
+            <div className="adv" onClick={handleClick}>
+                <div className="row adv__info">
                     <div className="col-auto pe-0">
                         <img src={ipad} alt="Ipad"></img>
                     </div>
                     <div className="col d-flex flex-column gap-4 py-3 pe-4">
                         <div className="d-flex justify-content-between align-items-start">
                             <div>
-                                <h5 id="category">Tecnologia</h5>
-                                <p id="date">07/10/2023</p>
+                                <h5 className="adv__category">Tecnologia</h5>
+                                <p className="adv__date">07/10/2023</p>
                             </div>
                             <Favourite />
                         </div>
                         <div>
                             <h4>Ipad terza generazione nuovo</h4>
-                            <h3 id="price">145,00€</h3>
-                            <p id="shipping">Spedizione disponibile</p>
+                            <h3 className="adv__price">145,00€</h3>
+                            <p className="adv__shipping">Spedizione disponibile</p>
                         </div>
                     </div>
                 </div>

@@ -65,9 +65,9 @@ export default function CreateForm() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div className="container-lg Create">
+                <div className="container-lg create">
                     <div className="row gap-3">
-                        <div className="col Section">
+                        <div className="col create__section">
                             <div className="Form">
                                 <InputField label="Titolo" type="text" name="title" placeholder="Titolo" required={true} ></InputField>
                                 <div className="row align-items-center">
@@ -92,7 +92,7 @@ export default function CreateForm() {
                                     <div className="col-auto">
                                         <Toggle checked={checked} onChange={() => setIsChecked(!checked)} />
                                     </div>
-                                    <div className={checked ? "" : "Invisible"}>
+                                    <div className={checked ? "" : "create__shipping--invisible"}>
                                         <div className="row align-items-center">
                                             <div className="col">
                                                 <InputField label="Costo spedizione" type="number" name="shippingPrice" placeholder="000,00" required={true}></InputField>

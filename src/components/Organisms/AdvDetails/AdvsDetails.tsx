@@ -41,7 +41,7 @@ export default function AdvDetails({ article, details }: Props) {
                             </div>
                             <div className="row">
                                 <div className="col d-flex flex-column gap-2 ">
-                                    <Button className="Primary" onClick={showEpilogue} wide={true}>Acquista questo articolo</Button>
+                                    <Button className="btn--primary" onClick={showEpilogue} wide={true}>Acquista questo articolo</Button>
                                     <div className="row">
                                         <div className="col-auto ">
                                             <div className="col d-flex gap-2" id="shipping">
@@ -51,7 +51,7 @@ export default function AdvDetails({ article, details }: Props) {
                                         </div>
                                     </div>
                                     <div className="col-6 mt-3 d-flex flex-column gap-2">
-                                        <Button className="Secondary">Contatta il venditore</Button>
+                                        <Button className="btn--secondary">Contatta il venditore</Button>
                                         <div className="row gap-2 ">
                                             <div className="col-auto">
                                                 <UserRate mail={"Luigi"} />
@@ -63,7 +63,7 @@ export default function AdvDetails({ article, details }: Props) {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col Description">
+                        <div className="col adv__description">
                             <h4>Descrizione</h4>
                             <p>Description</p>
                         </div>

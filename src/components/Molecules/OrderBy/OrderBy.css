@@ -1,5 +1,5 @@
 @import url('../../../App.css');
-.orderBy{
+.orderby{
     background-color: white;
     border:solid 1px var(--lightGrey);
     color: rgb(0, 0, 0);
@@ -15,7 +15,7 @@
     padding: 0em 2em 0em 2em;
 }
 
-.orderBy__item{
+.orderby__item{
     background-color: rgba(255, 255, 255, 0);
     border:none;
     color: rgb(0, 0, 0);
@@ -31,20 +31,20 @@
     gap: 0.5em;
 }
 
-.orderBy__item:hover{
+.orderby__item:hover{
     text-decoration: underline;
 }
 
-.orderBy__selector--down{
+.orderby__selector--down{
     display: block;
 }
 
-.orderBy__selector--up{
+.orderby__selector--up{
     display: none;
 }
 
 @media screen and (max-width: 780px) {
-    .orderBy__item{
+    .orderby__item{
         font-size: 12px;
     }
   }

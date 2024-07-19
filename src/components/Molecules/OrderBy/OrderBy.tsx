@@ -21,9 +21,9 @@ export default function OrderBy() {
         <>
             <div className="row">
                 <div className="col d-flex flex-column gap-3">
-                    <div className="orderBy">
-                        <button className="orderBy__item" onClick={handleClick}>{value} <Icon url={visible ? up : down}></Icon></button>
-                        <div className={visible ? 'orderBy__selector--down' : 'orderBy__selector--up'}>
+                    <div className="orderby">
+                        <button className="orderby__item" onClick={handleClick}>{value} <Icon url={visible ? up : down}></Icon></button>
+                        <div className={visible ? 'orderby__selector--down' : 'orderby__selector--up'}>
                             <button className="orderBy__item" value="Dal più recente" onClick={chooseValue}><p>Dal più recente</p> </button>
                             <button className="orderBy__item" value="Dal meno recente" onClick={chooseValue}><p>Dal meno recente</p> </button>
                         </div>

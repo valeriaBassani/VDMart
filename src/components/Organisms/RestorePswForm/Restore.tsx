@@ -16,16 +16,16 @@ export default function RestoreForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="Form ">
-                <div className="Fields container-md">
+            <form onSubmit={handleSubmit} className="form ">
+                <div className="fields container-md">
                     <p>Inserisci la mail con cui ha registrato il tuo account. Riceverai le istruzioni per creare una nuova password</p>
-                    <div className="Field">
+                    <div className="field">
                         <label>Email*</label>
                         <input type="text" name="mail" placeholder="Email" value={email} onChange={HandleChange}></input>
                     </div>
                 </div>
-                <Submit label="Accedi" className='Primary' />
-                <p>Non sei registrato? <Link to={`/signUp`} className="link">Registrati</Link></p>
+                <Submit label="Accedi" className='btn--primary' />
+                <p>Non sei registrato? <Link to={`/registrazione`} className="link">Registrati</Link></p>
             </form>
         </>
     )
