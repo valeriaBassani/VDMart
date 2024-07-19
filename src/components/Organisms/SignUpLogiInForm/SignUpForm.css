@@ -1,0 +1,22 @@
+@import url('../../../App.css');
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 1em;
+}
+
+.fields{
+    background-color: var(--section);
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    justify-content: center;
+    padding: 1.4em;
+    gap: 0.5em;
+    overflow: hidden;
+}
+

@@ -1,0 +1,50 @@
+@import url('../../../App.css');
+.orderBy{
+    background-color: white;
+    border:solid 1px var(--lightGrey);
+    color: rgb(0, 0, 0);
+    min-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: var(--font-size-p);
+    cursor: pointer;
+    padding: 0em 2em 0em 2em;
+}
+
+.orderBy__item{
+    background-color: rgba(255, 255, 255, 0);
+    border:none;
+    color: rgb(0, 0, 0);
+    min-width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: var(--font-size-p);
+    cursor: pointer;
+    gap: 0.5em;
+}
+
+.orderBy__item:hover{
+    text-decoration: underline;
+}
+
+.orderBy__selector--down{
+    display: block;
+}
+
+.orderBy__selector--up{
+    display: none;
+}
+
+@media screen and (max-width: 780px) {
+    .orderBy__item{
+        font-size: 12px;
+    }
+  }

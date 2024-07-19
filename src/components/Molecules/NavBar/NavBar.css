@@ -1,0 +1,92 @@
+@import url('../../../App.css');
+
+.navbar{
+  display: block;
+  background-color: white;
+  box-shadow: var(--small-shadow);
+} 
+
+.navbar__link{
+  font-size: var(--font-size-p);
+  text-decoration: none;
+  color: var(--text);
+}
+.navbar__link:hover{
+  font-weight: var(--font-weight-SemiBold);
+  text-decoration: underline;
+  color: var(--text);
+  transition: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.navbar__hamburgher{
+  background-color: white;
+  display: none;
+  box-shadow: var(--small-shadow);
+}
+
+.navbar--icon{
+  background-color: var(--primary);
+  background-image: url(menu.svg);
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: var(--border-radius);
+  border: solid 2px var(--primary);
+  display: flex;
+  height: 3em;
+  padding: 0.3em;
+  width: 3em;
+}
+
+.navbar__more{
+  border: solid 1px var(--lightGrey);
+  border-radius: var(--border-radius);
+  gap: 1.5em;
+  padding: 2em;
+  box-shadow: var(--small-shadow);
+  width: 20em;
+}
+
+.navbar__more--invisible{
+  display: none !important;
+}
+
+.navbar__hamburgher--mobile{
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    display: none;
+    
+  }
+  .navbar__hamburgher {
+    display: block;
+    
+  }
+  .navbar__hamburgher--mobile{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .navbar {
+    display: none;
+  }
+  .navbar__hamburgher {
+    display: none;
+  }
+
+  .navbar__hamburgher--mobile{
+    display: block;
+    font-size: 12px;
+  }
+
+  .navbar__hamburgher--mobile img{
+    width: 1.5em;
+  }
+
+  .navbar__hamburgher--mobile .Logo img{
+    width: 8em;
+  }
+}

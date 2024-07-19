@@ -1,4 +1,4 @@
-import AdvsDetails from "../components/AdvDetails/AdvsDetails";
+import AdvsDetails from "../components/Organisms/AdvDetails/AdvsDetails";
 
 export default function AdvDetails() {
     return (

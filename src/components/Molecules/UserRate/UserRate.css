@@ -1,0 +1,17 @@
+@import url('../../../App.css');
+.rating{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border-top: solid 2px var(--lightGrey); */
+    padding-top: 0.5em;
+    width: fit-content;
+}
+
+.rating__stars{
+   display: flex;
+   gap: 0.2em;
+   justify-content: center;
+   align-items: center;
+}
+

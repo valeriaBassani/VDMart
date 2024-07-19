@@ -1,5 +1,5 @@
-import Submit from "../SubmitButton/Submit";
-import InputField from "../InputField/InputField";
+import Submit from "../Atoms/SubmitButton/Submit";
+import InputField from "../Atoms/InputField/InputField";
 
 type Props = {
     article: string,

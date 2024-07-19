@@ -1,0 +1,27 @@
+@import url('../../../App.css');
+.review{
+    background-color: white;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    padding: 0.5em;
+    width: 100%;
+}
+
+.review__text{
+    border: solid 2px var(--lightGrey);
+    border-style: dashed;
+    padding: 0.5em;
+    max-height: 5em;
+    width: 100%;
+    overflow: hidden;
+}
+
+.review__icon{
+    width: 5em;
+    height: 5em;
+    border-radius: 100%;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,5 +1,5 @@
-import Adv from "../components/AdvPreview/AdvPreview";
-import Footer from "../components/Footer/Footer";
+import Adv from "../components/Organisms/AdvPreview/AdvPreview";
+import Footer from "../components/Molecules/Footer/Footer";
 
 export default function Favourites() {
     return (

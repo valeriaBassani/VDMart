@@ -1,4 +1,4 @@
-import LogInForm from "../components/SignUpLogiInForm/LogInForm";
+import LogInForm from "../components/Organisms/SignUpLogiInForm/LogInForm";
 import './Pages.css';
 import '../App.css';
 

@@ -1,0 +1,62 @@
+input[type="file"]{
+    display: none;
+}
+.item{
+    width: 5em;
+    height: 5em;
+    background-color: white;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-image: url(plus.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    padding: 2em;
+}
+
+.item--loaded{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: relative;
+    width: 5em;
+    height: 5em;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    object-fit: contain;
+}
+
+.item--loaded img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.item--loaded__delete{
+    position: absolute;
+    bottom: 0.5em;
+    content: "";
+    background-image: url(delete.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 100%;
+    border: solid 1px var(--lightGrey);
+    padding: 0.3em;
+    background-origin: content-box;
+    background-color: white;
+}
+
+.item--loaded__delete:hover{
+    border: solid 1px var(--accentHover);
+}
+
+.item--next{
+    border: solid 1px var(--accent);
+    background-image: url(camera.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    padding: 1.8em;
+}

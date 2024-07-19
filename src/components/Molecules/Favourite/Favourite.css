@@ -1,0 +1,53 @@
+@import url('../../../App.css');
+.favourite{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: fit-content;
+}
+
+.favourite button{
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--placeholder);
+    font-weight: var(--font-weight-SemiBold);
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    fill: rgba(255, 255, 255, 0);
+    stroke: var(--placeholder);
+    padding: 0;
+}
+
+.favourite button:hover{
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.favourite label:hover{
+    cursor: pointer;
+}
+
+.favourite button:hover .feather-heart {
+    stroke: var(--accent);
+    cursor: pointer;
+}
+
+.favourite--active{
+    color: var(--accent) !important;
+}
+
+.favourite--active svg{
+    fill: var(--accent);
+    stroke: var(--accent);
+}
+
+.favourite--active label{
+    display: block;
+}
+
+@media screen and (max-width: 760px) {
+    .favourite--active label {
+      display: none;
+    }
+  }

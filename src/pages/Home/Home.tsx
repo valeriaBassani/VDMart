@@ -1,10 +1,10 @@
-import AdvPreview from "../../components/AdvPreview/AdvPreview";
-import CategoryFilter from "../../components/FiletrByCategory/FiletrByCategory";
-import PriceFilter from "../../components/FilterByPrice/FilterByPrice";
-import Shipping from "../../components/FilterByShipping/FilterByShipping";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import AdvPreview from "../../components/Organisms/AdvPreview/AdvPreview";
+import CategoryFilter from "../../components/Molecules/FiletrByCategory/FiletrByCategory";
+import PriceFilter from "../../components/Molecules/FilterByPrice/FilterByPrice";
+import Shipping from "../../components/Molecules/FilterByShipping/FilterByShipping";
+import SearchBar from "../../components/Molecules/SearchBar/SearchBar";
 import './Home.css';
-import OrderBy from "../../components/OrderBy/OrderBy";
+import OrderBy from "../../components/Molecules/OrderBy/OrderBy";
 
 export default function Home() {
     return (

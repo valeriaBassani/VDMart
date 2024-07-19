@@ -1,6 +1,6 @@
 import './Pages.css';
 import '../App.css';
-import RestoreForm from "../components/RestoreForm/Restore";
+import RestoreForm from "../components/Organisms/RestorePswForm/Restore";
 
 export default function Restore() {
     return (

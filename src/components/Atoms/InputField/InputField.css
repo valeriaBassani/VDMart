@@ -1,0 +1,45 @@
+input{
+    font-family: "Red Hat Display", sans-serif;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    padding-left: 0.7em;
+    height: 3em;
+}
+
+::placeholder {
+    color: var(--placeholder);
+    font-size: 0.8rem !important;
+    line-height: 0px ;
+}
+
+.field input:hover{
+    border: solid 2px var(--accentHover);
+}
+
+.field input:focus{
+    border: solid 2px var(--accentHover);
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+
+.field__label{
+    display: flex;
+}
+
+.field__suggestion{
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-light);
+    margin: 0;
+    color: grey;
+}
+
+.field__error{
+    margin: 0;
+    font-size: var(--font-size-p);
+    color: var(--errors);
+    font-weight: var(--font-weight-SemiBold);
+}

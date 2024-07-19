@@ -1,0 +1,6 @@
+@import url('../../../App.css');
+.Description{
+    border-top: solid 1px var(--lightGrey);
+    padding-top: 1em ;
+    max-width: 35em;
+}

@@ -6,7 +6,7 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/Molecules/NavBar/NavBar';
 import ErrorPage from "./pages/error-page";
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -16,9 +16,9 @@ import Favourites from './pages/Favourites';
 import Restore from './pages/RestorePsw';
 import Support from './pages/Support';
 import AdvDetails from './pages/AdvDetails';
-import Footer from './components/Footer/Footer';
-import BreadCrumbs from './components/Breadcrumbs/Breadcrumbs';
-import SupportLink from './components/SupportLink/SupportLink';
+import Footer from './components/Molecules/Footer/Footer';
+import BreadCrumbs from './components/Molecules/Breadcrumbs/Breadcrumbs';
+import SupportLink from './components/Atoms/SupportLink/SupportLink';
 import PrivateArea from './pages/PrivateArea';
 
 const Main = () => (
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/Vendi",
+        path: "/vendi",
         element: <Create />,
       },
       {

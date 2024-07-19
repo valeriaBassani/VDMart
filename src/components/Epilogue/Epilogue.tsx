@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Submit from "../SubmitButton/Submit";
+import Submit from "../Atoms/SubmitButton/Submit";
 import ipad from "./ipad.jpg"
-import UserRate from "../UserRate/UserRate";
+import UserRate from "../Molecules/UserRate/UserRate";
 type Props = {
     article: string,
 }

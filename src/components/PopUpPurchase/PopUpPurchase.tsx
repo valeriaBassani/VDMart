@@ -1,11 +1,10 @@
 import { useState } from "react";
 import Modal from "react-bootstrap/esm/Modal";
-import InputField from "../InputField/InputField";
-import Submit from "../SubmitButton/Submit";
+import InputField from "../Atoms/InputField/InputField";
+import Submit from "../Atoms/SubmitButton/Submit";
 import ipad from "./ipad.jpg"
-import Button from "../Buttons/Buttons";
-import UserRate from "../UserRate/UserRate";
-
+import Button from "../Atoms/Buttons/Buttons";
+import UserRate from "../Molecules/UserRate/UserRate";
 
 type Props = {
     title: string,

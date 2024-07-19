@@ -1,4 +1,4 @@
-import SignUpForm from "../components/SignUpLogiInForm/SignUpForm";
+import SignUpForm from "../components/Organisms/SignUpLogiInForm/SignUpForm";
 import './Pages.css';
 import '../App.css';
 

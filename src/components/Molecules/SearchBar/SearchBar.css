@@ -1,0 +1,50 @@
+@import url('../../../App.css');
+.search-bar{
+    align-items: center;
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: solid 1px var(--lightGrey);
+    display: flex;
+    height: fit-content;
+    margin-top: 0.5em;
+    max-width: 40em;
+}
+
+.search-bar input{
+    width: 100%;
+    border: none;
+}
+
+.search-bar .field{
+    width: 100%;
+    gap: 0em;
+}
+
+.search-bar__lens{
+    border-radius: 100%;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.6em;
+    height: 98%;
+    margin: 0.2em;
+    padding: 0.6em;
+}
+
+.search-bar__filter{
+    display: none;
+}
+
+.search-bar__more{
+    display: none;
+}
+@media screen and (max-width: 516px) {
+    .search-bar__filter{
+        display: block;
+    }
+
+    .search-bar__more--visible{
+        display: block;
+    }
+  }

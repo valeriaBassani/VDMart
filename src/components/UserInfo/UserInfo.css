@@ -1,4 +1,4 @@
-.IconProfile{
+.profile__icon{
     width: 5em;
     height: 5em;
     border-radius: 100%;
@@ -8,6 +8,14 @@
     align-items: center;
 }
 
-.Show{
+.profile--show{
     display: none;
+}
+
+.profie__active{
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    width: fit-content;
+    padding: 1.5px 1em 1.5px 1em;
+    color: var(--secondary);
 }

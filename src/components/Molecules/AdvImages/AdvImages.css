@@ -1,0 +1,43 @@
+@import url('../../../App.css');
+
+.carousel{
+    min-width: 20em;
+}
+
+.carousel__item{
+    align-items: center;
+    border-radius: var(--border-radius);
+    border: solid 1px var(--lightGrey);
+    display: flex;
+    padding: 0em;
+    position: relative;
+}
+
+.carousel__item img{
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    width: 100%;
+}
+
+.carousel__item button{
+    border: none;
+    padding: 0em;
+}
+
+.carousel__indicators{
+    display: flex;
+    justify-content: space-between;
+    padding: 0em 1em 0em 1em;
+    position: absolute;
+    width: 100%;
+}
+
+.carousel__indicators span{
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.44);
+    border-radius: var(--border-radius);
+    display: flex;
+    height: 3em;
+    justify-content: center;
+    width: 2.5em;
+}

@@ -1,0 +1,7 @@
+textarea{
+    font-family: "Red Hat Display", sans-serif;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    padding-left: 0.7em;
+    height: 10em;
+}

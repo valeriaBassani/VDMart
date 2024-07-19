@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SupportCategory from "../components/SupportCategories/SupportCategory";
+import SupportCategory from "../components/Molecules/SupportCategories/SupportCategory";
 import SupportForm from "../components/SupportForm/SupportForm";
 
 export default function Support() {

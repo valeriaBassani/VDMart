@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Submit from "../SubmitButton/Submit";
-import InputField from "../InputField/InputField";
-import TextArea from "../textArea/textArea";
+import Submit from "../Atoms/SubmitButton/Submit";
+import InputField from "../Atoms/InputField/InputField";
+import TextArea from "../Atoms/textArea/textArea";
 
 type Props = {
     category: string

@@ -1,0 +1,60 @@
+@import url('../../../App.css');
+
+.toggle{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.toggle input[type="checkbox"]{
+    appearance: none;
+    font-family: "Red Hat Display", sans-serif;
+    border: solid 2px var(--lightGrey);
+    border-radius: 100px;
+    opacity: 1;
+    cursor: pointer;
+    height: 2em;
+    width: 3.6em;
+    margin: 0px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.toggle input::after{
+    content: '';
+    height: 1.5em;
+    width: 1.5em;
+    background-color:var(--lightGrey);
+    border-radius: 100px;
+    position: absolute;
+    right: 1.7em;
+}
+
+.toggle input:hover{
+    border: solid 2px var(--accent);
+    transition: 0.2s;
+}
+
+.toggle--checked input{
+    border: solid 2px var(--accent);
+    background-color: var(--accent);
+    margin: 0px;
+}
+
+.toggle--checked::after{
+    content: '';
+    height: 1.5em;
+    width: 1.5em;
+    background-color:white;
+    border-radius: 100px;
+    position: absolute;
+    left: 1.7em;
+}
+
+.toggle label p{
+    margin: 0px;
+}

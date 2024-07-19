@@ -1,6 +1,6 @@
 import './Pages.css';
 import '../App.css';
-import CreateForm from "../components/CreateForm/CreateForm";
+import CreateForm from "../components/Organisms/CreateForm/CreateForm";
 
 export default function LogIn() {
     return (

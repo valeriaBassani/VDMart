@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Review from "../Review/Review";
+import Review from "../Molecules/Review/Review";
 import UserInfo from "../UserInfo/UserInfo";
 
 type Props = {

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import Icon from "../Icon"
+import Icon from "../Atoms/Icon"
 import edit from "./edit.svg"
 import logout from "./log-out.svg"
 import "./UserInfo.css"
-import InputField from "../InputField/InputField"
+import InputField from "../Atoms/InputField/InputField"
 import { useState } from "react"
-import Button from "../Buttons/Buttons"
+import Button from "../Atoms/Buttons/Buttons"
 
 type Props = {
     mail: string,
@@ -21,17 +21,17 @@ export default function UserInfo({ mail, isUser }: Props) {
         <>
             <div className="row ">
                 <div className="col-auto">
-                    <div className="IconProfile">
+                    <div className="profile__icon">
                         <h3>V</h3>
                     </div>
                 </div>
                 <div className="col">
-                    <div className={`row ${visible ? 'Show' : ''}`}>
+                    <div className={`row ${visible ? 'profile--show' : ''}`}>
                         <div className="col d-flex flex-column gap-2" >
-                            <p id="category">3 annunci attivi</p>
+                            <p className="profie__active">3 annunci attivi</p>
                             <h4>Valeria Bassani</h4>
                             <p>{mail}</p>
-                            <p>3475693160</p>
+                            <p>tel: 3475693160</p>
                             {isUser ? (
                                 <p>Via natale battaglia 8, Milano (MI), 24050</p>
                             ) : (
@@ -40,15 +40,15 @@ export default function UserInfo({ mail, isUser }: Props) {
                         </div>
                         {isUser ? (
                             <div className="col-auto d-flex align-items-start" >
-                                <Button className="Edit" onClick={handleClick}><Icon url={edit} margin="0.5em" />Modifica</Button>
-                                <Button className="Edit" onClick={handleClick}><Icon url={logout} margin="0.5em" />Esci</Button>
+                                <Button className="btn--edit" onClick={handleClick}><Icon url={edit} margin="0.5em" />Modifica</Button>
+                                <Button className="btn--edit" onClick={handleClick}><Icon url={logout} margin="0.5em" />Esci</Button>
                             </div>
                         ) : (
                             <></>
                         )}
 
                     </div>
-                    <div className={`row ${visible ? '' : 'Show'}`}>
+                    <div className={`row ${visible ? '' : 'profile--show'}`}>
                         <div className="col d-flex flex-column gap-2">
                             <p id="category">3 annunci attivi</p>
                             <h4>Valeria Bassani</h4>
@@ -74,8 +74,8 @@ export default function UserInfo({ mail, isUser }: Props) {
                         <div className="col d-flex align-items-start justify-content-end" >
                             <div className="row">
                                 <div className="col d-flex gap-2">
-                                    <button className="Confirm" onClick={handleClick}>Salva</button>
-                                    <button className="Edit" onClick={handleClick}>Annulla</button>
+                                    <button className="btn--confirm" onClick={handleClick}>Salva</button>
+                                    <button className="btn--edit" onClick={handleClick}>Annulla</button>
                                 </div>
                             </div>
                         </div>

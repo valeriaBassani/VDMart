@@ -1,0 +1,18 @@
+.footer{
+    background-color: var(--lightGrey);
+    bottom: 0;
+    position: relative;
+    width: 100vw;
+    justify-content: space-between;
+    height: fit-content;
+    padding: 3em;
+}
+@media screen and (max-width: 545px) {
+    .footer{
+      font-size: 12px;
+    }
+
+    .footer img{
+        width: 7em;
+    }
+}
