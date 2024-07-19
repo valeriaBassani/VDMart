@@ -2,11 +2,13 @@ import { useState } from 'react';
 import './CreateForm.css';
 import Categories from '../../Molecules/Categories/Categories';
 import Submit from '../../Atoms/SubmitButton/Submit';
-import PopUp from '../../PopUp/PopUp';
+import check from "./check-circle 1.svg"
 import InputField from '../../Atoms/InputField/InputField';
 import TextArea from '../../Atoms/textArea/textArea';
 import ImageUpload from '../../Molecules/ImageUpload/ImageUpload';
 import Toggle from '../../Atoms/Toggle/Toggle';
+import Dialog from '../../Molecules/PopUp/Dialog';
+import { Link } from 'react-router-dom';
 
 
 export default function CreateForm() {
@@ -60,6 +62,10 @@ export default function CreateForm() {
             5: false,
             [newCount]: true,
         });
+    }
+
+    const close = () => {
+        setShow(false)
     }
 
     return (
@@ -145,16 +151,25 @@ export default function CreateForm() {
                     </div>
                 </div >
             </form>
-            <div className="container">
-                {show && <PopUp
-                    type="success"
-                    title="Pubblica annuncio"
-                    label="Annuncio pubblicato con successo!"
-                    description="Il tuo articolo ora è in vendita sulla bacheca degli annunci. Vedi il tuoi annunci o torna alla home"
-                    assistance={true}
-                    primaryLink={{ to: "/area-riservata", label: "Area riservata", className: "Primary" }}
-                    secondaryLink={{ to: "/", label: "Home", className: "Secondary" }} />}
-            </div>
+            <Dialog title='Pubblica annuncio' show={show} onHide={close} >
+                <div className="row">
+                    <div className="col">
+                        <img src={check} alt="Icon" />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <label>Annuncio pubblicato con successo!</label>
+                        <p>Il tuo articolo ora è in vendita sulla bacheca degli annunci. <br></br> Vedi i tuoi annunci o torna alla home</p>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col d-flex gap-2 justify-content-center">
+                        <Link to={"/"} className="btn--secondary">Home</Link>
+                        <Link to={"/area-riservata"} className="btn--primary">Area riservata</Link>
+                    </div>
+                </div>
+            </Dialog>
         </>
     )
 

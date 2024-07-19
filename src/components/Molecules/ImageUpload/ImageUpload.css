@@ -60,3 +60,7 @@ input[type="file"]{
     background-origin: content-box;
     padding: 1.8em;
 }
+
+.item__preview img{
+    width: 100%;
+}

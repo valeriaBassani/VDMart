@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import PopUp from "../../PopUp/PopUp";
 import "./ImageUpload.css"
+import Dialog from "../PopUp/Dialog";
 
 type Props = {
     label?: string,
@@ -45,6 +46,10 @@ export default function ImageUpload({ label, upCount, isNext }: Props) {
         setShow(!show)
     }
 
+    const close = () => {
+        setShow(false)
+    }
+
     return (
         <>
             <div className="field">
@@ -70,16 +75,13 @@ export default function ImageUpload({ label, upCount, isNext }: Props) {
                     </>
                 )}
             </div >
-            <div className="container" style={{ position: 'absolute' }}>
-                {show && <PopUp
-                    type="success"
-                    title="Immagine"
-                    src={image}
-                    label="Annuncio pubblicato con successo!"
-                    description="Il tuo articolo ora è in vendita sulla bacheca degli annunci. Vedi il tuoi annunci o torna alla home"
-                    primaryLink={{ to: "/registrazione", label: "Area riservata", className: "Primary" }}
-                    secondaryLink={{ to: "/home", label: "Home", className: "Secondary" }} />}
-            </div>
+            <Dialog title='immagine caricata' show={show} onHide={close} >
+                <div className="row">
+                    <div className="col item__preview">
+                        <img src={image} alt="product" />
+                    </div>
+                </div>
+            </Dialog>
         </>
     )
 }
