@@ -42,12 +42,12 @@
     stroke: var(--accent);
 }
 
-.favourite--active label{
+.favourite label{
     display: block;
 }
 
 @media screen and (max-width: 760px) {
-    .favourite--active label {
+    .favourite label {
       display: none;
     }
   }
