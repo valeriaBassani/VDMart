@@ -15,15 +15,15 @@ export default function Home() {
                         <SearchBar />
                     </div>
                 </div>
-                <div className="row gap-3 py-4 my-4 Board">
-                    <div className="col-3 p-0 Filters" >
+                <div className="row gap-3 py-4 my-4 home__board">
+                    <div className="col-3 p-0 home__filters" >
                         <div className="col d-flex flex-column gap-3">
                             <CategoryFilter />
                             <PriceFilter />
                             <Shipping />
                         </div>
                     </div>
-                    <div className="col p-3 d-flex flex-column gap-3 Ads" >
+                    <div className="col p-3 d-flex flex-column gap-3 main" >
                         <div className="row">
                             <div className="col">
                                 <h4>Annunci</h4>

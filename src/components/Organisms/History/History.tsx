@@ -17,7 +17,7 @@ export default function History() {
                             <OrderBy />
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row gap-3">
                         <div className="col d-flex justify-content-center">
                             <AdvSmallPreview />
                         </div>

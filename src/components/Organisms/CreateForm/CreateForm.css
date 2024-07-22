@@ -1,20 +1,4 @@
-.create{
-    background-color: var(--section);
-    border: solid 1px var(--lightGrey);
-    border-radius: var(--border-radius);
-    width: 100%;
-    padding: 2em;
-}
 
-.create__section{
-   background-color: var(--background);
-    border: solid 1px var(--lightGrey);
-    border-radius: var(--border-radius);
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
 
 .create__shipping--invisible{
     display: none;

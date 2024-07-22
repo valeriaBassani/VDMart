@@ -1,25 +1,26 @@
 import Adv from "../components/Organisms/AdvPreview/AdvPreview";
-import Footer from "../components/Molecules/Footer/Footer";
 
 export default function Favourites() {
     return (
         <>
-            <div className="container-sm mb-5 p-4">
+            <div className="container-lg mt-3 mb-5">
                 <div className="row">
                     <div className="col d-flex flex-column gap-3">
                         <h4>Annunci preferiti</h4>
-                        <div className="row Ads">
-                            <div className="col">
-                                <div className="row py-2">
-                                    <div className="col d-flex justify-content-end">
-                                        <label>Tot: 3 preferiti</label>
+                        <div className="main">
+                            <div className="row">
+                                <div className="col d-flex flex-column gap-2">
+                                    <div className="row">
+                                        <div className="col d-flex justify-content-end">
+                                            <label>Tot: 3 preferiti</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col d-flex flex-column gap-3">
-                                        <Adv />
-                                        <Adv />
-                                        <Adv />
+                                    <div className="row">
+                                        <div className="col d-flex flex-column gap-3">
+                                            <Adv />
+                                            <Adv />
+                                            <Adv />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

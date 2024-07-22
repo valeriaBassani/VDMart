@@ -9,7 +9,7 @@ type Props = {
 export default function User({ mail }: Props) {
     return (
         <>
-            <div className="create my-3">
+            <div className="main my-3">
                 <div className="row">
                     <div className="col">
                         <UserInfo mail="valeria.bassani@gmail.com" isUser={true} />
@@ -21,23 +21,23 @@ export default function User({ mail }: Props) {
                             <div className="col">
                                 <div className="row gap-2">
                                     <h4>Recensioni da altri utenti</h4>
-                                    <div className="col d-flex gap-2 align-items-center">
+                                    <div className="col-auto d-flex gap-2 align-items-center">
                                         <p>Punteggio complessivo: </p><h3 style={{ color: "var(--primary)" }}>4.8</h3>
                                     </div>
-                                    <div className="col d-flex justify-content-end align-items-end">
+                                    <div className="col-auto d-flex justify-content-end align-items-end">
                                         <p>Tot: 7 recensioni</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-4 d-flex justify-content-center">
+                        <div className="row gap-3">
+                            <div className="col d-flex justify-content-center">
                                 <Review mail="bassannivaleria01@gmail.com" />
                             </div>
-                            <div className="col-4 d-flex justify-content-center">
+                            <div className="col d-flex justify-content-center">
                                 <Review mail="bassannivaleria01@gmail.com" />
                             </div>
-                            <div className="col-4 d-flex justify-content-center">
+                            <div className="col d-flex justify-content-center">
                                 <Review mail="bassannivaleria01@gmail.com" />
                             </div>
                         </div>

@@ -118,6 +118,10 @@ button{
         font-size: 12px;
     }
 
+    .btn--inactive{
+        font-size: 12px;
+    }
+
     .btn--reset{
         font-size: 12px;
     }
@@ -125,6 +129,11 @@ button{
     .btn--confirm{
         font-size: 12px;
     }
+    .btn--edit{
+        font-size: 12px;
+    }
+    
+
 }
 
 /* .Edit{

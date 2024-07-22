@@ -1,25 +1,19 @@
 
 @import url('../../App.css');
-.Filters{
+.home__filters{
     display: block;
 }
 
 @media screen and (max-width: 516px) {
-    .Filters{
+    .home__filters{
         display: none;
     }
   }
 
 
-.Board{
+.home__board{
     border-top: solid 1px var(--lightGrey);
     flex-wrap: nowrap;
 }
 
-.Ads{
-    border: solid 1px var(--lightGrey);
-    border-radius: var(--border-radius);
-    background-color: var(--section);
-    padding-bottom: 1em;
-}
 

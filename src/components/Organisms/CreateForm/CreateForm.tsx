@@ -71,10 +71,10 @@ export default function CreateForm() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div className="container-lg create">
+                <div className="main">
                     <div className="row gap-3">
-                        <div className="col create__section">
-                            <div className="Form">
+                        <div className="col main__section">
+                            <div className="form">
                                 <InputField label="Titolo" type="text" name="title" placeholder="Titolo" required={true} ></InputField>
                                 <div className="row align-items-center">
                                     <div className="col">
@@ -112,7 +112,7 @@ export default function CreateForm() {
                                 <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." required={true}></InputField>
                             </div>
                         </div>
-                        <div className="col justify-content-between create__section">
+                        <div className="col justify-content-between main__section">
                             <div className="row form align-items-center">
                                 <div className="row">
                                     <div className="col ">

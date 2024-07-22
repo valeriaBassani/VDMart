@@ -7,12 +7,12 @@ export default function Review({ mail }: Props) {
     return (
         <>
             <div className="row review">
-                <div className="col-3">
+                <div className="col-auto">
                     <div className="review__icon">
-                        <h3>V</h3>
+                        <p>V</p>
                     </div>
                 </div>
-                <div className="col-9 d-flex flex-column align-items-start gap-2">
+                <div className="col d-flex flex-column align-items-start gap-2 py-2">
                     <h4>Valeria Bassani</h4>
                     <div className="Stars">
                         <Star fill="#880D1E" />

@@ -20,7 +20,7 @@ export default function AdvDetails({ article, details }: Props) {
         <>
             <div className="container-lg mb-5">
                 <h4>Dettagli annuncio</h4>
-                <div className="Section mt-2 p-4">
+                <div className="main__section mt-2 p-4">
                     <div className="row">
                         <div className="col">
                             <AdvImages />

@@ -26,7 +26,7 @@ export default function UserInfo({ mail, isUser }: Props) {
                     </div>
                 </div>
                 <div className="col">
-                    <div className={`row ${visible ? 'profile--show' : ''}`}>
+                    <div className={`row gap-3 ${visible ? 'profile--show' : ''}`}>
                         <div className="col d-flex flex-column gap-2" >
                             <p className="profie__active">3 annunci attivi</p>
                             <h4>Valeria Bassani</h4>

@@ -107,12 +107,30 @@ label{
     color: var(--placeholder);
 }
 
+.main{
+    background-color: var(--section);
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    width: 100%;
+    padding: 2em;
+}
+
+.main__section{
+    border-radius: var(--border-radius);
+    border: solid 1px var(--lightGrey);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    background-color: var(--background);
+ }
+
 @media screen and (max-width: 516px) {
     h2{
         font-size: 2rem;
         overflow: hidden;
         text-overflow: ellipsis;
-    
+
     }
     
     h3{
@@ -120,7 +138,6 @@ label{
         font-weight: bold;
         overflow: hidden;
         text-overflow: ellipsis;
-    
     }
     
     h4{
@@ -135,7 +152,6 @@ label{
         font-weight: 400;
         overflow: hidden;
         text-overflow: ellipsis;
-    
     }
     
     p{
@@ -143,7 +159,6 @@ label{
         font-size: 12px;
         overflow: hidden;
         text-overflow: ellipsis;
-    
     }
     
     .link{
@@ -152,7 +167,6 @@ label{
         font-weight: var(--font-weight-SemiBold);
         overflow: hidden;
         text-overflow: ellipsis;
-    
     }
     
     label{
