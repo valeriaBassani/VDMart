@@ -24,8 +24,8 @@ export default function OrderBy() {
                     <div className="orderby">
                         <button className="orderby__item" onClick={handleClick}>{value} <Icon url={visible ? up : down}></Icon></button>
                         <div className={visible ? 'orderby__selector--down' : 'orderby__selector--up'}>
-                            <button className="orderBy__item" value="Dal più recente" onClick={chooseValue}><p>Dal più recente</p> </button>
-                            <button className="orderBy__item" value="Dal meno recente" onClick={chooseValue}><p>Dal meno recente</p> </button>
+                            <button className="orderby__item" value="Dal più recente" onClick={chooseValue}><p>Dal più recente</p> </button>
+                            <button className="orderby__item" value="Dal meno recente" onClick={chooseValue}><p>Dal meno recente</p> </button>
                         </div>
                     </div>
                 </div>

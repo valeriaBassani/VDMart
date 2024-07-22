@@ -112,10 +112,10 @@ export default function CreateForm() {
                                 <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." required={true}></InputField>
                             </div>
                         </div>
-                        <div className="col justify-content-between Section">
+                        <div className="col justify-content-between create__section">
                             <div className="row form align-items-center">
                                 <div className="row">
-                                    <div className="col">
+                                    <div className="col ">
                                         <label>Immagini*</label>
                                         <p className='field__suggestion'>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
                                         <div className="row text-end">

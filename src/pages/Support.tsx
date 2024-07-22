@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SupportCategory from "../components/Molecules/SupportCategories/SupportCategory";
-import SupportForm from "../components/SupportForm/SupportForm";
+import SupportForm from "../components/Molecules/SupportForm/SupportForm";
 
 export default function Support() {
     const [selected, setSelected] = useState("Registrazione e accesso");
@@ -14,7 +14,7 @@ export default function Support() {
                 <div className="row">
                     <div className="col d-flex flex-column gap-3" >
                         <h2>Contattaci!</h2>
-                        <div className="container-lg Create" style={{ backgroundColor: "white" }}>
+                        <div className="container-lg create" style={{ backgroundColor: "white" }}>
                             <h4>Per cosa possiamo aiutarti?</h4>
                             <div className="row gap-3 mt-3">
                                 <div className="col d-flex flex-wrap">

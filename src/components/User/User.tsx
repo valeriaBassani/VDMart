@@ -7,10 +7,9 @@ type Props = {
 }
 
 export default function User({ mail }: Props) {
-
     return (
         <>
-            <div className="Create mt-3">
+            <div className="create my-3">
                 <div className="row">
                     <div className="col">
                         <UserInfo mail="valeria.bassani@gmail.com" isUser={true} />

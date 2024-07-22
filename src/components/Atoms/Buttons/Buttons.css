@@ -43,6 +43,27 @@ button{
     text-decoration: underline;
 }
 
+.btn--inactive{
+    background-color: rgba(255, 255, 255, 0);
+    border: solid 1px var(--lightGrey);
+    align-items: center;
+    border-radius: var(--border-radius);
+    color: black;
+    cursor: pointer;
+    display: flex;
+    font-size: var(--font-size-p);
+    height: 3em;
+    justify-content: center;
+    min-width: fit-content;
+    padding: 0em 3em 0em 3em;
+    text-decoration: none;
+}
+
+.btn--inactive:hover{
+    border:solid 2px var(--primary);
+    text-decoration: underline;
+}
+
 .btn--edit{
     align-items: center;
     background-color: rgba(255, 255, 255, 0);

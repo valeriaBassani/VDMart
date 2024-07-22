@@ -7,6 +7,13 @@
     background-color: white;
     padding: 1em;
 }
+.adv:hover{
+    border: solid 1px var(--primary);    
+    cursor: pointer;
+}
+.adv:hover h4{
+    text-decoration: underline;
+}
 .adv__info{
     flex-wrap: nowrap;
 }
