@@ -7,7 +7,7 @@ import InputField from '../../Atoms/InputField/InputField';
 import TextArea from '../../Atoms/textArea/textArea';
 import ImageUpload from '../../Molecules/ImageUpload/ImageUpload';
 import Toggle from '../../Atoms/Toggle/Toggle';
-import Dialog from '../../Molecules/DialogPopUp/Dialog';
+import Dialog from '../../Template/DialogPopUp/Dialog';
 import { Link } from 'react-router-dom';
 
 

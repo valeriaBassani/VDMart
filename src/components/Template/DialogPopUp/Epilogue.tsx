@@ -1,5 +1,5 @@
 import { Modal } from "react-bootstrap";
-import UserRate from "../UserRate/UserRate";
+import UserRate from "../../Molecules/UserRate/UserRate";
 import Button from "../../Atoms/Buttons/Buttons";
 import ipad from "./ipad.jpg"
 import "./DialogPopUp.css"

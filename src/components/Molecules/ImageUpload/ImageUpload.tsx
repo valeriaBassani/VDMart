@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import "./ImageUpload.css"
-import Dialog from "../DialogPopUp/Dialog";
+import Dialog from "../../Template/DialogPopUp/Dialog";
 
 type Props = {
     label?: string,

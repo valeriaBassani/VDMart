@@ -5,7 +5,7 @@ import InputField from "../../Atoms/InputField/InputField"
 import Toggle from "../../Atoms/Toggle/Toggle"
 import TextArea from "../../Atoms/textArea/textArea"
 import { useNavigate } from "react-router-dom"
-import { DeleteAdv } from "../DeleteAdv/DeleteAdv"
+import { DeleteAdv } from "../../Molecules/DeleteAdv/DeleteAdv"
 import EditAdvImages from "../../Molecules/EditAdvImages/EditAdvImages"
 
 type Props = {

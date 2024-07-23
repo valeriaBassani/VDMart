@@ -2,7 +2,7 @@ import AdvImages from "../../Molecules/AdvImages/AdvImages"
 import "./ActiveAdv.css"
 import Button from "../../Atoms/Buttons/Buttons"
 import { useNavigate } from "react-router-dom"
-import { DeleteAdv } from "../DeleteAdv/DeleteAdv"
+import { DeleteAdv } from "../../Molecules/DeleteAdv/DeleteAdv"
 
 type Props = {
     article?: string,

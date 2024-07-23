@@ -1,7 +1,7 @@
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import TextArea from "../../Atoms/textArea/textArea";
-import Dialog from "../DialogPopUp/Dialog";
+import Dialog from "../../Template/DialogPopUp/Dialog";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import check from "./check-circle 1.svg"

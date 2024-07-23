@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Button from "../../Atoms/Buttons/Buttons"
-import Dialog from "../../Molecules/DialogPopUp/Dialog";
+import Dialog from "../../Template/DialogPopUp/Dialog";
 import help from "./help-circle.svg"
 import check from "./check-circle 1.svg"
 import { Link } from "react-router-dom";
 
 type Props = {
-    mail: string
+    article: string
 }
 
-export function DeleteAccount({ mail }: Props) {
+export function DeleteAdv({ article }: Props) {
 
     const [show, setShow] = useState(false)
     const showDialog = () => {
@@ -28,10 +28,9 @@ export function DeleteAccount({ mail }: Props) {
     }
     return (
         <>
+            <Button className="btn--delete" onClick={showDialog}>Elimina annuncio</Button>
 
-            <Button className="btn--edit" onClick={showDialog}>Elimina account</Button>
-
-            {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina account" >
+            {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
                 <div className="row">
                     <div className="col">
                         <img src={help} alt="Icon" />
@@ -41,14 +40,14 @@ export function DeleteAccount({ mail }: Props) {
                     <div className="col d-flex flex-column gap-3 main p-3">
                         <div className="row">
                             <div className="col">
-                                <label>Eliminare il tuo profilo utente? </label>
-                                <p>L’azione è irreversibile e perderai tutte le informazioni associate al tuo account</p>
+                                <label>Rimuovere questo annuncio? </label>
+                                <p>L'annuncio non sarà più visibile agli altri utenti e perderai le informazioni sul tuo articolo</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
                                 <Button className="btn--delete" onClick={switchModals}>Elimina</Button>
-                                <Link to={"/area-riservata"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
+                                <Link to={"/dettagli-annuncio-attivo"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
                             </div>
                         </div>
                     </div>
@@ -56,7 +55,7 @@ export function DeleteAccount({ mail }: Props) {
             </Dialog >}
 
             {
-                currentModal === 'secondo' && <Dialog show={show} onHide={close} title="Elimina account" >
+                currentModal === 'secondo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
                     <div className="row">
                         <div className="col">
                             <img src={check} alt="Icon" />
@@ -66,13 +65,13 @@ export function DeleteAccount({ mail }: Props) {
                         <div className="col d-flex flex-column gap-3 main p-3">
                             <div className="row">
                                 <div className="col">
-                                    <label>Account eliminato correttamente.</label>
-                                    <p>Potrai registrarti di nuovo con la tua mail o con una nuova mail</p>
+                                    <label>Annuncio eliminato correttamente. </label>
+                                    <p>Non sarà più visibile dagli altri utenti nella bacheca degli annunci</p>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col d-flex gap-2 justify-content-center">
-                                    <Link to={"/"} className="btn--primary">Home</Link>
+                                    <Link to={"/area-riservata"} className="btn--primary">Torna all'area riservata</Link>
                                 </div>
                             </div>
                         </div>

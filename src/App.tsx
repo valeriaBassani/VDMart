@@ -6,7 +6,7 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import NavBar from './components/Molecules/NavBar/NavBar';
+import NavBar from './components/Organisms/NavBar/NavBar';
 import ErrorPage from "./pages/error-page";
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -16,7 +16,7 @@ import Favourites from './pages/Favourites';
 import Restore from './pages/RestorePsw';
 import Support from './pages/Support';
 import AdvDetails from './pages/AdvDetails';
-import Footer from './components/Molecules/Footer/Footer';
+import Footer from './components/Organisms/Footer/Footer';
 import BreadCrumbs from './components/Molecules/Breadcrumbs/Breadcrumbs';
 import SupportLink from './components/Atoms/SupportLink/SupportLink';
 import PrivateArea from './pages/PrivateArea';

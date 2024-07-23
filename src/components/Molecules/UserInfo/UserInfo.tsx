@@ -6,7 +6,7 @@ import InputField from "../../Atoms/InputField/InputField"
 import { useState } from "react"
 import Button from "../../Atoms/Buttons/Buttons"
 import { DeleteAccount } from "../DeleteAccount/DeleteAccount"
-import Dialog from "../../Molecules/DialogPopUp/Dialog"
+import Dialog from "../../Template/DialogPopUp/Dialog"
 import { Link } from "react-router-dom"
 import help from "./help-circle.svg"
 
