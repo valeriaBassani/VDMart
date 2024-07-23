@@ -20,6 +20,8 @@ import Footer from './components/Molecules/Footer/Footer';
 import BreadCrumbs from './components/Molecules/Breadcrumbs/Breadcrumbs';
 import SupportLink from './components/Atoms/SupportLink/SupportLink';
 import PrivateArea from './pages/PrivateArea';
+import EditActiveAdv from './pages/EditActiveAdv';
+import ActiveAdvDetails from './pages/ActiveAdvDetails';
 
 const Main = () => (
   <>
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
       {
         path: "/area-riservata",
         element: <PrivateArea />,
+      },
+      {
+        path: "/modifica-annuncio-attivo",
+        element: <EditActiveAdv />,
+      },
+      {
+        path: "/dettagli-annuncio-attivo",
+        element: <ActiveAdvDetails />,
       },
     ]
     // children: [ se voglio che il link venga aperto nella stessa pagina, ma, per esempio, in una sezione diversa

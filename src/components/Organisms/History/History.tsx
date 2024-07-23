@@ -19,10 +19,10 @@ export default function History() {
                     </div>
                     <div className="row gap-3">
                         <div className="col d-flex justify-content-center">
-                            <AdvSmallPreview />
+                            <AdvSmallPreview type="active" />
                         </div>
                         <div className="col  d-flex justify-content-center">
-                            <AdvSmallPreview />
+                            <AdvSmallPreview type="active" />
                         </div>
                     </div>
                 </div>

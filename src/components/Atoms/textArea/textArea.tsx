@@ -4,13 +4,14 @@ import "./textArea.css"
 type Props = {
     label?: string,
     name: string,
+    value?: string,
     maxLength: number,
     required?: boolean,
 }
-export default function TextArea({ label, name, maxLength, required }: Props) {
+export default function TextArea({ label, name, maxLength, value, required }: Props) {
 
     const [count, setCount] = useState(0);
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState(value);
 
     const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
         const newValue = e.target.value;
