@@ -91,16 +91,20 @@ export default function AdvDetails({ article, details }: Props) {
                         <img src={check} alt="Icon" />
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col">
-                        <label>Acquisto completato!</label>
-                        <p>L’acquisto del tuo articolo è andato a buon fine. <br></br> Rivedi i dettagli dalla tua area riservata o vedi altri annunci</p>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col d-flex gap-2 justify-content-center">
-                        <Link to={"/"} className="btn--secondary">Home</Link>
-                        <Link to={"/area-riservata"} className="btn--primary">Area riservata</Link>
+                <div className="row px-5 mx-5">
+                    <div className="col d-flex flex-column gap-3 main p-3">
+                        <div className="row">
+                            <div className="col">
+                                <label>Acquisto completato!</label>
+                                <p>L’acquisto del tuo articolo è andato a buon fine. <br></br> Rivedi i dettagli dalla tua area riservata o vedi altri annunci</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col d-flex gap-2 justify-content-center">
+                                <Link to={"/"} className="btn--secondary">Home</Link>
+                                <Link to={"/area-riservata"} className="btn--primary">Area riservata</Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Dialog>}

@@ -1,7 +1,4 @@
 import { Modal } from "react-bootstrap";
-import UserRate from "../UserRate/UserRate";
-import Button from "../../Atoms/Buttons/Buttons";
-import ipad from "./ipad.jpg"
 import InputField from "../../Atoms/InputField/InputField";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import "./DialogPopUp.css"

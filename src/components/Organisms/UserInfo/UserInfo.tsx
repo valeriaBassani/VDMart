@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import Icon from "../../Atoms/Icon"
 import edit from "./edit.svg"
 import logout from "./log-out.svg"
@@ -6,6 +5,10 @@ import "./UserInfo.css"
 import InputField from "../../Atoms/InputField/InputField"
 import { useState } from "react"
 import Button from "../../Atoms/Buttons/Buttons"
+import { DeleteAccount } from "../DeleteAccount/DeleteAccount"
+import Dialog from "../../Molecules/DialogPopUp/Dialog"
+import { Link } from "react-router-dom"
+import help from "./help-circle.svg"
 
 type Props = {
     mail: string,
@@ -17,6 +20,11 @@ export default function UserInfo({ mail, isUser }: Props) {
     const handleClick = () => {
         setVisible(!visible)
     }
+    const [show, setShow] = useState(false)
+    const showDialog = () => {
+        setShow(!show)
+    }
+
     return (
         <>
             <div className="row ">
@@ -41,7 +49,7 @@ export default function UserInfo({ mail, isUser }: Props) {
                         {isUser ? (
                             <div className="col-auto d-flex align-items-start" >
                                 <Button className="btn--edit" onClick={handleClick}><Icon url={edit} margin="0.5em" />Modifica</Button>
-                                <Button className="btn--edit" onClick={handleClick}><Icon url={logout} margin="0.5em" />Esci</Button>
+                                <Button className="btn--edit" onClick={showDialog}><Icon url={logout} margin="0.5em" />Esci</Button>
                             </div>
                         ) : (
                             <></>
@@ -70,6 +78,7 @@ export default function UserInfo({ mail, isUser }: Props) {
                                 </div>
                             </div>
                             <InputField label="Telefono" type="tel" name="phone" placeholder="Tel." required={true}></InputField>
+                            <DeleteAccount mail="user" />
                         </div>
                         <div className="col d-flex align-items-start justify-content-end" >
                             <div className="row">
@@ -82,6 +91,29 @@ export default function UserInfo({ mail, isUser }: Props) {
                     </div>
                 </div>
             </div>
+            <Dialog show={show} onHide={showDialog} title="Elimina account" >
+                <div className="row">
+                    <div className="col">
+                        <img src={help} alt="Icon" />
+                    </div>
+                </div>
+                <div className="row px-5 mx-5">
+                    <div className="col d-flex flex-column gap-3 main p-3">
+                        <div className="row">
+                            <div className="col">
+                                <label>Uscire dal tuo profilo?  </label>
+                                <p>Potrai sempre accedere di nuovo e avere accesso alle tue informazioni</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col d-flex gap-2 justify-content-center">
+                                <Link to={"/"} className="btn--primary">Esci</Link>
+                                <Link to={"/area-riservata"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Dialog >
         </>
     )
 }
