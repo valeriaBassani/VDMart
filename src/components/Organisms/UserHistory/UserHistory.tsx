@@ -23,9 +23,11 @@ export default function UserHistory() {
                             <OrderBy />
                         </div>
                     </div>
-                    {active === 0 ? (<><ActiveAds user="valeria" /></>) : (<></>)}
-                    {active === 1 ? (<><PurchasedAds user="valeria" /></>) : (<></>)}
-                    {active === 2 ? (<><SoldAds user="valeria" /></>) : (<></>)}
+                    <div className="main p-3">
+                        {active === 0 ? (<><ActiveAds user="valeria" /></>) : (<></>)}
+                        {active === 1 ? (<><PurchasedAds user="valeria" /></>) : (<></>)}
+                        {active === 2 ? (<><SoldAds user="valeria" /></>) : (<></>)}
+                    </div>
                 </div>
             </div >
         </>

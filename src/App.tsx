@@ -23,6 +23,7 @@ import PrivateArea from './pages/PrivateArea';
 import EditActiveAdv from './pages/EditActiveAdv';
 import ActiveAdvDetails from './pages/ActiveAdvDetails';
 import OtherUser from './pages/OtherUser';
+import AllReview from './pages/AllReview';
 
 const Main = () => (
   <>
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: "/profilo-utente",
         element: <OtherUser />,
+      },
+      {
+        path: "/tutte-le-recensioni",
+        element: <AllReview />,
       },
     ]
     // children: [ se voglio che il link venga aperto nella stessa pagina, ma, per esempio, in una sezione diversa

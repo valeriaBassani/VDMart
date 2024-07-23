@@ -36,15 +36,15 @@ export default function AdvSmallPreview({ type }: Props) {
                 </div>
                 <div className="col">
                     <div className="row">
-                        <div className="col d-flex justify-content-center ">
-                            <div className="col d-flex flex-column justify-content-center">
+                        <div className="col d-flex justify-content-center">
+                            <div className="col d-flex flex-column justify-content-center gap-2">
                                 <div className="d-flex justify-content-between align-items-start">
                                     <div>
                                         <h5 className="adv__category">Tecnologia</h5>
                                         <p className="adv__date">07/10/2023</p>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="col d-flex flex-column gap-1">
                                     <h4>Ipad terza generazione nuovo</h4>
                                     <h3 className="adv__price">145,00€</h3>
                                     <p className="adv__shipping">Spedizione disponibile</p>
