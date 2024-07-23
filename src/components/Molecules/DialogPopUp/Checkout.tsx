@@ -51,7 +51,7 @@ export default function Checkout({ article, show, onSwitch, onHide }: Props) {
                                 </div>
                                 <div className="main">
                                     <h4>Spedizione</h4>
-                                    <InputField type={"text"} name={"address"} placeholder={"via natale battaglia, 8"} />
+                                    <InputField type={"text"} name={"address"} value="via natale battaglia, 8" placeholder="indirizzo" />
                                     <div className="row">
                                         <div className="col">
                                             <InputField label="Numero carta" type="number" name="card" placeholder="XXXX-XXXX-XXXX-XXXX" required={true}></InputField>

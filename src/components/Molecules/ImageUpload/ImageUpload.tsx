@@ -1,5 +1,4 @@
 import { useRef, useState } from "react"
-import PopUp from "../../PopUp/PopUp";
 import "./ImageUpload.css"
 import Dialog from "../DialogPopUp/Dialog";
 

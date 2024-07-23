@@ -6,6 +6,7 @@ import Toggle from "../../Atoms/Toggle/Toggle"
 import TextArea from "../../Atoms/textArea/textArea"
 import { useNavigate } from "react-router-dom"
 import { DeleteAdv } from "../DeleteAdv/DeleteAdv"
+import EditAdvImages from "../../Molecules/EditAdvImages/EditAdvImages"
 
 type Props = {
     article?: string,
@@ -27,7 +28,7 @@ export default function EditActive({ article, details }: Props) {
                 <div className="main__section mt-2 p-4">
                     <div className="row">
                         <div className="col">
-                            <AdvImages />
+                            <EditAdvImages />
                         </div>
                         <div className="col d-flex flex-column gap-5 mt-5">
                             <div className="row gap-2">

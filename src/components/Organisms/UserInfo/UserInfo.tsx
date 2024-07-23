@@ -54,7 +54,6 @@ export default function UserInfo({ mail, isUser }: Props) {
                         ) : (
                             <></>
                         )}
-
                     </div>
                     <div className={`row ${visible ? '' : 'profile--show'}`}>
                         <div className="col d-flex flex-column gap-2">
@@ -63,21 +62,21 @@ export default function UserInfo({ mail, isUser }: Props) {
                             <p>{mail}</p>
                             <div className="row">
                                 <div className="col">
-                                    <InputField label="Indirizzo" type="text" name="street" placeholder="Via" required={true}></InputField>
+                                    <InputField label="Indirizzo" value="Via natale battaglia" type="text" name="street" placeholder="Via" required={true}></InputField>
                                 </div>
                                 <div className="col-4">
-                                    <InputField label="N." type="number" name="number" placeholder="N." required={true}></InputField>
+                                    <InputField label="N." type="number" value="8" name="number" placeholder="N." required={true}></InputField>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <InputField label="Città" type="text" name="city" placeholder="Città" required={true}></InputField>
+                                    <InputField label="Città" value="Milano" type="text" name="city" placeholder="Città" required={true}></InputField>
                                 </div>
                                 <div className="col-4">
-                                    <InputField label="Pv" type="text" name="provincia" placeholder="Pv" required={true}></InputField>
+                                    <InputField label="Pv" value="MI" type="text" name="provincia" placeholder="Pv" required={true}></InputField>
                                 </div>
                             </div>
-                            <InputField label="Telefono" type="tel" name="phone" placeholder="Tel." required={true}></InputField>
+                            <InputField label="Telefono" type="tel" value="3475693160" name="phone" placeholder="Tel." required={true}></InputField>
                             <DeleteAccount mail="user" />
                         </div>
                         <div className="col d-flex align-items-start justify-content-end" >
