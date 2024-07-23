@@ -4,9 +4,8 @@ import Button from "../../Atoms/Buttons/Buttons"
 import InputField from "../../Atoms/InputField/InputField"
 import Toggle from "../../Atoms/Toggle/Toggle"
 import TextArea from "../../Atoms/textArea/textArea"
-import { Link, useNavigate } from "react-router-dom"
-import Dialog from "../../Molecules/PopUp/Dialog"
-import help from "./help-circle.svg"
+import { useNavigate } from "react-router-dom"
+import { DeleteAdv } from "../DeleteAdv/DeleteAdv"
 
 type Props = {
     article?: string,
@@ -15,11 +14,6 @@ type Props = {
 
 export default function EditActive({ article, details }: Props) {
     const [checked, setIsChecked] = useState(false);
-    const [show, setShow] = useState(false)
-    const showDialog = () => {
-        setShow(!show)
-    }
-
     const navigate = useNavigate();
 
     const handleSave = () => {
@@ -85,31 +79,12 @@ export default function EditActive({ article, details }: Props) {
                     </div>
                     <div className="row">
                         <div className="col d-flex gap-2 justify-content-end">
-                            <Button className="btn--delete" onClick={showDialog}>Elimina annuncio</Button>
+                            <DeleteAdv article="bici" />
                             <Button className="btn--secondary" onClick={handleSave}>Salva modifiche</Button>
                         </div>
                     </div>
                 </div>
             </div >
-            <Dialog title="Elimina annuncio" show={show} onHide={showDialog} >
-                <div className="row">
-                    <div className="col">
-                        <img src={help} alt="Icon" />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <label>Rimuovere questo annuncio? </label>
-                        <p>L'annuncio non sarà più visibile agli altri utenti e perderai le informazioni sul tuo articolo</p>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col d-flex gap-2 justify-content-center">
-                        <Link to={"/"} className="btn--delete">Elimina</Link>
-                        <Link to={"/dettagli-annuncio-attivo"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
-                    </div>
-                </div>
-            </Dialog>
         </>
     )
 }

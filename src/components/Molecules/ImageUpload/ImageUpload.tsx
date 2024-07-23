@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import PopUp from "../../PopUp/PopUp";
 import "./ImageUpload.css"
-import Dialog from "../PopUp/Dialog";
+import Dialog from "../DialogPopUp/Dialog";
 
 type Props = {
     label?: string,

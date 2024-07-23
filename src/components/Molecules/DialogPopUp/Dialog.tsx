@@ -1,13 +1,15 @@
 import { Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./DialogPopUp.css"
 
 type Props = {
     title: string,
     show: boolean,
+    onSwitch?: (modale: string) => void;
     children?: React.ReactNode;
     onHide: () => void;
 }
-export default function Dialog({ title, show, children, onHide }: Props) {
+export default function Dialog({ title, show, children, onSwitch, onHide }: Props) {
     return (
         <div className="container" style={{ position: "absolute" }}>
             <Modal
@@ -23,8 +25,8 @@ export default function Dialog({ title, show, children, onHide }: Props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="row text-center py-4">
-                        <div className="col d-flex flex-column gap-4">
+                    <div className="row text-center py-4 pop-up">
+                        <div className="col d-flex flex-column gap-4 justify-content-center">
                             {children}
                         </div>
                     </div>

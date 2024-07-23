@@ -1,10 +1,8 @@
 import AdvImages from "../../Molecules/AdvImages/AdvImages"
 import "./ActiveAdv.css"
 import Button from "../../Atoms/Buttons/Buttons"
-import { Link, useNavigate } from "react-router-dom"
-import Dialog from "../../Molecules/PopUp/Dialog"
-import help from "./help-circle.svg"
-import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { DeleteAdv } from "../DeleteAdv/DeleteAdv"
 
 type Props = {
     article?: string,
@@ -12,13 +10,7 @@ type Props = {
 
 export default function ActiveAdv({ article }: Props) {
 
-    const [show, setShow] = useState(false)
-    const showDialog = () => {
-        setShow(!show)
-    }
-
     const navigate = useNavigate();
-
     const handleClick = () => {
         navigate('/modifica-annuncio-attivo');
     }
@@ -54,7 +46,7 @@ export default function ActiveAdv({ article }: Props) {
                             <div className="row">
                                 <div className="col d-flex gap-2 ">
                                     <Button className="btn--primary" onClick={handleClick} wide={true}>Modifica annuncio</Button>
-                                    <Button className="btn--delete" onClick={showDialog}>Elimina annuncio</Button>
+                                    <DeleteAdv article="bici" />
                                 </div>
                             </div>
                         </div>
@@ -67,25 +59,6 @@ export default function ActiveAdv({ article }: Props) {
                     </div>
                 </div>
             </div>
-            <Dialog title="Elimina annuncio" show={show} onHide={showDialog} >
-                <div className="row">
-                    <div className="col">
-                        <img src={help} alt="Icon" />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <label>Rimuovere questo annuncio? </label>
-                        <p>L'annuncio non sarà più visibile agli altri utenti e perderai le informazioni sul tuo articolo</p>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col d-flex gap-2 justify-content-center">
-                        <Link to={"/"} className="btn--delete" >Elimina</Link>
-                        <Link to={"/dettagli-annuncio-attivo"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
-                    </div>
-                </div>
-            </Dialog>
         </>
     )
 

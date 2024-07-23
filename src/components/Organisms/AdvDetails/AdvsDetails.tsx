@@ -1,10 +1,14 @@
 import { useState } from "react"
 import AdvImages from "../../Molecules/AdvImages/AdvImages"
 import Favourite from "../../Molecules/Favourite/Favourite"
-import PopUpPurchase from "../../PopUpPurchase/PopUpPurchase"
 import "./AdvsDetails.css"
 import Button from "../../Atoms/Buttons/Buttons"
 import UserRate from "../../Molecules/UserRate/UserRate"
+import Epilogue from "../../Molecules/DialogPopUp/Epilogue"
+import Checkout from "../../Molecules/DialogPopUp/Checkout"
+import Dialog from "../../Molecules/DialogPopUp/Dialog"
+import { Link } from "react-router-dom"
+import check from "./check-circle 1.svg"
 
 type Props = {
     article?: string,
@@ -12,10 +16,19 @@ type Props = {
 }
 
 export default function AdvDetails({ article, details }: Props) {
+
+    const [currentModal, setCurrentModal] = useState("primo");
+
+    const switchModals = (modale: string) => {
+        setCurrentModal(modale);
+    };
+
     const [show, setShow] = useState(false)
     const showEpilogue = () => {
+        setCurrentModal("primo");
         setShow(!show)
     }
+
     return (
         <>
             <div className="container-lg mb-5">
@@ -54,7 +67,7 @@ export default function AdvDetails({ article, details }: Props) {
                                         <Button className="btn--secondary">Contatta il venditore</Button>
                                         <div className="row gap-2 ">
                                             <div className="col-auto">
-                                                <UserRate mail={"Luigi"} />
+                                                <UserRate mail={"Ilaria"} />
                                             </div>
                                         </div>
                                     </div>
@@ -70,9 +83,28 @@ export default function AdvDetails({ article, details }: Props) {
                     </div>
                 </div>
             </div>
-            <div className="container">
-                {show && <PopUpPurchase title="riepilogo acquisto" article="bici" />}
-            </div>
+            {currentModal === 'primo' && <Epilogue show={show} onHide={showEpilogue} article={"bici"} onSwitch={switchModals} />}
+            {currentModal === 'secondo' && <Checkout show={show} onHide={showEpilogue} article={"bici"} onSwitch={switchModals} />}
+            {currentModal === 'terzo' && <Dialog show={show} onHide={showEpilogue} title="Acquisto compleato" >
+                <div className="row">
+                    <div className="col">
+                        <img src={check} alt="Icon" />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <label>Acquisto completato!</label>
+                        <p>L’acquisto del tuo articolo è andato a buon fine. <br></br> Rivedi i dettagli dalla tua area riservata o vedi altri annunci</p>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col d-flex gap-2 justify-content-center">
+                        <Link to={"/"} className="btn--secondary">Home</Link>
+                        <Link to={"/area-riservata"} className="btn--primary">Area riservata</Link>
+                    </div>
+                </div>
+            </Dialog>}
+
 
         </>
     )
