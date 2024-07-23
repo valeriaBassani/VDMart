@@ -112,33 +112,29 @@ export default function CreateForm() {
                                 <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." required={true}></InputField>
                             </div>
                         </div>
-                        <div className="col justify-content-between main__section">
-                            <div className="row form align-items-center">
-                                <div className="row">
-                                    <div className="col ">
-                                        <label>Immagini*</label>
-                                        <p className='field__suggestion'>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
-                                        <div className="row text-end">
-                                            <div className="col">
-                                                <p className='field__suggestion'>Caricate {contImages}/6</p>
-                                            </div>
+                        <div className="col d-flex flex-column justify-content-between">
+                            <div className="row align-items-center main__section">
+                                <div className="col ">
+                                    <label>Immagini*</label>
+                                    <p className='field__suggestion'>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
+                                    <div className="row text-end">
+                                        <div className="col">
+                                            <p className='field__suggestion'>Caricate {contImages}/6</p>
                                         </div>
-                                        <div className="row">
-                                            <div className="col d-flex flex-wrap gap-2">
-                                                <ImageUpload upCount={handleCount} isNext={isNext[0]} />
-                                                <ImageUpload upCount={handleCount} isNext={isNext[1]} />
-                                                <ImageUpload upCount={handleCount} isNext={isNext[2]} />
-                                                <ImageUpload upCount={handleCount} isNext={isNext[3]} />
-                                                <ImageUpload upCount={handleCount} isNext={isNext[4]} />
-                                                <ImageUpload upCount={handleCount} isNext={isNext[5]} />
-                                            </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col d-flex flex-wrap gap-2">
+                                            <ImageUpload upCount={handleCount} isNext={isNext[0]} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[1]} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[2]} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[3]} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[4]} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[5]} />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col">
-                                        <TextArea label='Descrizione' name='descripion' maxLength={200} required={true} />
-                                    </div>
+                                <div className="col">
+                                    <TextArea label='Descrizione' name='descripion' maxLength={200} required={true} />
                                 </div>
                             </div>
                             <div className="row">

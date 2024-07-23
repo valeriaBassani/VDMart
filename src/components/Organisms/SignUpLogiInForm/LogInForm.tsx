@@ -19,7 +19,7 @@ export default function LogIn() {
     return (
         <>
             <form onSubmit={handleSubmit} className="form ">
-                <div className="fields container-md">
+                <div className="form__fields container-md">
                     <h4>Accedi al tuo profilo</h4>
                     <InputField label="Email" type="email" name="email" placeholder="email" required={true} ></InputField>
                     <InputField label="Password" type="password" name="password" placeholder="password" required={true} ></InputField>

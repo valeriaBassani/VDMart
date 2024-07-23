@@ -63,13 +63,9 @@ export default function AdvDetails({ article, details }: Props) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-6 mt-3 d-flex flex-column gap-2">
+                                    <div className="col-6 mt-3 d-flex align-items-center gap-2">
                                         <Button className="btn--secondary">Contatta il venditore</Button>
-                                        <div className="row gap-2 ">
-                                            <div className="col-auto">
-                                                <UserRate mail={"Ilaria"} />
-                                            </div>
-                                        </div>
+                                        <UserRate mail={"Ilaria"} />
                                     </div>
                                 </div>
                             </div>

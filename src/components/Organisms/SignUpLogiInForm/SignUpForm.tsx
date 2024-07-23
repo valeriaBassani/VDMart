@@ -15,7 +15,7 @@ export default function SingUpForm() {
     return (
         <>
             <form onSubmit={handleSubmit} className="form">
-                <div className="fields container-md">
+                <div className="form__fields container-md">
                     <h4>Inizia a fare affari, crea il tuo account</h4>
                     <InputField label="Nome" type="text" name="name" placeholder="Nome" required={true}></InputField>
                     <InputField label="Cognome" type="text" name="lastname" placeholder="Cognome" required={true}></InputField>

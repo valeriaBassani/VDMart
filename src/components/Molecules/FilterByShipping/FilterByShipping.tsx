@@ -7,7 +7,7 @@ export default function Shipping() {
 
     return (
         <>
-            <form className="fields">
+            <form className="filter">
                 <h4>Spedizone</h4>
                 <div className="row align-items-center">
                     <Toggle checked={checked} onChange={() => setIsChecked(!checked)} />

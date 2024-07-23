@@ -33,8 +33,8 @@ export default function Adv() {
                         </div>
                     </div>
                 </div>
-                <div className="row pt-3">
-                    <div className="col">
+                <div className="row pt-3 ">
+                    <div className="col-auto">
                         <UserRate mail="Ilaria" />
                     </div>
                 </div>

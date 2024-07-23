@@ -32,7 +32,8 @@ export default function SearchBar() {
                         </div>
                     </div>
                     <div className={`row search-bar__more ${visible ? 'search-bar__more--visible' : ''} my-3`}>
-                        <div className="Section">
+                        <div className="main__section">
+                            <h4>Filtri di ricerca</h4>
                             <div className="col d-flex flex-column gap-2 p-0">
                                 <CategoryFilter />
                                 <PriceFilter />

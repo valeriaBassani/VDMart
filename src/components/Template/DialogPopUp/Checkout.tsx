@@ -25,7 +25,7 @@ export default function Checkout({ article, show, onSwitch, onHide }: Props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="row text-center py-4 pop-up">
+                    <div className="row py-4 pop-up">
                         <div className="col d-flex flex-column gap-4 justify-content-center">
                             <div className="container-sm px-5 row gap-4">
                                 <div className="main">

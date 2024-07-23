@@ -12,9 +12,9 @@ import help from "./help-circle.svg"
 
 type Props = {
     mail: string,
-    isUser: boolean,
+    isActual: boolean,
 }
-export default function UserInfo({ mail, isUser }: Props) {
+export default function UserInfo({ mail, isActual }: Props) {
 
     const [visible, setVisible] = useState(false);
     const handleClick = () => {
@@ -40,13 +40,13 @@ export default function UserInfo({ mail, isUser }: Props) {
                             <h4>Valeria Bassani</h4>
                             <p>{mail}</p>
                             <p>tel: 3475693160</p>
-                            {isUser ? (
+                            {isActual ? (
                                 <p>Via natale battaglia 8, Milano (MI), 24050</p>
                             ) : (
                                 <></>
                             )}
                         </div>
-                        {isUser ? (
+                        {isActual ? (
                             <div className="col-auto d-flex align-items-start" >
                                 <Button className="btn--edit" onClick={handleClick}><Icon url={edit} margin="0.5em" />Modifica</Button>
                                 <Button className="btn--edit" onClick={showDialog}><Icon url={logout} margin="0.5em" />Esci</Button>

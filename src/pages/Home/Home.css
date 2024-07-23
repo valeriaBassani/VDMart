@@ -1,7 +1,11 @@
 
 @import url('../../App.css');
 .home__filters{
+    background-color: white;
+    border: solid 1px var(--lightGrey);
     display: block;
+    height: fit-content;
+    padding: 1em;
 }
 
 @media screen and (max-width: 516px) {

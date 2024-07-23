@@ -4,15 +4,16 @@ import UserInfo from "../../Molecules/UserInfo/UserInfo";
 
 type Props = {
     mail: string;
+    isActual: boolean
 }
 
-export default function User({ mail }: Props) {
+export default function User({ mail, isActual }: Props) {
     return (
         <>
             <div className="main my-3">
                 <div className="row">
                     <div className="col">
-                        <UserInfo mail="valeria.bassani@gmail.com" isUser={true} />
+                        <UserInfo mail="valeria.bassani@gmail.com" isActual={isActual} />
                     </div>
                 </div>
                 <div className="row mt-4 border-top pt-4">

@@ -3,20 +3,20 @@
 .form{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: center;
     gap: 1em;
+    justify-content: center;
+    width: 100%;
 }
 
-.fields{
+.form__fields{
     background-color: var(--section);
+    border-radius: var(--border-radius);
+    border: solid 1px var(--lightGrey);
     display: flex;
     flex-direction: column;
-    border: solid 1px var(--lightGrey);
-    border-radius: var(--border-radius);
-    justify-content: center;
-    padding: 1.4em;
     gap: 0.5em;
+    justify-content: center;
     overflow: hidden;
+    padding: 1.4em;
 }
 

@@ -22,6 +22,7 @@ import SupportLink from './components/Atoms/SupportLink/SupportLink';
 import PrivateArea from './pages/PrivateArea';
 import EditActiveAdv from './pages/EditActiveAdv';
 import ActiveAdvDetails from './pages/ActiveAdvDetails';
+import OtherUser from './pages/OtherUser';
 
 const Main = () => (
   <>
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "/dettagli-annuncio-attivo",
         element: <ActiveAdvDetails />,
+      },
+      {
+        path: "/profilo-utente",
+        element: <OtherUser />,
       },
     ]
     // children: [ se voglio che il link venga aperto nella stessa pagina, ma, per esempio, in una sezione diversa

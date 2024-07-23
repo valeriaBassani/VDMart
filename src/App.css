@@ -10,9 +10,10 @@ body{
 
 :root{
     /* --background:#f4f4f4; */
-    --background:white;
-    --section:#f4f4f46d;
-    --background:white;
+    /* --background:white;
+    --section:#f4f4f46d; */
+    --background:#f4f4f46d;
+    --section:white;
     --primary:#007FA3;
     --primaryDark:#006480;
     --primaryHover:#00303D;
@@ -39,7 +40,6 @@ h1,h2,h4{
     margin: 0px;
     overflow: hidden;
     text-overflow: ellipsis;
-
 }
 
 h2{
@@ -108,7 +108,7 @@ label{
 }
 
 .main{
-    background-color: var(--section);
+    background-color: var(--background);
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     width: 100%;
@@ -122,7 +122,7 @@ label{
     flex-direction: column;
     gap: 1em;
     padding: 1em;
-    background-color: var(--background);
+    background-color: var(--section);
  }
 
 @media screen and (max-width: 516px) {

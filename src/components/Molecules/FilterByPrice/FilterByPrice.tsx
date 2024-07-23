@@ -34,7 +34,7 @@ export default function PriceFilter() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="fields">
+            <form onSubmit={handleSubmit} className="filter">
                 <h4>Prezzo</h4>
                 <div className="row">
                     <div className="col-6">

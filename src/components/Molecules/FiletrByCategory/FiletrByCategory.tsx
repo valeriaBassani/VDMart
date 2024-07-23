@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Submit from '../../Atoms/SubmitButton/Submit';
 import Checkbox from '../../Atoms/Checkbox/Checkbox';
+import "./Filter.css"
 
 type CheckedState = {
     vehicles: boolean;
@@ -39,7 +40,7 @@ export default function CategoryFilter() {
     }
 
     return (
-        <div className="fields">
+        <div className="filter">
             <h4>Categoria</h4>
             <Checkbox label="Motori" id="vehicles" checked={isChecked.vehicles} onChange={handleOptionChange} />
             <Checkbox label="Tecnologia" id="tech" checked={isChecked.tech} onChange={handleOptionChange} />

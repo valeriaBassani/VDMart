@@ -22,14 +22,15 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row gap-3 py-4 my-4 home__board">
-                    <div className="col-3 p-0 home__filters" >
+                    <div className="col-3 home__filters" >
                         <div className="col d-flex flex-column gap-3">
+                            <h4>Filtri di ricerca</h4>
                             <CategoryFilter />
                             <PriceFilter />
                             <Shipping />
                         </div>
                     </div>
-                    <div className="col p-3 d-flex flex-column gap-3 main " >
+                    <div className="col p-3 d-flex flex-column gap-3 main__section " >
                         <div className="row">
                             <div className="col">
                                 <h4>Annunci</h4>

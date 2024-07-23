@@ -5,7 +5,7 @@ import ActiveAds from "../ActiveAds/ActiveAds";
 import PurchasedAds from "../PurchasedAds copy/PurchasedAds";
 import SoldAds from "../SoldAds/SoldAds";
 
-export default function History() {
+export default function UserHistory() {
 
     const [active, setActive] = useState(0)
 

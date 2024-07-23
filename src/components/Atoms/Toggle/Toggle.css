@@ -39,9 +39,9 @@
     transition: 0.2s;
 }
 
-.toggle--checked input{
-    border: solid 2px var(--accent);
-    background-color: var(--accent);
+.toggle--checked{
+    border: solid 2px var(--accent) !important;
+    background-color: var(--accent) !important;
     margin: 0px;
 }
 
@@ -49,7 +49,7 @@
     content: '';
     height: 1.5em;
     width: 1.5em;
-    background-color:white;
+    background-color:white !important;
     border-radius: 100px;
     position: absolute;
     left: 1.7em;
