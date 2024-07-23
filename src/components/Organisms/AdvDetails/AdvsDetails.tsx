@@ -29,22 +29,22 @@ export default function AdvDetails({ article, details }: Props) {
                             <div className="row gap-2">
                                 <div className="row">
                                     <div className="col">
-                                        <h5 id="category">Tecnologia</h5>
+                                        <h5 className="adv__category">Tecnologia</h5>
                                     </div>
                                     <div className="col-auto">
                                         <Favourite />
                                     </div>
                                 </div>
                                 <h4>Ipad terza generazione nuovo</h4>
-                                <p id="date">07/10/2023</p>
-                                <h3 id="price">145,00€</h3>
+                                <p className="adv__date">07/10/2023</p>
+                                <h3 className="adv__price">145,00€</h3>
                             </div>
                             <div className="row">
                                 <div className="col d-flex flex-column gap-2 ">
                                     <Button className="btn--primary" onClick={showEpilogue} wide={true}>Acquista questo articolo</Button>
                                     <div className="row">
                                         <div className="col-auto ">
-                                            <div className="col d-flex gap-2" id="shipping">
+                                            <div className="col d-flex gap-2 adv__shipping">
                                                 <p>Spedizione disponibile: </p>
                                                 <b>24,90€</b>
                                             </div>

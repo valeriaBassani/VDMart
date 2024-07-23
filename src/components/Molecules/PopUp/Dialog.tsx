@@ -31,7 +31,7 @@ export default function Dialog({ title, show, children, onHide }: Props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="Help">
-                        <p>Bisogno di aiuto? <Link to={`/messages`} className="link">Contatta l'assistenza</Link></p>
+                        <p>Bisogno di aiuto? <Link to={`/assistenza`} className="link">Contatta l'assistenza</Link></p>
                     </div>
                 </Modal.Footer>
             </Modal>

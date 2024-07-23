@@ -42,14 +42,14 @@ export default function PopUpPurchase({ title, article }: Props) {
                     {second ? (
                         <>
                             <div className="container-sm p-5">
-                                <div className="Create row gap-4">
+                                <div className="main row gap-4">
                                     <h4>Il tuo acquisto</h4>
-                                    <div className="row Info">
+                                    <div className="row adv__info">
                                         <div className="col-auto pe-0">
                                             <img src={ipad} alt="Ipad"></img>
                                         </div>
                                         <div className="col d-flex flex-column gap-1 py-3 pe-4">
-                                            <h5 id="category">Tecnologia</h5>
+                                            <h5 className="adv__category">Tecnologia</h5>
                                             <h4>Ipad terza generazione nuovo</h4>
                                             <UserRate mail="Ilaria" />
                                         </div>
@@ -66,12 +66,12 @@ export default function PopUpPurchase({ title, article }: Props) {
                                 <div className="row mt-4">
                                     <div className="col d-flex flex-column gap-2">
                                         <label>Acquisto a distanza</label>
-                                        <Button className="Primary" wide={true} onClick={showSecond}>Checkout</Button>
-                                        <p id="shipping">spedizione 45,00€</p>
+                                        <Button className="btn--primary" wide={true} onClick={showSecond}>Checkout</Button>
+                                        <p className="adv__shipping">spedizione: 45,00€</p>
                                     </div>
                                     <div className="col">
                                         <label>Scambio a mano</label>
-                                        <Button className="Secondary" wide={true}>Contatta il venditore</Button>
+                                        <Button className="btn--secondary" wide={true}>Contatta il venditore</Button>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@ export default function PopUpPurchase({ title, article }: Props) {
                     ) : (
                         <>
                             <div className="container-sm p-5 row gap-4">
-                                <div className="Create">
+                                <div className="main">
                                     <h4>Il tuo acquisto</h4>
                                     <div className="row my-2">
                                         <div className="col" style={{ color: "var(--placeholder)" }}>
@@ -102,7 +102,7 @@ export default function PopUpPurchase({ title, article }: Props) {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="Create">
+                                <div className="main">
                                     <h4>Spedizione</h4>
                                     <InputField type={"text"} name={"address"} placeholder={"via natale battaglia, 8"} />
                                     <div className="row">
@@ -122,7 +122,7 @@ export default function PopUpPurchase({ title, article }: Props) {
                                         </div>
                                     </div>
                                 </div>
-                                <Submit className="Primary" label="Conferma pagamento"></Submit>
+                                <Submit className="btn--primary" label="Conferma pagamento"></Submit>
                             </div>
                         </>
                     )}
