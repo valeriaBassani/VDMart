@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import ipad from "./ipad.jpg"
-import Button from "../../Atoms/Buttons/Buttons";
 import edit from "./edit.svg"
 import Icon from "../../Atoms/Icon";
 import "./AdvSmallPreview.css"

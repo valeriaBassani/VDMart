@@ -54,8 +54,8 @@ button{
     font-size: var(--font-size-p);
     height: 3em;
     justify-content: center;
-    min-width: fit-content;
-    padding: 0em 3em 0em 3em;
+    width: fit-content;
+    padding: 0em 2em 0em 2em;
     text-decoration: none;
 }
 

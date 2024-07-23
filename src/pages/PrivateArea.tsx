@@ -1,5 +1,5 @@
 import History from "../components/Organisms/History/History";
-import User from "../components/User/User";
+import User from "../components/Organisms/User/User";
 
 export default function PrivateArea() {
     return (

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import Icon from "../Atoms/Icon"
+import Icon from "../../Atoms/Icon"
 import edit from "./edit.svg"
 import logout from "./log-out.svg"
 import "./UserInfo.css"
-import InputField from "../Atoms/InputField/InputField"
+import InputField from "../../Atoms/InputField/InputField"
 import { useState } from "react"
-import Button from "../Atoms/Buttons/Buttons"
+import Button from "../../Atoms/Buttons/Buttons"
 
 type Props = {
     mail: string,
