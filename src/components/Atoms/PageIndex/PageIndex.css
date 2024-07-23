@@ -1,0 +1,46 @@
+@import url('../../../App.css');
+.page__index{
+    padding: 0em 1em 0em 1em;
+    height: 2.5em;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, 0);
+    font-weight: 600;
+    width: fit-content;
+}
+
+.page__index--active{
+    padding: 0em 1em 0em 1em;
+    height: 2.5em;
+    border: solid 2px var(--accent);
+    background-color: var(--accent);
+    color: white;
+    border-radius: var(--border-radius);
+}
+
+.page__index:hover{
+    text-decoration: underline;
+    border: solid 2px var(--accent);
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--accent);
+}
+
+.page__index--selector{
+    height: 2.5em;
+    border: solid 1px var(--lightGrey);
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, 0);
+    font-weight: 600;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:2.5em;
+}
+
+.page__index--selector:hover{
+    text-decoration: underline;
+    border: solid 2px var(--accent);
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--accent);
+}

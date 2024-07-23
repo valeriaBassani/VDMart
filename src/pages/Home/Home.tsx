@@ -5,8 +5,14 @@ import Shipping from "../../components/Molecules/FilterByShipping/FilterByShippi
 import SearchBar from "../../components/Molecules/SearchBar/SearchBar";
 import './Home.css';
 import OrderBy from "../../components/Molecules/OrderBy/OrderBy";
+import PageSelector from "../../components/Molecules/PageSelector/PageSelector";
+import { useState } from "react";
 
 export default function Home() {
+    const [currentPage, setCurrentPage] = useState(1)
+    const handleClick = (page: number) => {
+        setCurrentPage(page)
+    }
     return (
         <body>
             <div className="container sm p-4">
@@ -23,7 +29,7 @@ export default function Home() {
                             <Shipping />
                         </div>
                     </div>
-                    <div className="col p-3 d-flex flex-column gap-3 main" >
+                    <div className="col p-3 d-flex flex-column gap-3 main " >
                         <div className="row">
                             <div className="col">
                                 <h4>Annunci</h4>
@@ -40,7 +46,14 @@ export default function Home() {
                                 <AdvPreview />
                             </div>
                         </div>
+                        <div className="row justify-content-center">
+                            <div className="col d-flex justify-content-center">
+                                <PageSelector page={currentPage} onClick={handleClick} />
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </body>
