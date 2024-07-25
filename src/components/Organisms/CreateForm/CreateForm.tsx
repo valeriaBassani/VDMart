@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import './CreateForm.css';
 import Categories from '../../Molecules/Categories/Categories';
 import Submit from '../../Atoms/SubmitButton/Submit';
@@ -17,11 +17,11 @@ export default function CreateForm() {
     const [selectedOption, setSelectedOption] = useState('');
     const [checked, setIsChecked] = useState(false);
 
-    const handleOptionChange = (value: string) => {
+    const handleOptionChange = useCallback((value: string) => {
         setSelectedOption(value);
-    };
+    }, []);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
 
@@ -31,7 +31,7 @@ export default function CreateForm() {
         console.log(selectedOption);
         console.log(checked);
         setShow(!show)
-    }
+    }, [checked, selectedOption, show])
 
     const [contImages, setContImages] = useState(0);
 
@@ -44,13 +44,13 @@ export default function CreateForm() {
         5: false,
     })
 
-    const handleCount = (count: number) => {
+    const handleCount = useCallback((count: number) => {
         setContImages(prevCount => {
             const newCount = prevCount + count;
             setNext(newCount);
             return newCount;
         });
-    }
+    }, [])
 
     const setNext = (newCount: number) => {
         setIsNext({

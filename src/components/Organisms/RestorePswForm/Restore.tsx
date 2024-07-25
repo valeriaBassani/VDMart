@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import Submit from "../../Atoms/SubmitButton/Submit";
 
@@ -6,9 +6,9 @@ export default function RestoreForm() {
 
     const [email, setEmail] = useState("")
 
-    const HandleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const HandleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
         setEmail(e.target.value)
-    }
+    }, [email])
 
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
@@ -17,7 +17,7 @@ export default function RestoreForm() {
     return (
         <>
             <form onSubmit={handleSubmit} className="form ">
-                <div className="fields container-md">
+                <div className="container-md main p-3 col d-flex flex-column gap-3">
                     <p>Inserisci la mail con cui ha registrato il tuo account. Riceverai le istruzioni per creare una nuova password</p>
                     <div className="field">
                         <label>Email*</label>

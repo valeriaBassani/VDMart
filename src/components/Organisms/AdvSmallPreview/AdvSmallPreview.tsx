@@ -3,6 +3,7 @@ import ipad from "./ipad.jpg"
 import edit from "./edit.svg"
 import Icon from "../../Atoms/Icon";
 import "./AdvSmallPreview.css"
+import { useCallback } from "react";
 
 type Props = {
     type: "active" | "purchased" | "sold";
@@ -16,7 +17,7 @@ export default function AdvSmallPreview({ type }: Props) {
         navigate('/modifica-annuncio-attivo');
     };
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         if (type === "active") {
             navigate('/dettagli-annuncio-attivo');
         }
@@ -26,7 +27,7 @@ export default function AdvSmallPreview({ type }: Props) {
         if (type === "sold") {
             navigate('/modifica-annuncio-attivo');
         }
-    }
+    }, [navigate, type])
 
     return (
         <>

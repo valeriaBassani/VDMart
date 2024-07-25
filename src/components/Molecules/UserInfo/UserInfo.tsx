@@ -1,29 +1,27 @@
-import Icon from "../../Atoms/Icon"
-import edit from "./edit.svg"
-import logout from "./log-out.svg"
-import "./UserInfo.css"
-import InputField from "../../Atoms/InputField/InputField"
-import { useState } from "react"
-import Button from "../../Atoms/Buttons/Buttons"
-import { DeleteAccount } from "../DeleteAccount/DeleteAccount"
-import Dialog from "../../Template/DialogPopUp/Dialog"
+import { useCallback, useState } from "react"
 import { Link } from "react-router-dom"
-import help from "./help-circle.svg"
 
-type Props = {
-    mail: string,
-    isActual: boolean,
-}
-export default function UserInfo({ mail, isActual }: Props) {
+import { UserInfoProps } from "./defnitions"
+import { DeleteAccount } from "../DeleteAccount/DeleteAccount"
+
+import InputField from "../../Atoms/InputField/InputField"
+import Button from "../../Atoms/Buttons/Buttons"
+import Dialog from "../../Template/DialogPopUp/Dialog"
+
+import Icon from "../../Atoms/Icon"
+import "./styles.css"
+
+const UserInfo = ({ mail, isActual }: UserInfoProps) => {
 
     const [visible, setVisible] = useState(false);
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         setVisible(!visible)
-    }
+    }, [visible])
+
     const [show, setShow] = useState(false)
-    const showDialog = () => {
+    const showDialog = useCallback(() => {
         setShow(!show)
-    }
+    }, [show])
 
     return (
         <>
@@ -40,19 +38,15 @@ export default function UserInfo({ mail, isActual }: Props) {
                             <h4>Valeria Bassani</h4>
                             <p>{mail}</p>
                             <p>tel: 3475693160</p>
-                            {isActual ? (
+                            {isActual && (
                                 <p>Via natale battaglia 8, Milano (MI), 24050</p>
-                            ) : (
-                                <></>
                             )}
                         </div>
-                        {isActual ? (
+                        {isActual && (
                             <div className="col-auto d-flex align-items-start" >
-                                <Button className="btn--edit" onClick={handleClick}><Icon url={edit} margin="0.5em" />Modifica</Button>
-                                <Button className="btn--edit" onClick={showDialog}><Icon url={logout} margin="0.5em" />Esci</Button>
+                                <Button className="btn--edit" onClick={handleClick}><Icon url="./images/edit.svg" margin="0.5em" />Modifica</Button>
+                                <Button className="btn--edit" onClick={showDialog}><Icon url="./images/log-out.svg" margin="0.5em" />Esci</Button>
                             </div>
-                        ) : (
-                            <></>
                         )}
                     </div>
                     <div className={`row ${visible ? '' : 'profile--show'}`}>
@@ -93,7 +87,7 @@ export default function UserInfo({ mail, isActual }: Props) {
             <Dialog show={show} onHide={showDialog} title="Elimina account" >
                 <div className="row">
                     <div className="col">
-                        <img src={help} alt="Icon" />
+                        <img src="./images/help-circle.svg" alt="Icon" />
                     </div>
                 </div>
                 <div className="row px-5 mx-5">
@@ -116,3 +110,5 @@ export default function UserInfo({ mail, isActual }: Props) {
         </>
     )
 }
+
+export default UserInfo

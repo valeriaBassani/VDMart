@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import UserInfo from "../../Molecules/UserInfo/UserInfo";
 import ReviewPreview from "../../Molecules/ReviewPreview/ReviewPreview";
+import { UserInfo } from "../../Molecules/UserInfo";
 
 type Props = {
     mail: string;

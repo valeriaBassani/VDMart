@@ -12,7 +12,7 @@ body{
     /* --background:#f4f4f4; */
     /* --background:white;
     --section:#f4f4f46d; */
-    --background:#f4f4f46d;
+    --background:#EFF4F5;
     --section:white;
     --primary:#007FA3;
     --primaryDark:#006480;
@@ -46,7 +46,8 @@ h2{
     font-size: 2.3rem;
     overflow: hidden;
     text-overflow: ellipsis;
-
+    color: var(--primary);
+    font-weight: 650;
 }
 
 h3{

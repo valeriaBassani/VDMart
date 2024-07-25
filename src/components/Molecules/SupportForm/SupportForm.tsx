@@ -2,7 +2,7 @@ import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import TextArea from "../../Atoms/textArea/textArea";
 import Dialog from "../../Template/DialogPopUp/Dialog";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import check from "./check-circle 1.svg"
 
@@ -13,17 +13,17 @@ type Props = {
 export default function SupportForm({ category }: Props) {
     const [show, setShow] = useState(false);
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         setShow(!show)
-    }
+    }, [show])
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const email = formData.get('email') as string;
         const text = formData.get('text') as string;
         console.log(email, text);
-    }
+    }, [])
 
     return (
         <>

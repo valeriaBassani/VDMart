@@ -7,7 +7,7 @@ export default function LogIn() {
         <>
             <div className="row my-5 mx-3 justify-content-center">
                 <div className="col d-flex justify-content-center">
-                    <div className="Input">
+                    <div className="input">
                         <h4>Login</h4>
                         <h2>Bentornato!</h2>
                         <LogInForm />

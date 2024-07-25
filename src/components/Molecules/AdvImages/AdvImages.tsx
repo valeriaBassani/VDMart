@@ -1,11 +1,14 @@
+import { useCallback, useState } from "react"
+
+import Icon from "../../Atoms/Icon"
+
 import ipad from "./ipad2.jpg"
 import ipad2 from "./ipad.jpg"
 import ipad3 from "./ipad3.jpg"
 import left from "./chevron-left (1).svg"
 import right from "./chevron-right (2).svg"
 import "./AdvImages.css"
-import { useCallback, useState } from "react"
-import Icon from "../../Atoms/Icon"
+
 export default function AdvImages() {
 
     const images = [ipad, ipad2, ipad3];
@@ -26,22 +29,6 @@ export default function AdvImages() {
             setIndex(index + 1)
         }
     }, [index])
-
-    // const handleClick = (index: number) => {
-    //     setIndex(index)
-    // }
-
-    // const handlePrev = () => {
-    //     if (index > 0) {
-    //         setIndex(index - 1)
-    //     }
-    // }
-
-    // const handleNext = () => {
-    //     if (index + 1 < images.length) {
-    //         setIndex(index + 1)
-    //     }
-    // }
 
     return (
         <>

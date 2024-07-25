@@ -1,13 +1,13 @@
 import './Favourite.css';
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export default function Favourite() {
     const [favourite, setAsFavourite] = useState(false);
 
-    const handleClick = (e: React.SyntheticEvent): void => {
+    const handleClick = useCallback((e: React.SyntheticEvent) => {
         e.stopPropagation();
         setAsFavourite(!favourite);
-    };
+    }, [favourite]);
     return (
         <>
             <div className="favourite">

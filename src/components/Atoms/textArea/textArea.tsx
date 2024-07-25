@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./textArea.css"
 
 type Props = {
@@ -13,14 +13,14 @@ export default function TextArea({ label, name, maxLength, value, required }: Pr
     const [count, setCount] = useState(0);
     const [inputValue, setInputValue] = useState(value);
 
-    const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    const handleDescriptionChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const newValue = e.target.value;
         const isDeleting = newValue.length < count;
         if (newValue.length <= maxLength || isDeleting) {
             setInputValue(e.target.value);
             setCount(newValue.length);
         }
-    }
+    }, [count, maxLength])
 
     return (
         <>

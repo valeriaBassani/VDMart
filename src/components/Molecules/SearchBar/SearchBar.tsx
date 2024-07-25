@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./SearchBar.css"
 import lens from "./lens.svg"
 import CategoryFilter from "../FiletrByCategory/FiletrByCategory";
@@ -12,9 +12,6 @@ export default function SearchBar() {
 
     const [visible, setVisible] = useState(false);
 
-    const handleClick = (e: React.SyntheticEvent): void => {
-        setVisible(!visible);
-    };
     return (
         <>
             <div className="row ">
@@ -28,7 +25,7 @@ export default function SearchBar() {
                             </div>
                         </div>
                         <div className="col-auto p-0 search-bar__filter" >
-                            <Submit label='Filtri' className='btn--primary' onClick={handleClick} />
+                            <Submit label='Filtri' className='btn--primary' onClick={() => { setVisible(!visible) }} />
                         </div>
                     </div>
                     <div className={`row search-bar__more ${visible ? 'search-bar__more--visible' : ''} my-3`}>

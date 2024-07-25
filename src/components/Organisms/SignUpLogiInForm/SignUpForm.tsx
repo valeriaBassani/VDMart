@@ -2,15 +2,16 @@ import "./SignUpForm.css";
 import { Link } from "react-router-dom";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
+import { useCallback } from "react";
 
 export default function SingUpForm() {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         formData.forEach((value, key) => {
             console.log(`${key}: ${value}`);
         });
-    }
+    }, []);
 
     return (
         <>

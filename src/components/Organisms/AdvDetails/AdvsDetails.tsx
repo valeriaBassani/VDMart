@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import AdvImages from "../../Molecules/AdvImages/AdvImages"
 import Favourite from "../../Molecules/Favourite/Favourite"
 import "./AdvsDetails.css"
@@ -24,10 +24,10 @@ export default function AdvDetails({ article, details }: Props) {
     };
 
     const [show, setShow] = useState(false)
-    const showEpilogue = () => {
+    const showEpilogue = useCallback(() => {
         setCurrentModal("primo");
         setShow(!show)
-    }
+    }, [show])
 
     return (
         <>
@@ -64,7 +64,7 @@ export default function AdvDetails({ article, details }: Props) {
                                         </div>
                                     </div>
                                     <div className="col-6 mt-3 d-flex align-items-center gap-2">
-                                        <Button className="btn--secondary">Contatta il venditore</Button>
+                                        <Button className="btn--disabled">Contatta il venditore</Button>
                                         <UserRate mail={"Ilaria"} />
                                     </div>
                                 </div>

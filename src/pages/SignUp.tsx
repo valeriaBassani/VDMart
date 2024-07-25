@@ -7,7 +7,7 @@ export default function SignUp() {
         <>
             <div className="row my-5 mx-3 justify-content-center">
                 <div className="col d-flex justify-content-center">
-                    <div className="Input">
+                    <div className="input">
                         <h4>SignUp</h4>
                         <h2>Benvenuto!</h2>
                         <SignUpForm />

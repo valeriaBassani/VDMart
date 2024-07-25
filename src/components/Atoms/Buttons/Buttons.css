@@ -59,6 +59,22 @@ button{
     text-decoration: none;
 }
 
+.btn--disabled{
+    background-color: var(--lightGrey);
+    border: solid 1px var(--lightGrey);
+    align-items: center;
+    border-radius: var(--border-radius);
+    color: rgb(136, 136, 136);
+    cursor:default !important;
+    display: flex;
+    font-size: var(--font-size-p);
+    height: 3em;
+    justify-content: center;
+    width: fit-content;
+    padding: 0em 3em 0em 3em;
+    text-decoration: none;
+}
+
 .btn--inactive:hover{
     border:solid 2px var(--primary);
     text-decoration: underline;

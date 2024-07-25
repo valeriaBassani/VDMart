@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./SupportCategory.css"
 
 type Props = {
@@ -12,15 +12,11 @@ export default function SupportCategory({ text, title, clicked, onClick }: Props
 
     const [seeMore, setSeeMore] = useState(false)
 
-    const handleClick = (): void => {
+    const handleClick = useCallback((): void => {
         if (onClick) {
             onClick(title, !clicked);
         }
-    }
-
-    const showMore = (): void => {
-        setSeeMore(!seeMore)
-    }
+    }, [clicked, onClick, title])
 
     return (
         <>
@@ -33,7 +29,7 @@ export default function SupportCategory({ text, title, clicked, onClick }: Props
                     <div className="col d-flex align-items-center" onClick={handleClick}>
                         <h4>{title}</h4>
                     </div>
-                    <div className="col-2" onClick={showMore}>
+                    <div className="col-2" onClick={() => { setSeeMore(!seeMore) }}>
                         {seeMore ? (
                             <>
                                 <svg xmlns="http://www.w3.org/2000/svg"

@@ -26,6 +26,8 @@ export function DeleteAccount({ mail }: Props) {
         setCurrentModal("primo");
         setShow(false)
     }
+
+
     return (
         <>
 

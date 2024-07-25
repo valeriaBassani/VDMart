@@ -1,14 +1,16 @@
+import { useCallback } from 'react';
 import './Toggle.css';
 type Props = {
     checked: boolean
     onChange: (checked: boolean) => void
 }
 export default function Toggle({ checked, onChange }: Props) {
-    const handleChange = () => {
+
+    const handleChange = useCallback(() => {
         if (onChange) {
             onChange(!checked)
         }
-    }
+    }, [checked, onChange])
 
     return (
         <>

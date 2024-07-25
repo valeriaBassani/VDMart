@@ -22,7 +22,7 @@ export default function Review({ mail }: Props) {
                         <Star />
                     </div>
                     <div className="full__review__text">
-                        <p>Recensioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaeeeeeeeee </p>
+                        <p>Recensione </p>
                     </div>
                     <p className="adv__date">10/11/2022</p>
                 </div>

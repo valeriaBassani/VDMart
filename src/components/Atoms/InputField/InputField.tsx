@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import "./InputField.css"
 
 type Props = {
@@ -16,12 +16,19 @@ type Props = {
 export default function InputField({ label, type, name, placeholder, suggest, required, onChange, value }: Props) {
 
     const [inputValue, setInputValue] = useState(value);
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    //     setInputValue(e.target.value);
+    //     if (onChange) {
+    //         onChange(e.target.name, e.target.value);
+    //     }
+    // };
+
+    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
         if (onChange) {
             onChange(e.target.name, e.target.value);
         }
-    };
+    }, [onChange])
 
     return (
         <>

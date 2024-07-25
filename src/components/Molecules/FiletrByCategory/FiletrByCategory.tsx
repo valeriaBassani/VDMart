@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Submit from '../../Atoms/SubmitButton/Submit';
 import Checkbox from '../../Atoms/Checkbox/Checkbox';
 import "./Filter.css"
@@ -21,14 +21,14 @@ export default function CategoryFilter() {
         animals: false,
     });
 
-    const handleOptionChange = (id: string, checked: boolean) => {
+    const handleOptionChange = useCallback((id: string, checked: boolean) => {
         setIsChecked({
             ...isChecked,
             [id]: checked,
         });
-    };
+    }, [isChecked]);
 
-    const handleReset = (e: React.SyntheticEvent): void => {
+    const handleReset = useCallback((e: React.SyntheticEvent) => {
         e.preventDefault();
         setIsChecked({
             vehicles: false,
@@ -37,7 +37,7 @@ export default function CategoryFilter() {
             dresses: false,
             animals: false,
         });
-    }
+    }, [])
 
     return (
         <div className="filter">

@@ -8,6 +8,9 @@ import plus from './plus.svg';
 import logo from './logo.svg';
 
 export default function NavBar() {
+
+    const isLogin: boolean = true //token di login
+
     const [visible, setVisible] = useState(false);
 
     const handleClick = useCallback(() => {
@@ -22,9 +25,9 @@ export default function NavBar() {
                         <Link to={`/`}><Icon url={logo} /></Link>
                     </div>
                     <div className="col d-flex align-items-center justify-content-end gap-4">
-                        <Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.5em" />Preferiti</Link>
-                        <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.5em" />Messaggi</Link>
-                        <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.5em" />Crea un annuncio</Link>
+                        {isLogin && (<><Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.5em" />Preferiti</Link>
+                            <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.5em" />Messaggi</Link>
+                            <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.5em" />Crea un annuncio</Link></>)}
                         <Link to={`/registrazione`} className="link">Registrati</Link>
                         <Link to={`/login`} className="btn--primary">Accedi</Link>
                     </div>

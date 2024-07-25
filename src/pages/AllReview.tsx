@@ -4,11 +4,10 @@ import { ReactComponent as Star } from "./star.svg"
 export default function AllReview() {
     return (
         <>
-
             <div className="container-lg mt-3 mb-5">
                 <div className="row">
                     <div className="col d-flex flex-column gap-3">
-                        <h4>Annunci preferiti</h4>
+                        <h4>Tutte le recensioni</h4>
                         <div className="row">
                             <div className="col main__section ">
                                 <div className="row">
@@ -45,5 +44,4 @@ export default function AllReview() {
             </div>
         </>
     )
-
 }

@@ -1,14 +1,4 @@
-.Content{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    padding: 5em 0em 5em 0em;
-    gap: 2em;
-}
-
-.Input{
+.input{
     display: flex;
     flex-direction: column;
     gap: 1em;

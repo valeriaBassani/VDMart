@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useCallback, useRef, useState } from "react"
 import "./ImageUpload.css"
 import Dialog from "../../Template/DialogPopUp/Dialog";
 
@@ -14,7 +14,7 @@ export default function ImageUpload({ label, upCount, isNext }: Props) {
     const [show, setShow] = useState(false);
 
 
-    const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
         if (!files) return;
 
@@ -25,21 +25,21 @@ export default function ImageUpload({ label, upCount, isNext }: Props) {
             upCount(+1)
         }
 
-    };
+    }, [upCount]);
 
-    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleButtonClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (inputRef && inputRef.current) {
             inputRef.current.click();
         }
-    };
+    }, []);
 
-    const handleDelete = () => {
+    const handleDelete = useCallback(() => {
         setImage("");
         if (upCount) {
             upCount(-1)
         }
-    }
+    }, [upCount]);
 
     const showImage = () => {
         setShow(!show)

@@ -8,7 +8,7 @@ export default function Restore() {
             <div className="container-fluid d-flex justify-content-center" style={{ height: "70vh" }}>
                 <div className="row my-5 mx-3 justify-content-center">
                     <div className="col d-flex justify-content-center">
-                        <div className="Input">
+                        <div className="input">
                             <h4>Recupero password</h4>
                             <RestoreForm />
                         </div>

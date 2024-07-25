@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Icon from "../../Atoms/Icon";
 import down from "./chevron-down.svg"
 import up from "./chevron-up.svg"
@@ -8,14 +8,14 @@ export default function OrderBy() {
     const [visible, setVisible] = useState(false);
     const [value, setValue] = useState("Dal più recente");
 
-    const handleClick = (e: React.SyntheticEvent): void => {
+    const handleClick = useCallback((e: React.SyntheticEvent) => {
         setVisible(!visible);
-    };
+    }, [visible]);
 
-    const chooseValue = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    const chooseValue = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         setValue(e.currentTarget.value)
         setVisible(!visible);
-    };
+    }, [visible]);
 
     return (
         <>

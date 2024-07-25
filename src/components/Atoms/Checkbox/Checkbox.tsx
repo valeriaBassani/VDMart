@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./Checkbox.css"
 
 type Props = {
@@ -11,13 +11,21 @@ type Props = {
 export default function Checkbox({ id, label, checked, onChange }: Props) {
     const [check, setCheck] = useState(false)
 
-    const handleOptionChange = () => {
+    // const handleOptionChange = () => {
+    //     if (onChange) {
+    //         onChange(id, !checked);
+    //     } else {
+    //         setCheck(!check)
+    //     }
+    // };
+
+    const handleOptionChange = useCallback(() => {
         if (onChange) {
             onChange(id, !checked);
         } else {
             setCheck(!check)
         }
-    };
+    }, [check, checked, id, onChange]);
 
     return (
         <>
