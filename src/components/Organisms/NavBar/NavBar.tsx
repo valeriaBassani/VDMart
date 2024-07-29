@@ -6,9 +6,10 @@ import heart from './heart.svg';
 import message from './message.svg';
 import plus from './plus.svg';
 import logo from './logo.svg';
+import { useTranslation } from "react-i18next";
 
 export default function NavBar() {
-
+    const { t } = useTranslation();
     const isLogin: boolean = true //token di login
 
     const [visible, setVisible] = useState(false);
@@ -25,11 +26,11 @@ export default function NavBar() {
                         <Link to={`/`}><Icon url={logo} alt="home" /></Link>
                     </div>
                     <div className="col d-flex align-items-center justify-content-end gap-4">
-                        {isLogin && (<><Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />Preferiti</Link>
-                            <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />Messaggi</Link>
-                            <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />Crea un annuncio</Link></>)}
-                        <Link to={`/registrazione`} className="link">Registrati</Link>
-                        <Link to={`/login`} className="btn--primary">Accedi</Link>
+                        {isLogin && (<><Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />{t('navbar.favourites')}</Link>
+                            <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />{t('navbar.messages')}</Link>
+                            <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />{t('navbar.create')}</Link></>)}
+                        <Link to={`/registrazione`} className="link">{t('navbar.singIn')}</Link>
+                        <Link to={`/login`} className="btn--primary">{t('navbar.logIn')}</Link>
                     </div>
                 </div>
             </div>
@@ -40,16 +41,16 @@ export default function NavBar() {
                         <Link to={`/`}><Icon url={logo} alt="home" /></Link>
                     </div>
                     <div className="col d-flex justify-content-end gap-3">
-                        <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />Crea un annuncio</Link>
-                        <Link to={`/login`} className="btn--primary">Accedi</Link>
+                        <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />{t('navbar.create')}</Link>
+                        <Link to={`/login`} className="btn--primary">{t('navbar.logIn')}</Link>
                         <button className="navbar--icon" onClick={handleClick}></button>
                     </div>
                 </div>
                 <div className="row justify-content-end">
                     <div className={`navbar__more col-auto d-flex flex-column text-end ${visible ? 'navbar__more--invisible' : ''}`}>
-                        <Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />Preferiti</Link>
-                        <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />Messaggi</Link>
-                        <Link to={`/registrazione`} className="link">Registrati</Link>
+                        <Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />{t('navbar.favourites')}</Link>
+                        <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />{t('navbar.messages')}</Link>
+                        <Link to={`/registrazione`} className="link">{t('navbar.singIn')}</Link>
                     </div>
                 </div>
             </div>
@@ -60,16 +61,16 @@ export default function NavBar() {
                         <Link to={`/`}><Icon url={logo} alt="home" /></Link>
                     </div>
                     <div className="col d-flex justify-content-end gap-1">
-                        <Link to={`/login`} className="btn--secondary">Accedi</Link>
+                        <Link to={`/login`} className="btn--secondary">{t('navbar.logIn')}</Link>
                         <button className="navbar--icon" onClick={handleClick}></button>
                     </div>
                 </div>
                 <div className="row justify-content-end">
                     <div className={`navbar__more col-auto d-flex flex-column text-end ${visible ? 'navbar__more--invisible' : ''}`}>
-                        <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />Crea un annuncio</Link>
-                        <Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />Preferiti</Link>
-                        <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />Messaggi</Link>
-                        <Link to={`/registrazione`} className="link">Registrati</Link>
+                        <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />{t('navbar.create')}</Link>
+                        <Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />{t('navbar.favourites')}</Link>
+                        <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />{t('navbar.messages')}</Link>
+                        <Link to={`/registrazione`} className="link">{t('navbar.singIn')}</Link>
                     </div>
                 </div>
             </div>

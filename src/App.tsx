@@ -24,11 +24,19 @@ import EditActiveAdv from './pages/EditActiveAdv';
 import ActiveAdvDetails from './pages/ActiveAdvDetails';
 import OtherUser from './pages/OtherUser';
 import AllReview from './pages/AllReview';
+import SwitchLan from './components/Atoms/SwitchLan/SwitchLan';
 
 const Main = () => (
   <>
     <NavBar />
-    <BreadCrumbs />
+    <div className="row">
+      <div className="col">
+        <BreadCrumbs />
+      </div>
+      <div className="col-auto">
+        <SwitchLan />
+      </div>
+    </div>
     <Outlet />
     <SupportLink />
     <Footer />
@@ -104,7 +112,6 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-
   return (
     <>
       <RouterProvider router={router} />

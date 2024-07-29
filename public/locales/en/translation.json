@@ -1,0 +1,9 @@
+{
+    "navbar":{
+        "create":"Create an advertise",
+        "logIn":"LogIn",
+        "singIn":"SingUp",
+        "messages":"Messages",
+        "favourites":"Favourites"
+    }
+}

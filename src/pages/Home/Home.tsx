@@ -7,8 +7,10 @@ import './Home.css';
 import OrderBy from "../../components/Molecules/OrderBy/OrderBy";
 import PageSelector from "../../components/Molecules/PageSelector/PageSelector";
 import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+    const { t } = useTranslation();
     const [currentPage, setCurrentPage] = useState(1)
     const handleClick = useCallback((page: number) => {
         setCurrentPage(page)
@@ -24,6 +26,7 @@ export default function Home() {
                 <div className="row gap-3 py-4 my-4 home__board">
                     <div className="col-3 home__filters main__section " >
                         <div className="col d-flex flex-column gap-3">
+                            <h4>{t('main.header')}</h4>
                             <h4>Filtri di ricerca</h4>
                             <CategoryFilter />
                             <PriceFilter />

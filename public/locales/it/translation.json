@@ -1,0 +1,9 @@
+{
+    "navbar":{
+        "create":"Crea un annuncio",
+        "logIn":"Accedi",
+        "singIn":"Registrati",
+        "messages":"Messaggi",
+        "favourites":"Preferiti"
+    }
+}
