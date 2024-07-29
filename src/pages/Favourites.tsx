@@ -7,11 +7,11 @@ export default function Favourites() {
                 <div className="row">
                     <div className="col d-flex flex-column gap-3">
                         <h4>Annunci preferiti</h4>
-                        <div className="main__section">
+                        <div className="main">
                             <div className="row">
                                 <div className="col d-flex flex-column gap-2">
                                     <div className="row">
-                                        <div className="col d-flex justify-content-end">
+                                        <div className="col d-flex">
                                             <label>Tot: 3 preferiti</label>
                                         </div>
                                     </div>

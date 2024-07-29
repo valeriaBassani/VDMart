@@ -54,7 +54,7 @@ export default function AdvDetails({ article, details }: Props) {
                             </div>
                             <div className="row">
                                 <div className="col d-flex flex-column gap-2 ">
-                                    <Button className="btn--primary" onClick={showEpilogue} wide={true}>Acquista questo articolo</Button>
+                                    <Button className="btn--primary" onClick={showEpilogue} wide={true} aria-labelledby="acquista articolo">Acquista questo articolo</Button>
                                     <div className="row">
                                         <div className="col-auto ">
                                             <div className="col d-flex gap-2 adv__shipping">
@@ -64,7 +64,7 @@ export default function AdvDetails({ article, details }: Props) {
                                         </div>
                                     </div>
                                     <div className="col-6 mt-3 d-flex align-items-center gap-2">
-                                        <Button className="btn--disabled">Contatta il venditore</Button>
+                                        <Button className="btn--disabled" aria-labelledby="contatta il venditore">Contatta il venditore</Button>
                                         <UserRate mail={"Ilaria"} />
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@ export default function AdvDetails({ article, details }: Props) {
             {currentModal === 'terzo' && <Dialog show={show} onHide={showEpilogue} title="Acquisto compleato" >
                 <div className="row">
                     <div className="col">
-                        <img src={check} alt="Icon" />
+                        <img src={check} alt="successo" />
                     </div>
                 </div>
                 <div className="row px-5 mx-5">

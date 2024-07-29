@@ -6,7 +6,7 @@ import Icon from "../Icon"
 export default function PageNext() {
     return (
         <>
-            <Button className="page__index--selector" ><Icon url={right} /></Button>
+            <Button className="page__index--selector" aria-label="successivo"><Icon url={right} alt="successivo" /></Button>
         </>
     )
 }

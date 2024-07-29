@@ -44,8 +44,8 @@ const UserInfo = ({ mail, isActual }: UserInfoProps) => {
                         </div>
                         {isActual && (
                             <div className="col-auto d-flex align-items-start" >
-                                <Button className="btn--edit" onClick={handleClick}><Icon url="./images/edit.svg" margin="0.5em" />Modifica</Button>
-                                <Button className="btn--edit" onClick={showDialog}><Icon url="./images/log-out.svg" margin="0.5em" />Esci</Button>
+                                <Button className="btn--edit" onClick={handleClick}><Icon url="./images/edit.svg" margin="0.5em" alt="modifica" />Modifica</Button>
+                                <Button className="btn--edit" onClick={showDialog}><Icon url="./images/log-out.svg" margin="0.5em" alt="esci" />Esci</Button>
                             </div>
                         )}
                     </div>

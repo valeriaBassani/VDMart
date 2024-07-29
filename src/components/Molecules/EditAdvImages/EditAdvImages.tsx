@@ -35,8 +35,8 @@ export default function EditAdvImages() {
                     <div className="col carousel__item">
                         <img src={images[index]} alt="foto articolo" />
                         <div className="carousel__indicators">
-                            <span onClick={handlePrev}><Icon url={left} /></span>
-                            <span onClick={handleNext}> <Icon url={right} /></span>
+                            <span onClick={handlePrev}><Icon url={left} alt="precedente" /></span>
+                            <span onClick={handleNext}> <Icon url={right} alt="successivo" /></span>
                         </div>
                     </div>
                 </div>

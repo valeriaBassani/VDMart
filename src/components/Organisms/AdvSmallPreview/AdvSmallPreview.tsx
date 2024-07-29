@@ -53,7 +53,7 @@ export default function AdvSmallPreview({ type }: Props) {
                             </div>
                             {type === "active" && (
                                 <div className="col-auto p-0">
-                                    <button className="btn--edit" onClick={handleEdit}><Icon url={edit} /></button>
+                                    <button className="btn--edit" onClick={handleEdit}><Icon url={edit} alt="modifica" /></button>
                                 </div>
                             )}
                         </div>

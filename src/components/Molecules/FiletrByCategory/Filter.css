@@ -1,5 +1,4 @@
 .filter{
-    background-color: var(--background);
     border-radius: var(--border-radius);
     border: solid 1px var(--lightGrey);
     display: flex;

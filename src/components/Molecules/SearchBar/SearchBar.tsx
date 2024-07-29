@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import "./SearchBar.css"
 import lens from "./lens.svg"
 import CategoryFilter from "../FiletrByCategory/FiletrByCategory";
@@ -40,9 +40,6 @@ export default function SearchBar() {
                     </div>
                 </div>
             </div>
-
-
         </>
     )
-
 }

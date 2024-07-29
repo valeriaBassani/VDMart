@@ -29,16 +29,18 @@ export default function Checkbox({ id, label, checked, onChange }: Props) {
 
     return (
         <>
-            <div className="checkbox" >
+            <div className="checkbox"  >
                 <input
                     id={id}
                     type="checkbox"
-                    value="vehicles"
+                    value={id}
+                    aria-checked={checked}
                     checked={checked}
                     onChange={handleOptionChange}
                     className={`checkbox ${checked || check ? 'checkbox--checked' : ''}`}
+                    aria-label={label}
                 />
-                <label htmlFor={id}>{label}</label>
+                <label htmlFor={id} aria-label={label}>{label}</label>
             </div>
         </>
     )

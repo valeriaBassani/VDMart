@@ -26,15 +26,15 @@ export default function TextArea({ label, name, maxLength, value, required }: Pr
         <>
             <div className="field">
                 <div className="field__label">
-                    <label>{label}</label>
+                    <label htmlFor="description">{label}</label>
                     {required && <p>*</p>}
                 </div>
                 <div className="row text-end">
                     <div className="col">
-                        <p className='field__suggestion'>{count}/{maxLength}</p>
+                        <p id="text--area--suggestion" className='field__suggestion' >{count}/{maxLength}</p>
                     </div>
                 </div>
-                <textarea name="Description" value={inputValue} onChange={handleDescriptionChange}></textarea>
+                <textarea name="Description" id="description" value={inputValue} onChange={handleDescriptionChange} aria-describedby="text--area--suggestion" aria-required={required}></textarea>
             </div>
         </>
     )

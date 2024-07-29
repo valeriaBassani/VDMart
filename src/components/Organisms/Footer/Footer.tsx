@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="footer">
             <div className="row">
                 <div className="col-4">
-                    <Link to={`/`}><Icon url={logo} /></Link>
+                    <Link to={`/`}><Icon url={logo} alt="home" /></Link>
                 </div>
                 <div className="col-4 d-flex flex-column gap-4">
                     <Link to={`/assistenza`} className="navbar__link">Assistenza</Link>

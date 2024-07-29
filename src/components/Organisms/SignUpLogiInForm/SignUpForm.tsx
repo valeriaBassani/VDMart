@@ -15,9 +15,9 @@ export default function SingUpForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="form">
-                <div className="form__fields container-md">
-                    <h4>Inizia a fare affari, crea il tuo account</h4>
+            <form onSubmit={handleSubmit} className="form" aria-labelledby="signup--form">
+                <div className=" container-md main__section">
+                    <h4>Inizia a fare affari, <h4 id="signup--form">crea il tuo account</h4></h4>
                     <InputField label="Nome" type="text" name="name" placeholder="Nome" required={true}></InputField>
                     <InputField label="Cognome" type="text" name="lastname" placeholder="Cognome" required={true}></InputField>
                     <div className="row">

@@ -89,14 +89,14 @@ export default function CreateForm() {
                                 <div className="row my-2 gap-2">
                                     <div className="col-auto">
                                         <div className="field" >
-                                            <label>Disponibile per la spedizione*</label>
+                                            <label id='shipping--available'>Disponibile per la spedizione*</label>
                                             <label className="field__suggestion">
                                                 Scegli se fornire l’opzione di spedizione o se preferisci lo scambio a mano
                                             </label>
                                         </div>
                                     </div>
                                     <div className="col-auto">
-                                        <Toggle checked={checked} onChange={() => setIsChecked(!checked)} />
+                                        <Toggle aria-describedby="shipping--available" checked={checked} onChange={() => setIsChecked(!checked)} />
                                     </div>
                                     <div className={checked ? "" : "create__shipping--invisible"}>
                                         <div className="row align-items-center">

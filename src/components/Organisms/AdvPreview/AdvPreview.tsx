@@ -27,9 +27,11 @@ export default function Adv() {
                             <Favourite />
                         </div>
                         <div>
-                            <h4>Ipad terza generazione nuovo</h4>
-                            <h3 className="adv__price">145,00€</h3>
-                            <p className="adv__shipping">Spedizione disponibile</p>
+                            <div className="col d-flex flex-column gap-2">
+                                <h4>Ipad terza generazione nuovo</h4>
+                                <h3 className="adv__price">145,00€</h3>
+                                <p className="adv__shipping">Spedizione disponibile</p>
+                            </div>
                         </div>
                     </div>
                 </div>
