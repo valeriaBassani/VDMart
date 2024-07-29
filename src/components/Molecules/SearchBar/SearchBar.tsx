@@ -21,7 +21,7 @@ export default function SearchBar() {
                             <h4>Ricerca un articolo</h4>
                             <div className="search-bar">
                                 <InputField type="text" name="search" placeholder="Nome, marca, caratteristica" />
-                                <Button className="btn__secondary"><img src={lens} className="search-bar__lens"></img></Button>
+                                <Button className="btn__secondary"><img src={lens} className="search-bar__lens" alt="cerca"></img></Button>
                             </div>
                         </div>
                         <div className="col-auto p-0 search-bar__filter" >

@@ -20,12 +20,13 @@ export default function Categories({ onOptionChange }: RadioButtonsProps) {
 
     return (
         <>
-            <div className="Fields" style={{ backgroundColor: "white" }}>
+            <fieldset className="Fields" style={{ backgroundColor: "white" }}>
+                <label>Categoria*</label>
                 <Checkbox label="Tecnologia" id="tech" checked={selectedOption === 'tech'} onChange={handleOptionChange} />
                 <Checkbox label="Abbigliamento" id="dresses" checked={selectedOption === 'dresses'} onChange={handleOptionChange} />
                 <Checkbox label="Casa" id="home" checked={selectedOption === 'home'} onChange={handleOptionChange} />
                 <Checkbox label="Animali" id="animals" checked={selectedOption === 'animals'} onChange={handleOptionChange} />
-            </div>
+            </fieldset>
         </>
     )
 }

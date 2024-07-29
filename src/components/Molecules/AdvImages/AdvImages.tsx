@@ -35,7 +35,7 @@ export default function AdvImages() {
             <div className="row gap-2 carousel">
                 <div className="row">
                     <div className="col carousel__item">
-                        <img src={images[index]} alt="foto articolo" aria-label="foto articolo" />
+                        <img src={images[index]} alt="foto articolo" />
                         <div className="carousel__indicators">
                             <span onClick={handlePrev} aria-label="precedente"><Icon url={left} alt="precedente" /></span>
                             <span onClick={handleNext} aria-label="successivo"> <Icon url={right} alt="successivo" /></span>
@@ -44,18 +44,18 @@ export default function AdvImages() {
                 </div>
                 <div className="row gap-2">
                     <div className="col carousel__item">
-                        <button onClick={() => handleClick(0)} aria-label="foto articolo">
-                            <img src={ipad} alt="foto articolo" aria-label="foto articolo" />
+                        <button onClick={() => handleClick(0)}>
+                            <img src={ipad} alt="foto articolo" />
                         </button>
                     </div>
                     <div className="col carousel__item">
-                        <button onClick={() => handleClick(1)} aria-label="foto articolo">
-                            <img src={ipad2} alt="foto articolo" aria-label="foto articolo" />
+                        <button onClick={() => handleClick(1)} >
+                            <img src={ipad2} alt="foto articolo" />
                         </button>
                     </div>
                     <div className="col carousel__item">
-                        <button onClick={() => handleClick(2)} aria-label="foto articolo">
-                            <img src={ipad3} alt="foto articolo" aria-label="foto articolo" />
+                        <button onClick={() => handleClick(2)} >
+                            <img src={ipad3} alt="foto articolo" />
                         </button>
                     </div>
                     <div className="col carousel__item">

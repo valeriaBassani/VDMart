@@ -40,7 +40,7 @@ export default function Home() {
                                 <OrderBy />
                             </div>
                         </div>
-                        <div className="row align-items-center">
+                        <div className="row align-items-center" >
                             <div className="col d-flex flex-column justify-content-center gap-3">
                                 <AdvPreview />
                                 <AdvPreview />

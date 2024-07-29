@@ -33,7 +33,7 @@ export function DeleteAdv({ article }: Props) {
             {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
                 <div className="row">
                     <div className="col">
-                        <img src={help} alt="Icon" />
+                        <img src={help} alt="confermare" />
                     </div>
                 </div>
                 <div className="row px-5 mx-5">
@@ -58,7 +58,7 @@ export function DeleteAdv({ article }: Props) {
                 currentModal === 'secondo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
                     <div className="row">
                         <div className="col">
-                            <img src={check} alt="Icon" />
+                            <img src={check} alt="successo" />
                         </div>
                     </div>
                     <div className="row px-5 mx-5">

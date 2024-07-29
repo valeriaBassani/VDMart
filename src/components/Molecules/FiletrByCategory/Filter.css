@@ -8,3 +8,12 @@
     overflow: hidden;
     padding: 1em;
 }
+
+.filter legend{
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

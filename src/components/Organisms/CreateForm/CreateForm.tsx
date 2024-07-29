@@ -84,7 +84,6 @@ export default function CreateForm() {
                                         <h4>€</h4>
                                     </div>
                                 </div>
-                                <label>Categoria*</label>
                                 <Categories onOptionChange={handleOptionChange} />
                                 <div className="row my-2 gap-2">
                                     <div className="col-auto">

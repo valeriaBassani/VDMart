@@ -13,7 +13,7 @@ export default function Adv() {
     }
     return (
         <>
-            <div className="adv" onClick={handleClick}>
+            <button className="adv" onClick={handleClick}>
                 <div className="row adv__info">
                     <div className="col-auto pe-0">
                         <img src={ipad} alt="Ipad"></img>
@@ -40,7 +40,7 @@ export default function Adv() {
                         <UserRate mail="Ilaria" />
                     </div>
                 </div>
-            </div>
+            </button >
         </>
     )
 }

@@ -77,7 +77,7 @@ export default function ImageUpload({ label, upCount, isNext }: Props) {
             <Dialog title='immagine caricata' show={show} onHide={close} >
                 <div className="row">
                     <div className="col item__preview">
-                        <img src={image} alt="product" />
+                        <img src={image} alt="foto articolo" />
                     </div>
                 </div>
             </Dialog>

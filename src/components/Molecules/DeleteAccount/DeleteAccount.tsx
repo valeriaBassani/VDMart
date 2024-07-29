@@ -27,16 +27,13 @@ export function DeleteAccount({ mail }: Props) {
         setShow(false)
     }
 
-
     return (
         <>
-
             <Button className="btn--edit" onClick={showDialog}>Elimina account</Button>
-
             {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina account" >
                 <div className="row">
                     <div className="col">
-                        <img src={help} alt="Icon" />
+                        <img src={help} alt="confermare" />
                     </div>
                 </div>
                 <div className="row px-5 mx-5">
@@ -61,7 +58,7 @@ export function DeleteAccount({ mail }: Props) {
                 currentModal === 'secondo' && <Dialog show={show} onHide={close} title="Elimina account" >
                     <div className="row">
                         <div className="col">
-                            <img src={check} alt="Icon" />
+                            <img src={check} alt="Successo" />
                         </div>
                     </div>
                     <div className="row px-5 mx-5">

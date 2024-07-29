@@ -44,19 +44,19 @@ export default function EditAdvImages() {
                     <div className="col carousel__item ">
                         <button className="carousel__item--delete"></button>
                         <button onClick={() => handleClick(0)}>
-                            <img src={ipad} alt="Thumbnail 1" />
+                            <img src={ipad} alt="foto articolo" />
                         </button>
                     </div>
                     <div className="col carousel__item">
                         <button className="carousel__item--delete" ></button>
                         <button onClick={() => handleClick(1)}>
-                            <img src={ipad2} alt="Thumbnail 1" />
+                            <img src={ipad2} alt="foto articolo" />
                         </button>
                     </div>
                     <div className="col carousel__item">
                         <button className="carousel__item--delete" ></button>
                         <button onClick={() => handleClick(2)}>
-                            <img src={ipad3} alt="Thumbnail 1" />
+                            <img src={ipad3} alt="foto articolo" />
                         </button>
                     </div>
                     <div className="col">
