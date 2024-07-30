@@ -4,15 +4,28 @@ import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { createRandomUser } from './../../../storesData/account/index';
+
 
 export default function SingUpForm() {
     const { t } = useTranslation();
+
     const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        formData.forEach((value, key) => {
-            console.log(`${key}: ${value}`);
-        });
+        // const formData = new FormData(e.currentTarget);
+
+        // const user: User = {} as User;
+
+        // formData.forEach((value, key) => {
+        //     //console.log(`${key}: ${value}`);
+        //     user[key] = value;
+        // });
+
+        const user = createRandomUser();
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+
     }, []);
 
     return (
@@ -50,7 +63,6 @@ export default function SingUpForm() {
         </>
     );
 }
-
 
 //reducer
 // type State = {
