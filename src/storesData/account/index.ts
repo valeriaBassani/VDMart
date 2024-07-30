@@ -15,8 +15,8 @@ import { faker } from '@faker-js/faker';
     confirmPassword: string;
 }
 
-export function createRandomUser():User{
-    const password = faker.internet.password();
+export function createUser():User{
+    const password = faker.person.firstName();
     return {
         name: faker.person.firstName(),
         lastName: faker.person.lastName(),
@@ -36,3 +36,24 @@ export const registerUser = (userData: User): Promise<User> =>  {
     return Promise.resolve(userData);
 }
 
+function getUserByEmail(email:string) {
+    const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(user => user.email === email);
+    return user; 
+}
+
+interface logInCredential{
+    mail: string;
+    password: string;
+    remember: boolean;
+}
+
+export const accessUser = (credential: logInCredential): Promise<boolean> =>  {
+    const user=getUserByEmail(credential.mail)
+    if(user){
+        if(credential.password===user.password){
+            return Promise.resolve(true);
+        }
+    }
+    return Promise.resolve(false);
+}

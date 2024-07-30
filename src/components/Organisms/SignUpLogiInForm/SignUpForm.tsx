@@ -4,8 +4,8 @@ import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { createRandomUser } from './../../../storesData/account/index';
-
+import { createUser } from './../../../storesData/account/index';
+import { registerUser } from './../../../storesData/account/index';
 
 export default function SingUpForm() {
     const { t } = useTranslation();
@@ -21,10 +21,16 @@ export default function SingUpForm() {
         //     user[key] = value;
         // });
 
-        const user = createRandomUser();
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
-        users.push(user);
-        localStorage.setItem('users', JSON.stringify(users));
+        const user = createUser();
+        registerUser(user)
+            .then((result) => {
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                users.push(result);
+                localStorage.setItem('users', JSON.stringify(users));
+            })
+            .catch((error) => {
+                console.error('Errore durante la registrazione:', error);
+            });
 
     }, []);
 
