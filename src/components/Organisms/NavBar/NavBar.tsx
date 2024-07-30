@@ -29,7 +29,7 @@ export default function NavBar() {
                         {isLogin && (<><Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />{t('navbar.favourites')}</Link>
                             <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />{t('navbar.messages')}</Link>
                             <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />{t('navbar.create')}</Link></>)}
-                        <Link to={`/registrazione`} className="link">{t('navbar.singIn')}</Link>
+                        <Link to={`/registrazione`} className="link">{t('navbar.signIn')}</Link>
                         <Link to={`/login`} className="btn--primary">{t('navbar.logIn')}</Link>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ export default function NavBar() {
                     <div className={`navbar__more col-auto d-flex flex-column text-end ${visible ? 'navbar__more--invisible' : ''}`}>
                         <Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />{t('navbar.favourites')}</Link>
                         <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />{t('navbar.messages')}</Link>
-                        <Link to={`/registrazione`} className="link">{t('navbar.singIn')}</Link>
+                        <Link to={`/registrazione`} className="link">{t('navbar.signIn')}</Link>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ export default function NavBar() {
                         <Link to={`/vendi`} className="btn--secondary"><Icon url={plus} margin="0.3em" alt="crea un annuncio" />{t('navbar.create')}</Link>
                         <Link to={`/preferiti`} className="navbar__link"><Icon url={heart} margin="0.3em" alt="preferiti" />{t('navbar.favourites')}</Link>
                         <Link to={`/messages`} className="navbar__link"><Icon url={message} margin="0.3em" alt="messaggi" />{t('navbar.messages')}</Link>
-                        <Link to={`/registrazione`} className="link">{t('navbar.singIn')}</Link>
+                        <Link to={`/registrazione`} className="link">{t('navbar.signIn')}</Link>
                     </div>
                 </div>
             </div>

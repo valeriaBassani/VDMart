@@ -7,6 +7,12 @@
     justify-content: center;
     overflow: hidden;
     padding: 1em;
+    background-color: var(--section);
+    background: rgba(255, 255, 255, 0.749);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.096);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.19);
 }
 
 .filter legend{

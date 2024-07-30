@@ -2,8 +2,89 @@
     "navbar":{
         "create":"Crea un annuncio",
         "logIn":"Accedi",
-        "singIn":"Registrati",
+        "signIn":"Registrati",
         "messages":"Messaggi",
         "favourites":"Preferiti"
+    },
+
+    "home":{
+        "filters":"Filtri di ricerca",
+        "adv":"Annunci",
+        "results":"Risultati",
+        "search":"Ricerca di un articolo",
+        "search-placeholder":"Nome, marca, caratteristica,..."
+    },
+
+    "support":{
+        "link-1":"Hai bisogno di aiuto?",
+        "link-2":"Contatta il nostro servizio di assistenza!"
+    },
+
+    "category-filter":{
+        "title":"Categoria",
+        "vehicles":"Motori",
+        "tech":"Tecnologia",
+        "dresses":"Abbigliamento",
+        "house":"Casa",
+        "animals":"Animali"
+    },
+
+    "buttons":{
+        "confirm":"Cerca",
+        "reset":"Ripristina"
+    },
+
+    "price-filter":{
+        "title":"Prezzo"
+    },
+
+    "shipping-filter":{
+        "title":"Spedizione"
+    },
+
+    "login":{
+        "title":"Benvenuto",
+        "subtitle":"Accedi al tuo profilo",
+        "restore-psw":"Password dimenticata?",
+        "signIn":"Non sei ancora registrato?",
+        "remember-me":"Ricordami"
+    },
+
+    "signUp":{
+        "subtitle":"Inizia a fare affari, crea il tuo account",
+        "name":"Nome",
+        "lastname":"Cognome",
+        "phone":"Telefono",
+        "address":"Indirizzo",
+        "number":"N.",
+        "city":"Città",
+        "state":"PV",
+        "confirm-psw":"Conferma password",
+        "register":"Registrati",
+        "obbligatory-field":"campo obbligatorio",
+        "already":"Sei già registrato? "
+    },
+
+    "favourites":{
+        "title":"Annunci preferiti",
+        "counter":"preferiti",
+        "total":"totale"
+    },
+
+    "create":{
+        "title":"Crea il tuo annuncio",
+        "article":"Titolo",
+        "price":"Prezzo di vendita",
+        "category":"Categoria",
+        "shipping":"Disponibile per la spedizione",
+        "shipping-price":"Costi di spedizione",
+        "shipping-description":"Scegli se fornire l’opzione di spedizione o se preferisci lo scambio a mano",
+        "phone":"Numero di telefono per il contatto",
+        "phone-placeholder":"Tel.",
+        "images":"Immagini",
+        "images-description":"Puoi caricare da un minimo di 2 ad un massimo di 6 immagini",
+        "images-loaded":"Caricate",
+        "description":"Descrizione",
+        "public":"Pubblica l'annuncio"
     }
 }

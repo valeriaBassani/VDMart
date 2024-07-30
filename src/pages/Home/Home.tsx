@@ -24,20 +24,19 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row gap-3 py-4 my-4 home__board">
-                    <div className="col-3 home__filters main__section " >
+                    <div className="col-3 home__filters main p-3" >
                         <div className="col d-flex flex-column gap-3">
-                            <h4>{t('main.header')}</h4>
-                            <h4>Filtri di ricerca</h4>
+                            <h4>{t('home.filters')}</h4>
                             <CategoryFilter />
                             <PriceFilter />
                             <Shipping />
                         </div>
                     </div>
-                    <div className="col p-3 d-flex flex-column gap-3 main__section " >
+                    <div className="col p-3 d-flex flex-column gap-3 main " >
                         <div className="row">
                             <div className="col">
-                                <h4>Annunci</h4>
-                                <p>64 risultati</p>
+                                <h4>{t('home.adv')}</h4>
+                                <p>64 {t('home.results')}</p>
                             </div>
                             <div className="col-auto">
                                 <OrderBy />

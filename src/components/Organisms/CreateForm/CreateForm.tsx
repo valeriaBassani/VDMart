@@ -9,10 +9,11 @@ import ImageUpload from '../../Molecules/ImageUpload/ImageUpload';
 import Toggle from '../../Atoms/Toggle/Toggle';
 import Dialog from '../../Template/DialogPopUp/Dialog';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 export default function CreateForm() {
-
+    const { t } = useTranslation();
     const [show, setShow] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const [checked, setIsChecked] = useState(false);
@@ -75,10 +76,10 @@ export default function CreateForm() {
                     <div className="row gap-3">
                         <div className="col main__section">
                             <div className="form">
-                                <InputField label="Titolo" type="text" name="title" placeholder="Titolo" required={true} ></InputField>
+                                <InputField label={t('create.article')} type="text" name="title" placeholder={t('create.article')} required={true} ></InputField>
                                 <div className="row align-items-center">
                                     <div className="col">
-                                        <InputField label="Prezzo di vendita" type="number" name="price" placeholder="0000,00" required={true}></InputField>
+                                        <InputField label={t('create.price')} type="number" name="price" placeholder="0000,00" required={true}></InputField>
                                     </div>
                                     <div className="col-1 pt-4 px-0">
                                         <h4>€</h4>
@@ -88,9 +89,9 @@ export default function CreateForm() {
                                 <div className="row my-2 gap-2">
                                     <div className="col-auto">
                                         <div className="field" >
-                                            <label id='shipping--available'>Disponibile per la spedizione*</label>
+                                            <label id='shipping--available'>{t('create.shipping')}*</label>
                                             <label className="field__suggestion">
-                                                Scegli se fornire l’opzione di spedizione o se preferisci lo scambio a mano
+                                                {t('create.shipping-description')}
                                             </label>
                                         </div>
                                     </div>
@@ -100,7 +101,7 @@ export default function CreateForm() {
                                     <div className={checked ? "" : "create__shipping--invisible"}>
                                         <div className="row align-items-center">
                                             <div className="col">
-                                                <InputField label="Costo spedizione" type="number" name="shippingPrice" placeholder="000,00" required={true}></InputField>
+                                                <InputField label={t('create.shipping-price')} type="number" name="shippingPrice" placeholder="000,00" required={true}></InputField>
                                             </div>
                                             <div className="col-1 pt-4 px-0">
                                                 <h4>€</h4>
@@ -108,17 +109,17 @@ export default function CreateForm() {
                                         </div>
                                     </div>
                                 </div>
-                                <InputField label="Numero di telefono per il contatto" type="number" name="phone" placeholder="Tel." required={true}></InputField>
+                                <InputField label={t('create.phone')} type="number" name="phone" placeholder={t('create.phone-placeholder')} required={true}></InputField>
                             </div>
                         </div>
                         <div className="col d-flex flex-column justify-content-between">
                             <div className="row align-items-center main__section">
                                 <div className="col ">
-                                    <label>Immagini*</label>
-                                    <p className='field__suggestion'>Puoi caricare da un minimo di 2 ad un massimo di 6 immagini</p>
+                                    <label>{t('create.images')}*</label>
+                                    <p className='field__suggestion'>{t('create.images-description')}</p>
                                     <div className="row text-end">
                                         <div className="col">
-                                            <p className='field__suggestion'>Caricate {contImages}/6</p>
+                                            <p className='field__suggestion'>{t('create.images-loaded')} {contImages}/6</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -133,13 +134,13 @@ export default function CreateForm() {
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <TextArea label='Descrizione' name='descripion' maxLength={200} required={true} />
+                                    <TextArea label={t('create.description')} name='descripion' maxLength={200} required={true} />
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col">
-                                    <p>* campo obbligatorio</p>
-                                    <Submit label="Pubblica l'annuncio" className="btn--primary" />
+                                <div className="col p-0">
+                                    <p>* {t('signUp.obbligatory-field')}</p>
+                                    <Submit label={t('create.public')} className="btn--primary" />
                                 </div>
                             </div>
                         </div>

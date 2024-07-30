@@ -1,12 +1,14 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function SupportLink() {
+    const { t } = useTranslation();
     return (
         <>
-            <div className="breadcrumb" style={{ color: "black" }}>
-                <div className="row">
+            <div style={{ color: "black" }}>
+                <div className="row p-3">
                     <div className="col d-flex gap-1">
-                        <p>Hai bisogno di aiuto?</p><Link to={`/assistenza`} className="link">contatta l'Assistenza</Link>
+                        <p>{t('support.link-1')}</p><Link to={`/assistenza`} className="link">{t('support.link-2')}</Link>
                     </div>
                 </div>
             </div>

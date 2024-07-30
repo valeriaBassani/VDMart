@@ -7,9 +7,10 @@ import Shipping from "../FilterByShipping/FilterByShipping";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import Button from "../../Atoms/Buttons/Buttons";
+import { useTranslation } from "react-i18next";
 
 export default function SearchBar() {
-
+    const { t } = useTranslation();
     const [visible, setVisible] = useState(false);
 
     return (
@@ -18,9 +19,9 @@ export default function SearchBar() {
                 <div className="col d-flex flex-column ">
                     <div className="row align-items-end gap-2">
                         <div className="col p-0">
-                            <h4>Ricerca un articolo</h4>
+                            <h4>{t('home.search')}</h4>
                             <div className="search-bar">
-                                <InputField type="text" name="search" placeholder="Nome, marca, caratteristica" />
+                                <InputField type="text" name="search" placeholder={t('home.search-placeholder')} />
                                 <Button className="btn__secondary"><img src={lens} className="search-bar__lens" alt="cerca"></img></Button>
                             </div>
                         </div>
@@ -30,7 +31,7 @@ export default function SearchBar() {
                     </div>
                     <div className={`row search-bar__more ${visible ? 'search-bar__more--visible' : ''} my-3`}>
                         <div className="main__section">
-                            <h4>Filtri di ricerca</h4>
+                            <h4>{t('home.filters')}</h4>
                             <div className="col d-flex flex-column gap-2 p-0">
                                 <CategoryFilter />
                                 <PriceFilter />

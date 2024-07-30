@@ -112,10 +112,7 @@ label{
     background-color: var(--background);
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
-    width: 100%;
     padding: 2em;
-    /* From https://css.glass */
-    /* From https://css.glass */
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.096);

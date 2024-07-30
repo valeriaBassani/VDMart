@@ -8,7 +8,7 @@ export default function SwitchLan() {
     };
     return (
         <>
-            <div className="breadcrumb language">
+            <div className="language">
                 <select value={i18n.language} onChange={handleChange}>
                     <option value="en">English</option>
                     <option value="it">Italiano</option>

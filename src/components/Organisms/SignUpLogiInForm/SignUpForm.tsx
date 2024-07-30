@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function SingUpForm() {
+    const { t } = useTranslation();
     const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -17,33 +19,33 @@ export default function SingUpForm() {
         <>
             <form onSubmit={handleSubmit} className="form" aria-labelledby="signup--form">
                 <div className=" container-md main__section">
-                    <h4>Inizia a fare affari, <h4 id="signup--form">crea il tuo account</h4></h4>
-                    <InputField label="Nome" type="text" name="name" placeholder="Nome" required={true}></InputField>
-                    <InputField label="Cognome" type="text" name="lastname" placeholder="Cognome" required={true}></InputField>
+                    <h4 id="signup--form">{t('signUp.subtitle')}</h4>
+                    <InputField label={t('signUp.name')} type="text" name="name" placeholder={t('signUp.name')} required={true}></InputField>
+                    <InputField label={t('signUp.lastname')} type="text" name="lastname" placeholder={t('signUp.lastname')} required={true}></InputField>
                     <div className="row">
                         <div className="col">
-                            <InputField label="Indirizzo" type="text" name="street" placeholder="Via" required={true}></InputField>
+                            <InputField label={t('signUp.address')} type="text" name="street" placeholder={t('signUp.address')} required={true}></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label="N." type="number" name="number" placeholder="N." required={true}></InputField>
+                            <InputField label={t('signUp.number')} type="number" name="number" placeholder={t('signUp.number')} required={true}></InputField>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <InputField label="Città" type="text" name="city" placeholder="Città" required={true}></InputField>
+                            <InputField label={t('signUp.city')} type="text" name="city" placeholder={t('signUp.city')} required={true}></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label="Pv" type="text" name="provincia" placeholder="Pv" required={true}></InputField>
+                            <InputField label={t('signUp.state')} type="text" name="provincia" placeholder={t('signUp.state')} required={true}></InputField>
                         </div>
                     </div>
-                    <InputField label="Telefono" type="tel" name="phone" placeholder="Tel." required={true}></InputField>
+                    <InputField label={t('signUp.phone')} type="tel" name="phone" placeholder={t('signUp.phone')} required={true}></InputField>
                     <InputField label="Email" type="email" name="mail" placeholder="Email" required={true}></InputField>
                     <InputField label="Password" type="password" name="password" placeholder="Password" required={true} suggest="la password deve essere di almeno 7 caratteri, contenere 2 numeri e 1 carattere speciale"></InputField>
-                    <InputField label="Conferma password" type="password" name="confirmPassword" required={true} placeholder="Password"></InputField>
+                    <InputField label={t('signUp.confirm-psw')} type="password" name="confirmPassword" required={true} placeholder="Password"></InputField>
                 </div>
-                <p>* campo obbligatorio</p>
-                <Submit label="Registrati" className='btn--primary' />
-                <p>Sei già registrato?<Link to={`/login`} className="link">Accedi</Link></p>
+                <p>* {t('signUp.obbligatory-field')}</p>
+                <Submit label={t('signUp.register')} className='btn--primary' />
+                <p>{t('signUp.already')}<Link to={`/login`} className="link">{t('navbar.logIn')}</Link></p>
             </form>
         </>
     );

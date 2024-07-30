@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
+import { useTranslation } from "react-i18next";
 
 export default function LogIn() {
-
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -20,14 +21,14 @@ export default function LogIn() {
         <>
             <form onSubmit={handleSubmit} className="form " aria-labelledby="login--form">
                 <div className=" container-md main__section">
-                    <h4 id="login--form">Accedi al tuo profilo</h4>
+                    <h4 id="login--form">{t('login.subtitle')}</h4>
                     <InputField label="Email" type="email" name="email" placeholder="email" required={true} ></InputField>
                     <InputField label="Password" type="password" name="password" placeholder="password" required={true} ></InputField>
-                    <Link to={`/recupera-password`} className="link">Password dimenticata?</Link>
+                    <Link to={`/recupera-password`} className="link">{t('login.restore-psw')}</Link>
                 </div>
-                <Checkbox label="Ricordami" id="rememberMe" />
+                <Checkbox label={t('login.remember-me')} id="rememberMe" />
                 <Submit label="Accedi" className='btn--primary' onClick={handleClick} />
-                <p>Non sei registrato? <Link to={`/registrazione`} className="link">Registrati</Link></p>
+                <p>{t('login.signIn')} <Link to={`/registrazione`} className="link">{t('navbar.signIn')}</Link></p>
             </form>
         </>
     )

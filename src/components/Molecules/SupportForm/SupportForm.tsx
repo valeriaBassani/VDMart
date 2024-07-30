@@ -27,15 +27,15 @@ export default function SupportForm({ category }: Props) {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="form ">
-                <div className="fields container-md">
+            <form onSubmit={handleSubmit} className="form">
+                <div className="container-md  main__section">
                     <h4>Scrivici</h4>
                     <InputField label="Email" type="email" name="email" placeholder="email" required={true} ></InputField>
                     <div className="create__section">
                         <div className="row">
                             <div className="col d-flex gap-2 py-2">
                                 <label>Oggetto:</label>
-                                <label style={{ color: "var(--primary)" }}> {category} </label>
+                                <p> {category} </p>
                             </div>
                         </div>
                         <TextArea label="Messaggio" name="text" maxLength={300} required={true} />

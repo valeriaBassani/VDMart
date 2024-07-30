@@ -24,19 +24,11 @@ import EditActiveAdv from './pages/EditActiveAdv';
 import ActiveAdvDetails from './pages/ActiveAdvDetails';
 import OtherUser from './pages/OtherUser';
 import AllReview from './pages/AllReview';
-import SwitchLan from './components/Atoms/SwitchLan/SwitchLan';
 
 const Main = () => (
   <>
     <NavBar />
-    <div className="row">
-      <div className="col">
-        <BreadCrumbs />
-      </div>
-      <div className="col-auto">
-        <SwitchLan />
-      </div>
-    </div>
+    <BreadCrumbs />
     <Outlet />
     <SupportLink />
     <Footer />

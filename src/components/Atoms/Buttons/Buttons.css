@@ -54,7 +54,7 @@ button{
     font-size: var(--font-size-p);
     height: 3em;
     justify-content: center;
-    width: fit-content;
+    min-width: fit-content;
     padding: 0em 2em 0em 2em;
     text-decoration: none;
 }
@@ -68,10 +68,10 @@ button{
     cursor:default !important;
     display: flex;
     font-size: var(--font-size-p);
-    height: 3em;
+    min-height: 3em;
     justify-content: center;
     width: fit-content;
-    padding: 0em 3em 0em 3em;
+    padding: 0em 1em 0em 1em;
     text-decoration: none;
 }
 
@@ -173,6 +173,10 @@ button{
     }
 
     .btn--delete{
+        font-size: 12px;
+    }
+
+    .btn--disabled{
         font-size: 12px;
     }
     

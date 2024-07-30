@@ -1,9 +1,90 @@
 {
     "navbar":{
-        "create":"Create an advertise",
-        "logIn":"LogIn",
-        "singIn":"SingUp",
+        "create":"Create an advertisement",
+        "logIn":"Log In",
+        "signIn":"Sign Up",
         "messages":"Messages",
         "favourites":"Favourites"
+    },
+
+    "home":{
+        "filters":"Search filters",
+        "adv":"Advertisements",
+        "results":"Results",
+        "search":"Search for an item",
+        "search-placeholder":"Name, brand, feature,..."
+    },
+
+    "support":{
+        "link-1":"Need some help?",
+        "link-2":"Contact our support service!"
+    },
+
+    "category-filter":{
+        "title":"Category",
+        "vehicles":"Vehicles",
+        "tech":"Tech",
+        "dresses":"Clothing",
+        "house":"Home",
+        "animals":"Animals"
+    },
+
+    "buttons":{
+        "confirm":"Search",
+        "reset":"Reset"
+    },
+
+    "price-filter":{
+        "title":"Price"
+    },
+
+    "shipping-filter":{
+        "title":"Shipping"
+    },
+
+    "login":{
+        "title":"Welcome",
+        "subtitle":"Log in to your profile",
+        "restore-psw":"Forgot your password?",
+        "signIn":"Not signed up yet?",
+        "remember-me":"Remember me"
+    },
+
+    "signUp":{
+        "subtitle":"Start doing business, create your account",
+        "name":"First Name",
+        "lastname":"Last Name",
+        "phone":"Phone",
+        "address":"Address",
+        "number":"N.",
+        "city":"City",
+        "state":"PV",
+        "confirm-psw":"Confirm Password",
+        "register":"Register",
+        "obbligatory-field":"obbligatory field",
+        "already":"already signed up? "
+    },
+
+    "favourites":{
+        "title":"Favourite advertisements",
+        "counter":"favourites",
+        "total":"total"
+    },
+
+    "create":{
+        "title":"Create Your Advertisement",
+        "article":"Title",
+        "price":"Sale Price",
+        "category":"Category",
+        "shipping":"Available for Shipping",
+        "shipping-price":"Shipping Costs",
+        "shipping-description":"Choose whether to offer shipping or prefer in-person exchange",
+        "phone":"Contact Phone Number",
+        "phone-placeholder":"Phone",
+        "images":"Images",
+        "images-description":"You can upload a minimum of 2 and a maximum of 6 images",
+        "images-loaded":"Loaded",
+        "description":"Description",
+        "public":"Publish Advertisement"
     }
 }

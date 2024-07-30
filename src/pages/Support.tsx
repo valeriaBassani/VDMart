@@ -14,10 +14,10 @@ export default function Support() {
                 <div className="row">
                     <div className="col d-flex flex-column gap-3" >
                         <h2>Contattaci!</h2>
-                        <div className="container-lg create" style={{ backgroundColor: "white" }}>
+                        <div className="container-lg main" >
                             <h4>Per cosa possiamo aiutarti?</h4>
                             <div className="row gap-3 mt-3">
-                                <div className="col d-flex flex-wrap">
+                                <div className="col d-flex flex-wrap main__section justify-content-center">
                                     <div className="row g-3">
                                         <div className="col-12 col-md-6">
                                             <SupportCategory title="Registrazione e accesso" clicked={selected === "Registrazione e accesso"} text="Risoluzione problemi legati a login e registrazione" onClick={handleClick} />
@@ -39,7 +39,7 @@ export default function Support() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col">
+                                <div className="col p-0">
                                     <SupportForm category={selected} />
                                 </div>
                             </div>

@@ -2,6 +2,8 @@
 
 .carousel{
     min-width: 20em;
+    display: flex;
+    justify-content: center;
 }
 
 .carousel__item{
