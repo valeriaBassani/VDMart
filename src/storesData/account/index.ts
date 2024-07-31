@@ -54,16 +54,6 @@ interface logInCredential{
     remember: boolean;
 }
 
-// export const accessUser = (credential: logInCredential): Promise<boolean> =>  {
-//     const user=getUserByEmail(credential.mail)
-//     if(user){
-//         if(credential.password===user.password){
-//             return Promise.resolve(true);
-//         }
-//     }
-//     return Promise.resolve(false);
-// }
-
 export const accessUser = (credential: logInCredential): Promise<boolean> => {
     const user=getUserByEmail(credential.mail)
     return new Promise((resolve, reject) => {
