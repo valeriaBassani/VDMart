@@ -16,6 +16,7 @@ export default function LogIn() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
+
         const formData = new FormData(e.currentTarget);
         const credentials: FormData = {
             mail: formData.get('email') as string,
@@ -24,12 +25,8 @@ export default function LogIn() {
         };
         accessUser(credentials)
             .then((result) => {
-                if (result) {
-                    console.log("accesso riuscito");
-                    navigate('/area-riservata');
-                } else {
-                    console.log("accesso negato");
-                }
+                console.log("accesso riuscito");
+                navigate('/area-riservata');
             })
             .catch((error) => {
                 console.error("Errore durante l'accesso:", error);

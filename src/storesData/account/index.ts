@@ -32,9 +32,15 @@ export function createUser():User{
     };
 }
 
-export const registerUser = (userData: User): Promise<User> =>  {
-    return Promise.resolve(userData);
-}
+// export const registerUser = (userData: User): Promise<User> =>  {
+//     return Promise.resolve(userData);
+// }
+
+export const registerUser = (userData: User): Promise<User> => {
+    return new Promise((resolve, reject) => {
+        resolve(userData);
+    });
+};
 
 function getUserByEmail(email:string) {
     const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
@@ -48,12 +54,27 @@ interface logInCredential{
     remember: boolean;
 }
 
-export const accessUser = (credential: logInCredential): Promise<boolean> =>  {
+// export const accessUser = (credential: logInCredential): Promise<boolean> =>  {
+//     const user=getUserByEmail(credential.mail)
+//     if(user){
+//         if(credential.password===user.password){
+//             return Promise.resolve(true);
+//         }
+//     }
+//     return Promise.resolve(false);
+// }
+
+export const accessUser = (credential: logInCredential): Promise<boolean> => {
     const user=getUserByEmail(credential.mail)
-    if(user){
-        if(credential.password===user.password){
-            return Promise.resolve(true);
+    return new Promise((resolve, reject) => {
+        if(user){
+            if(credential.password===user.password){
+                resolve(true);
+            }else{
+                reject(new Error("Password errata"));
+            }
+        }else{
+            reject(new Error("Utente non trovato"));
         }
-    }
-    return Promise.resolve(false);
-}
+    });
+};
