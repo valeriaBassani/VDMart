@@ -6,7 +6,7 @@ export default function OtherUser() {
         <>
             <div className="container-sm">
                 <h4>Profilo Utente</h4>
-                <User mail="luca@gmail.com" isActual={false} />
+                <User isActual={false} />
                 <OtherUserHistory />
             </div>
 

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import AdvImages from "../../Molecules/AdvImages/AdvImages"
 import Favourite from "../../Molecules/Favourite/Favourite"
 import "./AdvsDetails.css"
@@ -9,13 +9,27 @@ import Checkout from "../../Template/DialogPopUp/Checkout"
 import Dialog from "../../Template/DialogPopUp/Dialog"
 import { Link } from "react-router-dom"
 import check from "./check-circle 1.svg"
+import { AdvData, emptyAds, getActualAdv } from "../../../storesData/products"
 
 type Props = {
-    article?: string,
     details?: "adv" | "purchase" | "sold"
 }
 
-export default function AdvDetails({ article, details }: Props) {
+export default function AdvDetails({ details }: Props) {
+
+    const [adv, setAdv] = useState<AdvData>(emptyAds)
+
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                const adv = await getActualAdv()
+                setAdv(adv);
+            } catch (error) {
+                console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, []);
 
     const [currentModal, setCurrentModal] = useState("primo");
 
@@ -42,15 +56,15 @@ export default function AdvDetails({ article, details }: Props) {
                             <div className="row gap-2">
                                 <div className="row">
                                     <div className="col">
-                                        <h5 className="adv__category">Tecnologia</h5>
+                                        <h5 className="adv__category">{adv.category}</h5>
                                     </div>
                                     <div className="col-auto">
                                         <Favourite />
                                     </div>
                                 </div>
-                                <h4>Ipad terza generazione nuovo</h4>
+                                <h4>{adv.title}</h4>
                                 <p className="adv__date">07/10/2023</p>
-                                <h3 className="adv__price">145,00€</h3>
+                                <h3 className="adv__price">{adv.price},00€</h3>
                             </div>
                             <div className="row">
                                 <div className="col d-flex flex-column gap-2 ">
@@ -58,14 +72,17 @@ export default function AdvDetails({ article, details }: Props) {
                                     <div className="row">
                                         <div className="col-auto ">
                                             <div className="col d-flex gap-2 adv__shipping">
-                                                <p>Spedizione disponibile: </p>
-                                                <b>24,90€</b>
+                                                {adv.shipping && (<>
+                                                    <p>spedizione disponibile</p>
+                                                    <b>{adv.shippingPrice}€</b>
+                                                </>)}
+
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col mt-3 d-flex align-items-center gap-2">
                                         <Button className="btn--disabled" aria-labelledby="contatta il venditore">Contatta il venditore</Button>
-                                        <UserRate mail={"Ilaria"} />
+                                        <UserRate mail={adv.seller} />
                                     </div>
                                 </div>
                             </div>
@@ -74,13 +91,13 @@ export default function AdvDetails({ article, details }: Props) {
                     <div className="row">
                         <div className="col adv__description">
                             <h4>Descrizione</h4>
-                            <p>Description</p>
+                            <p>{adv.description}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            {currentModal === 'primo' && <Epilogue show={show} onHide={showEpilogue} article={"bici"} onSwitch={switchModals} />}
-            {currentModal === 'secondo' && <Checkout show={show} onHide={showEpilogue} article={"bici"} onSwitch={switchModals} />}
+            {currentModal === 'primo' && <Epilogue show={show} onHide={showEpilogue} article={adv} onSwitch={switchModals} />}
+            {currentModal === 'secondo' && <Checkout show={show} onHide={showEpilogue} article={adv} onSwitch={switchModals} />}
             {currentModal === 'terzo' && <Dialog show={show} onHide={showEpilogue} title="Acquisto compleato" >
                 <div className="row">
                     <div className="col">

@@ -10,6 +10,7 @@ import Toggle from '../../Atoms/Toggle/Toggle';
 import Dialog from '../../Template/DialogPopUp/Dialog';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { createAdv, saveAdv } from '../../../storesData/products';
 
 
 export default function CreateForm() {
@@ -22,17 +23,30 @@ export default function CreateForm() {
         setSelectedOption(value);
     }, []);
 
-    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        // const formData = new FormData(e.currentTarget);
 
-        formData.forEach((value, key) => {
-            console.log(`${key}: ${value}`);
-        });
-        console.log(selectedOption);
-        console.log(checked);
-        setShow(!show)
-    }, [checked, selectedOption, show])
+        // formData.forEach((value, key) => {
+        //     console.log(`${key}: ${value}`);
+        // });
+        // console.log(selectedOption);
+        // console.log(checked);
+        // setShow(!show)
+
+        const adv = createAdv();
+
+        try {
+            const result = await saveAdv(await adv);
+            if (result) {
+                const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
+                advertises.push(result);
+                localStorage.setItem('advertises', JSON.stringify(advertises));
+            }
+        } catch (error) {
+            console.error("Errore durante la registrazione:", (error as Error).message);
+        }
+    }, [])
 
     const [contImages, setContImages] = useState(0);
 

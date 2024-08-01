@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../Atoms/Buttons/Buttons";
 import OrderBy from "../../Molecules/OrderBy/OrderBy";
 import ActiveAds from "../ActiveAds/ActiveAds";
-import PurchasedAds from "../PurchasedAds copy/PurchasedAds";
+import PurchasedAds from "../PurchasedAds/PurchasedAds";
 import SoldAds from "../SoldAds/SoldAds";
+import { emptyUser, getActualUser } from "../../../storesData/users";
+import { User } from "../../../storesData/account";
 
 export default function UserHistory() {
 
     const [active, setActive] = useState(0)
+
+    const [user, setUser] = useState<User>(emptyUser)
+
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                const user = await getActualUser();
+                setUser(user);
+            } catch (error) {
+                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, []);
 
     return (
         <>
@@ -24,9 +40,9 @@ export default function UserHistory() {
                         </div>
                     </div>
                     <div className="main p-3">
-                        {active === 0 ? (<><ActiveAds user="valeria" /></>) : (<></>)}
-                        {active === 1 ? (<><PurchasedAds user="valeria" /></>) : (<></>)}
-                        {active === 2 ? (<><SoldAds user="valeria" /></>) : (<></>)}
+                        {active === 0 && (<> <ActiveAds user={user} /></>)}
+                        {active === 1 && (<> <PurchasedAds user={user} /></>)}
+                        {active === 2 && (<> <SoldAds user={user} /></>)}
                     </div>
                 </div>
             </div >

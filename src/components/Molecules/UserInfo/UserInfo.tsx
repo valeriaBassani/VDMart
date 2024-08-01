@@ -1,7 +1,6 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-import { UserInfoProps } from "./defnitions"
 import { DeleteAccount } from "../DeleteAccount/DeleteAccount"
 
 import InputField from "../../Atoms/InputField/InputField"
@@ -10,8 +9,14 @@ import Dialog from "../../Template/DialogPopUp/Dialog"
 
 import Icon from "../../Atoms/Icon"
 import "./styles.css"
+import { emptyUser, getActualUser } from "../../../storesData/users"
+import { User } from "../../../storesData/account"
 
-const UserInfo = ({ mail, isActual }: UserInfoProps) => {
+type Props = {
+    isActual: boolean
+}
+
+export default function UserInfo({ isActual }: Props) {
 
     const [visible, setVisible] = useState(false);
     const handleClick = useCallback(() => {
@@ -22,6 +27,20 @@ const UserInfo = ({ mail, isActual }: UserInfoProps) => {
     const showDialog = useCallback(() => {
         setShow(!show)
     }, [show])
+
+    const [user, setUser] = useState<User>(emptyUser)
+
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                const user = await getActualUser()
+                setUser(user);
+            } catch (error) {
+                console.error("Errore durante il recupero degli annunci in bacheca", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, []);
 
     return (
         <>
@@ -35,11 +54,11 @@ const UserInfo = ({ mail, isActual }: UserInfoProps) => {
                     <div className={`row gap-3 ${visible ? 'profile--show' : ''}`}>
                         <div className="col d-flex flex-column gap-2" >
                             <p className="profie__active">3 annunci attivi</p>
-                            <h4>Valeria Bassani</h4>
-                            <p>{mail}</p>
-                            <p>tel: 3475693160</p>
+                            <h4>{user.name} {user.lastName}</h4>
+                            <p>{user.email}</p>
+                            <p>tel: {user.phone}</p>
                             {isActual && (
-                                <p>Via natale battaglia 8, Milano (MI), 24050</p>
+                                <p>{user.street} {user.number} - {user.city}, {user.provincia}</p>
                             )}
                         </div>
                         {isActual && (
@@ -52,25 +71,25 @@ const UserInfo = ({ mail, isActual }: UserInfoProps) => {
                     <div className={`row ${visible ? '' : 'profile--show'}`}>
                         <div className="col d-flex flex-column gap-2">
                             <p id="category">3 annunci attivi</p>
-                            <h4>Valeria Bassani</h4>
-                            <p>{mail}</p>
+                            <h4>{user.name} {user.lastName}</h4>
+                            <p>{user.email}</p>
                             <div className="row">
                                 <div className="col">
-                                    <InputField label="Indirizzo" value="Via natale battaglia" type="text" name="street" placeholder="Via" required={true}></InputField>
+                                    <InputField label="Indirizzo" value={user.street} type="text" name="street" placeholder="Via" required={true}></InputField>
                                 </div>
                                 <div className="col-4">
-                                    <InputField label="N." type="number" value="8" name="number" placeholder="N." required={true}></InputField>
+                                    <InputField label="N." type="number" value={user.number} name="number" placeholder="N." required={true}></InputField>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <InputField label="Città" value="Milano" type="text" name="city" placeholder="Città" required={true}></InputField>
+                                    <InputField label="Città" value={user.city} type="text" name="city" placeholder="Città" required={true}></InputField>
                                 </div>
                                 <div className="col-4">
-                                    <InputField label="Pv" value="MI" type="text" name="provincia" placeholder="Pv" required={true}></InputField>
+                                    <InputField label="Pv" value={user.provincia} type="text" name="provincia" placeholder="Pv" required={true}></InputField>
                                 </div>
                             </div>
-                            <InputField label="Telefono" type="tel" value="3475693160" name="phone" placeholder="Tel." required={true}></InputField>
+                            <InputField label="Telefono" type="tel" value={user.phone} name="phone" placeholder="Tel." required={true}></InputField>
                             <DeleteAccount mail="user" />
                         </div>
                         <div className="col d-flex align-items-start justify-content-end" >
@@ -110,5 +129,3 @@ const UserInfo = ({ mail, isActual }: UserInfoProps) => {
         </>
     )
 }
-
-export default UserInfo

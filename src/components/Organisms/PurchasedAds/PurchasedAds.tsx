@@ -6,7 +6,7 @@ import AdvSmallPreview from "../AdvSmallPreview/AdvSmallPreview";
 type Props = {
     user: User
 }
-export default function ActiveAds({ user }: Props) {
+export default function PurchasedAds({ user }: Props) {
 
     const [ads, setAds] = useState<AdvData[]>([])
 
@@ -20,7 +20,7 @@ export default function ActiveAds({ user }: Props) {
             }
         };
         fetchAds();
-    }, [user.email]);
+    }, [user]);
 
     return (
         <>
@@ -28,7 +28,7 @@ export default function ActiveAds({ user }: Props) {
                 <div className="col d-flex gap-3 flex-wrap justify-content-between">
                     {ads && ads.length > 0 && (
                         ads.map((adv) => (
-                            <AdvSmallPreview type="active" adv={adv} />
+                            <AdvSmallPreview type="purchased" adv={adv} />
                         ))
                     )}
                 </div>

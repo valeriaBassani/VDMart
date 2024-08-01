@@ -3,9 +3,10 @@ import UserRate from "../../Molecules/UserRate/UserRate";
 import Button from "../../Atoms/Buttons/Buttons";
 import ipad from "./ipad.jpg"
 import "./DialogPopUp.css"
+import { AdvData } from "../../../storesData/products";
 
 type Props = {
-    article: string
+    article: AdvData
     show: boolean,
     onSwitch: (modale: string) => void;
     onHide: () => void;
@@ -36,24 +37,31 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                             <img src={ipad} alt="Ipad"></img>
                                         </div>
                                         <div className="col d-flex flex-column gap-1 py-3 pe-4">
-                                            <h5 className="adv__category">Tecnologia</h5>
-                                            <h4>Ipad terza generazione nuovo</h4>
-                                            <UserRate mail="Ilaria" />
+                                            <h5 className="adv__category">{article.category}</h5>
+                                            <h4>{article.title}</h4>
+                                            <UserRate mail={article.seller} />
                                         </div>
                                     </div>
                                     <div className="row border-top pt-2 justify-content-between">
                                         <div className="col d-flex justify-content-between">
                                             <h4>Prezzo</h4>
-                                            <h3 style={{ color: "var(--primary)" }}>800,00€</h3>
+                                            <h3 style={{ color: "var(--primary)" }}>{article.price},00€</h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="row mt-4">
-                                    <div className="col d-flex flex-column gap-2">
-                                        <label>Acquisto a distanza</label>
-                                        <Button className="btn--primary" wide={true} onClick={() => onSwitch('secondo')} >Checkout</Button>
-                                        <p className="adv__shipping">spedizione: 45,00€</p>
-                                    </div>
+                                    {article.shipping && (
+                                        <>
+                                            <div className="col d-flex flex-column gap-2">
+                                                <label>Acquisto a distanza</label>
+                                                <Button className="btn--primary" wide={true} onClick={() => onSwitch('secondo')} >Checkout</Button>
+                                                <div className="col d-flex gap-2 adv__shipping">
+                                                    <p>spedizione disponibile:</p>
+                                                    <b>{article.shippingPrice}€</b>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )}
                                     <div className="col">
                                         <label>Scambio a mano</label>
                                         <Button className="btn--secondary" wide={true}>Contatta il venditore</Button>

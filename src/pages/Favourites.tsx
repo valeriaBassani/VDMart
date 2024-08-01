@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import Adv from "../components/Organisms/AdvPreview/AdvPreview";
 
 export default function Favourites() {
     const { t } = useTranslation();
@@ -19,9 +18,9 @@ export default function Favourites() {
                                     </div>
                                     <div className="row">
                                         <div className="col d-flex flex-column gap-3">
+                                            {/* <Adv />
                                             <Adv />
-                                            <Adv />
-                                            <Adv />
+                                            <Adv /> */}
                                         </div>
                                     </div>
                                 </div>

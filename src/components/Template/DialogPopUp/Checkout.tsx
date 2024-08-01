@@ -2,9 +2,10 @@ import { Modal } from "react-bootstrap";
 import InputField from "../../Atoms/InputField/InputField";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import "./DialogPopUp.css"
+import { AdvData } from "../../../storesData/products";
 
 type Props = {
-    article: string
+    article: AdvData
     show: boolean,
     onSwitch: (modale: string) => void;
     onHide: () => void;
@@ -34,18 +35,18 @@ export default function Checkout({ article, show, onSwitch, onHide }: Props) {
                                         <div className="col" style={{ color: "var(--placeholder)" }}>
                                             <div className="col d-flex justify-content-between">
                                                 <p>Articolo</p>
-                                                <p>800,00€</p>
+                                                <p>{article.price}€</p>
                                             </div>
                                             <div className="col d-flex justify-content-between">
                                                 <p>Spedizione</p>
-                                                <p>45,00€</p>
+                                                <p>{article.shippingPrice}€</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="row border-top pt-2 justify-content-between">
                                         <div className="col d-flex justify-content-between">
                                             <h4>Prezzo</h4>
-                                            <h3 style={{ color: "var(--primary)" }}>800,00€</h3>
+                                            <h3 style={{ color: "var(--primary)" }}>{article.price + article.shippingPrice}€</h3>
                                         </div>
                                     </div>
                                 </div>

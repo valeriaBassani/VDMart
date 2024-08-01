@@ -6,10 +6,9 @@ export default function PrivateArea() {
         <>
             <div className="container-sm">
                 <h4>Il tuo profilo</h4>
-                <User mail="valeria@gmail.com" isActual={true} />
+                <User isActual={true} />
                 <UserHistory />
             </div>
-
         </>
     )
 }

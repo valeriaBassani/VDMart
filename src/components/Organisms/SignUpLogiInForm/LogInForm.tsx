@@ -4,6 +4,7 @@ import InputField from "../../Atoms/InputField/InputField";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import { useTranslation } from "react-i18next";
 import { accessUser } from "../../../storesData/account";
+import { useCallback } from "react";
 
 type FormData = {
     mail: string;
@@ -14,7 +15,7 @@ export default function LogIn() {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
@@ -23,15 +24,28 @@ export default function LogIn() {
             password: formData.get('password') as string,
             remember: formData.get('remember') === 'on'
         };
-        accessUser(credentials)
-            .then((result) => {
-                console.log("accesso riuscito");
+
+        try {
+            const result = await accessUser(credentials);
+            if (result) {
+                console.log("Accesso riuscito");
                 navigate('/area-riservata');
-            })
-            .catch((error) => {
-                console.error("Errore durante l'accesso:", error);
-            });
-    }
+            } else {
+                console.log("Accesso negato");
+            }
+        } catch (error) {
+            console.error("Errore durante l'accesso:", (error as Error).message);
+        }
+
+        // accessUser(credentials)
+        //     .then((result) => {
+        //         console.log("accesso riuscito");
+        //         navigate('/area-riservata');
+        //     })
+        //     .catch((error) => {
+        //         console.error("Errore durante l'accesso:", error);
+        //     });
+    }, [navigate])
 
     return (
         <>

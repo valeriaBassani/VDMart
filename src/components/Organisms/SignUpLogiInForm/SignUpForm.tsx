@@ -10,7 +10,7 @@ import { registerUser } from './../../../storesData/account/index';
 export default function SingUpForm() {
     const { t } = useTranslation();
 
-    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
         // const formData = new FormData(e.currentTarget);
 
@@ -22,15 +22,27 @@ export default function SingUpForm() {
         // });
 
         const user = createUser();
-        registerUser(user)
-            .then((result) => {
+
+        try {
+            const result = await registerUser(user);
+            if (result) {
                 const users = JSON.parse(localStorage.getItem('users') || '[]');
                 users.push(result);
                 localStorage.setItem('users', JSON.stringify(users));
-            })
-            .catch((error) => {
-                console.error('Errore durante la registrazione:', error);
-            });
+            }
+        } catch (error) {
+            console.error("Errore durante la registrazione:", (error as Error).message);
+        }
+
+        // registerUser(user)
+        //     .then((result) => {
+        //         const users = JSON.parse(localStorage.getItem('users') || '[]');
+        //         users.push(result);
+        //         localStorage.setItem('users', JSON.stringify(users));
+        //     })
+        //     .catch((error) => {
+        //         console.error('Errore durante la registrazione:', error);
+        //     });
 
     }, []);
 

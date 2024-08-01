@@ -6,8 +6,9 @@ import SearchBar from "../../components/Molecules/SearchBar/SearchBar";
 import './Home.css';
 import OrderBy from "../../components/Molecules/OrderBy/OrderBy";
 import PageSelector from "../../components/Molecules/PageSelector/PageSelector";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AdvData, getAds } from "../../storesData/products";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -15,6 +16,22 @@ export default function Home() {
     const handleClick = useCallback((page: number) => {
         setCurrentPage(page)
     }, [])
+
+    const [ads, setAds] = useState<AdvData[]>([])
+
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                const ads = await getAds()
+                setAds(ads);
+            } catch (error) {
+                console.error("Errore durante il recupero degli annunci in bacheca", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, []);
+
+
     return (
         <body>
             <div className="container sm p-4 ">
@@ -44,9 +61,13 @@ export default function Home() {
                         </div>
                         <div className="row align-items-center" >
                             <div className="col d-flex flex-column justify-content-center gap-3">
-                                <AdvPreview />
-                                <AdvPreview />
-                                <AdvPreview />
+                                {ads && ads.length > 0 ? (
+                                    ads.map((adv) => (
+                                        <AdvPreview adv={adv} />
+                                    ))
+                                ) : (
+                                    <p>No advertisements available.</p>
+                                )}
                             </div>
                         </div>
                         <div className="row justify-content-center">

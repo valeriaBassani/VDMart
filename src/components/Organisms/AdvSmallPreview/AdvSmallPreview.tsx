@@ -4,12 +4,14 @@ import edit from "./edit.svg"
 import Icon from "../../Atoms/Icon";
 import "./AdvSmallPreview.css"
 import { useCallback } from "react";
+import { AdvData } from "../../../storesData/products";
 
 type Props = {
+    adv: AdvData
     type: "active" | "purchased" | "sold";
 }
 
-export default function AdvSmallPreview({ type }: Props) {
+export default function AdvSmallPreview({ adv, type }: Props) {
     const navigate = useNavigate();
 
     const handleEdit = (e: React.SyntheticEvent): void => {
@@ -41,14 +43,15 @@ export default function AdvSmallPreview({ type }: Props) {
                             <div className="col d-flex flex-column justify-content-center gap-2">
                                 <div className="d-flex justify-content-between align-items-start">
                                     <div>
-                                        <h5 className="adv__category">Tecnologia</h5>
+                                        <h5 className="adv__category">{adv.category}</h5>
                                         <p className="adv__date">07/10/2023</p>
                                     </div>
                                 </div>
                                 <div className="col d-flex flex-column gap-1">
-                                    <h4>Ipad terza generazione nuovo</h4>
-                                    <h3 className="adv__price">145,00€</h3>
-                                    <p className="adv__shipping">Spedizione disponibile</p>
+                                    <h4>{adv.title}</h4>
+                                    <h3 className="adv__price">{adv.price}€</h3>
+                                    {adv.shipping && (<><p className="adv__shipping">spedizione disponibile
+                                    </p></>)}
                                 </div>
                             </div>
                             {type === "active" && (
