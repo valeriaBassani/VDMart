@@ -36,7 +36,7 @@ export default function UserHistory() {
                             <Button className={active === 2 ? "btn--primary" : "btn--inactive"} onClick={() => setActive(2)}>Vendite </Button>
                         </div>
                         <div className="col-auto">
-                            <OrderBy />
+                            {/* <OrderBy /> */}
                         </div>
                     </div>
                     <div className="main p-3">

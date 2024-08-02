@@ -8,7 +8,7 @@ import OrderBy from "../../components/Molecules/OrderBy/OrderBy";
 import PageSelector from "../../components/Molecules/PageSelector/PageSelector";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AdvData, getAds } from "../../storesData/products";
+import { AdvData, getAds, orderByDate } from "../../storesData/products";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -19,18 +19,19 @@ export default function Home() {
 
     const [ads, setAds] = useState<AdvData[]>([])
 
-    useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                const ads = await getAds()
-                setAds(ads);
-            } catch (error) {
-                console.error("Errore durante il recupero degli annunci in bacheca", (error as Error).message);
-            }
-        };
-        fetchAds();
+    const handleOrder = useCallback(async (value: boolean) => {
+        const orderads = orderByDate(value)
+        setAds(await orderads);
     }, []);
 
+    const [shipping, setShipping] = useState(false)
+    const shippingFilter = useCallback((value: boolean) => {
+        setShipping(value)
+    }, [])
+
+    useEffect(() => {
+        handleOrder(true)
+    }, [handleOrder]);
 
     return (
         <body>
@@ -43,10 +44,10 @@ export default function Home() {
                 <div className="row gap-3 py-4 my-4 home__board">
                     <div className="col-3 home__filters main p-3" >
                         <div className="col d-flex flex-column gap-3">
-                            <h4>{t('home.filters')}</h4>
+                            <h4>{t('home.filters')} </h4>
                             <CategoryFilter />
                             <PriceFilter />
-                            <Shipping />
+                            <Shipping onClick={shippingFilter} />
                         </div>
                     </div>
                     <div className="col p-3 d-flex flex-column gap-3 main " >
@@ -56,15 +57,23 @@ export default function Home() {
                                 <p>64 {t('home.results')}</p>
                             </div>
                             <div className="col-auto">
-                                <OrderBy />
+                                <OrderBy onClick={handleOrder} />
                             </div>
                         </div>
                         <div className="row align-items-center" >
                             <div className="col d-flex flex-column justify-content-center gap-3">
                                 {ads && ads.length > 0 ? (
-                                    ads.map((adv) => (
-                                        <AdvPreview adv={adv} />
-                                    ))
+                                    ads.map((adv) => {
+                                        if (!shipping) {
+                                            if (adv.shipping === true) {
+                                                return <AdvPreview adv={adv} />;
+                                            } else {
+                                                return null; // Non mostrare nulla se non corrisponde alla condizione di spedizione
+                                            }
+                                        } else {
+                                            return <AdvPreview adv={adv} />;
+                                        }
+                                    })
                                 ) : (
                                     <p>No advertisements available.</p>
                                 )}

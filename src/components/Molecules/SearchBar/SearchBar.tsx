@@ -35,7 +35,7 @@ export default function SearchBar() {
                             <div className="col d-flex flex-column gap-2 p-0">
                                 <CategoryFilter />
                                 <PriceFilter />
-                                <Shipping />
+                                {/* <Shipping /> */}
                             </div>
                         </div>
                     </div>

@@ -30,7 +30,7 @@ export default function OtherUserHistory() {
                             <Button className="btn--primary">Annunci Attivi</Button>
                         </div>
                         <div className="col-auto">
-                            <OrderBy />
+                            {/* <OrderBy /> */}
                         </div>
                     </div>
                     <ActiveAds user={user} />

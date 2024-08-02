@@ -48,7 +48,7 @@ export const createAdv= async():Promise<AdvData>=>{
         category:  getRandomCategory(categories),
         shipping: faker.datatype.boolean(), 
         shippingPrice: parseFloat(faker.commerce.price()), 
-        publishData: "10/11/2002",
+        publishData:faker.date.birthdate().toISOString(),
         //seller: faker.internet.email(),
         seller: user.email,
         phone: faker.phone.number(), 
@@ -75,4 +75,34 @@ export const getActualAdv =async():Promise<AdvData>=>{
     return adv
 }
 
+export const orderByDate = async (orderBy:boolean):Promise<AdvData[]>=> {
+    const ads = await getAds()
+    return ads.sort((a, b) => {
+        const dateA = new Date(a.publishData);
+        const dateB = new Date(b.publishData);
+        if(orderBy){
+            return dateA.getTime() - dateB.getTime();
+        }else{
+            return  dateB.getTime()-dateA.getTime();
+        }
+        //return dateA.getTime() - dateB.getTime();
+    });
+}
 
+
+
+
+// export const orderByDate = async (orderBy: string): Promise<AdvData[]> => {
+//     const ads = await getAds();
+//     return ads.sort((a, b) => {
+//         const dateA = new Date(a.publishData);
+//         const dateB = new Date(b.publishData);
+//         if (orderBy === 'asc') {
+//             return dateA.getTime() - dateB.getTime();
+//         } else if (orderBy === 'desc') {
+//             return dateB.getTime() - dateA.getTime();
+//         } else {
+//             throw new Error("orderBy deve essere 'asc' o 'desc'");
+//         }
+//     });
+// };

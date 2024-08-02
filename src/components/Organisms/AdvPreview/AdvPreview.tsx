@@ -29,7 +29,7 @@ export default function Adv({ adv }: Props) {
                         <div className="d-flex justify-content-between align-items-start">
                             <div>
                                 <h5 className="adv__category">{adv.category}</h5>
-                                <p className="adv__date">07/10/2023</p>
+                                <p className="adv__date">{adv.publishData}</p>
                             </div>
                             <Favourite />
                         </div>
