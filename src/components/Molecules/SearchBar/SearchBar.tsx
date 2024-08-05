@@ -33,8 +33,8 @@ export default function SearchBar() {
                         <div className="main__section">
                             <h4>{t('home.filters')}</h4>
                             <div className="col d-flex flex-column gap-2 p-0">
-                                <CategoryFilter />
-                                <PriceFilter />
+                                {/* <CategoryFilter />
+                                <PriceFilter /> */}
                                 {/* <Shipping /> */}
                             </div>
                         </div>

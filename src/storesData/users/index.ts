@@ -11,7 +11,8 @@ export const emptyUser: User = {
     phone: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    favourites: []
 };
 
 export const getUserByEmail = async(email:string):Promise<User> => {
@@ -40,5 +41,21 @@ export const getUserAds= async(mail:string): Promise<AdvData[]> =>{
     return(ads);
 }
 
+export const updateUsers=(user:User)=>{
+    const usersJSON = localStorage.getItem('users');
+    const users: User[] = usersJSON ? JSON.parse(usersJSON) : [];
+    const index = users.findIndex(u => u.email === user.email);
+    if (index !== -1) {
+        users[index] = user;
+    } else {
+        users.push(user);
+    }
+    localStorage.setItem('users', JSON.stringify(users));
+}
+
 //throw new Error("Utente non trovato");
 
+export const updateActualUser=()=>{
+    const user = localStorage.getItem('actualUser');
+    localStorage.setItem('actualUser', JSON.stringify(user));
+}

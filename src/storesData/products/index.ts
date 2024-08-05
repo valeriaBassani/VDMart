@@ -89,6 +89,17 @@ export const orderByDate = async (orderBy:boolean):Promise<AdvData[]>=> {
     });
 }
 
+export const setMaxPrice = async():Promise<number>=>{
+    const ads = await getAds()
+    let max=0
+    ads.map((adv) => {
+        if(adv.price>max){
+            max=adv.price
+        }
+    })
+    return max
+}
+
 
 
 

@@ -59,7 +59,7 @@ export default function AdvDetails({ details }: Props) {
                                         <h5 className="adv__category">{adv.category}</h5>
                                     </div>
                                     <div className="col-auto">
-                                        <Favourite />
+                                        <Favourite adv={adv} />
                                     </div>
                                 </div>
                                 <h4>{adv.title}</h4>

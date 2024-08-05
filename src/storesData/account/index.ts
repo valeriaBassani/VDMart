@@ -1,9 +1,10 @@
 //account
 import { faker } from '@faker-js/faker';
 import { getUserByEmail } from '../users';
+import { AdvData } from '../products';
 
 export interface User {
-    [key: string]: FormDataEntryValue;
+    //[key: string]: FormDataEntryValue;
     name: string;
     lastName: string;
     street: string;
@@ -14,6 +15,7 @@ export interface User {
     email: string;
     password: string;
     confirmPassword: string;
+    favourites: AdvData[];
 }
 
 export function createUser():User{
@@ -29,6 +31,7 @@ export function createUser():User{
         email: faker.internet.email(),
         password: password,
         confirmPassword: password,
+        favourites:[]
     };
 }
 
@@ -42,7 +45,7 @@ export const registerUser = async (userData: User): Promise<User> => {
 
 interface logInCredential{
     mail: string;
-    password: string;
+    password:  string;
     remember: boolean;
 }
 

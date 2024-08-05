@@ -8,7 +8,7 @@ import OrderBy from "../../components/Molecules/OrderBy/OrderBy";
 import PageSelector from "../../components/Molecules/PageSelector/PageSelector";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AdvData, getAds, orderByDate } from "../../storesData/products";
+import { AdvData, orderByDate } from "../../storesData/products";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -24,10 +24,29 @@ export default function Home() {
         setAds(await orderads);
     }, []);
 
-    const [shipping, setShipping] = useState(false)
+    const [shipping, setShipping] = useState(true)
     const shippingFilter = useCallback((value: boolean) => {
         setShipping(value)
     }, [])
+
+    const [range, setRange] = useState({
+        min: 0,
+        max: 999999,
+    });
+
+    const priceFilter = useCallback((min: number, max: number) => {
+        console.log("home", min, max);
+
+        setRange((prevRange) => {
+            const newRange = {
+                ...prevRange,
+                min: min,
+                max: max,
+            };
+            console.log("range", newRange.min, newRange.max); // I valori aggiornati
+            return newRange;
+        });
+    }, []);
 
     useEffect(() => {
         handleOrder(true)
@@ -46,7 +65,7 @@ export default function Home() {
                         <div className="col d-flex flex-column gap-3">
                             <h4>{t('home.filters')} </h4>
                             <CategoryFilter />
-                            <PriceFilter />
+                            <PriceFilter onClick={priceFilter} />
                             <Shipping onClick={shippingFilter} />
                         </div>
                     </div>
@@ -64,15 +83,12 @@ export default function Home() {
                             <div className="col d-flex flex-column justify-content-center gap-3">
                                 {ads && ads.length > 0 ? (
                                     ads.map((adv) => {
-                                        if (!shipping) {
-                                            if (adv.shipping === true) {
-                                                return <AdvPreview adv={adv} />;
-                                            } else {
-                                                return null; // Non mostrare nulla se non corrisponde alla condizione di spedizione
-                                            }
-                                        } else {
+                                        const isPriceInRange = range.min <= adv.price && adv.price <= range.max;
+                                        const isShippingMatch = shipping || adv.shipping === true;
+                                        if (isPriceInRange && isShippingMatch) {
                                             return <AdvPreview adv={adv} />;
                                         }
+                                        return null;
                                     })
                                 ) : (
                                     <p>No advertisements available.</p>

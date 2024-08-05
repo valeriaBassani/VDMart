@@ -31,7 +31,7 @@ export default function Adv({ adv }: Props) {
                                 <h5 className="adv__category">{adv.category}</h5>
                                 <p className="adv__date">{adv.publishData}</p>
                             </div>
-                            <Favourite />
+                            <Favourite adv={adv} />
                         </div>
                         <div>
                             <div className="col d-flex flex-column gap-2">
