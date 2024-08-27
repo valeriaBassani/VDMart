@@ -1,7 +1,8 @@
-import { AdvData } from '../../../storesData/products';
-import { getActualUser, updateActualUser, updateUsers } from '../../../storesData/users';
+import { AdvData, isFavourite } from '../../../storesData/products';
+import { getActualUser } from '../../../storesData/users';
 import './Favourite.css';
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { addToFavourites, removeFromFavourites } from '../../../storesData/account';
 
 type Props = {
     adv: AdvData
@@ -11,19 +12,27 @@ export default function Favourite({ adv }: Props) {
     const [favourite, setAsFavourite] = useState(false);
     const user = getActualUser()
 
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                setAsFavourite(await isFavourite(adv))
+            } catch (error) {
+                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, [adv])
+
     const handleClick = useCallback(async (e: React.SyntheticEvent) => {
         e.stopPropagation();
-        setAsFavourite(!favourite);
         if (!favourite) {
-            (await user).favourites.push(adv)
-            console.log(user);
-            updateActualUser()
-            //localStorage.setItem('actualUser', JSON.stringify(await user));
-            updateUsers(await user)
-            console.log("added");
+            addToFavourites(await user, adv)
         } else {
-            console.log("remove");
+            removeFromFavourites(await user, adv)
+            //console.log("removed");
         }
+        setAsFavourite(!favourite)
+
     }, [adv, favourite, user]);
 
     return (

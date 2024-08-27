@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getFavourites } from "../storesData/account";
+import { AdvData } from "../storesData/products";
+import AdvPreview from "../components/Organisms/AdvPreview/AdvPreview";
 
 export default function Favourites() {
+    const [fav, setFav] = useState<AdvData[]>([])
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                setFav(await getFavourites())
+            } catch (error) {
+                console.error("Errore durante il recupero dei preferiti", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, []);
     const { t } = useTranslation();
     return (
         <>
@@ -18,9 +33,13 @@ export default function Favourites() {
                                     </div>
                                     <div className="row">
                                         <div className="col d-flex flex-column gap-3">
-                                            {/* <Adv />
-                                            <Adv />
-                                            <Adv /> */}
+                                            {fav && fav.length > 0 ? (
+                                                fav.map((fav) => {
+                                                    return <AdvPreview adv={fav} />;
+                                                })
+                                            ) : (
+                                                <p>No advertisements available.</p>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

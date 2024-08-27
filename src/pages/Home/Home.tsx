@@ -8,7 +8,7 @@ import OrderBy from "../../components/Molecules/OrderBy/OrderBy";
 import PageSelector from "../../components/Molecules/PageSelector/PageSelector";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AdvData, orderByDate } from "../../storesData/products";
+import { AdvData, getAds, orderByDate } from "../../storesData/products";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -17,40 +17,92 @@ export default function Home() {
         setCurrentPage(page)
     }, [])
 
-    const [ads, setAds] = useState<AdvData[]>([])
 
-    const handleOrder = useCallback(async (value: boolean) => {
-        const orderads = orderByDate(value)
-        setAds(await orderads);
+
+
+
+
+    // const [range, setRange] = useState({
+    //     min: 0,
+    //     max: 999999,
+    // });
+
+    // const priceFilter = useCallback((min: number, max: number) => {
+    //     console.log("home", min, max);
+
+    //     setRange((prevRange) => {
+    //         const newRange = {
+    //             ...prevRange,
+    //             min: min,
+    //             max: max,
+    //         };
+    //         console.log("range", newRange.min, newRange.max);
+    //         return newRange;
+    //     });
+    // }, []);
+
+
+
+    //set show as all the ads
+    const [toShow, setToShow] = useState<AdvData[]>([])
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                const adsData = await getAds();
+                setToShow(adsData);
+            } catch (error) {
+                console.error('Error fetching ads:', error);
+            }
+        };
+        fetchAds();
     }, []);
 
-    const [shipping, setShipping] = useState(true)
-    const shippingFilter = useCallback((value: boolean) => {
-        setShipping(value)
-    }, [])
+    //order ads by date
+    const handleOrder = useCallback((value: boolean) => {
+        setToShow((prevToShow) => {
+            const orderedAds = orderByDate(prevToShow, value);
+            return [...orderedAds];
+        });
+    }, []);
+
+
+    // filter by category
+    const [used, setUsed] = useState(false)
+    const ClearFilters = async (used: boolean) => {
+        setUsed(used);
+    }
+    const categoryFilter = useCallback(async (filteredAds: AdvData[]) => {
+        if (filteredAds.length === 0) {
+            if (used) {
+                setToShow([])
+            } else {
+                const adsData = await getAds();
+                setToShow(adsData);
+            }
+        } else {
+            setToShow(filteredAds)
+        }
+    }, [used]);
 
     const [range, setRange] = useState({
         min: 0,
         max: 999999,
     });
 
+    //filter by price
     const priceFilter = useCallback((min: number, max: number) => {
-        console.log("home", min, max);
+        setRange((prevRange) => ({
+            ...prevRange,
+            min: min,
+            max: max,
+        }));
+    }, [setRange]);
 
-        setRange((prevRange) => {
-            const newRange = {
-                ...prevRange,
-                min: min,
-                max: max,
-            };
-            console.log("range", newRange.min, newRange.max); // I valori aggiornati
-            return newRange;
-        });
-    }, []);
-
-    useEffect(() => {
-        handleOrder(true)
-    }, [handleOrder]);
+    //filterByShipping
+    const [shipping, setShipping] = useState(true)
+    const shippingFilter = useCallback((value: boolean) => {
+        setShipping(value)
+    }, [])
 
     return (
         <body>
@@ -64,7 +116,7 @@ export default function Home() {
                     <div className="col-3 home__filters main p-3" >
                         <div className="col d-flex flex-column gap-3">
                             <h4>{t('home.filters')} </h4>
-                            <CategoryFilter />
+                            <CategoryFilter ads={toShow} onClick={categoryFilter} onClear={ClearFilters} />
                             <PriceFilter onClick={priceFilter} />
                             <Shipping onClick={shippingFilter} />
                         </div>
@@ -73,7 +125,7 @@ export default function Home() {
                         <div className="row">
                             <div className="col">
                                 <h4>{t('home.adv')}</h4>
-                                <p>64 {t('home.results')}</p>
+                                <p>{toShow.length} {t('home.results')}</p>
                             </div>
                             <div className="col-auto">
                                 <OrderBy onClick={handleOrder} />
@@ -81,8 +133,8 @@ export default function Home() {
                         </div>
                         <div className="row align-items-center" >
                             <div className="col d-flex flex-column justify-content-center gap-3">
-                                {ads && ads.length > 0 ? (
-                                    ads.map((adv) => {
+                                {toShow && toShow.length > 0 ? (
+                                    toShow.map((adv) => {
                                         const isPriceInRange = range.min <= adv.price && adv.price <= range.max;
                                         const isShippingMatch = shipping || adv.shipping === true;
                                         if (isPriceInRange && isShippingMatch) {
@@ -91,7 +143,7 @@ export default function Home() {
                                         return null;
                                     })
                                 ) : (
-                                    <p>No advertisements available.</p>
+                                    <p>nessun annuncio corrisponde ai filtri di ricerca</p>
                                 )}
                             </div>
                         </div>

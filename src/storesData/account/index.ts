@@ -1,6 +1,6 @@
 //account
 import { faker } from '@faker-js/faker';
-import { getUserByEmail } from '../users';
+import { getUserByEmail, updateActualUser, updateUsers } from '../users';
 import { AdvData } from '../products';
 
 export interface User {
@@ -16,6 +16,7 @@ export interface User {
     password: string;
     confirmPassword: string;
     favourites: AdvData[];
+    actives:AdvData[]
 }
 
 export function createUser():User{
@@ -31,7 +32,8 @@ export function createUser():User{
         email: faker.internet.email(),
         password: password,
         confirmPassword: password,
-        favourites:[]
+        favourites:[],
+        actives:[]
     };
 }
 
@@ -62,3 +64,33 @@ export const accessUser = async (credential: logInCredential): Promise<boolean> 
         throw new Error("Utente non trovato");
     }
 };
+
+export const addToFavourites=async(user:User, adv:AdvData)=>{
+    user.favourites.push(adv)
+    updateActualUser(user)
+    updateUsers(user)
+}
+
+export const removeFromFavourites=async(user:User,adv:AdvData)=>{
+    const fav=user.favourites
+    const adIndex = fav.findIndex(ad => ad.id === adv.id);    
+    if (adIndex !==-1) {
+        const newfav=[...fav.slice(0, adIndex), ...fav.slice(adIndex + 1)]
+        user.favourites=newfav
+        updateActualUser(user)
+        updateUsers(user)
+        console.log("Annuncio rimosso dai preferiti:");
+    } else {
+        console.log("Annuncio non trovato nei preferiti");
+    }
+}
+
+export const getFavourites=async():Promise<AdvData[]>=>{
+    const userString=localStorage.getItem('actualUser')
+    if(userString){
+        const user = JSON.parse(userString);
+        return(user.favourites)
+    }else{
+        throw new Error("nessun articolo preferito")
+    }
+}

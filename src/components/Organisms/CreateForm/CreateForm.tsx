@@ -11,6 +11,7 @@ import Dialog from '../../Template/DialogPopUp/Dialog';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { createAdv, saveAdv } from '../../../storesData/products';
+import { getActualUser, updateActualUser, updateUsers } from '../../../storesData/users';
 
 
 export default function CreateForm() {
@@ -35,12 +36,16 @@ export default function CreateForm() {
         // setShow(!show)
 
         const adv = createAdv();
+        const user = getActualUser()
 
         try {
             const result = await saveAdv(await adv);
             if (result) {
                 const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
                 advertises.push(result);
+                (await user).actives.push(result)
+                updateActualUser(await user)
+                updateUsers(await user)
                 localStorage.setItem('advertises', JSON.stringify(advertises));
             }
         } catch (error) {

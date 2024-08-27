@@ -12,7 +12,8 @@ export const emptyUser: User = {
     email: '',
     password: '',
     confirmPassword: '',
-    favourites: []
+    favourites: [],
+    actives:[]
 };
 
 export const getUserByEmail = async(email:string):Promise<User> => {
@@ -55,7 +56,7 @@ export const updateUsers=(user:User)=>{
 
 //throw new Error("Utente non trovato");
 
-export const updateActualUser=()=>{
-    const user = localStorage.getItem('actualUser');
+export const updateActualUser=(user:User)=>{
+    //const user = localStorage.getItem('actualUser');
     localStorage.setItem('actualUser', JSON.stringify(user));
 }

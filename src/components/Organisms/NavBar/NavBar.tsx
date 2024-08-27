@@ -14,9 +14,9 @@ export default function NavBar() {
     const { t } = useTranslation();
 
     const [isLogin, setIsLogin] = useState(false)
-    //const user = getActualUser()
 
     const [user, setUser] = useState<User>(emptyUser)
+
 
     useEffect(() => {
         const fetchAds = async () => {
@@ -33,7 +33,7 @@ export default function NavBar() {
             }
         };
         fetchAds();
-    }, []);
+    }, [user]);
 
     const [visible, setVisible] = useState(true);
 

@@ -10,23 +10,23 @@ type Props = {
 
 export default function PriceFilter({ onClick }: Props) {
     const { t } = useTranslation();
-    const [max, setMax] = useState<number>(0)
+    // const [max, setMax] = useState(0)
 
-    useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                const maxPrice = setMaxPrice()
-                setMax(await maxPrice)
-            } catch (error) {
-                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
-            }
-        };
-        fetchAds();
-    }, []);
+    // useEffect(() => {
+    //     const fetchAds = async () => {
+    //         try {
+    //             const maxPrice = setMaxPrice()
+    //             setMax(await maxPrice)
+    //         } catch (error) {
+    //             console.error("Errore durante il recupero del prezzo massimo", (error as Error).message);
+    //         }
+    //     };
+    //     fetchAds();
+    // }, []);
 
     const [data, setData] = useState({
         min: 0,
-        max: max,
+        max: 999999,
     });
 
     const handleChange = useCallback((id: string, value: string | number) => {
@@ -39,9 +39,9 @@ export default function PriceFilter({ onClick }: Props) {
     const handleReset = useCallback(() => {
         setData({
             min: 0,
-            max: max,
+            max: 999999,
         });
-    }, [max]);
+    }, []);
 
     const handleSubmit = useCallback((e: React.SyntheticEvent): void => {
         e.preventDefault();
@@ -57,7 +57,7 @@ export default function PriceFilter({ onClick }: Props) {
                         <InputField type="number" value={data.min} name="min" placeholder="min" onChange={handleChange}></InputField>
                     </div>
                     <div className="col-6">
-                        <InputField type="number" value={max} name="max" placeholder="max" onChange={handleChange}></InputField>
+                        <InputField type="number" value={data.max} name="max" placeholder="max" onChange={handleChange}></InputField>
                     </div>
                 </div>
                 <div className="row">
