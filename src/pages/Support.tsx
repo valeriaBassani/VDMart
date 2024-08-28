@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Support() {
     const { t } = useTranslation();
-    const [selected, setSelected] = useState("Registrazione e accesso");
+    const [selected, setSelected] = useState(t("support.categories.registration.title"));
 
     const handleClick = (title: string, clicked: boolean) => {
         setSelected(title)

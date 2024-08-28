@@ -1,6 +1,7 @@
 import { Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./DialogPopUp.css"
+import { useTranslation } from "react-i18next";
 
 type Props = {
     title: string,
@@ -10,6 +11,7 @@ type Props = {
     onHide: () => void;
 }
 export default function Dialog({ title, show, children, onSwitch, onHide }: Props) {
+    const { t } = useTranslation();
     return (
         <div className="container" style={{ position: "absolute" }}>
             <Modal
@@ -33,7 +35,7 @@ export default function Dialog({ title, show, children, onSwitch, onHide }: Prop
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="Help">
-                        <p>Bisogno di aiuto? <Link to={`/assistenza`} className="link">Contatta l'assistenza</Link></p>
+                        <p>{t("supportLink.link-1")} <Link to={`/assistenza`} className="link">{t("supportLink.link-2")}</Link></p>
                     </div>
                 </Modal.Footer>
             </Modal>
