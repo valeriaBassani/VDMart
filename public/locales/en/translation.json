@@ -12,10 +12,12 @@
         "adv":"Advertisements",
         "results":"Results",
         "search":"Search for an item",
-        "search-placeholder":"Name, brand, feature,..."
+        "search-placeholder":"Name, brand, feature,...",
+        "no-filter-result":"No ads match the search criteria",
+        "no-result":"No ads available"
     },
 
-    "support":{
+    "supportLink":{
         "link-1":"Need some help?",
         "link-2":"Contact our support service!"
     },
@@ -32,6 +34,11 @@
     "buttons":{
         "confirm":"Search",
         "reset":"Reset"
+    },
+
+    "toggle":{
+        "yes":"Yes",
+        "no":"No"
     },
 
     "price-filter":{
@@ -51,6 +58,7 @@
     },
 
     "signUp":{
+        "title":"Welcome",
         "subtitle":"Start doing business, create your account",
         "name":"First Name",
         "lastname":"Last Name",
@@ -86,5 +94,54 @@
         "images-loaded":"Loaded",
         "description":"Description",
         "public":"Publish Advertisement"
-    }
+    },
+
+    "support":{
+        "title": "Contact Us",
+        "subtitle": "How can we assist you?",
+        "categories": {
+          "registration": {
+            "title": "Registration and Login",
+            "text": "Troubleshooting login and registration issues"
+          },
+          "purchases": {
+            "title": "Purchases",
+            "text": "Issues with payment methods, shipping, and purchases"
+          },
+          "ads": {
+            "title": "Ads",
+            "text": "Issues with creating, inserting, and publishing"
+          },
+          "selling": {
+            "title": "Selling",
+            "text": "Issues with shipping, payments, and reviews"
+          },
+          "account": {
+            "title": "Account",
+            "text": "Managing personal data and account deletion"
+          },
+          "other": {
+            "title": "Other",
+            "text": "Tell us more about how we can assist you"
+          }
+        }
+      },
+
+      "supportForm":{
+        "form": {
+          "title": "Write to Us",
+          "subject": "Subject",
+          "message": "Message",
+          "messagePlaceholder": "Write your message here",
+          "submit": "Send"
+        },
+        "dialog": {
+          "title": "Publish Advertisement",
+          "messageSent": "Message sent!",
+          "confirmationText": "We have received your message. You will be contacted by the VDMart team as soon as possible.",
+          "reservedArea": "Reserved Area"
+        }
+      }
+      
+    
 }

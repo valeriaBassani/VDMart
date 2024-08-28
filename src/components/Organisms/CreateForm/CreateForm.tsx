@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './CreateForm.css';
 import Categories from '../../Molecules/Categories/Categories';
 import Submit from '../../Atoms/SubmitButton/Submit';
@@ -10,48 +10,125 @@ import Toggle from '../../Atoms/Toggle/Toggle';
 import Dialog from '../../Template/DialogPopUp/Dialog';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { createAdv, saveAdv } from '../../../storesData/products';
+import { AdvData, createAdv, getId, saveAdv } from '../../../storesData/products';
 import { getActualUser, updateActualUser, updateUsers } from '../../../storesData/users';
 
 
 export default function CreateForm() {
     const { t } = useTranslation();
     const [show, setShow] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState("vehicles");
     const [checked, setIsChecked] = useState(false);
+
+    const user = getActualUser()
+
+    const [errors, setErrors] = useState({
+        title: '',
+        price: '',
+        shippingPrice: '',
+        phone: '',
+        description: ''
+    });
+
+
+    function getDate() {
+        const today = new Date();
+        const month = today.getMonth() + 1;
+        const year = today.getFullYear();
+        const date = today.getDate();
+        return `${month}/${date}/${year}`;
+    }
 
     const handleOptionChange = useCallback((value: string) => {
         setSelectedOption(value);
     }, []);
 
+    const validateForm = (advData: any): boolean => {
+        let errors = false
+
+        setErrors({
+            title: '',
+            price: '',
+            shippingPrice: '',
+            phone: '',
+            description: ''
+        });
+
+        if (advData.title === "") {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                title: 'Il titolo è obbligatorio'
+            }));
+        }
+        if (advData.description === "") {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                description: 'Inserisci una descrizione'
+            }));
+        }
+        if (isNaN(advData.price)) {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                price: 'Il prezzo è obbligatorio e deve essere maggiore di 0'
+            }));
+        }
+        if (advData.shipping === true && isNaN(advData.shippingPrice)) {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                shippingPrice: 'Il costo di spedizone è obbligatorio'
+            }));
+        }
+        if (advData.phone === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                phone: 'Inserisci un numero di telefono'
+            }));
+        }
+        return errors
+    }
+
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        // const formData = new FormData(e.currentTarget);
 
-        // formData.forEach((value, key) => {
-        //     console.log(`${key}: ${value}`);
-        // });
-        // console.log(selectedOption);
-        // console.log(checked);
-        // setShow(!show)
+        const formData = new FormData(e.currentTarget);
 
-        const adv = createAdv();
-        const user = getActualUser()
+        const data: any = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
 
-        try {
-            const result = await saveAdv(await adv);
-            if (result) {
-                const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
-                advertises.push(result);
-                (await user).actives.push(result)
-                updateActualUser(await user)
-                updateUsers(await user)
-                localStorage.setItem('advertises', JSON.stringify(advertises));
-            }
-        } catch (error) {
-            console.error("Errore durante la registrazione:", (error as Error).message);
+        const today = getDate()
+        const parsedData: AdvData = {
+            id: await getId(),
+            title: data.title,
+            price: parseFloat(data.price),
+            category: selectedOption,
+            shipping: checked,
+            shippingPrice: parseFloat(data.shippingPrice) || 0,
+            publishData: today.toString(),
+            seller: (await user).email,
+            phone: data.phone || '',
+            description: data.Description || ''
+        };
+
+        const error = validateForm(parsedData)
+        if (!error) {
+            setShow(!show)
+            const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
+            advertises.push(parsedData);
+            localStorage.setItem('advertises', JSON.stringify(advertises));
+            const currentUser = await user;
+            currentUser.actives.push(parsedData);
+            updateActualUser(currentUser);
+            updateUsers(currentUser);
         }
-    }, [])
+
+    }, [checked, selectedOption, show, user])
 
     const [contImages, setContImages] = useState(0);
 
@@ -95,10 +172,10 @@ export default function CreateForm() {
                     <div className="row gap-3">
                         <div className="col main__section">
                             <div className="form">
-                                <InputField label={t('create.article')} type="text" name="title" placeholder={t('create.article')} required={true} ></InputField>
+                                <InputField label={t('create.article')} type="text" name="title" error={errors.title} placeholder={t('create.article')} required={true} ></InputField>
                                 <div className="row align-items-center">
                                     <div className="col">
-                                        <InputField label={t('create.price')} type="number" name="price" placeholder="0000,00" required={true}></InputField>
+                                        <InputField label={t('create.price')} type="number" error={errors.price} name="price" placeholder="0000,00" required={true}></InputField>
                                     </div>
                                     <div className="col-1 pt-4 px-0">
                                         <h4>€</h4>
@@ -120,7 +197,7 @@ export default function CreateForm() {
                                     <div className={checked ? "" : "create__shipping--invisible"}>
                                         <div className="row align-items-center">
                                             <div className="col">
-                                                <InputField label={t('create.shipping-price')} type="number" name="shippingPrice" placeholder="000,00" required={true}></InputField>
+                                                <InputField label={t('create.shipping-price')} type="number" error={errors.shippingPrice} name="shippingPrice" placeholder="000,00" required={true}></InputField>
                                             </div>
                                             <div className="col-1 pt-4 px-0">
                                                 <h4>€</h4>
@@ -128,7 +205,7 @@ export default function CreateForm() {
                                         </div>
                                     </div>
                                 </div>
-                                <InputField label={t('create.phone')} type="number" name="phone" placeholder={t('create.phone-placeholder')} required={true}></InputField>
+                                <InputField label={t('create.phone')} type="number" name="phone" error={errors.phone} placeholder={t('create.phone-placeholder')} required={true}></InputField>
                             </div>
                         </div>
                         <div className="col d-flex flex-column justify-content-between">
@@ -153,7 +230,7 @@ export default function CreateForm() {
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <TextArea label={t('create.description')} name='descripion' maxLength={200} required={true} />
+                                    <TextArea label={t('create.description')} name='description' error={errors.description} maxLength={200} required={true} />
                                 </div>
                             </div>
                             <div className="row">
@@ -193,3 +270,24 @@ export default function CreateForm() {
     )
 
 }
+
+// console.log(selectedOption);
+// console.log(checked);
+// setShow(!show)
+
+// const adv = createAdv();
+// const user = getActualUser()
+
+// try {
+//     const result = await saveAdv(await adv);
+//     if (result) {
+//         const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
+//         advertises.push(result);
+//         (await user).actives.push(result)
+//         updateActualUser(await user)
+//         updateUsers(await user)
+//         localStorage.setItem('advertises', JSON.stringify(advertises));
+//     }
+// } catch (error) {
+//     console.error("Errore durante la registrazione:", (error as Error).message);
+// }

@@ -25,8 +25,8 @@ export default function PriceFilter({ onClick }: Props) {
     // }, []);
 
     const [data, setData] = useState({
-        min: 0,
-        max: 999999,
+        min: "",
+        max: "",
     });
 
     const handleChange = useCallback((id: string, value: string | number) => {
@@ -38,15 +38,17 @@ export default function PriceFilter({ onClick }: Props) {
 
     const handleReset = useCallback(() => {
         setData({
-            min: 0,
-            max: 999999,
+            min: "",
+            max: "",
         });
     }, []);
 
     const handleSubmit = useCallback((e: React.SyntheticEvent): void => {
         e.preventDefault();
-        onClick(data.min, data.max)
-    }, [data.max, data.min, onClick])
+        const min = data.min ? parseFloat(data.min) : 0;
+        const max = data.max ? parseFloat(data.max) : 999999;
+        onClick(min, max);
+    }, [data, onClick])
 
     return (
         <>
@@ -65,7 +67,7 @@ export default function PriceFilter({ onClick }: Props) {
                         <Submit label={t('buttons.confirm')} className='btn--confirm' />
                     </div>
                     <div className="col">
-                        <Submit label="Ripristina" onClick={handleReset} className='btn--reset' />
+                        <Submit label={t('buttons.reset')} onClick={handleReset} className='btn--reset' />
                     </div>
                 </div>
             </form>

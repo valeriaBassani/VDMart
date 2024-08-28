@@ -2,37 +2,149 @@ import "./SignUpForm.css";
 import { Link } from "react-router-dom";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { createUser } from './../../../storesData/account/index';
+import { createUser, User } from './../../../storesData/account/index';
 import { registerUser } from './../../../storesData/account/index';
 
 export default function SingUpForm() {
     const { t } = useTranslation();
 
+    const [errors, setErrors] = useState({
+        name: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+    })
+
+    const validateForm = (user: any): boolean => {
+        let errors = false
+        setErrors({
+            name: "",
+            lastName: "",
+            phone: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+        })
+        if (user.name === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                name: 'Campo obbligatorio'
+            }));
+        }
+        if (user.lastName === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                lastName: 'Campo obbligatorio'
+            }));
+        }
+        if (user.phone === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                phone: 'Campo obbligatorio'
+            }));
+        }
+        if (user.email === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                email: 'Campo obbligatorio'
+            }));
+        } else {
+            let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!re.test(user.email)) {
+                errors = true
+                setErrors(prevErrors => ({
+                    ...prevErrors,
+                    email: 'Formato email non valido'
+                }));
+            }
+        }
+        if (user.password === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                password: 'Campo obbligatorio'
+            }));
+            //a password deve essere di almeno 7 caratteri, contenere 2 numeri e 1 carattere speciale
+        } else {
+            if (user.password.length < 7) {
+                errors = true
+                setErrors(prevErrors => ({
+                    ...prevErrors,
+                    password: 'la password deve essere di almeno 7 caratteri'
+                }));
+            }
+            if (/\d/.test(user.password) === false || /[!@#$%^&*(),.?":{}|<>]/.test(user.password) === false) {
+                errors = true
+                setErrors(prevErrors => ({
+                    ...prevErrors,
+                    password: 'la password deve contenere almeno un numero e un carattere speciale'
+                }));
+            }
+        }
+        if (user.password !== user.confirmPassword) {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                confirmPassword: 'le password devono coincidere'
+            }));
+        }
+        return errors
+    }
+
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        // const formData = new FormData(e.currentTarget);
+        const formData = new FormData(e.currentTarget);
 
-        // const user: User = {} as User;
+        const user: any = {}
 
-        // formData.forEach((value, key) => {
-        //     //console.log(`${key}: ${value}`);
-        //     user[key] = value;
-        // });
+        formData.forEach((value, key) => {
+            user[key] = value;
+        });
 
-        const user = createUser();
-
-        try {
-            const result = await registerUser(user);
-            if (result) {
-                const users = JSON.parse(localStorage.getItem('users') || '[]');
-                users.push(result);
-                localStorage.setItem('users', JSON.stringify(users));
-            }
-        } catch (error) {
-            console.error("Errore durante la registrazione:", (error as Error).message);
+        const parseUser: User = {
+            name: user.name,
+            lastName: user.lastname,
+            street: user.street,
+            number: user.number,
+            city: user.city,
+            provincia: user.provincia,
+            phone: user.phone,
+            email: user.email,
+            password: user.password,
+            confirmPassword: user.confirmPassword,
+            favourites: [],
+            actives: []
         }
+
+        console.log(user.name);
+
+        let error = validateForm(parseUser)
+        if (!error) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push(parseUser);
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        // const user = createUser();
+
+        // try {
+        //     const result = await registerUser(user);
+        //     if (result) {
+        //         const users = JSON.parse(localStorage.getItem('users') || '[]');
+        //         users.push(result);
+        //         localStorage.setItem('users', JSON.stringify(users));
+        //     }
+        // } catch (error) {
+        //     console.error("Errore durante la registrazione:", (error as Error).message);
+        // }
 
         // registerUser(user)
         //     .then((result) => {
@@ -51,28 +163,28 @@ export default function SingUpForm() {
             <form onSubmit={handleSubmit} className="form" aria-labelledby="signup--form">
                 <div className=" container-md main__section">
                     <h4 id="signup--form">{t('signUp.subtitle')}</h4>
-                    <InputField label={t('signUp.name')} type="text" name="name" placeholder={t('signUp.name')} required={true}></InputField>
-                    <InputField label={t('signUp.lastname')} type="text" name="lastname" placeholder={t('signUp.lastname')} required={true}></InputField>
+                    <InputField label={t('signUp.name')} type="text" name="name" error={errors.name} placeholder={t('signUp.name')} required={true}></InputField>
+                    <InputField label={t('signUp.lastname')} type="text" name="lastname" error={errors.lastName} placeholder={t('signUp.lastname')} required={true}></InputField>
                     <div className="row">
                         <div className="col">
-                            <InputField label={t('signUp.address')} type="text" name="street" placeholder={t('signUp.address')} required={true}></InputField>
+                            <InputField label={t('signUp.address')} type="text" name="street" placeholder={t('signUp.address')} ></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label={t('signUp.number')} type="number" name="number" placeholder={t('signUp.number')} required={true}></InputField>
+                            <InputField label={t('signUp.number')} type="number" name="number" placeholder={t('signUp.number')} ></InputField>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <InputField label={t('signUp.city')} type="text" name="city" placeholder={t('signUp.city')} required={true}></InputField>
+                            <InputField label={t('signUp.city')} type="text" name="city" placeholder={t('signUp.city')} ></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label={t('signUp.state')} type="text" name="provincia" placeholder={t('signUp.state')} required={true}></InputField>
+                            <InputField label={t('signUp.state')} type="text" name="provincia" placeholder={t('signUp.state')} ></InputField>
                         </div>
                     </div>
-                    <InputField label={t('signUp.phone')} type="tel" name="phone" placeholder={t('signUp.phone')} required={true}></InputField>
-                    <InputField label="Email" type="email" name="mail" placeholder="Email" required={true}></InputField>
-                    <InputField label="Password" type="password" name="password" placeholder="Password" required={true} suggest="la password deve essere di almeno 7 caratteri, contenere 2 numeri e 1 carattere speciale"></InputField>
-                    <InputField label={t('signUp.confirm-psw')} type="password" name="confirmPassword" required={true} placeholder="Password"></InputField>
+                    <InputField label={t('signUp.phone')} type="tel" name="phone" error={errors.phone} placeholder={t('signUp.phone')} required={true}></InputField>
+                    <InputField label="Email" type="email" name="email" placeholder="Email" error={errors.email} required={true}></InputField>
+                    <InputField label="Password" type="password" name="password" placeholder="Password" error={errors.password} required={true} suggest="la password deve essere di almeno 7 caratteri, contenere 1 numero e 1 carattere speciale"></InputField>
+                    <InputField label={t('signUp.confirm-psw')} type="password" name="confirmPassword" error={errors.confirmPassword} required={true} placeholder="Password"></InputField>
                 </div>
                 <p>* {t('signUp.obbligatory-field')}</p>
                 <Submit label={t('signUp.register')} className='btn--primary' />

@@ -8,7 +8,7 @@ export default function SupportLink() {
             <div style={{ color: "black" }}>
                 <div className="row p-3">
                     <div className="col d-flex gap-1">
-                        <p>{t('support.link-1')}</p><Link to={`/assistenza`} className="link">{t('support.link-2')}</Link>
+                        <p>{t('supportLink.link-1')}</p><Link to={`/assistenza`} className="link">{t('supportLink.link-2')}</Link>
                     </div>
                 </div>
             </div>

@@ -17,33 +17,6 @@ export default function Home() {
         setCurrentPage(page)
     }, [])
 
-
-
-
-
-
-    // const [range, setRange] = useState({
-    //     min: 0,
-    //     max: 999999,
-    // });
-
-    // const priceFilter = useCallback((min: number, max: number) => {
-    //     console.log("home", min, max);
-
-    //     setRange((prevRange) => {
-    //         const newRange = {
-    //             ...prevRange,
-    //             min: min,
-    //             max: max,
-    //         };
-    //         console.log("range", newRange.min, newRange.max);
-    //         return newRange;
-    //     });
-    // }, []);
-
-
-
-    //set show as all the ads
     const [toShow, setToShow] = useState<AdvData[]>([])
     useEffect(() => {
         const fetchAds = async () => {
@@ -57,7 +30,7 @@ export default function Home() {
         fetchAds();
     }, []);
 
-    //order ads by date
+    //order by date
     const handleOrder = useCallback((value: boolean) => {
         setToShow((prevToShow) => {
             const orderedAds = orderByDate(prevToShow, value);
@@ -77,6 +50,9 @@ export default function Home() {
                 setToShow([])
             } else {
                 const adsData = await getAds();
+                if (adsData.length === 0) {
+                    setError("Nessun annuncio disponibile")
+                }
                 setToShow(adsData);
             }
         } else {
@@ -104,57 +80,82 @@ export default function Home() {
         setShipping(value)
     }, [])
 
+    //counter of the shown ads
+    const [count, setCount] = useState(0)
+    useEffect(() => {
+        const filteredAdsCount = toShow.filter((adv) => {
+            const isPriceInRange = range.min <= adv.price && adv.price <= range.max;
+            const isShippingMatch = shipping || adv.shipping === true;
+            return isPriceInRange && isShippingMatch;
+        }).length;
+
+        setCount(filteredAdsCount);
+    }, [toShow, range, shipping]);
+
+    //error management
+    const [error, setError] = useState("")
+    useEffect(() => {
+        if (count === 0 && toShow.length !== 0) {
+            setError(t("home.no-filter-result"))
+        }
+        if (count !== 0) {
+            setError("")
+        }
+        if (toShow.length === 0) {
+            setError(t("home.no-result"))
+        }
+    }, [count, t, toShow.length])
+
     return (
-        <body>
-            <div className="container sm p-4 ">
-                <div className="row ">
-                    <div className="col d-flex flex-column gap-2" >
-                        <SearchBar />
+
+        <div className="container sm p-4 ">
+            <div className="row ">
+                <div className="col d-flex flex-column gap-2" >
+                    <SearchBar />
+                </div>
+            </div>
+            <div className="row gap-3 py-4 my-4 home__board">
+                <div className="col-3 home__filters main p-3" >
+                    <div className="col d-flex flex-column gap-3">
+                        <h4>{t('home.filters')} </h4>
+                        <CategoryFilter ads={toShow} onClick={categoryFilter} onClear={ClearFilters} />
+                        <PriceFilter onClick={priceFilter} />
+                        <Shipping onClick={shippingFilter} />
                     </div>
                 </div>
-                <div className="row gap-3 py-4 my-4 home__board">
-                    <div className="col-3 home__filters main p-3" >
-                        <div className="col d-flex flex-column gap-3">
-                            <h4>{t('home.filters')} </h4>
-                            <CategoryFilter ads={toShow} onClick={categoryFilter} onClear={ClearFilters} />
-                            <PriceFilter onClick={priceFilter} />
-                            <Shipping onClick={shippingFilter} />
+                <div className="col p-3 d-flex flex-column gap-3 main " >
+                    <div className="row">
+                        <div className="col">
+                            <h4>{t('home.adv')}</h4>
+                            <p>{count} {t('home.results')}</p>
+                        </div>
+                        <div className="col-auto">
+                            <OrderBy onClick={handleOrder} />
                         </div>
                     </div>
-                    <div className="col p-3 d-flex flex-column gap-3 main " >
-                        <div className="row">
-                            <div className="col">
-                                <h4>{t('home.adv')}</h4>
-                                <p>{toShow.length} {t('home.results')}</p>
-                            </div>
-                            <div className="col-auto">
-                                <OrderBy onClick={handleOrder} />
-                            </div>
+                    <div className="row align-items-center" >
+                        <div className="col d-flex flex-column justify-content-center gap-3">
+                            {toShow && toShow.length > 0 && (
+                                toShow.map((adv) => {
+                                    const isPriceInRange = range.min <= adv.price && adv.price <= range.max;
+                                    const isShippingMatch = shipping || adv.shipping === true;
+                                    if (isPriceInRange && isShippingMatch) {
+                                        return <AdvPreview adv={adv} />;
+                                    }
+                                    return null;
+                                })
+                            )}
+                            {error}
                         </div>
-                        <div className="row align-items-center" >
-                            <div className="col d-flex flex-column justify-content-center gap-3">
-                                {toShow && toShow.length > 0 ? (
-                                    toShow.map((adv) => {
-                                        const isPriceInRange = range.min <= adv.price && adv.price <= range.max;
-                                        const isShippingMatch = shipping || adv.shipping === true;
-                                        if (isPriceInRange && isShippingMatch) {
-                                            return <AdvPreview adv={adv} />;
-                                        }
-                                        return null;
-                                    })
-                                ) : (
-                                    <p>nessun annuncio corrisponde ai filtri di ricerca</p>
-                                )}
-                            </div>
-                        </div>
-                        <div className="row justify-content-center">
-                            <div className="col d-flex justify-content-center">
-                                <PageSelector page={currentPage} onClick={handleClick} />
-                            </div>
+                    </div>
+                    <div className="row justify-content-center">
+                        <div className="col d-flex justify-content-center">
+                            <PageSelector page={currentPage} onClick={handleClick} />
                         </div>
                     </div>
                 </div>
             </div>
-        </body>
+        </div>
+
     )
 }

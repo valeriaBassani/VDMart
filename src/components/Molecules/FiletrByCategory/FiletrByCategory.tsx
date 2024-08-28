@@ -6,11 +6,11 @@ import { useTranslation } from 'react-i18next';
 import { AdvData, filterByCategory } from '../../../storesData/products';
 
 type CheckedState = {
-    Vehicles: boolean;
-    Tech: boolean;
-    House: boolean;
-    Clothing: boolean;
-    Animals: boolean;
+    vehicles: boolean;
+    tech: boolean;
+    house: boolean;
+    clothes: boolean;
+    animals: boolean;
 };
 
 type Props = {
@@ -22,11 +22,11 @@ type Props = {
 export default function CategoryFilter({ ads, onClick, onClear }: Props) {
     const { t } = useTranslation();
     const [isChecked, setIsChecked] = useState<CheckedState>({
-        Vehicles: false,
-        Tech: false,
-        House: false,
-        Clothing: false,
-        Animals: false,
+        vehicles: false,
+        tech: false,
+        house: false,
+        clothes: false,
+        animals: false,
     });
 
     const [filtered, setFiltered] = useState<AdvData[]>([])
@@ -48,11 +48,11 @@ export default function CategoryFilter({ ads, onClick, onClear }: Props) {
     const handleReset = useCallback((e: React.SyntheticEvent) => {
         e.preventDefault();
         setIsChecked({
-            Vehicles: false,
-            Tech: false,
-            House: false,
-            Clothing: false,
-            Animals: false,
+            vehicles: false,
+            tech: false,
+            house: false,
+            clothes: false,
+            animals: false,
         });
         setFiltered([])
         onClear(false)
@@ -61,11 +61,11 @@ export default function CategoryFilter({ ads, onClick, onClear }: Props) {
     return (
         <fieldset className="filter">
             <legend>{t('category-filter.title')}</legend>
-            <Checkbox label={t('category-filter.vehicles')} id="Vehicles" checked={isChecked.Vehicles} onChange={handleOptionChange} />
-            <Checkbox label={t('category-filter.tech')} id="Tech" checked={isChecked.Tech} onChange={handleOptionChange} />
-            <Checkbox label={t('category-filter.dresses')} id="Clothing" checked={isChecked.Clothing} onChange={handleOptionChange} />
-            <Checkbox label={t('category-filter.house')} id="House" checked={isChecked.House} onChange={handleOptionChange} />
-            <Checkbox label={t('category-filter.animals')} id="Animals" checked={isChecked.Animals} onChange={handleOptionChange} />
+            <Checkbox label={t('category-filter.vehicles')} id="vehicles" checked={isChecked.vehicles} onChange={handleOptionChange} />
+            <Checkbox label={t('category-filter.tech')} id="tech" checked={isChecked.tech} onChange={handleOptionChange} />
+            <Checkbox label={t('category-filter.dresses')} id="clothes" checked={isChecked.clothes} onChange={handleOptionChange} />
+            <Checkbox label={t('category-filter.house')} id="house" checked={isChecked.house} onChange={handleOptionChange} />
+            <Checkbox label={t('category-filter.animals')} id="animals" checked={isChecked.animals} onChange={handleOptionChange} />
             <Submit label={t('buttons.reset')} className='btn--reset' onClick={handleReset} />
         </fieldset>
     )

@@ -7,8 +7,9 @@ type Props = {
     value?: string,
     maxLength: number,
     required?: boolean,
+    error?: string
 }
-export default function TextArea({ label, name, maxLength, value, required }: Props) {
+export default function TextArea({ label, name, maxLength, value, error, required }: Props) {
 
     const [count, setCount] = useState(0);
     const [inputValue, setInputValue] = useState(value);
@@ -35,6 +36,7 @@ export default function TextArea({ label, name, maxLength, value, required }: Pr
                     </div>
                 </div>
                 <textarea name="Description" id="description" value={inputValue} onChange={handleDescriptionChange} aria-describedby="text--area--suggestion" aria-required={required}></textarea>
+                <label className="field__error">{error}</label>  {/* aggiungere aria-invalid come riferimento all'errore */}
             </div>
         </>
     )

@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { getActualUser } from "../users";
 
 export interface AdvData {
-    id: string,
+    id: number,
     title: string,
     price: number,
     category: string,
@@ -27,7 +27,7 @@ const getRandomCategory = (categories: string[]): string => {
 };
 
 export const emptyAds = {
-    id: "",
+    id: 0,
     title: "",
     price: 0,
     category: "",
@@ -42,7 +42,7 @@ export const emptyAds = {
 export const createAdv = async (): Promise<AdvData> => {
     const user = await getActualUser()
     return {
-        id: faker.datatype.uuid(),
+        id: parseInt(faker.datatype.uuid()),
         title: faker.commerce.productName(),
         price: parseFloat(faker.commerce.price()),
         category: getRandomCategory(categories),
@@ -71,12 +71,23 @@ export const getAds = async (): Promise<AdvData[]> => {
     return ads;
 }
 
-
 export const getActualAdv = async (): Promise<AdvData> => {
     const adsString = localStorage.getItem('actualAdv');
     const adv: AdvData = adsString ? JSON.parse(adsString) : emptyAds;
     return adv
 }
+
+export const getId = async (): Promise<number> => {
+    const advertisesString = localStorage.getItem('advertises');
+    if (advertisesString) {
+        const advertises: AdvData[] = JSON.parse(advertisesString);
+        const index = advertises.length;
+        return (index)
+    } else {
+        return (1)
+        //throw new Error("errore nel ricavare l'id annuncio");
+    }
+};
 
 export const orderByDate = (ads: AdvData[], orderBy: boolean): AdvData[] => {
     return ads.sort((a, b) => {
@@ -107,7 +118,7 @@ export const isFavourite = async (adv: AdvData): Promise<boolean> => {
     if (userString) {
         const user = JSON.parse(userString);
         const fav = user.favourites
-        const adIndex = fav.find((ad: { id: string; }) => ad.id === adv.id);
+        const adIndex = fav.find((ad: { id: number; }) => ad.id === adv.id);
         if (adIndex) {
             return (true)
         } else {

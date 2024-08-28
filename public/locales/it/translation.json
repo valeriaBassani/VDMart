@@ -12,10 +12,12 @@
         "adv":"Annunci",
         "results":"Risultati",
         "search":"Ricerca di un articolo",
-        "search-placeholder":"Nome, marca, caratteristica,..."
+        "search-placeholder":"Nome, marca, caratteristica,...",
+        "no-filter-result":"Nessun annuncio corrisponde ai criceri di ricerca",
+        "no-result":"Nessun annuncio disponibile"
     },
 
-    "support":{
+    "supportLink":{
         "link-1":"Hai bisogno di aiuto?",
         "link-2":"Contatta il nostro servizio di assistenza!"
     },
@@ -32,6 +34,11 @@
     "buttons":{
         "confirm":"Cerca",
         "reset":"Ripristina"
+    },
+
+    "toggle":{
+        "yes":"Si",
+        "no":"No"
     },
 
     "price-filter":{
@@ -51,6 +58,7 @@
     },
 
     "signUp":{
+        "title":"Benvenuto",
         "subtitle":"Inizia a fare affari, crea il tuo account",
         "name":"Nome",
         "lastname":"Cognome",
@@ -86,5 +94,52 @@
         "images-loaded":"Caricate",
         "description":"Descrizione",
         "public":"Pubblica l'annuncio"
-    }
+    },
+
+    "support":{
+        "title": "Contattaci",
+        "subtitle": "Per cosa possiamo aiutarti?",
+        "categories": {
+          "registration": {
+            "title": "Registrazione e accesso",
+            "text": "Risoluzione problemi legati a login e registrazione"
+          },
+          "purchases": {
+            "title": "Acquisti",
+            "text": "Problemi sul metodo di pagamento, spedizioni e acquisti"
+          },
+          "ads": {
+            "title": "Annunci",
+            "text": "Problemi su creazione, inserimento e pubblicazione"
+          },
+          "selling": {
+            "title": "Vendita",
+            "text": "Problemi su spedizioni pagamenti e recensioni"
+          },
+          "account": {
+            "title": "Account",
+            "text": "Gestione dati personali, eliminazione account"
+          },
+          "other": {
+            "title": "Altro",
+            "text": "Dicci di più su come possiamo aiutarti"
+          }
+        }
+      },
+
+      "supportForm":{
+        "form": {
+          "title": "Scrivici",
+          "subject": "Oggetto",
+          "message": "Messaggio",
+          "messagePlaceholder": "Scrivi il tuo messaggio qui",
+          "submit": "Invia"
+        },
+        "dialog": {
+          "title": "Pubblica Annuncio",
+          "messageSent": "Messaggio inviato!",
+          "confirmationText": "Abbiamo preso in carico la tua segnalazione. Verrai ricontattato dal team VDMart il prima possibile.",
+          "reservedArea": "Area Riservata"
+        }
+      }
 }

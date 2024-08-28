@@ -10,18 +10,13 @@ type Props = {
     suggest?: string,
     required?: boolean,
     value?: string | number,
+    error?: string,
     onChange?: (id: string, value: string | number) => void,
 }
 
-export default function InputField({ label, type, name, placeholder, suggest, required, onChange, value }: Props) {
+export default function InputField({ label, type, name, placeholder, error, suggest, required, onChange, value }: Props) {
 
     const [inputValue, setInputValue] = useState(value);
-    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    //     setInputValue(e.target.value);
-    //     if (onChange) {
-    //         onChange(e.target.name, e.target.value);
-    //     }
-    // };
 
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -39,7 +34,7 @@ export default function InputField({ label, type, name, placeholder, suggest, re
                 </div>
                 <input type={type} id={name} name={name} placeholder={placeholder} aria-placeholder={placeholder} aria-label={name} aria-required={required} aria-describedby="input--suggestion" value={inputValue} onChange={handleChange}></input>
                 <label id="input--suggestion" className="field__suggestion">{suggest}</label>
-                <label className="field__error"></label>  {/* aggiungere aria-invalid come riferimento all'errore */}
+                <label className="field__error">{error}</label>  {/* aggiungere aria-invalid come riferimento all'errore */}
             </div>
         </>
     )
