@@ -27,7 +27,6 @@ export default function OtherUser() {
                 <UserArea isActual={false} user={user} />
                 <OtherUserHistory user={user} />
             </div>
-
         </>
     )
 }

@@ -1,6 +1,0 @@
-@import url('../../../App.css');
-.adv__description{
-    border-top: solid 1px var(--lightGrey);
-    padding-top: 1em ;
-    max-width: 35em;
-}
