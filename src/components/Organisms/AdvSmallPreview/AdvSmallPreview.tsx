@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import ipad from "./ipad.jpg"
 import edit from "./edit.svg"
 import Icon from "../../Atoms/Icon";
 import "./AdvSmallPreview.css"
@@ -9,9 +8,10 @@ import { AdvData } from "../../../storesData/products";
 type Props = {
     adv: AdvData
     type: "active" | "purchased" | "sold";
+    isActual?: boolean
 }
 
-export default function AdvSmallPreview({ adv, type }: Props) {
+export default function AdvSmallPreview({ adv, type, isActual }: Props) {
     const navigate = useNavigate();
 
     const handleEdit = (e: React.SyntheticEvent): void => {
@@ -21,21 +21,30 @@ export default function AdvSmallPreview({ adv, type }: Props) {
 
     const handleClick = useCallback(() => {
         if (type === "active") {
+            localStorage.setItem('actualAdv', JSON.stringify(adv));
             navigate('/dettagli-annuncio-attivo');
         }
+        if (type === "active" && isActual === false) {
+            localStorage.setItem('actualAdv', JSON.stringify(adv));
+            navigate('/dettagli-annuncio');
+        }
         if (type === "purchased") {
+            localStorage.setItem('actualAdv', JSON.stringify(adv));
             navigate('/modifica-annuncio-attivo');
         }
         if (type === "sold") {
+            localStorage.setItem('actualAdv', JSON.stringify(adv));
             navigate('/modifica-annuncio-attivo');
         }
-    }, [navigate, type])
+    }, [adv, isActual, navigate, type])
 
     return (
         <>
             <div className="row advsmallpreview gap-3" onClick={handleClick}>
                 <div className="col-auto p-0 advsmallpreview__image">
-                    <img src={ipad} alt="Ipad"></img>
+                    {adv.images && adv.images.length > 0 && (
+                        <img src={adv.images[0]} alt="Immagine principale" />
+                    )}
                 </div>
                 <div className="col">
                     <div className="row">
@@ -54,7 +63,7 @@ export default function AdvSmallPreview({ adv, type }: Props) {
                                     </p></>)}
                                 </div>
                             </div>
-                            {type === "active" && (
+                            {type === "active" && isActual === true && (
                                 <div className="col-auto p-0">
                                     <button className="btn--edit" onClick={handleEdit}><Icon url={edit} alt="modifica" /></button>
                                 </div>

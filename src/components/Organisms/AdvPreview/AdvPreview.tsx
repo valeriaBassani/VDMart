@@ -24,10 +24,8 @@ export default function Adv({ adv }: Props) {
                 <div className="row adv__info">
                     <div className="col-auto pe-0">
                         {adv.images && adv.images.length > 0 && (
-                            //const imageUrl = URL.createObjectURL(adv.images[0]);
                             <img src={adv.images[0]} alt="Immagine principale" />
                         )}
-                        {/* <img src={ipad} alt="Ipad"></img> */}
                     </div>
                     <div className="col d-flex flex-column gap-4 py-3 pe-4">
                         <div className="d-flex justify-content-between align-items-start">

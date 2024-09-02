@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import ReviewPreview from "../../Molecules/ReviewPreview/ReviewPreview";
 import { UserInfo } from "../../Molecules/UserInfo";
+import { User } from "../../../storesData/account";
 
 type Props = {
+    user: User,
     isActual: boolean
 }
 
-export default function User({ isActual }: Props) {
+export default function UserArea({ user, isActual }: Props) {
     return (
         <>
             <div className="main__section p-4 my-3">
                 <div className="row">
                     <div className="col">
-                        <UserInfo isActual={isActual} />
+                        <UserInfo user={user} isActual={isActual} />
                     </div>
                 </div>
                 <div className="row border-top pt-4">

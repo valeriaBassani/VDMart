@@ -9,13 +9,15 @@ type Props = {
 }
 export default function UserRate({ mail }: Props) {
 
+    const [user, setUser] = useState<User>(emptyUser)
+
     const navigate = useNavigate();
     const handleClick = useCallback((e: React.SyntheticEvent) => {
         e.stopPropagation();
+        localStorage.setItem('otherUser', JSON.stringify(user));
         navigate('/profilo-utente');
-    }, [navigate])
+    }, [navigate, user])
 
-    const [user, setUser] = useState<User>(emptyUser)
 
     useEffect(() => {
         const fetchAds = async () => {
@@ -23,7 +25,7 @@ export default function UserRate({ mail }: Props) {
                 const user = await getUserByEmail(mail);
                 setUser(user);
             } catch (error) {
-                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
+                console.error("Errore durante il recupero dell'utente", (error as Error).message);
             }
         };
         fetchAds();

@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
-import { emptyUser, getActualUser } from "../../../storesData/users";
 import Button from "../../Atoms/Buttons/Buttons";
 import OrderBy from "../../Molecules/OrderBy/OrderBy";
-import ActiveAds from "../ActiveAds/ActiveAds";
 import { User } from "../../../storesData/account";
+import AdvSmallPreview from "../AdvSmallPreview/AdvSmallPreview";
 
-export default function OtherUserHistory() {
+type Props = {
+    user: User
+}
 
-    const [user, setUser] = useState<User>(emptyUser)
-
-    useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                const user = await getActualUser()
-                setUser(user);
-            } catch (error) {
-                console.error("Errore durante il recupero degli annunci in bacheca", (error as Error).message);
-            }
-        };
-        fetchAds();
-    }, []);
+export default function OtherUserHistory({ user }: Props) {
 
     return (
         <>
@@ -33,7 +21,15 @@ export default function OtherUserHistory() {
                             {/* <OrderBy /> */}
                         </div>
                     </div>
-                    <ActiveAds user={user} />
+                    <div className="main p-3">
+                        <div className="col d-flex gap-3 flex-wrap justify-content-between">
+                            {user.actives && user.actives.length > 0 && (
+                                user.actives.map((adv) => (
+                                    <AdvSmallPreview type="active" isActual={false} adv={adv} />
+                                ))
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div >
         </>

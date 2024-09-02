@@ -1,29 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../../Atoms/Buttons/Buttons";
 import OrderBy from "../../Molecules/OrderBy/OrderBy";
-import ActiveAds from "../ActiveAds/ActiveAds";
-import PurchasedAds from "../PurchasedAds/PurchasedAds";
-import SoldAds from "../SoldAds/SoldAds";
-import { emptyUser, getActualUser } from "../../../storesData/users";
 import { User } from "../../../storesData/account";
+import AdvSmallPreview from "../AdvSmallPreview/AdvSmallPreview";
 
-export default function UserHistory() {
+type Props = {
+    user: User
+}
+
+export default function UserHistory({ user }: Props) {
 
     const [active, setActive] = useState(0)
-
-    const [user, setUser] = useState<User>(emptyUser)
-
-    useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                const user = await getActualUser();
-                setUser(user);
-            } catch (error) {
-                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
-            }
-        };
-        fetchAds();
-    }, []);
 
     return (
         <>
@@ -39,10 +26,20 @@ export default function UserHistory() {
                             {/* <OrderBy /> */}
                         </div>
                     </div>
+                    <div className="row gap-3">
+
+                    </div>
                     <div className="main p-3">
-                        {active === 0 && (<> <ActiveAds user={user} /></>)}
+                        {active === 0 && (<> <div className="col d-flex gap-3 flex-wrap justify-content-between">
+                            {user.actives && user.actives.length > 0 && (
+                                user.actives.map((adv) => (
+                                    <AdvSmallPreview type="active" isActual={true} adv={adv} />
+                                ))
+                            )}
+                        </div></>)}
+                        {/* {active === 0 && (<> <ActiveAds user={user} isActual={true} /></>)}
                         {active === 1 && (<> <PurchasedAds user={user} /></>)}
-                        {active === 2 && (<> <SoldAds user={user} /></>)}
+                        {active === 2 && (<> <SoldAds user={user} /></>)} */}
                     </div>
                 </div>
             </div >

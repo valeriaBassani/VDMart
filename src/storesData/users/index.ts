@@ -13,36 +13,42 @@ export const emptyUser: User = {
     password: '',
     confirmPassword: '',
     favourites: [],
-    actives:[]
+    actives: []
 };
 
-export const getUserByEmail = async(email:string):Promise<User> => {
+export const getUserByEmail = async (email: string): Promise<User> => {
     const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
     const user = users.find(user => user.email === email);
-    if(user){
-        return (user); 
-    }else{
+    if (user) {
+        return (user);
+    } else {
         return (emptyUser);
     }
 }
 
-export const getActualUser= async():Promise<User>=>{
+export const getActualUser = async (): Promise<User> => {
     const userString = localStorage.getItem('actualUser');
     const user: User = userString ? JSON.parse(userString) : emptyUser;
-    return(user)
+    return (user)
 }
 
-export const getUserAds= async(mail:string): Promise<AdvData[]> =>{
+export const getOtherUser = async (): Promise<User> => {
+    const userString = localStorage.getItem('otherUser');
+    const user: User = userString ? JSON.parse(userString) : emptyUser;
+    return (user)
+}
+
+export const getUserAds = async (mail: string): Promise<AdvData[]> => {
     let ads: AdvData[] = []
     const advertises = localStorage.getItem('advertises');
-    if(advertises){
+    if (advertises) {
         const advertisesArray: AdvData[] = JSON.parse(advertises);
         ads = advertisesArray.filter(ad => ad.seller === mail);
     }
-    return(ads);
+    return (ads);
 }
 
-export const updateUsers=(user:User)=>{
+export const updateUsers = (user: User) => {
     const usersJSON = localStorage.getItem('users');
     const users: User[] = usersJSON ? JSON.parse(usersJSON) : [];
     const index = users.findIndex(u => u.email === user.email);
@@ -56,7 +62,7 @@ export const updateUsers=(user:User)=>{
 
 //throw new Error("Utente non trovato");
 
-export const updateActualUser=(user:User)=>{
+export const updateActualUser = (user: User) => {
     //const user = localStorage.getItem('actualUser');
     localStorage.setItem('actualUser', JSON.stringify(user));
 }

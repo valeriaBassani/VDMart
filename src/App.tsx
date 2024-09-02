@@ -15,7 +15,7 @@ import Create from './pages/Create';
 import Favourites from './pages/Favourites';
 import Restore from './pages/RestorePsw';
 import Support from './pages/Support';
-import AdvDetails from './pages/AdvDetails';
+import AdvDetails from './pages/AdvDetails/AdvDetails';
 import Footer from './components/Organisms/Footer/Footer';
 import BreadCrumbs from './components/Molecules/Breadcrumbs/Breadcrumbs';
 import SupportLink from './components/Atoms/SupportLink/SupportLink';

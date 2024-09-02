@@ -1,22 +1,21 @@
-import { useCallback, useEffect, useState } from "react"
-import AdvImages from "../../Molecules/AdvImages/AdvImages"
-import Favourite from "../../Molecules/Favourite/Favourite"
-import "./AdvsDetails.css"
-import Button from "../../Atoms/Buttons/Buttons"
-import UserRate from "../../Molecules/UserRate/UserRate"
-import Epilogue from "../../Template/DialogPopUp/Epilogue"
-import Checkout from "../../Template/DialogPopUp/Checkout"
-import Dialog from "../../Template/DialogPopUp/Dialog"
-import { Link } from "react-router-dom"
+import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import AdvImages from "../../components/Molecules/AdvImages/AdvImages";
+import Favourite from "../../components/Molecules/Favourite/Favourite";
+import UserRate from "../../components/Molecules/UserRate/UserRate";
+import Checkout from "../../components/Template/DialogPopUp/Checkout";
+import Dialog from "../../components/Template/DialogPopUp/Dialog";
+import Epilogue from "../../components/Template/DialogPopUp/Epilogue";
+import { AdvData, emptyAds, getActualAdv } from "../../storesData/products";
+import Button from "../../components/Atoms/Buttons/Buttons";
 import check from "./check-circle 1.svg"
-import { AdvData, emptyAds, getActualAdv } from "../../../storesData/products"
+import "./AdvDetails.css"
+
 
 type Props = {
     details?: "adv" | "purchase" | "sold"
 }
-
 export default function AdvDetails({ details }: Props) {
-
     const [adv, setAdv] = useState<AdvData>(emptyAds)
 
     useEffect(() => {
@@ -42,7 +41,6 @@ export default function AdvDetails({ details }: Props) {
         setCurrentModal("primo");
         setShow(!show)
     }, [show])
-
     return (
         <>
             <div className="container-lg mb-5">
@@ -121,8 +119,6 @@ export default function AdvDetails({ details }: Props) {
                     </div>
                 </div>
             </Dialog>}
-
-
         </>
     )
 

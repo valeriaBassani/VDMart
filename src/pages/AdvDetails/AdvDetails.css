@@ -1,4 +1,4 @@
-@import url('../../../App.css');
+@import url('../../App.css');
 .adv__description{
     border-top: solid 1px var(--lightGrey);
     padding-top: 1em ;

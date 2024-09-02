@@ -1,22 +1,19 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import { Link } from "react-router-dom"
-
 import { DeleteAccount } from "../DeleteAccount/DeleteAccount"
-
 import InputField from "../../Atoms/InputField/InputField"
 import Button from "../../Atoms/Buttons/Buttons"
 import Dialog from "../../Template/DialogPopUp/Dialog"
-
 import Icon from "../../Atoms/Icon"
 import "./styles.css"
-import { emptyUser, getActualUser } from "../../../storesData/users"
 import { User } from "../../../storesData/account"
 
 type Props = {
+    user: User
     isActual: boolean
 }
 
-export default function UserInfo({ isActual }: Props) {
+export default function UserInfo({ user, isActual }: Props) {
 
     const [visible, setVisible] = useState(false);
     const handleClick = useCallback(() => {
@@ -27,20 +24,6 @@ export default function UserInfo({ isActual }: Props) {
     const showDialog = useCallback(() => {
         setShow(!show)
     }, [show])
-
-    const [user, setUser] = useState<User>(emptyUser)
-
-    useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                const user = await getActualUser()
-                setUser(user);
-            } catch (error) {
-                console.error("Errore durante il recupero degli annunci in bacheca", (error as Error).message);
-            }
-        };
-        fetchAds();
-    }, []);
 
     return (
         <>
@@ -53,7 +36,7 @@ export default function UserInfo({ isActual }: Props) {
                 <div className="col">
                     <div className={`row gap-3 ${visible ? 'profile--show' : ''}`}>
                         <div className="col d-flex flex-column gap-2" >
-                            <p className="profie__active">3 annunci attivi</p>
+                            <p className="profie__active">{user.actives.length} annunci attivi</p>
                             <h4>{user.name} {user.lastName}</h4>
                             <p>{user.email}</p>
                             <p>tel: {user.phone}</p>

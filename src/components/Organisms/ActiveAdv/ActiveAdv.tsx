@@ -70,7 +70,7 @@ export default function ActiveAdv({ article }: Props) {
                     <div className="row">
                         <div className="col adv__description">
                             <h4>Descrizione</h4>
-                            <p>Description</p>
+                            <p>{adv.description}</p>
                         </div>
                     </div>
                 </div>
