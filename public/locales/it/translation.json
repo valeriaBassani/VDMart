@@ -26,8 +26,8 @@
         "title":"Categoria",
         "vehicles":"Motori",
         "tech":"Tecnologia",
-        "dresses":"Abbigliamento",
-        "house":"Casa",
+        "clothes":"Abbigliamento",
+        "home":"Casa",
         "animals":"Animali"
     },
 
@@ -76,7 +76,8 @@
     "favourites":{
         "title":"Annunci preferiti",
         "counter":"preferiti",
-        "total":"totale"
+        "total":"totale",
+        "noAds":"Non hai nessun annuncio salvato tra i preferiti"
     },
 
     "create":{

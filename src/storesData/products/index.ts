@@ -12,6 +12,7 @@ export interface AdvData {
     seller: string,
     phone: string,
     description: string
+    images: string[];
 }
 
 const categories = [
@@ -36,23 +37,25 @@ export const emptyAds = {
     publishData: "",
     seller: "",
     phone: "",
-    description: ""
+    description: "",
+    images: []
 }
 
 export const createAdv = async (): Promise<AdvData> => {
     const user = await getActualUser()
     return {
-        id: parseInt(faker.datatype.uuid()),
+        id: await getId(),
         title: faker.commerce.productName(),
         price: parseFloat(faker.commerce.price()),
-        category: getRandomCategory(categories),
+        category: getRandomCategory(categories).toLocaleLowerCase(),
         shipping: faker.datatype.boolean(),
         shippingPrice: parseFloat(faker.commerce.price()),
         publishData: faker.date.anytime().toISOString(),
         //seller: faker.internet.email(),
         seller: user.email,
         phone: faker.phone.number(),
-        description: faker.lorem.paragraph()
+        description: faker.lorem.paragraph(),
+        images: []
     };
 }
 
@@ -84,8 +87,7 @@ export const getId = async (): Promise<number> => {
         const index = advertises.length;
         return (index)
     } else {
-        return (1)
-        //throw new Error("errore nel ricavare l'id annuncio");
+        return (0)
     }
 };
 
@@ -140,3 +142,20 @@ export const filterByCategory = async (list: AdvData[], category: string, checke
     }
     return filtered
 }
+
+export const searchText = async (text: string): Promise<AdvData[]> => {
+    console.log(text);
+
+    const ads = getAds();
+    const lowercasedText = text.toLowerCase();
+    let filtered: AdvData[] = []
+    if (text === '') {
+        return ads;
+    }
+    filtered = (await ads).filter((ad) => {
+        return ad.title.toLowerCase().includes(lowercasedText) ||
+            ad.description.toLowerCase().includes(lowercasedText);
+    });
+
+    return filtered
+};

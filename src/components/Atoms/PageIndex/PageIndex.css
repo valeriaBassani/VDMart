@@ -7,6 +7,7 @@
     background-color: rgba(255, 255, 255, 0);
     font-weight: 600;
     width: fit-content;
+    color: black;
 }
 
 .page__index--active{
@@ -16,6 +17,12 @@
     background-color: var(--accent);
     color: white;
     border-radius: var(--border-radius);
+}
+
+.page__index--active:hover{
+    border: solid 2px var(--accent);
+    background-color: var(--accent);
+    color: white;
 }
 
 .page__index:hover{

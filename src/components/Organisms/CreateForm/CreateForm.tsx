@@ -92,15 +92,30 @@ export default function CreateForm() {
         return errors
     }
 
+    const [images, setImages] = useState<string[]>([])
+
+    const handleImages = (image: string, index: number) => {
+        setImages(prev => {
+            const newImage = [...prev];
+            newImage[index] = image;
+            return newImage;
+        });
+    }
+
+
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
 
+        //manual creation
         const formData = new FormData(e.currentTarget);
 
         const data: any = {};
         formData.forEach((value, key) => {
             data[key] = value;
         });
+
+        console.log(images);
+
 
         const today = getDate()
         const parsedData: AdvData = {
@@ -113,8 +128,12 @@ export default function CreateForm() {
             publishData: today.toString(),
             seller: (await user).email,
             phone: data.phone || '',
-            description: data.Description || ''
+            description: data.Description || '',
+            images: images
         };
+
+        console.log(parsedData);
+
 
         const error = validateForm(parsedData)
         if (!error) {
@@ -127,6 +146,28 @@ export default function CreateForm() {
             updateActualUser(currentUser);
             updateUsers(currentUser);
         }
+
+        //w/ faker creation
+        // console.log(selectedOption);
+        // console.log(checked);
+        // setShow(!show)
+
+        // const adv = createAdv();
+        // const user = getActualUser()
+
+        // try {
+        //     const result = await saveAdv(await adv);
+        //     if (result) {
+        //         const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
+        //         advertises.push(result);
+        //         (await user).actives.push(result)
+        //         updateActualUser(await user)
+        //         updateUsers(await user)
+        //         localStorage.setItem('advertises', JSON.stringify(advertises));
+        //     }
+        // } catch (error) {
+        //     console.error("Errore durante la creazione dell'annuncio:", (error as Error).message);
+        // }
 
     }, [checked, selectedOption, show, user])
 
@@ -164,6 +205,8 @@ export default function CreateForm() {
     const close = () => {
         setShow(false)
     }
+
+
 
     return (
         <>
@@ -220,12 +263,12 @@ export default function CreateForm() {
                                     </div>
                                     <div className="row">
                                         <div className="col d-flex flex-wrap gap-2">
-                                            <ImageUpload upCount={handleCount} isNext={isNext[0]} />
-                                            <ImageUpload upCount={handleCount} isNext={isNext[1]} />
-                                            <ImageUpload upCount={handleCount} isNext={isNext[2]} />
-                                            <ImageUpload upCount={handleCount} isNext={isNext[3]} />
-                                            <ImageUpload upCount={handleCount} isNext={isNext[4]} />
-                                            <ImageUpload upCount={handleCount} isNext={isNext[5]} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[0]} onClick={(image) => handleImages(image, 0)} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[1]} onClick={(image) => handleImages(image, 1)} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[2]} onClick={(image) => handleImages(image, 2)} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[3]} onClick={(image) => handleImages(image, 3)} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[4]} onClick={(image) => handleImages(image, 4)} />
+                                            <ImageUpload upCount={handleCount} isNext={isNext[5]} onClick={(image) => handleImages(image, 5)} />
                                         </div>
                                     </div>
                                 </div>

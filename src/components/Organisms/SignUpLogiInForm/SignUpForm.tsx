@@ -101,51 +101,54 @@ export default function SingUpForm() {
 
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        //manual signUp
+        // const formData = new FormData(e.currentTarget);
 
-        const user: any = {}
+        // const user: any = {}
 
-        formData.forEach((value, key) => {
-            user[key] = value;
-        });
+        // formData.forEach((value, key) => {
+        //     user[key] = value;
+        // });
 
-        const parseUser: User = {
-            name: user.name,
-            lastName: user.lastname,
-            street: user.street,
-            number: user.number,
-            city: user.city,
-            provincia: user.provincia,
-            phone: user.phone,
-            email: user.email,
-            password: user.password,
-            confirmPassword: user.confirmPassword,
-            favourites: [],
-            actives: []
-        }
-
-        console.log(user.name);
-
-        let error = validateForm(parseUser)
-        if (!error) {
-            const users = JSON.parse(localStorage.getItem('users') || '[]');
-            users.push(parseUser);
-            localStorage.setItem('users', JSON.stringify(users));
-        }
-
-        // const user = createUser();
-
-        // try {
-        //     const result = await registerUser(user);
-        //     if (result) {
-        //         const users = JSON.parse(localStorage.getItem('users') || '[]');
-        //         users.push(result);
-        //         localStorage.setItem('users', JSON.stringify(users));
-        //     }
-        // } catch (error) {
-        //     console.error("Errore durante la registrazione:", (error as Error).message);
+        // const parseUser: User = {
+        //     name: user.name,
+        //     lastName: user.lastname,
+        //     street: user.street,
+        //     number: user.number,
+        //     city: user.city,
+        //     provincia: user.provincia,
+        //     phone: user.phone,
+        //     email: user.email,
+        //     password: user.password,
+        //     confirmPassword: user.confirmPassword,
+        //     favourites: [],
+        //     actives: []
         // }
 
+        // console.log(user.name);
+
+        // let error = validateForm(parseUser)
+        // if (!error) {
+        //     const users = JSON.parse(localStorage.getItem('users') || '[]');
+        //     users.push(parseUser);
+        //     localStorage.setItem('users', JSON.stringify(users));
+        // }
+
+        //faker signUp
+        const user = createUser();
+
+        try {
+            const result = await registerUser(user);
+            if (result) {
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                users.push(result);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+        } catch (error) {
+            console.error("Errore durante la registrazione:", (error as Error).message);
+        }
+
+        //other way up
         // registerUser(user)
         //     .then((result) => {
         //         const users = JSON.parse(localStorage.getItem('users') || '[]');

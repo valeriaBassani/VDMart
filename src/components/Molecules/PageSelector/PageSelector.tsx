@@ -1,21 +1,28 @@
-import PageIndex from "../../Atoms/PageIndex/PageIndex";
-import PageNext from "../../Atoms/PageIndex/PageNext";
-import PagePrev from "../../Atoms/PageIndex/PagePrev";
+import { Button } from "react-bootstrap";
 
 type Props = {
-    page: number,
+    pages: number[]
+    currentPage: number,
     onClick: (page: number) => void
 }
 
-export default function PageSelector({ page, onClick }: Props) {
+export default function PageSelector({ pages, currentPage, onClick }: Props) {
+
+    const onClickPage = (page: number) => {
+        onClick(page);
+    }
 
     return (
         <>
             <div className="row">
                 <div className="col d-flex gap-2">
-                    <PagePrev />
-                    <PageIndex page={page} />
-                    <PageNext />
+                    {pages.length > 0 && pages.map((page, index) => (
+                        index === currentPage - 1 ? (
+                            <Button className="page__index--active" onClick={() => onClickPage(index)}>{page}</Button>
+                        ) : (
+                            <Button className="page__index" onClick={() => onClickPage(index)} >{page}</Button>
+                        )
+                    ))}
                 </div>
             </div>
 
@@ -23,3 +30,4 @@ export default function PageSelector({ page, onClick }: Props) {
     )
 
 }
+

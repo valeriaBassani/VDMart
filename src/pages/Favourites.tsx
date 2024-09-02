@@ -28,7 +28,7 @@ export default function Favourites() {
                                 <div className="col d-flex flex-column gap-2">
                                     <div className="row">
                                         <div className="col d-flex">
-                                            <label>< abbr title={t('favourites.total')} > Tot: </ abbr > 3 {t('favourites.counter')}</label>
+                                            <label> {t('favourites.total')}: {fav.length}</label>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -38,7 +38,7 @@ export default function Favourites() {
                                                     return <AdvPreview adv={fav} />;
                                                 })
                                             ) : (
-                                                <p>No advertisements available.</p>
+                                                <p>{t('favourites.noAds')}</p>
                                             )}
                                         </div>
                                     </div>

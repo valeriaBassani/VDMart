@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./SearchBar.css"
 import lens from "./lens.svg"
 import CategoryFilter from "../FiletrByCategory/FiletrByCategory";
@@ -9,25 +9,43 @@ import InputField from "../../Atoms/InputField/InputField";
 import Button from "../../Atoms/Buttons/Buttons";
 import { useTranslation } from "react-i18next";
 
-export default function SearchBar() {
+type Props = {
+    onClick: (text: string) => void
+}
+
+export default function SearchBar({ onClick }: Props) {
     const { t } = useTranslation();
     const [visible, setVisible] = useState(false);
+
+    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const searchValue = formData.get('search');
+        if (searchValue) {
+            onClick(searchValue.toString())
+        }
+        console.log(searchValue);
+    }, [onClick])
+
 
     return (
         <>
             <div className="row ">
                 <div className="col d-flex flex-column ">
                     <div className="row align-items-end gap-2">
-                        <div className="col p-0">
-                            <h4>{t('home.search')}</h4>
-                            <div className="search-bar">
-                                <InputField type="text" name="search" placeholder={t('home.search-placeholder')} />
-                                <Button className="btn__secondary"><img src={lens} className="search-bar__lens" alt="cerca"></img></Button>
+                        <form onSubmit={handleSubmit}>
+                            <div className="col p-0">
+                                <h4>{t('home.search')}</h4>
+                                <div className="search-bar">
+                                    <InputField type="text" name="search" placeholder={t('home.search-placeholder')} />
+                                    {/* <Button className="btn__secondary"><img src={lens} className="search-bar__lens" alt="cerca"></img></Button> */}
+                                    <Submit label="" className="search-bar__lens" />
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-auto p-0 search-bar__filter" >
+                        </form>
+                        {/* <div className="col-auto p-0 search-bar__filter" >
                             <Submit label='Filtri' className='btn--primary' onClick={() => { setVisible(!visible) }} />
-                        </div>
+                        </div> */}
                     </div>
                     <div className={`row search-bar__more ${visible ? 'search-bar__more--visible' : ''} my-3`}>
                         <div className="main__section">

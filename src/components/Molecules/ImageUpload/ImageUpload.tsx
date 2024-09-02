@@ -5,27 +5,58 @@ import Dialog from "../../Template/DialogPopUp/Dialog";
 type Props = {
     label?: string,
     upCount?: (count: number) => void,
+    onClick?: (image: string) => void,
     isNext?: boolean
 }
 
-export default function ImageUpload({ label, upCount, isNext }: Props) {
+export default function ImageUpload({ label, upCount, onClick, isNext }: Props) {
     const inputRef = useRef<HTMLInputElement>(null);
     const [image, setImage] = useState<string>();
     const [show, setShow] = useState(false);
 
+    function toBase64(file: File): Promise<string> {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
 
-    const handleFileUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+            reader.onload = () => {
+                resolve(reader.result as string);
+            };
+
+            reader.onerror = () => {
+                reject(new Error('Failed to convert file to base64'));
+            };
+
+            reader.readAsDataURL(file);
+        });
+    }
+
+    const handleFileUpload = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
+
         if (!files) return;
 
         const selectedFile = files[0];
-        const imageUrl = URL.createObjectURL(selectedFile);
-        setImage(imageUrl);
-        if (upCount) {
-            upCount(+1)
+        try {
+            // Convert the file to Base64
+            const base64Image = await toBase64(selectedFile);
+
+            // Optionally, you can store the Base64 image in localStorage
+            localStorage.setItem('savedImage', base64Image);
+
+            // Update state or call a function with the Base64 image
+            setImage(base64Image);
+            if (onClick) {
+                onClick(base64Image);
+            }
+
+            if (upCount) {
+                upCount(+1);
+            }
+        } catch (error) {
+            console.error('Error converting file to Base64:', error);
         }
 
-    }, [upCount]);
+    }, [onClick, upCount]);
 
     const handleButtonClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -48,6 +79,7 @@ export default function ImageUpload({ label, upCount, isNext }: Props) {
     const close = () => {
         setShow(false)
     }
+
 
     return (
         <>

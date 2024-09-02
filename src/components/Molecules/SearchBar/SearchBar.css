@@ -22,14 +22,18 @@
 
 .search-bar__lens{
     border-radius: 100%;
+    background-image: url(lens.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
     background-color: var(--secondary);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.6em;
+    width: 2.6em !important; 
     height: 98%;
     margin: 0.2em;
-    padding: 0.6em;
+    padding: 0.5em;
 }
 
 .search-bar__filter{

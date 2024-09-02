@@ -8,7 +8,7 @@ import { AdvData, filterByCategory } from '../../../storesData/products';
 type CheckedState = {
     vehicles: boolean;
     tech: boolean;
-    house: boolean;
+    home: boolean;
     clothes: boolean;
     animals: boolean;
 };
@@ -24,7 +24,7 @@ export default function CategoryFilter({ ads, onClick, onClear }: Props) {
     const [isChecked, setIsChecked] = useState<CheckedState>({
         vehicles: false,
         tech: false,
-        house: false,
+        home: false,
         clothes: false,
         animals: false,
     });
@@ -50,7 +50,7 @@ export default function CategoryFilter({ ads, onClick, onClear }: Props) {
         setIsChecked({
             vehicles: false,
             tech: false,
-            house: false,
+            home: false,
             clothes: false,
             animals: false,
         });
@@ -63,8 +63,8 @@ export default function CategoryFilter({ ads, onClick, onClear }: Props) {
             <legend>{t('category-filter.title')}</legend>
             <Checkbox label={t('category-filter.vehicles')} id="vehicles" checked={isChecked.vehicles} onChange={handleOptionChange} />
             <Checkbox label={t('category-filter.tech')} id="tech" checked={isChecked.tech} onChange={handleOptionChange} />
-            <Checkbox label={t('category-filter.dresses')} id="clothes" checked={isChecked.clothes} onChange={handleOptionChange} />
-            <Checkbox label={t('category-filter.house')} id="house" checked={isChecked.house} onChange={handleOptionChange} />
+            <Checkbox label={t('category-filter.clothes')} id="clothes" checked={isChecked.clothes} onChange={handleOptionChange} />
+            <Checkbox label={t('category-filter.home')} id="home" checked={isChecked.home} onChange={handleOptionChange} />
             <Checkbox label={t('category-filter.animals')} id="animals" checked={isChecked.animals} onChange={handleOptionChange} />
             <Submit label={t('buttons.reset')} className='btn--reset' onClick={handleReset} />
         </fieldset>

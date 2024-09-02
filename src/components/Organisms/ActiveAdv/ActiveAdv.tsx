@@ -3,12 +3,28 @@ import "./ActiveAdv.css"
 import Button from "../../Atoms/Buttons/Buttons"
 import { useNavigate } from "react-router-dom"
 import { DeleteAdv } from "../../Molecules/DeleteAdv/DeleteAdv"
+import { useEffect, useState } from "react"
+import { AdvData, emptyAds, getActualAdv } from "../../../storesData/products"
 
 type Props = {
     article?: string,
 }
 
 export default function ActiveAdv({ article }: Props) {
+
+    const [adv, setAdv] = useState<AdvData>(emptyAds)
+
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                const adv = await getActualAdv()
+                setAdv(adv);
+            } catch (error) {
+                console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, []);
 
     const navigate = useNavigate();
     const handleClick = () => {
@@ -22,7 +38,7 @@ export default function ActiveAdv({ article }: Props) {
                 <div className="main__section mt-2 p-4">
                     <div className="row">
                         <div className="col">
-                            <AdvImages />
+                            <AdvImages adv={adv} />
                         </div>
                         <div className="col d-flex flex-column gap-5 mt-5">
                             <div className="row gap-2">

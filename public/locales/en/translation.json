@@ -26,8 +26,8 @@
         "title":"Category",
         "vehicles":"Vehicles",
         "tech":"Tech",
-        "dresses":"Clothing",
-        "house":"Home",
+        "clothes":"Clothes",
+        "home":"Home",
         "animals":"Animals"
     },
 
@@ -76,7 +76,8 @@
     "favourites":{
         "title":"Favourite advertisements",
         "counter":"favourites",
-        "total":"total"
+        "total":"total",
+        "noAds":"You have no ads saved in your favorites"
     },
 
     "create":{
