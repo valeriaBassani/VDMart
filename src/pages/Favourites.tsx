@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { getFavourites } from "../storesData/account";
-import { AdvData } from "../storesData/products";
+import { User } from "../storesData/account";
 import AdvPreview from "../components/Organisms/AdvPreview/AdvPreview";
+import { emptyUser, getActualUser } from "../storesData/users";
 
 export default function Favourites() {
-    const [fav, setFav] = useState<AdvData[]>([])
+    const [user, setUser] = useState<User>(emptyUser)
     useEffect(() => {
         const fetchAds = async () => {
             try {
-                setFav(await getFavourites())
+                setUser(await getActualUser())
             } catch (error) {
                 console.error("Errore durante il recupero dei preferiti", (error as Error).message);
             }
@@ -28,13 +28,13 @@ export default function Favourites() {
                                 <div className="col d-flex flex-column gap-2">
                                     <div className="row">
                                         <div className="col d-flex">
-                                            <label> {t('favourites.total')}: {fav.length}</label>
+                                            <label> {t('favourites.total')}: {user.favourites.length}</label>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col d-flex flex-column gap-3">
-                                            {fav && fav.length > 0 ? (
-                                                fav.map((fav) => {
+                                            {user.favourites && user.favourites.length > 0 ? (
+                                                user.favourites.map((fav) => {
                                                     return <AdvPreview adv={fav} />;
                                                 })
                                             ) : (

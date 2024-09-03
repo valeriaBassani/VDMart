@@ -4,12 +4,14 @@ import Dialog from "../../Template/DialogPopUp/Dialog";
 import help from "./help-circle.svg"
 import check from "./check-circle 1.svg"
 import { Link } from "react-router-dom";
+import { User } from "../../../storesData/account";
+import { deleteAccount } from "../../../storesData/users";
 
 type Props = {
-    mail: string
+    user: User
 }
 
-export function DeleteAccount({ mail }: Props) {
+export function DeleteAccount({ user }: Props) {
 
     const [show, setShow] = useState(false)
     const showDialog = () => {
@@ -18,7 +20,13 @@ export function DeleteAccount({ mail }: Props) {
 
     const [currentModal, setCurrentModal] = useState("primo");
 
-    const switchModals = () => {
+    const switchModals = async () => {
+        try {
+            await deleteAccount(user);
+            console.log('User deleted successfully');
+        } catch (error) {
+            console.error('Error deleting user:', error);
+        }
         setCurrentModal("secondo");
     };
 

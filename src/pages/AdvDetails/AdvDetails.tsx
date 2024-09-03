@@ -10,6 +10,7 @@ import { AdvData, emptyAds, getActualAdv } from "../../storesData/products";
 import Button from "../../components/Atoms/Buttons/Buttons";
 import check from "./check-circle 1.svg"
 import "./AdvDetails.css"
+import { isLoggedIn } from "../../storesData/users";
 
 
 type Props = {
@@ -17,10 +18,12 @@ type Props = {
 }
 export default function AdvDetails({ details }: Props) {
     const [adv, setAdv] = useState<AdvData>(emptyAds)
+    const [isLogin, SetIsLogin] = useState(false)
 
     useEffect(() => {
         const fetchAds = async () => {
             try {
+                SetIsLogin(await isLoggedIn())
                 const adv = await getActualAdv()
                 setAdv(adv);
             } catch (error) {
@@ -57,7 +60,7 @@ export default function AdvDetails({ details }: Props) {
                                         <h5 className="adv__category">{adv.category}</h5>
                                     </div>
                                     <div className="col-auto">
-                                        <Favourite adv={adv} />
+                                        {isLogin && <Favourite adv={adv} />}
                                     </div>
                                 </div>
                                 <h4>{adv.title}</h4>

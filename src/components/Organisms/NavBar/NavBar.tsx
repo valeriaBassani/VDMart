@@ -14,9 +14,7 @@ export default function NavBar() {
     const { t } = useTranslation();
 
     const [isLogin, setIsLogin] = useState(false)
-
     const [user, setUser] = useState<User>(emptyUser)
-
 
     useEffect(() => {
         const fetchAds = async () => {

@@ -25,6 +25,10 @@ export default function UserInfo({ user, isActual }: Props) {
         setShow(!show)
     }, [show])
 
+    const handleLogOut = useCallback(() => {
+        localStorage.removeItem('actualUser');
+    }, [])
+
     return (
         <>
             <div className="row ">
@@ -73,7 +77,7 @@ export default function UserInfo({ user, isActual }: Props) {
                                 </div>
                             </div>
                             <InputField label="Telefono" type="tel" value={user.phone} name="phone" placeholder="Tel." required={true}></InputField>
-                            <DeleteAccount mail="user" />
+                            <DeleteAccount user={user} />
                         </div>
                         <div className="col d-flex align-items-start justify-content-end" >
                             <div className="row">
@@ -86,7 +90,7 @@ export default function UserInfo({ user, isActual }: Props) {
                     </div>
                 </div>
             </div>
-            <Dialog show={show} onHide={showDialog} title="Elimina account" >
+            <Dialog show={show} onHide={showDialog} title="Logout" >
                 <div className="row">
                     <div className="col">
                         <img src="./images/help-circle.svg" alt="Icon" />
@@ -102,7 +106,7 @@ export default function UserInfo({ user, isActual }: Props) {
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
-                                <Link to={"/"} className="btn--primary">Esci</Link>
+                                <Link to={"/"} className="btn--primary" onClick={handleLogOut}>Esci</Link>
                                 <Link to={"/area-riservata"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
                             </div>
                         </div>

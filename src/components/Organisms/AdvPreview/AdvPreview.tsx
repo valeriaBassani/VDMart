@@ -4,6 +4,8 @@ import Favourite from "../../Molecules/Favourite/Favourite";
 import { useNavigate } from "react-router-dom";
 import UserRate from "../../Molecules/UserRate/UserRate";
 import { AdvData } from "../../../storesData/products"
+import { useEffect, useState } from "react";
+import { isLoggedIn } from "../../../storesData/users";
 
 type Props = {
     adv: AdvData
@@ -12,11 +14,23 @@ type Props = {
 export default function Adv({ adv }: Props) {
 
     const navigate = useNavigate();
+    const [isLogin, SetIsLogin] = useState(false)
 
     const handleClick = () => {
         localStorage.setItem('actualAdv', JSON.stringify(adv));
         navigate('/dettagli-annuncio');
     }
+
+    useEffect(() => {
+        const fetchAds = async () => {
+            try {
+                SetIsLogin(await isLoggedIn())
+            } catch (error) {
+                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
+            }
+        };
+        fetchAds();
+    }, [])
 
     return (
         <>
@@ -33,7 +47,7 @@ export default function Adv({ adv }: Props) {
                                 <h5 className="adv__category">{adv.category}</h5>
                                 <p className="adv__date">{adv.publishData}</p>
                             </div>
-                            <Favourite adv={adv} />
+                            {isLogin && <Favourite adv={adv} />}
                         </div>
                         <div>
                             <div className="col d-flex flex-column gap-2">

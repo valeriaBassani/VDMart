@@ -18,9 +18,9 @@ export default function PageSelector({ pages, currentPage, onClick }: Props) {
                 <div className="col d-flex gap-2">
                     {pages.length > 0 && pages.map((page, index) => (
                         index === currentPage - 1 ? (
-                            <Button className="page__index--active" onClick={() => onClickPage(index)}>{page}</Button>
+                            <Button key={index} className="page__index--active" onClick={() => onClickPage(index)}>{page}</Button>
                         ) : (
-                            <Button className="page__index" onClick={() => onClickPage(index)} >{page}</Button>
+                            <Button key={index} className="page__index" onClick={() => onClickPage(index)} >{page}</Button>
                         )
                     ))}
                 </div>

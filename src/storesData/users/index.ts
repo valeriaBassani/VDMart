@@ -32,6 +32,21 @@ export const getActualUser = async (): Promise<User> => {
     return (user)
 }
 
+export const isLoggedIn = (): Promise<boolean> => {
+    return new Promise((resolve, reject) => {
+        try {
+            const usersJSON = localStorage.getItem('actualUser');
+            if (usersJSON) {
+                resolve(true)
+            } else {
+                resolve(false)
+            }
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
 export const getOtherUser = async (): Promise<User> => {
     const userString = localStorage.getItem('otherUser');
     const user: User = userString ? JSON.parse(userString) : emptyUser;
@@ -60,9 +75,46 @@ export const updateUsers = (user: User) => {
     localStorage.setItem('users', JSON.stringify(users));
 }
 
-//throw new Error("Utente non trovato");
-
 export const updateActualUser = (user: User) => {
-    //const user = localStorage.getItem('actualUser');
     localStorage.setItem('actualUser', JSON.stringify(user));
+    updateUsers(user)
+}
+
+export const deleteAccount = (user: User): Promise<void> => {
+    return new Promise((resolve, reject) => {
+        try {
+            try {
+                deleteAllUserAds(user)
+            } catch (error) {
+                console.log("erorre nel rimuovere gli annunci dell'utente");
+            }
+            const usersJSON = localStorage.getItem('users');
+            const users: User[] = usersJSON ? JSON.parse(usersJSON) : [];
+            const index = users.findIndex(u => u.email === user.email);
+            if (index !== -1) {
+                users.splice(index, 1);
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.removeItem('actualUser');
+                resolve();
+            } else {
+                reject(new Error('User not found'));
+            }
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+export const deleteAllUserAds = (user: User): Promise<void> => {
+    return new Promise((resolve, reject) => {
+        try {
+            const adsJSON = localStorage.getItem('advertises');
+            const ads: AdvData[] = adsJSON ? JSON.parse(adsJSON) : [];
+            const updatedAds = ads.filter(adv => adv.seller !== user.email);
+            localStorage.setItem('advertises', JSON.stringify(updatedAds));
+            resolve();
+        } catch (error) {
+            reject(error);
+        }
+    });
 }

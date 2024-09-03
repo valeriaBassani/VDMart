@@ -32,7 +32,7 @@ export default function InputField({ label, type, name, placeholder, error, sugg
                     <label htmlFor={name}>{label}</label>
                     {required && <p>*</p>}
                 </div>
-                <input type={type} id={name} name={name} placeholder={placeholder} aria-placeholder={placeholder} aria-label={name} aria-required={required} aria-describedby="input--suggestion" value={inputValue} onChange={handleChange}></input>
+                <input type={type} id={name} name={name} value={inputValue} onChange={handleChange} placeholder={placeholder} aria-placeholder={placeholder} aria-label={name} aria-required={required} aria-describedby="input--suggestion" ></input>
                 <label id="input--suggestion" className="field__suggestion">{suggest}</label>
                 <label className="field__error">{error}</label>  {/* aggiungere aria-invalid come riferimento all'errore */}
             </div>
