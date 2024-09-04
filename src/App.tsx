@@ -24,6 +24,8 @@ import EditActiveAdv from './pages/EditActiveAdv';
 import ActiveAdvDetails from './pages/ActiveAdvDetails';
 import OtherUser from './pages/OtherUser';
 import AllReview from './pages/AllReview';
+import PurchasedAdvDetails from './pages/PurchasedAdvDetails';
+import SoldAdvDetails from './pages/SoldAdvDetails';
 
 const Main = () => (
   <>
@@ -83,6 +85,14 @@ const router = createBrowserRouter([
       {
         path: "/dettagli-annuncio-attivo",
         element: <ActiveAdvDetails />,
+      },
+      {
+        path: "/dettagli-annuncio-comprato",
+        element: <PurchasedAdvDetails />,
+      },
+      {
+        path: "/dettagli-annuncio-venduto",
+        element: <SoldAdvDetails />,
       },
       {
         path: "/profilo-utente",

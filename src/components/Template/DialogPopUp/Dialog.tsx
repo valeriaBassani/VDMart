@@ -42,3 +42,4 @@ export default function Dialog({ title, show, children, onSwitch, onHide }: Prop
         </div>
     );
 }
+

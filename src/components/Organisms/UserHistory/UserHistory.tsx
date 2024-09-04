@@ -37,6 +37,20 @@ export default function UserHistory({ user }: Props) {
                                 ))
                             )}
                         </div></>)}
+                        {active === 1 && (<> <div className="col d-flex gap-3 flex-wrap justify-content-between">
+                            {user.purchased && user.purchased.length > 0 && (
+                                user.purchased.map((adv) => (
+                                    <AdvSmallPreview type="purchased" isActual={true} adv={adv} />
+                                ))
+                            )}
+                        </div></>)}
+                        {active === 2 && (<> <div className="col d-flex gap-3 flex-wrap justify-content-between">
+                            {user.sold && user.sold.length > 0 && (
+                                user.sold.map((adv) => (
+                                    <AdvSmallPreview type="sold" isActual={true} adv={adv} />
+                                ))
+                            )}
+                        </div></>)}
                         {/* {active === 0 && (<> <ActiveAds user={user} isActual={true} /></>)}
                         {active === 1 && (<> <PurchasedAds user={user} /></>)}
                         {active === 2 && (<> <SoldAds user={user} /></>)} */}

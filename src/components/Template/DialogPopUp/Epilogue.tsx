@@ -3,8 +3,8 @@ import UserRate from "../../Molecules/UserRate/UserRate";
 import Button from "../../Atoms/Buttons/Buttons";
 import ipad from "./ipad.jpg"
 import "./DialogPopUp.css"
-import { AdvData } from "../../../storesData/products";
-import { useEffect, useState } from "react";
+import { AdvData, purchaseAdv } from "../../../storesData/products";
+import { useCallback, useEffect, useState } from "react";
 import { isLoggedIn } from "../../../storesData/users";
 import { useNavigate } from "react-router-dom";
 
@@ -32,6 +32,11 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
         onHide()
         navigate('/login')
     }
+
+    const handlePurchase = useCallback(() => {
+        purchaseAdv(article)
+        onSwitch('terzo')
+    }, [article, onSwitch])
 
     return (
         <div className="container" style={{ position: "absolute" }}>
@@ -76,7 +81,8 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                             <>{article.shipping && (
                                                 <div className="col d-flex flex-column gap-2">
                                                     <label>Acquisto a distanza</label>
-                                                    <Button className="btn--primary" wide={true} onClick={() => onSwitch('secondo')} >Checkout</Button>
+                                                    <Button className="btn--disabled" wide={true} >Checkout</Button>
+                                                    {/* <Button className="btn--disabled" wide={true} onClick={() => onSwitch('secondo')} >Checkout</Button> */}
                                                     <div className="col d-flex gap-2 adv__shipping">
                                                         <p>spedizione disponibile:</p>
                                                         <b>{article.shippingPrice}€</b>
@@ -85,9 +91,9 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                             )}
                                                 <div className="col">
                                                     <label>Scambio a mano</label>
-                                                    <Button className="btn--secondary" wide={true}>Contatta il venditore</Button>
+                                                    <Button className="btn--primary" wide={true} onClick={handlePurchase}>Acquista con scambio a mano</Button>
+                                                    <p>Completa subito l'acquisto ed effettua lo scambio di persona</p>
                                                 </div></>)}
-
                                 </div>
                             </div>
                         </div>

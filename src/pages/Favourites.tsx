@@ -34,8 +34,8 @@ export default function Favourites() {
                                     <div className="row">
                                         <div className="col d-flex flex-column gap-3">
                                             {user.favourites && user.favourites.length > 0 ? (
-                                                user.favourites.map((fav) => {
-                                                    return <AdvPreview adv={fav} />;
+                                                user.favourites.map((fav, i) => {
+                                                    return <AdvPreview key={i} adv={fav} />;
                                                 })
                                             ) : (
                                                 <p>{t('favourites.noAds')}</p>

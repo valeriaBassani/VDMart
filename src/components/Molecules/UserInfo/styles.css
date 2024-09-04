@@ -19,3 +19,12 @@
     padding: 1.5px 1em 1.5px 1em;
     color: var(--secondary);
 }
+
+.rating__stars input[type="radio"] {
+    display: none;
+}
+.rating__stars .star {
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 5px;
+}

@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { getActualUser } from "../users";
+import { getActualUser, getUserByEmail, updateActualUser, updateUsers } from "../users";
 
 export interface AdvData {
     id: number,
@@ -64,15 +64,20 @@ export const saveAdv = async (adv: AdvData): Promise<AdvData> => {
 }
 
 export const getAds = async (): Promise<AdvData[]> => {
-    const advertisesString = localStorage.getItem('advertises');
+    const usersString = localStorage.getItem('users');
     const user = await getActualUser();
     let ads: AdvData[] = [];
-    if (advertisesString) {
-        const advertises: AdvData[] = JSON.parse(advertisesString);
-        ads = advertises.filter((adv) => adv.seller !== user.email);
+
+    if (usersString) {
+        const users = JSON.parse(usersString);
+        users.forEach((u: any) => {
+            if (u.actives && u.email !== user.email) {
+                ads = [...ads, ...u.actives];
+            }
+        });
     }
     return ads;
-}
+};
 
 export const getActualAdv = async (): Promise<AdvData> => {
     const adsString = localStorage.getItem('actualAdv');
@@ -103,17 +108,16 @@ export const orderByDate = (ads: AdvData[], orderBy: boolean): AdvData[] => {
     });
 }
 
-
-export const setMaxPrice = async (): Promise<number> => {
-    const ads = await getAds()
-    let max = 0
-    ads.map((adv) => {
-        if (adv.price > max) {
-            max = adv.price
-        }
-    })
-    return max
-}
+// export const setMaxPrice = async (): Promise<number> => {
+//     const ads = await getAds()
+//     let max = 0
+//     ads.map((adv) => {
+//         if (adv.price > max) {
+//             return max = adv.price
+//         }
+//     })
+//     return max
+// }
 
 export const isFavourite = async (adv: AdvData): Promise<boolean> => {
     const userString = localStorage.getItem('actualUser')
@@ -144,8 +148,6 @@ export const filterByCategory = async (list: AdvData[], category: string, checke
 }
 
 export const searchText = async (text: string): Promise<AdvData[]> => {
-    console.log(text);
-
     const ads = getAds();
     const lowercasedText = text.toLowerCase();
     let filtered: AdvData[] = []
@@ -159,3 +161,25 @@ export const searchText = async (text: string): Promise<AdvData[]> => {
 
     return filtered
 };
+
+export const purchaseAdv = (adv: AdvData) => {
+    const userString = localStorage.getItem('actualUser')
+    if (userString) {
+        const user = JSON.parse(userString);
+        user.purchased.push(adv)
+        updateActualUser(user)
+        soldAdv(adv)
+    } else {
+        throw new Error("utente non trovato")
+    }
+}
+
+export const soldAdv = async (adv: AdvData) => {
+    const user = getUserByEmail(adv.seller);
+    (await user).sold.push(adv);
+    const advIndex = (await user).actives.findIndex(a => a.id === adv.id);
+    if (advIndex !== -1) {
+        (await user).actives.splice(advIndex, 1);
+    }
+    updateUsers(await user)
+}

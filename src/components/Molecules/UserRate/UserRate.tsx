@@ -14,9 +14,9 @@ export default function UserRate({ mail }: Props) {
     const navigate = useNavigate();
     const handleClick = useCallback((e: React.SyntheticEvent) => {
         e.stopPropagation();
-        localStorage.setItem('otherUser', JSON.stringify(user));
+        localStorage.setItem('otherUser', JSON.stringify(mail));
         navigate('/profilo-utente');
-    }, [navigate, user])
+    }, [mail, navigate])
 
 
     useEffect(() => {

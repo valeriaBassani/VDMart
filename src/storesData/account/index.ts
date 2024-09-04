@@ -3,8 +3,15 @@ import { faker } from '@faker-js/faker';
 import { getUserByEmail, updateActualUser, updateUsers } from '../users';
 import { AdvData } from '../products';
 
+interface Review {
+    id: string;
+    reviewer: string;
+    content: string;
+    rating: number;
+    date: Date;
+    productId?: string;
+}
 export interface User {
-    //[key: string]: FormDataEntryValue;
     name: string;
     lastName: string;
     street: string;
@@ -16,7 +23,10 @@ export interface User {
     password: string;
     confirmPassword: string;
     favourites: AdvData[];
-    actives: AdvData[]
+    actives: AdvData[];
+    purchased: AdvData[];
+    sold: AdvData[];
+    review: Review[]
 }
 
 export function createUser(): User {
@@ -33,7 +43,10 @@ export function createUser(): User {
         password: password,
         confirmPassword: password,
         favourites: [],
-        actives: []
+        actives: [],
+        purchased: [],
+        sold: [],
+        review: []
     };
 }
 
@@ -76,3 +89,12 @@ export const removeFromFavourites = async (user: User, adv: AdvData) => {
     }
 }
 
+export const saveReview = () => {
+    // interface Review {
+    //     reviewer: string;
+    //     content: string;
+    //     rating: number;
+    //     date: Date;
+    //     productId?: string;
+    // }
+}

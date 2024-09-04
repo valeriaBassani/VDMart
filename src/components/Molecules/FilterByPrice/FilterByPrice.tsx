@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import { useTranslation } from "react-i18next";
-import { setMaxPrice } from "../../../storesData/products";
 
 type Props = {
     onClick: (min: number, max: number) => void;

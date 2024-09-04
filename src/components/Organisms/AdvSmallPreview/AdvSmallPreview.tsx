@@ -30,11 +30,11 @@ export default function AdvSmallPreview({ adv, type, isActual }: Props) {
         }
         if (type === "purchased") {
             localStorage.setItem('actualAdv', JSON.stringify(adv));
-            navigate('/modifica-annuncio-attivo');
+            navigate('/dettagli-annuncio-comprato');
         }
         if (type === "sold") {
             localStorage.setItem('actualAdv', JSON.stringify(adv));
-            navigate('/modifica-annuncio-attivo');
+            navigate('/dettagli-annuncio-venduto');
         }
     }, [adv, isActual, navigate, type])
 

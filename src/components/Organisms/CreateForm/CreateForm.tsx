@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import './CreateForm.css';
 import Categories from '../../Molecules/Categories/Categories';
 import Submit from '../../Atoms/SubmitButton/Submit';
@@ -138,9 +138,9 @@ export default function CreateForm() {
         const error = validateForm(parsedData)
         if (!error) {
             setShow(!show)
-            const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
-            advertises.push(parsedData);
-            localStorage.setItem('advertises', JSON.stringify(advertises));
+            // const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
+            // advertises.push(parsedData);
+            // localStorage.setItem('advertises', JSON.stringify(advertises));
             const currentUser = await user;
             currentUser.actives.push(parsedData);
             updateActualUser(currentUser);
@@ -205,8 +205,6 @@ export default function CreateForm() {
     const close = () => {
         setShow(false)
     }
-
-
 
     return (
         <>

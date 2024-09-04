@@ -37,18 +37,11 @@ export default function ImageUpload({ label, upCount, onClick, isNext }: Props) 
 
         const selectedFile = files[0];
         try {
-            // Convert the file to Base64
             const base64Image = await toBase64(selectedFile);
-
-            // Optionally, you can store the Base64 image in localStorage
-            localStorage.setItem('savedImage', base64Image);
-
-            // Update state or call a function with the Base64 image
             setImage(base64Image);
             if (onClick) {
                 onClick(base64Image);
             }
-
             if (upCount) {
                 upCount(+1);
             }

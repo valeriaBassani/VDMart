@@ -13,7 +13,10 @@ export const emptyUser: User = {
     password: '',
     confirmPassword: '',
     favourites: [],
-    actives: []
+    actives: [],
+    purchased: [],
+    sold: [],
+    review: []
 };
 
 export const getUserByEmail = async (email: string): Promise<User> => {
@@ -47,10 +50,10 @@ export const isLoggedIn = (): Promise<boolean> => {
     });
 }
 
-export const getOtherUser = async (): Promise<User> => {
-    const userString = localStorage.getItem('otherUser');
-    const user: User = userString ? JSON.parse(userString) : emptyUser;
-    return (user)
+export const getOtherUser = async (): Promise<string> => {
+    const userMailString = localStorage.getItem('otherUser');
+    const userMail: string = userMailString ? JSON.parse(userMailString) : emptyUser;
+    return (userMail)
 }
 
 export const getUserAds = async (mail: string): Promise<AdvData[]> => {
