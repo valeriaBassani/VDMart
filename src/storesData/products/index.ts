@@ -88,11 +88,10 @@ export const getActualAdv = async (): Promise<AdvData> => {
 export const getId = async (): Promise<number> => {
     const advertisesString = localStorage.getItem('advertises');
     if (advertisesString) {
-        const advertises: AdvData[] = JSON.parse(advertisesString);
-        const index = advertises.length;
-        return (index)
+        const advertises: number = JSON.parse(advertisesString);
+        return (advertises + 1)
     } else {
-        return (0)
+        return (1)
     }
 };
 
@@ -182,4 +181,16 @@ export const soldAdv = async (adv: AdvData) => {
         (await user).actives.splice(advIndex, 1);
     }
     updateUsers(await user)
+}
+
+export const deleteAdv = async (adv: AdvData) => {
+    const user = getUserByEmail(adv.seller);
+    if (!user) {
+        console.error("Utente non trovato");
+        return;
+    }
+    const updatedAds = (await user).actives.filter(ad => ad.id !== adv.id);
+    const updatedUser = { ...user, ads: updatedAds };
+    updateActualUser(await updatedUser);
+    updateUsers(await updatedUser);
 }

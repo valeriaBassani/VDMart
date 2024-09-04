@@ -40,13 +40,16 @@ export default function PriceFilter({ onClick }: Props) {
             min: "",
             max: "",
         });
-    }, []);
+        console.log(data);
+
+    }, [data]);
 
     const handleSubmit = useCallback((e: React.SyntheticEvent): void => {
         e.preventDefault();
         const min = data.min ? parseFloat(data.min) : 0;
         const max = data.max ? parseFloat(data.max) : 999999;
         onClick(min, max);
+        console.log(data);
     }, [data, onClick])
 
     return (

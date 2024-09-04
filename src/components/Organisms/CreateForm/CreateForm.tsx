@@ -138,9 +138,9 @@ export default function CreateForm() {
         const error = validateForm(parsedData)
         if (!error) {
             setShow(!show)
-            // const advertises = JSON.parse(localStorage.getItem('advertises') || '[]');
-            // advertises.push(parsedData);
-            // localStorage.setItem('advertises', JSON.stringify(advertises));
+            let advertises = JSON.parse(localStorage.getItem('advertises') || '0');
+            advertises++
+            localStorage.setItem('advertises', JSON.stringify(advertises));
             const currentUser = await user;
             currentUser.actives.push(parsedData);
             updateActualUser(currentUser);

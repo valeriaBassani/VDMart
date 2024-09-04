@@ -77,7 +77,9 @@
         "title":"Annunci preferiti",
         "counter":"preferiti",
         "total":"totale",
-        "noAds":"Non hai nessun annuncio salvato tra i preferiti"
+        "noAds":"Nessun annuncio salvato tra i preferiti",
+        "add":"favourites",
+        "remove":"added"
     },
 
     "create":{
@@ -142,5 +144,20 @@
           "confirmationText": "Abbiamo preso in carico la tua segnalazione. Verrai ricontattato dal team VDMart il prima possibile.",
           "reservedArea": "Area Riservata"
         }
+      },
+
+      "activeAds":{
+        "Title": "Dettagli annuncio attivo",
+        "shippingAvailable": "Spedizione disponibile:",
+        "shippingCost": "costo:",
+        "editAd": "Modifica annuncio",
+        "deleteAd": "Elimina annuncio",
+        "descriptionTitle": "Descrizione"
+      },
+
+      "ads":{
+        "Title": "Dettagli annuncio",
+        "buy":"Acquista questo articolo",
+        "message":"Contatta il venditore"
       }
 }

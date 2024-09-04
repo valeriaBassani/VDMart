@@ -11,6 +11,7 @@ import Button from "../../components/Atoms/Buttons/Buttons";
 import check from "./check-circle 1.svg"
 import "./AdvDetails.css"
 import { isLoggedIn } from "../../storesData/users";
+import { useTranslation } from "react-i18next";
 
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
 export default function AdvDetails({ details }: Props) {
     const [adv, setAdv] = useState<AdvData>(emptyAds)
     const [isLogin, SetIsLogin] = useState(false)
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchAds = async () => {
@@ -47,7 +49,7 @@ export default function AdvDetails({ details }: Props) {
     return (
         <>
             <div className="container-lg mb-5">
-                <h4>Dettagli annuncio</h4>
+                <h4>{t('ads.Title')}</h4>
                 <div className="main__section mt-2 p-4">
                     <div className="row">
                         <div className="col">
@@ -69,12 +71,12 @@ export default function AdvDetails({ details }: Props) {
                             </div>
                             <div className="row">
                                 <div className="col d-flex flex-column gap-2 ">
-                                    <Button className="btn--primary" onClick={showEpilogue} wide={true} aria-labelledby="acquista articolo">Acquista questo articolo</Button>
+                                    <Button className="btn--primary" onClick={showEpilogue} wide={true} aria-labelledby={t('ads.buy')}>{t('ads.buy')}</Button>
                                     <div className="row">
                                         <div className="col-auto ">
                                             <div className="col d-flex gap-2 adv__shipping">
                                                 {adv.shipping && (<>
-                                                    <p>spedizione disponibile</p>
+                                                    <p>{t('activeAds.shippingAvailable')}</p>
                                                     <b>{adv.shippingPrice}€</b>
                                                 </>)}
 
@@ -82,7 +84,7 @@ export default function AdvDetails({ details }: Props) {
                                         </div>
                                     </div>
                                     <div className="col mt-3 d-flex align-items-center gap-2">
-                                        <Button className="btn--disabled" aria-labelledby="contatta il venditore">Contatta il venditore</Button>
+                                        <Button className="btn--disabled" aria-labelledby={t('ads.Title')}>{t('ads.message')}</Button>
                                         <UserRate mail={adv.seller} />
                                     </div>
                                 </div>
@@ -91,7 +93,7 @@ export default function AdvDetails({ details }: Props) {
                     </div>
                     <div className="row">
                         <div className="col adv__description">
-                            <h4>Descrizione</h4>
+                            <h4>{t('activeAds.descriptionTitle')}</h4>
                             <p>{adv.description}</p>
                         </div>
                     </div>

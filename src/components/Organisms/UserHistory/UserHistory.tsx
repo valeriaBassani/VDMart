@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "../../Atoms/Buttons/Buttons";
-import OrderBy from "../../Molecules/OrderBy/OrderBy";
 import { User } from "../../../storesData/account";
 import AdvSmallPreview from "../AdvSmallPreview/AdvSmallPreview";
 

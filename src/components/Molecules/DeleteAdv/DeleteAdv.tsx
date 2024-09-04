@@ -4,12 +4,13 @@ import Dialog from "../../Template/DialogPopUp/Dialog";
 import help from "./help-circle.svg"
 import check from "./check-circle 1.svg"
 import { Link } from "react-router-dom";
+import { AdvData, deleteAdv } from "../../../storesData/products";
 
 type Props = {
-    article: string
+    adv: AdvData
 }
 
-export function DeleteAdv({ article }: Props) {
+export function DeleteAdv({ adv }: Props) {
 
     const [show, setShow] = useState(false)
     const showDialog = () => {
@@ -18,7 +19,8 @@ export function DeleteAdv({ article }: Props) {
 
     const [currentModal, setCurrentModal] = useState("primo");
 
-    const switchModals = () => {
+    const handleDelete = () => {
+        deleteAdv(adv)
         setCurrentModal("secondo");
     };
 
@@ -46,7 +48,7 @@ export function DeleteAdv({ article }: Props) {
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
-                                <Button className="btn--delete" onClick={switchModals}>Elimina</Button>
+                                <Button className="btn--delete" onClick={handleDelete}>Elimina</Button>
                                 <Link to={"/dettagli-annuncio-attivo"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
                             </div>
                         </div>

@@ -80,7 +80,7 @@ export default function EditActive({ article, details }: Props) {
                     </div>
                     <div className="row">
                         <div className="col d-flex gap-2 justify-content-end">
-                            <DeleteAdv article="bici" />
+                            {/* <DeleteAdv adv={adv} /> */}
                             <Button className="btn--secondary" onClick={handleSave}>Salva modifiche</Button>
                         </div>
                     </div>

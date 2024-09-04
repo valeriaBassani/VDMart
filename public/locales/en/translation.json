@@ -77,7 +77,9 @@
         "title":"Favourite advertisements",
         "counter":"favourites",
         "total":"total",
-        "noAds":"You have no ads saved in your favorites"
+        "noAds":"No ads saved in your favorites",
+        "add":"favourites",
+        "remove":"added"
     },
 
     "create":{
@@ -142,6 +144,21 @@
           "confirmationText": "We have received your message. You will be contacted by the VDMart team as soon as possible.",
           "reservedArea": "Reserved Area"
         }
+      },
+
+      "activeAds":{
+        "Title": "Active Ad Details",
+        "shippingAvailable": "Shipping available:",
+        "shippingCost": "cost:",
+        "editAd": "Edit Ad",
+        "deleteAd": "Delete Ad",
+        "descriptionTitle": "Description"
+      },
+
+      "ads":{
+        "Title": "Ad Details",
+        "buy":"buy this article",
+        "message":"Send a massage to the seller"
       }
       
 }
