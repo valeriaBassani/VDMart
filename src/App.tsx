@@ -103,12 +103,6 @@ const router = createBrowserRouter([
         element: <AllReview />,
       },
     ]
-    // children: [ se voglio che il link venga aperto nella stessa pagina, ma, per esempio, in una sezione diversa
-    //   {
-    //     path: "login",
-    //     element: <Login />,
-    //   },
-    // ],
   },
 
 ]);

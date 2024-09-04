@@ -151,15 +151,15 @@ export const searchText = async (text: string): Promise<AdvData[]> => {
     const ads = getAds();
     const lowercasedText = text.toLowerCase();
     let filtered: AdvData[] = []
-    if (text === '') {
+    if (text.trim() === '') {
         return ads;
+    } else {
+        filtered = (await ads).filter((ad) => {
+            return ad.title.toLowerCase().includes(lowercasedText) ||
+                ad.description.toLowerCase().includes(lowercasedText);
+        });
+        return filtered
     }
-    filtered = (await ads).filter((ad) => {
-        return ad.title.toLowerCase().includes(lowercasedText) ||
-            ad.description.toLowerCase().includes(lowercasedText);
-    });
-
-    return filtered
 };
 
 export const purchaseAdv = (adv: AdvData) => {

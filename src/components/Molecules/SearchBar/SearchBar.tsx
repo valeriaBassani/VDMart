@@ -1,12 +1,7 @@
 import { useCallback, useState } from "react";
 import "./SearchBar.css"
-import lens from "./lens.svg"
-import CategoryFilter from "../FiletrByCategory/FiletrByCategory";
-import PriceFilter from "../FilterByPrice/FilterByPrice";
-import Shipping from "../FilterByShipping/FilterByShipping";
 import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
-import Button from "../../Atoms/Buttons/Buttons";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -15,16 +10,13 @@ type Props = {
 
 export default function SearchBar({ onClick }: Props) {
     const { t } = useTranslation();
-    const [visible, setVisible] = useState(false);
+    const [visible] = useState(false);
 
     const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const searchValue = formData.get('search');
-        if (searchValue) {
-            onClick(searchValue.toString())
-        }
-        console.log(searchValue);
+        const searchValue = formData.get('search')?.toString() || "";
+        onClick(searchValue.toString())
     }, [onClick])
 
 
