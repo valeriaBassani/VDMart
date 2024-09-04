@@ -111,10 +111,21 @@ export const deleteAccount = (user: User): Promise<void> => {
 export const deleteAllUserAds = (user: User): Promise<void> => {
     return new Promise((resolve, reject) => {
         try {
-            const adsJSON = localStorage.getItem('advertises');
-            const ads: AdvData[] = adsJSON ? JSON.parse(adsJSON) : [];
-            const updatedAds = ads.filter(adv => adv.seller !== user.email);
-            localStorage.setItem('advertises', JSON.stringify(updatedAds));
+            const usersString = localStorage.getItem('users');
+            const users: User[] = usersString ? JSON.parse(usersString) : [];
+            const updatedUsers = users.map(u => {
+                return {
+                    ...u,
+                    favourites: u.favourites.filter((adv: AdvData) => adv.seller !== user.email)
+                };
+            });
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+            resolve();
+
+            // const adsJSON = localStorage.getItem('advertises');
+            // const ads: AdvData[] = adsJSON ? JSON.parse(adsJSON) : [];
+            // const updatedAds = ads.filter(adv => adv.seller !== user.email);
+            // localStorage.setItem('advertises', JSON.stringify(updatedAds));
             resolve();
         } catch (error) {
             reject(error);

@@ -41,11 +41,11 @@ export default function OtherUser() {
                         </div>
                         <div className="main p-3">
                             <div className="col d-flex gap-3 flex-wrap justify-content-between">
-                                {user.actives && user.actives.length > 0 && (
+                                {user.actives && user.actives.length > 0 ? (
                                     user.actives.map((adv) => (
                                         <AdvSmallPreview type="active" isActual={false} adv={adv} />
                                     ))
-                                )}
+                                ) : (<><p>questo utente non ha annunci attivi</p></>)}
                             </div>
                         </div>
                     </div>
