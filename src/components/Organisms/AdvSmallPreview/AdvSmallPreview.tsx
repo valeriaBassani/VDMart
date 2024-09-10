@@ -16,6 +16,7 @@ export default function AdvSmallPreview({ adv, type, isActual }: Props) {
 
     const handleEdit = (e: React.SyntheticEvent): void => {
         e.stopPropagation();
+        localStorage.setItem('actualAdv', JSON.stringify(adv));
         navigate('/modifica-annuncio-attivo');
     };
 
@@ -40,8 +41,31 @@ export default function AdvSmallPreview({ adv, type, isActual }: Props) {
 
     return (
         <>
-            <div className="row advsmallpreview gap-3" onClick={handleClick}>
-                <div className="col-auto p-0 advsmallpreview__image">
+            {/* <div className="advsmallpreview">
+                <div className="col d-flex gap-3">
+                    <div className="col-auto advsmallpreview__image">
+                        {adv.images && adv.images.length > 0 && (
+                            <img src={adv.images[0]} alt="Immagine principale" />
+                        )}
+                    </div>
+                    <div className="col-auto gap-3">
+                        <h5 className="adv__category">{adv.category}</h5>
+                        <p className="adv__date">07/10/2023</p>
+                        <h4>{adv.title}</h4>
+                        <h3 className="adv__price">{adv.price}€</h3>
+                        {adv.shipping && (<><p className="adv__shipping">spedizione disponibile
+                        </p></>)}
+                    </div>
+                    <div className="col-auto">
+                        {type === "active" && isActual === true && (
+                            <button className="btn--edit" onClick={handleEdit}><Icon url={edit} alt="modifica" /></button>
+                        )}
+                    </div>
+                </div>
+            </div> */}
+
+            <div className="advsmallpreview" onClick={handleClick}>
+                <div className="col-auto advsmallpreview__image">
                     {adv.images && adv.images.length > 0 && (
                         <img src={adv.images[0]} alt="Immagine principale" />
                     )}
@@ -64,7 +88,7 @@ export default function AdvSmallPreview({ adv, type, isActual }: Props) {
                                 </div>
                             </div>
                             {type === "active" && isActual === true && (
-                                <div className="col-auto p-0">
+                                <div className="col-auto">
                                     <button className="btn--edit" onClick={handleEdit}><Icon url={edit} alt="modifica" /></button>
                                 </div>
                             )}

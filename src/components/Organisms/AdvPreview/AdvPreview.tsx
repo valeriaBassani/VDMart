@@ -1,11 +1,10 @@
-import ipad from "./ipad.jpg"
 import './AdvPreview.css';
 import Favourite from "../../Molecules/Favourite/Favourite";
 import { useNavigate } from "react-router-dom";
 import UserRate from "../../Molecules/UserRate/UserRate";
 import { AdvData } from "../../../storesData/products"
-import { useEffect, useState } from "react";
-import { isLoggedIn } from "../../../storesData/users";
+import { useContext, useEffect, useState } from "react";
+import { CurrentUserContext } from "../../../App";
 
 type Props = {
     adv: AdvData
@@ -13,6 +12,7 @@ type Props = {
 
 export default function Adv({ adv }: Props) {
 
+    const { userState } = useContext(CurrentUserContext);
     const navigate = useNavigate();
     const [isLogin, SetIsLogin] = useState(false)
 
@@ -22,15 +22,12 @@ export default function Adv({ adv }: Props) {
     }
 
     useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                SetIsLogin(await isLoggedIn())
-            } catch (error) {
-                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
-            }
-        };
-        fetchAds();
-    }, [])
+        if (userState !== null) {
+            SetIsLogin(true)
+        } else {
+            SetIsLogin(false)
+        }
+    }, [userState])
 
     return (
         <>

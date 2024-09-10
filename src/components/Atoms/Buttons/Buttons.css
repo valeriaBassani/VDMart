@@ -13,7 +13,7 @@ button{
     font-size: var(--font-size-p);
     height: 3em;
     justify-content: center;
-    padding: 0em 2em 0em 2em;
+    padding: 0em 1.6em 0em 1.6em;
     text-decoration: none;
     transition: 0.5s;
     width: fit-content;
@@ -34,7 +34,7 @@ button{
     height: 3em;
     justify-content: center;
     min-width: fit-content;
-    padding: 0em 3em 0em 3em;
+    padding: 0em 2.6em 0em 2.6em;
     text-decoration: none;
 }
 
@@ -55,7 +55,7 @@ button{
     height: 3em;
     justify-content: center;
     min-width: fit-content;
-    padding: 0em 2em 0em 2em;
+    padding: 0em 1.6em 0em 1.6em;
     text-decoration: none;
 }
 
@@ -82,14 +82,6 @@ button{
     font-weight: 600;
 }
 
-.btn--edit{
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    display: flex;
-    justify-content: center;
-    text-decoration: underline;
-}
 .btn--reset{
     background-color: var(--lightGrey);
     border-radius: var(--border-radius);
@@ -111,6 +103,7 @@ button{
     color: white;
     cursor: pointer;
     height: 2em;
+    padding: 0em 1em 0em 1em;
 }
 
 .btn--confirm:hover{
@@ -124,6 +117,9 @@ button{
     border: none;
     display: flex;
     justify-content: center;
+}
+
+.btn--edit:hover{
     text-decoration: underline;
 }
 

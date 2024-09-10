@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import { Link } from "react-router-dom";
 import AdvImages from "../../components/Molecules/AdvImages/AdvImages";
 import Favourite from "../../components/Molecules/Favourite/Favourite";
@@ -10,14 +10,16 @@ import { AdvData, emptyAds, getActualAdv } from "../../storesData/products";
 import Button from "../../components/Atoms/Buttons/Buttons";
 import check from "./check-circle 1.svg"
 import "./AdvDetails.css"
-import { isLoggedIn } from "../../storesData/users";
 import { useTranslation } from "react-i18next";
+import { CurrentUserContext } from "../../App";
 
 
 type Props = {
     details?: "adv" | "purchase" | "sold"
 }
 export default function AdvDetails({ details }: Props) {
+    const { userState } = useContext(CurrentUserContext);
+
     const [adv, setAdv] = useState<AdvData>(emptyAds)
     const [isLogin, SetIsLogin] = useState(false)
     const { t } = useTranslation();
@@ -25,15 +27,17 @@ export default function AdvDetails({ details }: Props) {
     useEffect(() => {
         const fetchAds = async () => {
             try {
-                SetIsLogin(await isLoggedIn())
                 const adv = await getActualAdv()
                 setAdv(adv);
+                if (userState !== null) {
+                    SetIsLogin(true)
+                }
             } catch (error) {
                 console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
             }
         };
         fetchAds();
-    }, []);
+    }, [userState]);
 
     const [currentModal, setCurrentModal] = useState("primo");
 

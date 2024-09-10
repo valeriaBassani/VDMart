@@ -3,6 +3,7 @@ import UserHistory from "../components/Organisms/UserHistory/UserHistory";
 import { emptyUser, getActualUser } from "../storesData/users";
 import { User } from "../storesData/account";
 import UserArea from "../components/Organisms/UserArea/UserArea";
+import { UserInfo } from "../components/Molecules/UserInfo";
 
 export default function PrivateArea() {
 
@@ -24,9 +25,27 @@ export default function PrivateArea() {
         <>
             <div className="container-sm">
                 <h4>Il tuo profilo</h4>
-                <UserArea user={user} isActual={true} />
-                <UserHistory user={user} />
-            </div>
+                <div className="row">
+                    <div className="col">
+                        <div className="main__section p-4 my-3">
+                            <div className="row">
+                                <div className="col">
+                                    <UserInfo user={user} isActual={true} />
+                                </div>
+                            </div>
+                            <div className="row border-top pt-4">
+                                <UserArea user={user} isActual={true} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <UserHistory user={user} />
+                    </div>
+                </div>
+
+            </div >
         </>
     )
 }

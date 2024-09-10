@@ -27,7 +27,7 @@ export default function SearchBar({ onClick }: Props) {
                     <div className="row align-items-end gap-2">
                         <form onSubmit={handleSubmit}>
                             <div className="col p-0">
-                                <h4>{t('home.search')}</h4>
+                                <label htmlFor="search"><h4>{t('home.search')}</h4></label>
                                 <div className="search-bar">
                                     <InputField type="text" name="search" placeholder={t('home.search-placeholder')} />
                                     {/* <Button className="btn__secondary"><img src={lens} className="search-bar__lens" alt="cerca"></img></Button> */}

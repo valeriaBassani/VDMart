@@ -4,7 +4,8 @@
         "logIn":"Log In",
         "signIn":"Sign Up",
         "messages":"Messages",
-        "favourites":"Favourites"
+        "favourites":"Favourites",
+        "private-area":"Private area"
     },
 
     "home":{
@@ -78,8 +79,8 @@
         "counter":"favourites",
         "total":"total",
         "noAds":"No ads saved in your favorites",
-        "add":"favourites",
-        "remove":"added"
+        "add":"Favourites",
+        "remove":"Added"
     },
 
     "create":{

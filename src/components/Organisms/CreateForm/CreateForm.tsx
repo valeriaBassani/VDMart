@@ -10,7 +10,7 @@ import Toggle from '../../Atoms/Toggle/Toggle';
 import Dialog from '../../Template/DialogPopUp/Dialog';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { AdvData, createAdv, getId, saveAdv } from '../../../storesData/products';
+import { AdvData, createAdv, getDate, getId, saveAdv } from '../../../storesData/products';
 import { getActualUser, updateActualUser, updateUsers } from '../../../storesData/users';
 
 
@@ -27,17 +27,9 @@ export default function CreateForm() {
         price: '',
         shippingPrice: '',
         phone: '',
+        images: '',
         description: ''
     });
-
-
-    function getDate() {
-        const today = new Date();
-        const month = today.getMonth() + 1;
-        const year = today.getFullYear();
-        const date = today.getDate();
-        return `${month}/${date}/${year}`;
-    }
 
     const handleOptionChange = useCallback((value: string) => {
         setSelectedOption(value);
@@ -51,6 +43,7 @@ export default function CreateForm() {
             price: '',
             shippingPrice: '',
             phone: '',
+            images: '',
             description: ''
         });
 
@@ -89,6 +82,13 @@ export default function CreateForm() {
                 phone: 'Inserisci un numero di telefono'
             }));
         }
+        if (images.length < 2) {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                images: "Inserisci alemeno due immagini dell'articolo"
+            }));
+        }
         return errors
     }
 
@@ -125,10 +125,10 @@ export default function CreateForm() {
             category: selectedOption,
             shipping: checked,
             shippingPrice: parseFloat(data.shippingPrice) || 0,
-            publishData: today.toString(),
+            publishData: today,
             seller: (await user).email,
             phone: data.phone || '',
-            description: data.Description || '',
+            description: data.description || '',
             images: images
         };
 
@@ -268,6 +268,7 @@ export default function CreateForm() {
                                             <ImageUpload upCount={handleCount} isNext={isNext[4]} onClick={(image) => handleImages(image, 4)} />
                                             <ImageUpload upCount={handleCount} isNext={isNext[5]} onClick={(image) => handleImages(image, 5)} />
                                         </div>
+                                        <p className='field__error'>{errors.images}</p>
                                     </div>
                                 </div>
                                 <div className="col">
@@ -275,7 +276,7 @@ export default function CreateForm() {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col p-0">
+                                <div className="col ">
                                     <p>* {t('signUp.obbligatory-field')}</p>
                                     <Submit label={t('create.public')} className="btn--primary" />
                                 </div>

@@ -3,13 +3,13 @@ import { faker } from '@faker-js/faker';
 import { getUserByEmail, updateActualUser, updateUsers } from '../users';
 import { AdvData } from '../products';
 
-interface Review {
-    id: string;
+export interface UserReview {
+    //id: string;
     reviewer: string;
     content: string;
     rating: number;
-    date: Date;
-    productId?: string;
+    date: string;
+    productId?: number;
 }
 export interface User {
     name: string;
@@ -26,7 +26,7 @@ export interface User {
     actives: AdvData[];
     purchased: AdvData[];
     sold: AdvData[];
-    review: Review[]
+    review: UserReview[]
 }
 
 export function createUser(): User {
@@ -89,12 +89,41 @@ export const removeFromFavourites = async (user: User, adv: AdvData) => {
     }
 }
 
-export const saveReview = () => {
-    // interface Review {
-    //     reviewer: string;
-    //     content: string;
-    //     rating: number;
-    //     date: Date;
-    //     productId?: string;
-    // }
+
+// export const isLoggedIn = (): Promise<boolean> => {
+//     try {
+//         const usersJSON = localStorage.getItem('actualUser');
+//         if (usersJSON) {
+//             return Promise.resolve(true)
+//         } else {
+//             return Promise.resolve(false)
+//         }
+//     } catch (error) {
+//         return Promise.reject(error);
+//     }
+// }
+
+export const saveReview = (rev: UserReview, seller: User): Promise<void> => {
+    try {
+        const user = seller
+        user.review.push(rev)
+        updateUsers(user)
+        return Promise.resolve()
+    } catch (error) {
+        return Promise.reject(error);
+    }
+
+}
+
+export const getRatingVote = (user: User): Promise<number> => {
+    try {
+        if (user.review.length === 0) {
+            return Promise.resolve(0)
+        }
+        const sum = user.review.reduce((acc, review) => acc + Number(review.rating), 0);
+        const average = sum / user.review.length;
+        return Promise.resolve(average)
+    } catch (error) {
+        return Promise.reject(error);
+    }
 }

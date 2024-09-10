@@ -31,7 +31,6 @@ export default function Favourite({ adv }: Props) {
             addToFavourites(await user, adv)
         } else {
             removeFromFavourites(await user, adv)
-            //console.log("removed");
         }
         setAsFavourite(!favourite)
 

@@ -4,7 +4,9 @@ import InputField from "../../Atoms/InputField/InputField";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import { useTranslation } from "react-i18next";
 import { accessUser } from "../../../storesData/account";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
+import { getUserByEmail } from "../../../storesData/users";
+import { CurrentUserContext } from "../../../App";
 
 type FormData = {
     mail: string;
@@ -12,6 +14,7 @@ type FormData = {
 }
 export default function LogIn() {
     const { t } = useTranslation();
+    const { userState, setUserState } = useContext(CurrentUserContext);
     const navigate = useNavigate();
     const [rememberMe, setRememberMe] = useState(false)
     const [errors, setErrors] = useState({
@@ -41,8 +44,8 @@ export default function LogIn() {
         }
         return errors
     }
-
     const [err, setErr] = useState("")
+
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
         setErr("")
@@ -63,6 +66,8 @@ export default function LogIn() {
                 }
                 const result = await accessUser(credentials);
                 if (result) {
+                    const user = getUserByEmail(credentials.mail)
+                    setUserState(await user)
                     navigate('/area-riservata');
                 }
             } catch (error) {
@@ -70,7 +75,7 @@ export default function LogIn() {
                 console.error("Errore durante l'accesso:", (error as Error).message);
             }
         }
-    }, [navigate, rememberMe])
+    }, [navigate, rememberMe, setUserState])
 
     const handleRememberChange = useCallback(() => {
         setRememberMe(!rememberMe)
@@ -83,8 +88,7 @@ export default function LogIn() {
             setRememberMeUser(usersJSON ? JSON.parse(usersJSON) : []);
             setRememberMe(true)
         }
-    }, [])
-
+    }, [userState])
 
     return (
         <>

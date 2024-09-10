@@ -1,62 +1,16 @@
-@import url('../../App.css');
+@import url('../../../App.css');
 
-.Form{
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    border: solid 1px var(--lightGrey);
-    border-radius: 4px;
-    width: fit-content;
-    justify-content: center;
-    padding: 20px;
-    gap: 8px;
-}
-
-input {
-    font-family: "Red Hat Display", sans-serif;
-    border: solid 1px var(--lightGrey);
-    border-radius: 4px;
-    padding-left: 8px;
-    height: 40px;
-    width: 100;
-}
-
-.Field{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-label{
-    font-size: var(--font-size-p);
-    font-weight: var(--font-weight-SemiBold);
-    margin: 0;
-}
-
-.Suggestion{
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-light);
-    margin: 0;
-    color: grey;
-}
-
-.Field ::placeholder{
-    font-size: smaller;
-}
-
-p{
-    font-size: var(--font-size-p);
-}
-
-input[type="submit"]{
-    background-color: var(--primary);
-    color: white;
-    border: none;
+.reviews{
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    row-gap: 0.5em;
+    justify-content: start;
 }
 
-input[type="submit"] :hover{
-    background-color: var(--primaryHover);
-    color: white;
-    border: none;
+@media screen and (max-width: 516px) {
+    .reviews{
+        justify-content: center;
+    }
 }

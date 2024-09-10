@@ -1,10 +1,5 @@
 import { useCallback, useEffect, useState } from "react"
-
 import Icon from "../../Atoms/Icon"
-
-import ipad from "./ipad2.jpg"
-import ipad2 from "./ipad.jpg"
-import ipad3 from "./ipad3.jpg"
 import left from "./chevron-left (1).svg"
 import right from "./chevron-right (2).svg"
 import "./AdvImages.css"

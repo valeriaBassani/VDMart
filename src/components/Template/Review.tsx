@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import { Modal } from "react-bootstrap";
-import { AdvData } from "../../storesData/products";
+import { AdvData, getDate } from "../../storesData/products";
 import { emptyUser, getUserByEmail } from "../../storesData/users";
-import Button from "../Atoms/Buttons/Buttons";
 import TextArea from "../Atoms/textArea/textArea";
-import { saveReview, User } from "../../storesData/account";
+import { saveReview, User, UserReview } from "../../storesData/account";
 import Submit from "../Atoms/SubmitButton/Submit";
+import { CurrentUserContext } from "../../App";
 
 type Props = {
     article: AdvData
@@ -15,29 +15,22 @@ type Props = {
 }
 export default function Review({ article, show, onSwitch, onHide }: Props) {
 
+    const { userState } = useContext(CurrentUserContext);
     const [seller, setSeller] = useState<User>(emptyUser)
     useEffect(() => {
         const fetchAds = async () => {
             try {
-                setSeller(await getUserByEmail(article.seller))
-                console.log(seller);
+                const fetchedSeller = await getUserByEmail(article.seller);
+                setSeller(fetchedSeller);
             } catch (error) {
-                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
+                console.error("Errore durante il recupero dell'utente venditore", (error as Error).message);
             }
         };
         fetchAds();
-    }, [article.seller])
+    }, [article.seller]);
 
     const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        // interface Review {
-        //     reviewer: string;
-        //     content: string;
-        //     rating: number;
-        //     date: Date;
-        //     productId?: string;
-        // }
 
         const formData = new FormData(e.currentTarget);
         const data: any = {};
@@ -45,11 +38,22 @@ export default function Review({ article, show, onSwitch, onHide }: Props) {
             data[key] = value;
         });
 
-        console.log(data);
+        const today = getDate()
 
+        if (userState !== null) {
+            const rev: UserReview = {
+                reviewer: userState.email,
+                content: data.text,
+                rating: data.rating,
+                date: today,
+                productId: article.id
+            }
 
-        // onSwitch('secondo')
-    }, [])
+            saveReview(rev, seller)
+        }
+
+        onSwitch('secondo')
+    }, [article.id, onSwitch, seller, userState])
 
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState<number | null>(null);
@@ -74,9 +78,9 @@ export default function Review({ article, show, onSwitch, onHide }: Props) {
                             <div className="container-sm px-5">
                                 <form onSubmit={handleSubmit}>
                                     <div className="main row gap-4">
-                                        <div className="row ">
+                                        <div className="row gap-2">
                                             <div className="col-auto profile__icon">
-                                                <h3>V</h3>
+                                                <h3>{seller.name[0]}</h3>
                                             </div>
                                             <div className="col d-flex flex-column gap-2" >
                                                 <h4>{seller.name} {seller.lastName}</h4>
@@ -115,13 +119,12 @@ export default function Review({ article, show, onSwitch, onHide }: Props) {
 
                                                 </div>
                                             </div>
-                                            <TextArea label="Scrivi la tua recensione" name='description' maxLength={200} required={true} />
+                                            <TextArea label="Scrivi la tua recensione" name='text' maxLength={200} required={true} />
                                         </div>
                                     </div>
                                     <div className="row mt-4">
                                         <div className="col">
                                             <Submit className="btn--primary" label="Invia" />
-                                            {/* <Button className="btn--primary" wide={true} onClick={handleReview}>Invia</Button> */}
                                         </div>
                                     </div>
                                 </form>

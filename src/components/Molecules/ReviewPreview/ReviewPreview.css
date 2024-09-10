@@ -4,7 +4,7 @@
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     padding: 0.5em;
-    width: 100%;
+    width: 50%;
     min-width: 15em;
 }
 
@@ -25,4 +25,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 516px) {
+    .review{
+        width: 100%;
+    }
 }

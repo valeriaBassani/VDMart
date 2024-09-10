@@ -1,3 +1,32 @@
+// import './App.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import { User } from './storesData/account';
+// import { createContext, useState } from "react";
+// import Router from './components/Organisms/Router/Router';
+
+// export interface CurrentUserContextType {
+//   userState: User | null;
+//   setUserState: (userState: User | null) => void;
+// }
+
+// export const CurrentUserContext = createContext<CurrentUserContextType>({
+//   userState: null,
+//   setUserState: () => { },
+// });
+
+// export default function App() {
+
+//   const [userState, setUserState] = useState<User | null>(null);
+
+//   return (
+//     <CurrentUserContext.Provider value={{ userState, setUserState }}>
+//       <Router />
+//     </CurrentUserContext.Provider>
+//   );
+
+// }
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,9 +52,24 @@ import PrivateArea from './pages/PrivateArea';
 import EditActiveAdv from './pages/EditActiveAdv';
 import ActiveAdvDetails from './pages/ActiveAdvDetails';
 import OtherUser from './pages/OtherUser';
-import AllReview from './pages/AllReview';
+import AllReview from './pages/AllReviewActualUser';
 import PurchasedAdvDetails from './pages/PurchasedAdvDetails';
 import SoldAdvDetails from './pages/SoldAdvDetails';
+import { User } from './storesData/account';
+import { createContext, useEffect, useState } from 'react';
+import { getActualUser } from './storesData/users';
+import AllReviewOtherUser from './pages/AllReviewOtherUser';
+
+export interface CurrentUserContextType {
+  userState: User | null;
+  setUserState: (userState: User | null) => void;
+}
+
+export const CurrentUserContext = createContext<CurrentUserContextType>({
+  userState: null,
+  setUserState: () => { },
+});
+
 
 const Main = () => (
   <>
@@ -42,75 +86,50 @@ const router = createBrowserRouter([
     element: <Main />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/registrazione",
-        element: <SignUp />,
-      },
-      {
-        path: "/vendi",
-        element: <Create />,
-      },
-      {
-        path: "/preferiti",
-        element: <Favourites />,
-      },
-      {
-        path: "/recupera-password",
-        element: <Restore />,
-      },
-      {
-        path: "/assistenza",
-        element: <Support />,
-      },
-      {
-        path: "/dettagli-annuncio",
-        element: <AdvDetails />,
-      },
-      {
-        path: "/area-riservata",
-        element: <PrivateArea />,
-      },
-      {
-        path: "/modifica-annuncio-attivo",
-        element: <EditActiveAdv />,
-      },
-      {
-        path: "/dettagli-annuncio-attivo",
-        element: <ActiveAdvDetails />,
-      },
-      {
-        path: "/dettagli-annuncio-comprato",
-        element: <PurchasedAdvDetails />,
-      },
-      {
-        path: "/dettagli-annuncio-venduto",
-        element: <SoldAdvDetails />,
-      },
-      {
-        path: "/profilo-utente",
-        element: <OtherUser />,
-      },
-      {
-        path: "/tutte-le-recensioni",
-        element: <AllReview />,
-      },
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <Login /> },
+      { path: "/registrazione", element: <SignUp /> },
+      { path: "/vendi", element: <Create /> },
+      { path: "/preferiti", element: <Favourites /> },
+      { path: "/recupera-password", element: <Restore /> },
+      { path: "/assistenza", element: <Support /> },
+      { path: "/dettagli-annuncio", element: <AdvDetails /> },
+      { path: "/area-riservata", element: <PrivateArea /> },
+      { path: "/modifica-annuncio-attivo", element: <EditActiveAdv /> },
+      { path: "/dettagli-annuncio-attivo", element: <ActiveAdvDetails /> },
+      { path: "/dettagli-annuncio-comprato", element: <PurchasedAdvDetails /> },
+      { path: "/dettagli-annuncio-venduto", element: <SoldAdvDetails /> },
+      { path: "/profilo-utente", element: <OtherUser /> },
+      { path: "/tutte-le-recensioni", element: <AllReview /> },
+      { path: "/tutte-le-recensioni-utente", element: <AllReviewOtherUser /> }
     ]
   },
-
 ]);
 
 export default function App() {
+
+  const [userState, setUserState] = useState<User | null>(null);
+  useEffect(() => {
+    const fetchAds = async () => {
+      try {
+        const user = (await getActualUser())
+        if (user) {
+          setUserState(await getActualUser())
+        } else {
+          setUserState(null)
+        }
+      } catch (error) {
+        console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
+      }
+    };
+    fetchAds();
+  }, [])
+
   return (
     <>
-      <RouterProvider router={router} />
+      <CurrentUserContext.Provider value={{ userState, setUserState }}>
+        <RouterProvider router={router} />
+      </CurrentUserContext.Provider >
     </>
   )
 

@@ -12,7 +12,7 @@ body{
     /* --background:#f4f4f4; */
     /* --background:white;
     --section:#f4f4f46d; */
-    --background:#e3eef0;
+    --background:#f9f9f9;
     --section:white;
     --primary:#007FA3;
     --primaryDark:#006480;
@@ -43,7 +43,7 @@ h1,h2,h4{
 }
 
 h2{
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--primary);
@@ -51,7 +51,7 @@ h2{
 }
 
 h3{
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -60,13 +60,13 @@ h3{
 }
 
 h4{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 h5{
-    font-size:0.75rem;
+    font-size:0.65rem;
     text-transform: uppercase;
     font-weight: 400;
     overflow: hidden;
@@ -113,17 +113,13 @@ label{
     border: solid 1px var(--lightGrey);
     border-radius: var(--border-radius);
     padding: 2em;
-    background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.096);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.19);
 }
 
 .main__section{
     border-radius: var(--border-radius);
-    border: solid 1px var(--lightGrey);
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -131,9 +127,7 @@ label{
     background-color: var(--section);
     background: rgba(255, 255, 255, 0.749);
     border-radius: 4px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.096);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.096);
     border: 1px solid rgba(255, 255, 255, 0.19);
  }
 
@@ -142,7 +136,6 @@ label{
         font-size: 2rem;
         overflow: hidden;
         text-overflow: ellipsis;
-
     }
     
     h3{

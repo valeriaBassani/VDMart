@@ -1,31 +1,42 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import { Link } from "react-router-dom";
 import AdvImages from "../components/Molecules/AdvImages/AdvImages";
 import Favourite from "../components/Molecules/Favourite/Favourite";
 import UserRate from "../components/Molecules/UserRate/UserRate";
 import Dialog from "../components/Template/DialogPopUp/Dialog";
-import { AdvData, emptyAds, getActualAdv } from "../storesData/products";
-import { isLoggedIn } from "../storesData/users";
+import { AdvData, emptyAds } from "../storesData/products";
 import Button from "../components/Atoms/Buttons/Buttons";
 import Review from "../components/Template/Review";
 import check from "./check-circle 1.svg"
-
+import { CurrentUserContext } from "../App";
 
 export default function PurchasedAdvDetails() {
+
+    const { userState } = useContext(CurrentUserContext);
+
     const [adv, setAdv] = useState<AdvData>(emptyAds)
     const [isLogin, SetIsLogin] = useState(false)
 
     useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                SetIsLogin(await isLoggedIn())
-                const adv = await getActualAdv()
-                setAdv(adv);
-            } catch (error) {
-                console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
-            }
-        };
-        fetchAds();
+        if (userState !== null) {
+            SetIsLogin(true)
+            console.log("ciao");
+            const adsString = localStorage.getItem('actualAdv');
+            const adv: AdvData = adsString ? JSON.parse(adsString) : emptyAds;
+            setAdv(adv)
+            //crush
+            // const fetchAds = async () => {
+            //     try {
+            //         const adv = await getActualAdv()
+            //         setAdv(adv);
+            //     } catch (error) {
+            //         console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
+            //     }
+            // };
+            // fetchAds();
+        } else {
+            SetIsLogin(false)
+        }
     }, []);
 
     const [currentModal, setCurrentModal] = useState("primo");
@@ -76,7 +87,7 @@ export default function PurchasedAdvDetails() {
                                         </div>
                                     </div>
                                     <div className="col mt-3 d-flex align-items-center gap-2">
-                                        <Button className="btn--primary" wide={true} onClick={showEpilogue} aria-labelledby="contatta il venditore">Scrivi una recensione</Button>
+                                        <Button className="btn--primary" wide={true} onClick={showEpilogue} aria-labelledby="scrivi una recensione">Scrivi una recensione</Button>
                                         <UserRate mail={adv.seller} />
                                     </div>
                                 </div>

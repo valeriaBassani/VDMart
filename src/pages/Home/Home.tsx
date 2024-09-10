@@ -207,7 +207,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="row gap-3 py-4 my-4 home__board">
-                <div className="col-3 home__filters main p-3" >
+                <div className="col-3 home__filters p-3" >
                     <div className="col d-flex flex-column gap-3">
                         <h4>{t('home.filters')} </h4>
                         {!visible && (<><CategoryFilter ads={toShow} onClick={categoryFilter} onClear={ClearFilters} />

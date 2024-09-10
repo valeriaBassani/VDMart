@@ -32,7 +32,7 @@ export default function OrderBy({ onClick }: Props) {
             <div className="row">
                 <div className="col d-flex flex-column gap-3">
                     <div className="orderby">
-                        <button className="orderby__item" onClick={handleClick}>{value} <Icon url={visible ? up : down} alt="vedi di più"></Icon></button>
+                        <button className="orderby__item" onClick={handleClick}><p>{value} </p><Icon url={visible ? up : down} alt="vedi di più"></Icon></button>
                         <div className={visible ? 'orderby__selector--down' : 'orderby__selector--up'}>
                             <button className="orderby__item" value={"Dal più recente"} onClick={chooseValue}><p>Dal più recente</p> </button>
                             <button className="orderby__item" value="Dal meno recente" onClick={chooseValue}><p>Dal meno recente</p> </button>

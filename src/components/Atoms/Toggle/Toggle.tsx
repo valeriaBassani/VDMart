@@ -17,7 +17,7 @@ export default function Toggle({ checked, onChange }: Props) {
     return (
         <>
             <div className="toggle">
-                <input type="checkbox" id='toggle' name='spedizione disponibile' aria-checked={checked} className={checked ? "toggle--checked" : ""} onChange={handleChange}  ></input>
+                <input type="checkbox" id='toggle' name='shipping' aria-checked={checked} className={checked ? "toggle--checked" : ""} onChange={handleChange}  ></input>
                 <span className="Round"></span>
                 <label htmlFor="toggle"><p>{checked ? t('toggle.yes') : t('toggle.no')}</p></label>
             </div>

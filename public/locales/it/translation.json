@@ -4,7 +4,8 @@
         "logIn":"Accedi",
         "signIn":"Registrati",
         "messages":"Messaggi",
-        "favourites":"Preferiti"
+        "favourites":"Preferiti",
+        "private-area":"Area riservata"
     },
 
     "home":{
@@ -78,8 +79,8 @@
         "counter":"preferiti",
         "total":"totale",
         "noAds":"Nessun annuncio salvato tra i preferiti",
-        "add":"favourites",
-        "remove":"added"
+        "add":"Preferiti",
+        "remove":"Aggiunto"
     },
 
     "create":{

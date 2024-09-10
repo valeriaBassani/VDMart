@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { getActualUser, getUserByEmail, updateActualUser, updateUsers } from "../users";
+import { User } from "../account";
 
 export interface AdvData {
     id: number,
@@ -60,38 +61,53 @@ export const createAdv = async (): Promise<AdvData> => {
 }
 
 export const saveAdv = async (adv: AdvData): Promise<AdvData> => {
-    return (adv);
+    try {
+        return Promise.resolve(adv)
+    } catch (error) {
+        return Promise.reject(error)
+    }
 }
 
 export const getAds = async (): Promise<AdvData[]> => {
-    const usersString = localStorage.getItem('users');
-    const user = await getActualUser();
-    let ads: AdvData[] = [];
-
-    if (usersString) {
-        const users = JSON.parse(usersString);
-        users.forEach((u: any) => {
-            if (u.actives && u.email !== user.email) {
-                ads = [...ads, ...u.actives];
-            }
-        });
+    try {
+        const usersString = localStorage.getItem('users');
+        const user = await getActualUser();
+        let ads: AdvData[] = [];
+        if (usersString) {
+            const users = JSON.parse(usersString);
+            users.forEach((u: any) => {
+                if (u.actives && u.email !== user.email) {
+                    ads = [...ads, ...u.actives];
+                }
+            });
+        }
+        return Promise.resolve(ads);
+    } catch (error) {
+        return Promise.reject(error)
     }
-    return ads;
 };
 
 export const getActualAdv = async (): Promise<AdvData> => {
-    const adsString = localStorage.getItem('actualAdv');
-    const adv: AdvData = adsString ? JSON.parse(adsString) : emptyAds;
-    return adv
+    try {
+        const adsString = localStorage.getItem('actualAdv');
+        const adv: AdvData = adsString ? JSON.parse(adsString) : emptyAds;
+        return Promise.resolve(adv);
+    } catch (error) {
+        return Promise.reject(error)
+    }
 }
 
 export const getId = async (): Promise<number> => {
-    const advertisesString = localStorage.getItem('advertises');
-    if (advertisesString) {
-        const advertises: number = JSON.parse(advertisesString);
-        return (advertises + 1)
-    } else {
-        return (1)
+    try {
+        const advertisesString = localStorage.getItem('advertises');
+        if (advertisesString) {
+            const advertises: number = JSON.parse(advertisesString);
+            return (advertises + 1)
+        } else {
+            return Promise.resolve(1)
+        }
+    } catch (error) {
+        return Promise.reject(error)
     }
 };
 
@@ -193,4 +209,45 @@ export const deleteAdv = async (adv: AdvData) => {
     const updatedUser = { ...user, ads: updatedAds };
     updateActualUser(await updatedUser);
     updateUsers(await updatedUser);
+}
+
+export function getDate() {
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    const date = today.getDate();
+    return `${month}/${date}/${year}`;
+}
+
+
+export function getBuyer(adv: AdvData): Promise<User | null> {
+    try {
+        const usersString = localStorage.getItem('users');
+        const users: User[] = usersString ? JSON.parse(usersString) : [];
+        const user = users.find(user =>
+            user.purchased.some(purchasedAdv => purchasedAdv.id === adv.id)
+        );
+        if (user) {
+            return Promise.resolve(user);
+        }
+        return Promise.resolve(null);
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
+export async function updateAdv(adv: AdvData): Promise<boolean> {
+    localStorage.setItem('actualAdv', JSON.stringify(adv));
+    try {
+        const user = getActualUser()
+        const adIndex = (await user).actives.findIndex(a => a.id === adv.id);
+        if (adIndex === -1) {
+            return Promise.reject(new Error('Annuncio non trovato'));
+        }
+        (await user).actives[adIndex] = adv;
+        updateActualUser(await user)
+        return Promise.resolve(true);
+    } catch (error) {
+        return Promise.reject(error);
+    }
 }

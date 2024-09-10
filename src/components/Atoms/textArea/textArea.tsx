@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./textArea.css"
 
 type Props = {
@@ -23,6 +23,11 @@ export default function TextArea({ label, name, maxLength, value, error, require
         }
     }, [count, maxLength])
 
+    useEffect(() => {
+        setInputValue(value)
+    }, [value])
+
+
     return (
         <>
             <div className="field">
@@ -35,7 +40,7 @@ export default function TextArea({ label, name, maxLength, value, error, require
                         <p id="text--area--suggestion" className='field__suggestion' >{count}/{maxLength}</p>
                     </div>
                 </div>
-                <textarea name="Description" id="description" value={inputValue} onChange={handleDescriptionChange} aria-describedby="text--area--suggestion" aria-required={required}></textarea>
+                <textarea name={name} id="description" value={inputValue} onChange={handleDescriptionChange} aria-describedby="text--area--suggestion" aria-required={required}></textarea>
                 <label className="field__error">{error}</label>  {/* aggiungere aria-invalid come riferimento all'errore */}
             </div>
         </>

@@ -19,7 +19,7 @@ export default function SingUpForm() {
         confirmPassword: "",
     })
 
-    const validateForm = (user: any): boolean => {
+    const validateForm = (user: any): boolean => { //in store
         let errors = false
         setErrors({
             name: "",
@@ -122,7 +122,10 @@ export default function SingUpForm() {
         //     password: user.password,
         //     confirmPassword: user.confirmPassword,
         //     favourites: [],
-        //     actives: []
+        //    actives: [],
+        //    purchased: [],
+        //    sold: [],
+        //     review: []
         // }
 
         // console.log(user.name);

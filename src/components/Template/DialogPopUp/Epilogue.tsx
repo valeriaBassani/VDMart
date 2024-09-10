@@ -4,9 +4,9 @@ import Button from "../../Atoms/Buttons/Buttons";
 import ipad from "./ipad.jpg"
 import "./DialogPopUp.css"
 import { AdvData, purchaseAdv } from "../../../storesData/products";
-import { useCallback, useEffect, useState } from "react";
-import { isLoggedIn } from "../../../storesData/users";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CurrentUserContext } from "../../../App";
 
 type Props = {
     article: AdvData
@@ -15,18 +15,18 @@ type Props = {
     onHide: () => void;
 }
 export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
+
+    const { userState } = useContext(CurrentUserContext);
     const navigate = useNavigate();
     const [isLogin, SetIsLogin] = useState(false)
+
     useEffect(() => {
-        const fetchAds = async () => {
-            try {
-                SetIsLogin(await isLoggedIn())
-            } catch (error) {
-                console.error("Errore durante il recupero dell'utente attuale", (error as Error).message);
-            }
-        };
-        fetchAds();
-    }, [])
+        if (userState !== null) {
+            SetIsLogin(true)
+        } else {
+            SetIsLogin(false)
+        }
+    }, [userState])
 
     const handleLogin = () => {
         onHide()
@@ -60,7 +60,7 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                     <h4>Il tuo acquisto</h4>
                                     <div className="row adv__info">
                                         <div className="col-auto pe-0">
-                                            <img src={ipad} alt="Ipad"></img>
+                                            <img src={article.images[0]} alt="Ipad"></img>
                                         </div>
                                         <div className="col d-flex flex-column gap-1 py-3 pe-4">
                                             <h5 className="adv__category">{article.category}</h5>

@@ -4,6 +4,7 @@ import { User } from "../storesData/account";
 import { emptyUser, getOtherUser, getUserByEmail } from "../storesData/users";
 import Button from "../components/Atoms/Buttons/Buttons";
 import AdvSmallPreview from "../components/Organisms/AdvSmallPreview/AdvSmallPreview";
+import { UserInfo } from "../components/Molecules/UserInfo";
 
 export default function OtherUser() {
 
@@ -25,7 +26,17 @@ export default function OtherUser() {
         <>
             <div className="container-sm">
                 <h4>Profilo Utente</h4>
-                <UserArea isActual={false} user={user} />
+                <div className="main__section p-4 my-3">
+                    <div className="row">
+                        <div className="col">
+                            <UserInfo user={user} isActual={false} />
+                        </div>
+                    </div>
+                    <div className="row border-top pt-4">
+                        <UserArea user={user} isActual={false} />
+                    </div>
+                </div>
+
                 {/* <OtherUserHistory user={user} /> */}
 
                 {/*contenuto componente otherUserHisroty*/}

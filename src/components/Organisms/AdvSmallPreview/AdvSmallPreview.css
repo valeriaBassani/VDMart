@@ -6,21 +6,33 @@
     height: fit-content;
     min-width: 20em;
     background-color: var(--section);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.096);
-    width: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.096);
+    width: calc(50% - 0.5em);
+    display: flex;
+    gap: 1em;
 }
 .advsmallpreview:hover{
     border: solid 2px var(--primary);    
     cursor: pointer;
-}
-.advsmallpreview__image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .advsmallpreview__image img{
     width: 10em;
     aspect-ratio: 1/1;
     object-fit: cover;
+}
+
+.box{
+    padding: 3em;
+    width: 30%;
+    background-color: rgb(245, 177, 177);
+    display: flex;
+    gap: 3em;
+    justify-content: start;
+}
+
+@media screen and (max-width: 516px) {
+    .advsmallpreview{
+        width:100%;
+    }
 }
