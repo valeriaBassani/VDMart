@@ -88,8 +88,8 @@ export default function NavBar() {
                                 <button className="navbar--icon" onClick={handleClick}></button>
                             </>) : (
                             <>
-                                <Link to={`/registrazione`} className="navbar__link">{t('navbar.signIn')}</Link>
-                                <Link to={`/login`} className="btn--secondary">{t('navbar.logIn')}</Link>
+                                <Link to={`/registrazione`} className="link">{t('navbar.signIn')}</Link>
+                                <Link to={`/login`} className="btn--primary">{t('navbar.logIn')}</Link>
                             </>)}
                     </div>
                 </div>
