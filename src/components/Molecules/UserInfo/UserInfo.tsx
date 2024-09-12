@@ -141,7 +141,7 @@ export default function UserInfo({ user, isActual }: Props) {
                 <div className="col">
                     <div className={`row gap-3 ${visible ? 'profile--show' : ''}`}>
                         <div className="col d-flex flex-column gap-2" >
-                            {user.actives.length > 1 ? (<p className="profie__active">{user.actives.length} annunci attivi</p>) : (<p className="profie__active">{user.actives.length} annuncio attivo</p>)}
+                            {user.actives.length === 1 ? (<p className="profie__active">{user.actives.length} annunci attivi</p>) : (<p className="profie__active">{user.actives.length} annuncio attivo</p>)}
                             <h4>{user.name} {user.lastName}</h4>
                             <p>{user.email}</p>
                             <p>tel: {userUpdated.phone}</p>
