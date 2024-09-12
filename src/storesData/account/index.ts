@@ -127,3 +127,26 @@ export const getRatingVote = (user: User): Promise<number> => {
         return Promise.reject(error);
     }
 }
+
+export function createFirstUser() {
+    const user = {
+        name: "Valeria",
+        lastName: "Bassani",
+        street: "via francesco cardinale carrara",
+        number: "4",
+        city: "ghisalba",
+        provincia: "BG",
+        phone: "3475693160",
+        email: "bassanivaleria01@gmail.com",
+        password: "1234",
+        confirmPassword: "1234",
+        favourites: [],
+        actives: [],
+        purchased: [],
+        sold: [],
+        review: []
+    }
+    const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
+    users.push(user)
+    localStorage.setItem('users', JSON.stringify(users));
+}

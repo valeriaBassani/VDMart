@@ -55,7 +55,7 @@ import OtherUser from './pages/OtherUser';
 import AllReview from './pages/AllReviewActualUser';
 import PurchasedAdvDetails from './pages/PurchasedAdvDetails';
 import SoldAdvDetails from './pages/SoldAdvDetails';
-import { User } from './storesData/account';
+import { createFirstUser, User } from './storesData/account';
 import { createContext, useEffect, useState } from 'react';
 import { getActualUser } from './storesData/users';
 import AllReviewOtherUser from './pages/AllReviewOtherUser';
@@ -109,6 +109,15 @@ const router = createBrowserRouter([
 export default function App() {
 
   const [userState, setUserState] = useState<User | null>(null);
+
+  useEffect(() => {
+    const userString = localStorage.getItem('users');
+    if (!userString) {
+      createFirstUser()
+    }
+  }, [])
+
+
   useEffect(() => {
     const fetchAds = async () => {
       try {

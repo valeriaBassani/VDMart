@@ -9,8 +9,6 @@ import logo from './logo.svg';
 import { useTranslation } from "react-i18next";
 import { CurrentUserContext } from "../../../App";
 
-//import contesto e user lo prendo da qui 
-
 export default function NavBar() {
     const { t } = useTranslation();
     const { userState } = useContext(CurrentUserContext);
@@ -18,8 +16,6 @@ export default function NavBar() {
 
     useEffect(() => {
         if (userState === null) {
-            //console.log("user", userState);
-            console.log("is null");
             setIsLogin(false);
         } else {
             setIsLogin(true);
@@ -48,7 +44,6 @@ export default function NavBar() {
                                 <Link to={`/registrazione`} className="link">{t('navbar.signIn')}</Link>
                                 <Link to={`/login`} className="btn--primary">{t('navbar.logIn')}</Link>
                             </>)}
-
                     </div>
                 </div>
             </div>
@@ -86,13 +81,14 @@ export default function NavBar() {
                     <div className="col-1 d-flex align-items-center Logo">
                         <Link to={`/`}><Icon url={logo} alt="home" /></Link>
                     </div>
-                    <div className="col d-flex justify-content-end gap-1">
+                    <div className="col d-flex justify-content-end gap-2 align-items-center">
                         {isLogin ? (
                             <>
                                 <Link to={`/area-riservata`} className="btn--primary">{t('navbar.private-area')}</Link>
                                 <button className="navbar--icon" onClick={handleClick}></button>
                             </>) : (
                             <>
+                                <Link to={`/registrazione`} className="navbar__link">{t('navbar.signIn')}</Link>
                                 <Link to={`/login`} className="btn--secondary">{t('navbar.logIn')}</Link>
                             </>)}
                     </div>
