@@ -116,6 +116,9 @@ export default function App() {
     if (!userString) {
       fillLs()
       createFirstUser()
+    } else {
+      localStorage.clear();
+
     }
   }, [])
 
