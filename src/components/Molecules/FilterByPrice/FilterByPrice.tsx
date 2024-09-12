@@ -60,11 +60,11 @@ export default function PriceFilter({ onClick }: Props) {
                     <div className="col-6">
                         <InputField type="number" value={data.min} name="min" placeholder="min" onChange={handleChange}></InputField>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 ps-0">
                         <InputField type="number" value={data.max} name="max" placeholder="max" onChange={handleChange}></InputField>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row gap-1">
                     <div className="col">
                         <Submit label={t('buttons.confirm')} className='btn--confirm' />
                     </div>
