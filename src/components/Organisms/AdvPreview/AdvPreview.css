@@ -10,10 +10,15 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.096);
 }
 .adv:hover{
-    border: solid 2px var(--primary);    
+    border: solid 1px var(--primary);    
     cursor: pointer;
 }
+
+.adv h4{
+    color: var(--primary);
+}
 .adv:hover h4{
+    color: var(--primary);
     text-decoration: underline;
 }
 .adv__info{
