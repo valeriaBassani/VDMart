@@ -111,14 +111,14 @@ export default function App() {
   const [userState, setUserState] = useState<User | null>(null);
 
   useEffect(() => {
-    // const userString = localStorage.getItem('users');
-    // console.log(userString);
-    // if (!userString) {
-    //   fillLs()
-    //   createFirstUser()
-    // } 
+    const userString = localStorage.getItem('users');
+    console.log(userString);
+    if (!userString) {
+      fillLs()
+      createFirstUser()
+    }
 
-    localStorage.clear();
+    //localStorage.clear();
 
   }, [])
 
