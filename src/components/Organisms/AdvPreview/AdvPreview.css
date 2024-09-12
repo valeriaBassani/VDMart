@@ -15,10 +15,10 @@
 }
 
 .adv h4{
-    color: var(--primary);
+    color: black;
 }
 .adv:hover h4{
-    color: var(--primary);
+    color: black;
     text-decoration: underline;
 }
 .adv__info{
