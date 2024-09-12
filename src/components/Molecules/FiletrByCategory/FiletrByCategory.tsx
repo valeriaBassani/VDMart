@@ -60,7 +60,7 @@ export default function CategoryFilter({ ads, onClick, onClear }: Props) {
 
     return (
         <fieldset className="filter">
-            <legend>{t('category-filter.title')}</legend>
+            <h4>{t('category-filter.title')}</h4>
             <Checkbox label={t('category-filter.vehicles')} id="vehicles" checked={isChecked.vehicles} onChange={handleOptionChange} />
             <Checkbox label={t('category-filter.tech')} id="tech" checked={isChecked.tech} onChange={handleOptionChange} />
             <Checkbox label={t('category-filter.clothes')} id="clothes" checked={isChecked.clothes} onChange={handleOptionChange} />
