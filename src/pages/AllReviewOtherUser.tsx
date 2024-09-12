@@ -21,7 +21,6 @@ export default function AllReviewOtherUser() {
         };
         fetchUserAndRating();
         console.log(user);
-
     }, []);
 
     return (

@@ -3,7 +3,7 @@ import './NavBar.css';
 import { useCallback, useContext, useEffect, useState } from "react";
 import Icon from "../../Atoms/Icon";
 import heart from './heart.svg';
-import message from './message.svg';
+// import message from './message.svg';
 import plus from './plus.svg';
 import logo from './logo.svg';
 import { useTranslation } from "react-i18next";
@@ -18,6 +18,8 @@ export default function NavBar() {
 
     useEffect(() => {
         if (userState === null) {
+            //console.log("user", userState);
+            console.log("is null");
             setIsLogin(false);
         } else {
             setIsLogin(true);

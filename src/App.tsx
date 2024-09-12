@@ -113,10 +113,8 @@ export default function App() {
     const fetchAds = async () => {
       try {
         const user = (await getActualUser())
-        if (user) {
+        if (user.email !== '') {
           setUserState(await getActualUser())
-        } else {
-          setUserState(null)
         }
       } catch (error) {
         console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
