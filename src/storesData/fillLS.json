@@ -1,0 +1,132 @@
+[
+    {
+      "name": "John",
+      "lastName": "Morata",
+      "street": "Via Roma",
+      "number": "4",
+      "city": "Seriate",
+      "provincia": "BG",
+      "phone": "326-4758392",
+      "email": "john.morata@libero.it",
+      "password": "joh325!mor",
+      "confirmPassword": "joh325!mor",
+      "favourites": [],
+      "actives": [
+        {
+          "id": 0,
+          "title": "Smartphone galaxy A9",
+          "price": 300,
+          "category": "tech",
+          "shipping": true,
+          "shippingPrice": 10,
+          "publishData": "2024-08-12",
+          "seller": "john.morata@libero.it",
+          "phone": "326-4758392",
+          "description": "Vendo Samsung Galaxy A9 in perfette condizioni! Questo smartphone è ideale per chi cerca un dispositivo potente e versatile a un prezzo conveniente. Schermo Super AMOLED da 6.3 pollici, colori vividi e risoluzione Full HD+ per una visione eccezionale di video, foto e giochi. Caratteristiche principali: Quad Camera: Fotocamera principale da 24 MP per scatti super nitidi e foto mozzafiato. Perfetto per chi ama la fotografia! 28GB di memoria,Prestazioni fluide: Processore Snapdragon e 6GB di RAM, ideale per giochi, multitasking e app pesanti.Batteria da 3800 mAhLo smartphone è stato usato sempre con cover e pellicola",
+          "images": ["https://www.axore.it/uploads/products/images/imported/00102123800016.png","https://m.media-amazon.com/images/I/61liy-oASgL.jpg"]
+        }
+      ],
+      "purchased": [],
+      "sold": [{
+        "id": 1,
+        "title": "Bici uomo",
+        "price": 200,
+        "category": "veichles",
+        "shipping": false,
+        "shippingPrice": 0,
+        "publishData": "2024-5-10",
+        "seller": "john.morata@libero.it",
+        "phone": "326-4758392",
+        "description": "Vendo bici uomo misura ruote 28 con parti di ricambio",
+        "images": ["https://images.sbito.it/api/v1/sbt-ads-images-pro/images/66/66b9efa7-e3c9-4adf-bb6c-5a40cf0d61e2?rule=gallery-desktop-1x-auto"]
+      }],
+      "review": [
+        {
+          "reviewer": "alice.garzoni@gmail.it",
+          "content": "Ottimo venditore, chiaro nella comunicazione, gentile e disponibile!",
+          "rating": 5,
+          "date": "2023-04-11",
+          "productId": 1
+        }
+      ]
+    },{
+        "name": "Alice",
+        "lastName": "Garzoni",
+        "street": "Via Papa Giovanni XXIII",
+        "number": "4",
+        "city": "Milano",
+        "provincia": "Mi",
+        "phone": "326-74653829",
+        "email": "alice.garzoni@gmail.it",
+        "password": "joh325!mor",
+        "confirmPassword": "joh325!mor",
+        "favourites": [],
+        "actives": [
+          {
+            "id": 2,
+            "title": "vestito aderente tubino tg s Oviesse",
+            "price": 25,
+            "category": "clothes",
+            "shipping": true,
+            "shippingPrice": 10,
+            "publishData": "2024-09-02",
+            "seller": "alice.garzoni@gmail.it",
+            "phone": "326-74653829",
+            "description": "ottimo stato e veste bene dritto attillata",
+            "images": ["https://images.sbito.it/api/v1/sbt-ads-images-pro/images/67/672b706f-86ec-46d4-a930-018e08598807?rule=gallery-desktop-1x-auto","https://images.sbito.it/api/v1/sbt-ads-images-pro/images/2c/2c535055-a7c9-4387-b1ef-05e34be6a528?rule=gallery-desktop-1x-auto"]
+          }
+        ],
+        "purchased": [],
+        "sold": [],
+        "review": []
+      },{
+        "name": "Roberto",
+        "lastName": "De Amicis",
+        "street": "Via Torino",
+        "number": "8",
+        "city": "Milano",
+        "provincia": "Mi",
+        "phone": "326-6574839",
+        "email": "roberto.amicis@gmail.it",
+        "password": "joh325!mor",
+        "confirmPassword": "joh325!mor",
+        "favourites": [],
+        "actives": [
+          {
+            "id": 4,
+            "title": "IPHONE 14 pro 256g",
+            "price": 700,
+            "category": "tech",
+            "shipping": true,
+            "shippingPrice": 10,
+            "publishData": "2024-07-11",
+            "seller": "roberto.amicis@gmail.it",
+            "phone": "326-6574839",
+            "description": "trasportino per cani e gatti in plastica mai usato acquisto errato misure 35*37*53",
+            "images": ["https://images.sbito.it/api/v1/sbt-ads-images-pro/images/60/60285266-8e06-4250-bb81-a33184a58910?rule=gallery-desktop-1x-auto","https://images.sbito.it/api/v1/sbt-ads-images-pro/images/e4/e4ca7f6f-fb53-4be2-9afb-3da4ba2e665b?rule=gallery-desktop-1x-auto","https://images.sbito.it/api/v1/sbt-ads-images-pro/images/ca/ca34f3d7-39e2-48c6-84c0-7d827f78cfe7?rule=gallery-desktop-1x-auto"]
+
+          }
+        ],
+        "purchased": [],
+        "sold": [{
+            "id": 3,
+            "title": "trasportino per animali di taglia media",
+            "price": 45,
+            "category": "animals",
+            "shipping": true,
+            "shippingPrice": 5,
+            "publishData": "2024-05-26",
+            "seller": "roberto.amicis@gmail.it",
+            "phone": "326-6574839",
+            "description": "trasportino per cani e gatti in plastica mai usato acquisto errato misure 35*37*53",
+            "images": ["https://images.sbito.it/api/v1/sbt-ads-images-pro/images/a1/a18fda0b-78b0-4549-8ad6-b7716382d633?rule=gallery-desktop-1x-auto","https://images.sbito.it/api/v1/sbt-ads-images-pro/images/2c/2c535055-a7c9-4387-b1ef-05e34be6a528?rule=gallery-desktop-1x-auto","https://images.sbito.it/api/v1/sbt-ads-images-pro/images/26/26ad27a7-58f1-4f98-8f34-96d913604879?rule=gallery-desktop-1x-auto","https://images.sbito.it/api/v1/sbt-ads-images-pro/images/4a/4aa4a116-3596-4625-a43b-6345312e1e00?rule=gallery-desktop-1x-auto"]
+          }],
+        "review": [{
+            "reviewer": "john.morata@libero.it",
+            "content": "Prodotto come da immagini, un po' lento nelle risposte ma gentile e chiaro nella comunicazione",
+            "rating": 4,
+            "date": "2024-04-11",
+            "productId": 3
+          }]
+      }
+    ]

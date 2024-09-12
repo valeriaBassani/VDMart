@@ -2,6 +2,7 @@
 import { faker } from '@faker-js/faker';
 import { getUserByEmail, updateActualUser, updateUsers } from '../users';
 import { AdvData } from '../products';
+import userJson from '../fillLS.json'
 
 export interface UserReview {
     //id: string;
@@ -150,3 +151,89 @@ export function createFirstUser() {
     users.push(user)
     localStorage.setItem('users', JSON.stringify(users));
 }
+
+export function fillLs() {
+    localStorage.setItem('users', JSON.stringify(userJson));
+}
+
+
+// const categories = ['Tech', 'House', 'Clothing', 'Animals'];
+
+// let adIdCounter = 0; // Global counter for ad IDs
+
+// const generateRandomNumber = (min: number, max: number): number => {
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+// };
+// const generateRandomString = (length: number): string => {
+//     return Math.random().toString(36).substring(2, length + 2);
+// };
+// const generateRandomDate = (): string => {
+//     const start = new Date(2020, 0, 1);
+//     const end = new Date();
+//     const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+//     return date.toISOString().split('T')[0];
+// };
+
+
+// const generateAdvData = (seller: string): AdvData => {
+//     const adData: AdvData = {
+//         id: adIdCounter++,
+//         title: faker.commerce.productName(),
+//         price: parseFloat(faker.commerce.price()),
+//         category: categories[generateRandomNumber(0, categories.length - 1)],
+//         shipping: Math.random() > 0.5,
+//         shippingPrice: generateRandomNumber(0, 20),
+//         publishData: generateRandomDate(),
+//         seller,
+//         phone: generateRandomString(10),
+//         description: faker.lorem.paragraph(),
+//         images: Array.from({ length: generateRandomNumber(1, 5) }, () => faker.image.urlLoremFlickr({ category: 'technology' })),
+//     }
+//     return adData;
+// };
+
+// const generateUserReview = (reviewer: string): UserReview => ({
+//     reviewer,
+//     content: generateRandomString(100),
+//     rating: generateRandomNumber(1, 5),
+//     date: generateRandomDate(),
+//     productId: generateRandomNumber(0, adIdCounter - 1),
+// });
+
+
+// const generateUser = (id: number): User => {
+//     const name = faker.person.firstName();
+//     const lastName = faker.person.lastName();
+//     const street = faker.location.street();
+//     const number = faker.location.buildingNumber();
+//     const city = faker.location.city();
+//     const provincia = faker.location.state({ abbreviated: true });
+//     const phone = generateRandomString(10);
+//     const email = faker.internet.email();
+//     const password = generateRandomString(8);
+//     const confirmPassword = password;
+
+//     return {
+//         name,
+//         lastName,
+//         street,
+//         number,
+//         city,
+//         provincia,
+//         phone,
+//         email,
+//         password,
+//         confirmPassword,
+//         favourites: [],
+//         actives: Array.from({ length: 3 }, () => generateAdvData(email)),
+//         purchased: [],
+//         sold: [],
+//         review: Array.from({ length: 2 }, () => generateUserReview(email)),
+//     };
+// };
+
+// export const generateUsers = (count: number): User[] => {
+//     return Array.from({ length: count }, generateUser);
+// };
+
+

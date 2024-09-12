@@ -55,7 +55,7 @@ import OtherUser from './pages/OtherUser';
 import AllReview from './pages/AllReviewActualUser';
 import PurchasedAdvDetails from './pages/PurchasedAdvDetails';
 import SoldAdvDetails from './pages/SoldAdvDetails';
-import { createFirstUser, User } from './storesData/account';
+import { createFirstUser, fillLs, User } from './storesData/account';
 import { createContext, useEffect, useState } from 'react';
 import { getActualUser } from './storesData/users';
 import AllReviewOtherUser from './pages/AllReviewOtherUser';
@@ -112,7 +112,9 @@ export default function App() {
 
   useEffect(() => {
     const userString = localStorage.getItem('users');
+    console.log(userString);
     if (!userString) {
+      fillLs()
       createFirstUser()
     }
   }, [])
