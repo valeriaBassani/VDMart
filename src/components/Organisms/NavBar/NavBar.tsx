@@ -48,7 +48,7 @@ export default function NavBar() {
                 </div>
             </div>
 
-            <div className="container-fluid p-4 navbar__hamburgher">
+            <div className="container-fluid px-4 pt-4 pb-2 navbar__hamburgher">
                 <div className="row mb-3">
                     <div className="col-1 d-flex align-items-center">
                         <Link to={`/`}><Icon url={logo} alt="home" /></Link>
