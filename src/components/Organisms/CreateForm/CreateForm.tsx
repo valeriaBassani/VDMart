@@ -275,8 +275,8 @@ export default function CreateForm() {
                                     <TextArea label={t('create.description')} name='description' error={errors.description} maxLength={200} required={true} />
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col ">
+                            <div className="row mt-3">
+                                <div className="col p-0">
                                     <p>* {t('signUp.obbligatory-field')}</p>
                                     <Submit label={t('create.public')} className="btn--primary" />
                                 </div>

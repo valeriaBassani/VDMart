@@ -126,7 +126,7 @@ label{
     background-color: var(--section);
     background: rgba(255, 255, 255, 0.749);
     border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.096);
+    box-shadow: 1px 2px 3px rgba(60, 60, 60, 0.096);
     border: 1px solid rgba(255, 255, 255, 0.19);
  }
 
