@@ -37,7 +37,7 @@ export function DeleteAccount({ user }: Props) {
 
     return (
         <>
-            <Button className="btn--edit field__error" onClick={showDialog}>Elimina account</Button>
+            <Button className="btn--edit--delete" onClick={showDialog}>Elimina account</Button>
             {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina account" >
                 <div className="row">
                     <div className="col">

@@ -124,6 +124,11 @@ button{
     text-decoration: underline;
 }
 
+.btn--edit--delete{
+    font-weight: 500;
+    color: var(--errors);
+}
+
 .btn--delete{
     align-items: center;
     background-color: rgba(255, 255, 255, 0);
@@ -187,6 +192,11 @@ button{
 
     .btn--delete{
         font-size: 12px;
+    }
+
+    .btn--edit--delete{
+        font-size: 12px;
+        color: var(--errors);
     }
 
     .btn--disabled{

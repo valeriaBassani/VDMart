@@ -157,7 +157,7 @@ export default function UserInfo({ user, isActual }: Props) {
                         )}
                     </div>
                     <form onSubmit={handleSubmit}>
-                        <div className={`row ${visible ? '' : 'profile--show'}`}>
+                        <div className={`row gap-3 ${visible ? '' : 'profile--show'}`}>
                             <div className="col d-flex flex-column gap-2">
                                 <p id="category">3 annunci attivi</p>
                                 <h4>{user.name} {user.lastName}</h4>
