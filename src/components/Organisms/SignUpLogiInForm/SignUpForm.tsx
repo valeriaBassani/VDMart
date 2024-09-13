@@ -17,6 +17,10 @@ export default function SingUpForm() {
         lastName: "",
         phone: "",
         email: "",
+        street: "",
+        number: "",
+        pv: "",
+        city: "",
         password: "",
         confirmPassword: "",
     })
@@ -28,6 +32,10 @@ export default function SingUpForm() {
             lastName: "",
             phone: "",
             email: "",
+            street: "",
+            number: "",
+            pv: "",
+            city: "",
             password: "",
             confirmPassword: "",
         })
@@ -103,6 +111,34 @@ export default function SingUpForm() {
             setErrors(prevErrors => ({
                 ...prevErrors,
                 confirmPassword: 'le password devono coincidere'
+            }));
+        }
+        if (user.street !== "" && user.number === "") {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                number: 'Campo obbligatorio'
+            }));
+        }
+        if (user.street !== "" && user.city === "") {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                city: 'Campo obbligatorio'
+            }));
+        }
+        if (user.street !== "" && user.provincia === "") {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                pv: 'Campo obbligatorio'
+            }));
+        }
+        if ((user.provincia !== "" || user.city !== "" || user.number !== "") && user.street === "") {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                street: 'Campo obbligatorio'
             }));
         }
         return errors
@@ -187,18 +223,18 @@ export default function SingUpForm() {
                     <InputField label={t('signUp.lastname')} type="text" name="lastname" error={errors.lastName} placeholder={t('signUp.lastname')} required={true}></InputField>
                     <div className="row">
                         <div className="col">
-                            <InputField label={t('signUp.address')} type="text" name="street" placeholder={t('signUp.address')} ></InputField>
+                            <InputField label={t('signUp.address')} type="text" name="street" error={errors.street} placeholder={t('signUp.address')} ></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label={t('signUp.number')} type="number" name="number" placeholder={t('signUp.number')} ></InputField>
+                            <InputField label={t('signUp.number')} type="number" name="number" error={errors.number} placeholder={t('signUp.number')} ></InputField>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <InputField label={t('signUp.city')} type="text" name="city" placeholder={t('signUp.city')} ></InputField>
+                            <InputField label={t('signUp.city')} type="text" name="city" error={errors.city} placeholder={t('signUp.city')} ></InputField>
                         </div>
                         <div className="col-4">
-                            <InputField label={t('signUp.state')} type="text" name="provincia" placeholder={t('signUp.state')} ></InputField>
+                            <InputField label={t('signUp.state')} type="text" name="provincia" error={errors.pv} placeholder={t('signUp.state')} ></InputField>
                         </div>
                     </div>
                     <InputField label={t('signUp.phone')} type="tel" name="phone" error={errors.phone} placeholder={t('signUp.phone')} required={true}></InputField>
