@@ -112,7 +112,7 @@ export default function App() {
 
   useEffect(() => {
     const userString = localStorage.getItem('users');
-    console.log(userString);
+    //console.log(userString);
     if (!userString) {
       fillLs()
       createFirstUser()

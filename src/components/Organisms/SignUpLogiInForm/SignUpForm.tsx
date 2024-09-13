@@ -4,8 +4,10 @@ import Submit from "../../Atoms/SubmitButton/Submit";
 import InputField from "../../Atoms/InputField/InputField";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { createUser, User } from './../../../storesData/account/index';
+import { createUser, emailControl, User } from './../../../storesData/account/index';
 import { registerUser } from './../../../storesData/account/index';
+import Dialog from "../../Template/DialogPopUp/Dialog";
+import check from "./check-circle 1.svg"
 
 export default function SingUpForm() {
     const { t } = useTranslation();
@@ -19,7 +21,7 @@ export default function SingUpForm() {
         confirmPassword: "",
     })
 
-    const validateForm = (user: any): boolean => { //in store
+    const validateForm = async (user: any): Promise<boolean> => { //in store
         let errors = false
         setErrors({
             name: "",
@@ -66,6 +68,13 @@ export default function SingUpForm() {
                 }));
             }
         }
+        if (await emailControl(user.email) === true) {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                email: "Email già in uso. Registrati con un'altro indirizzo email"
+            }));
+        }
         if (user.password === '') {
             errors = true
             setErrors(prevErrors => ({
@@ -99,57 +108,62 @@ export default function SingUpForm() {
         return errors
     }
 
+    const [show, setShow] = useState(false)
+    const showDialog = useCallback(() => {
+        setShow(!show)
+    }, [show])
+
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
         //manual signUp
-        // const formData = new FormData(e.currentTarget);
+        const formData = new FormData(e.currentTarget);
 
-        // const user: any = {}
+        const user: any = {}
 
-        // formData.forEach((value, key) => {
-        //     user[key] = value;
-        // });
+        formData.forEach((value, key) => {
+            user[key] = value;
+        });
 
-        // const parseUser: User = {
-        //     name: user.name,
-        //     lastName: user.lastname,
-        //     street: user.street,
-        //     number: user.number,
-        //     city: user.city,
-        //     provincia: user.provincia,
-        //     phone: user.phone,
-        //     email: user.email,
-        //     password: user.password,
-        //     confirmPassword: user.confirmPassword,
-        //     favourites: [],
-        //    actives: [],
-        //    purchased: [],
-        //    sold: [],
-        //     review: []
-        // }
+        const parseUser: User = {
+            name: user.name,
+            lastName: user.lastname,
+            street: user.street,
+            number: user.number,
+            city: user.city,
+            provincia: user.provincia,
+            phone: user.phone,
+            email: user.email,
+            password: user.password,
+            confirmPassword: user.confirmPassword,
+            favourites: [],
+            actives: [],
+            purchased: [],
+            sold: [],
+            review: []
+        }
 
-        // console.log(user.name);
+        let error = validateForm(parseUser)
 
-        // let error = validateForm(parseUser)
-        // if (!error) {
-        //     const users = JSON.parse(localStorage.getItem('users') || '[]');
-        //     users.push(parseUser);
-        //     localStorage.setItem('users', JSON.stringify(users));
-        // }
+        if (!(await error)) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push(parseUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            showDialog()
+        }
 
         //faker signUp
-        const user = createUser();
+        // const user = createUser();
 
-        try {
-            const result = await registerUser(user);
-            if (result) {
-                const users = JSON.parse(localStorage.getItem('users') || '[]');
-                users.push(result);
-                localStorage.setItem('users', JSON.stringify(users));
-            }
-        } catch (error) {
-            console.error("Errore durante la registrazione:", (error as Error).message);
-        }
+        // try {
+        //     const result = await registerUser(user);
+        //     if (result) {
+        //         const users = JSON.parse(localStorage.getItem('users') || '[]');
+        //         users.push(result);
+        //         localStorage.setItem('users', JSON.stringify(users));
+        //     }
+        // } catch (error) {
+        //     console.error("Errore durante la registrazione:", (error as Error).message);
+        // }
 
         //other way up
         // registerUser(user)
@@ -196,6 +210,29 @@ export default function SingUpForm() {
                 <Submit label={t('signUp.register')} className='btn--primary' />
                 <p>{t('signUp.already')}<Link to={`/login`} className="link">{t('navbar.logIn')}</Link></p>
             </form>
+            <Dialog show={show} onHide={showDialog} title="Acquisto compleato" >
+                <div className="row">
+                    <div className="col">
+                        <img src={check} alt="successo" />
+                    </div>
+                </div>
+                <div className="row content">
+                    <div className="col d-flex flex-column gap-3 main p-3">
+                        <div className="row">
+                            <div className="col">
+                                <label>Registrazione completata!</label>
+                                <p>Il tuo account è stato creato con successo. <br></br> Utilizza le tue credenziali per accedere all'area riservata</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col d-flex gap-2 justify-content-center">
+                                {/* <Link to={"/"} className="btn--secondary">Home</Link> */}
+                                <Link to={"/login"} className="btn--primary">Accedi a VDMart</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Dialog>
         </>
     );
 }

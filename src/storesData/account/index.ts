@@ -156,6 +156,15 @@ export function fillLs() {
     localStorage.setItem('users', JSON.stringify(userJson));
 }
 
+export function emailControl(email: string): boolean {
+    const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(user => user.email === email);
+    if (user) {
+        return true
+    } else {
+        return false
+    }
+}
 
 // const categories = ['Tech', 'House', 'Clothing', 'Animals'];
 
