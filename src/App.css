@@ -79,7 +79,6 @@ p{
     font-size: 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
-
 }
 
 .link{
@@ -160,6 +159,13 @@ label{
     }
     
     p{
+        margin: 0px;
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    b{
         margin: 0px;
         font-size: 12px;
         overflow: hidden;

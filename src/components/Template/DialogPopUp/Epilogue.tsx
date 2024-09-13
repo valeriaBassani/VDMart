@@ -53,51 +53,65 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="row py-4 pop-up">
-                        <div className="col d-flex flex-column gap-4 justify-content-center">
-                            <div className="container-sm px-5">
-                                <div className="main row gap-4">
-                                    <h4>Il tuo acquisto</h4>
-                                    <div className="row adv__info">
-                                        <div className="col-auto pe-0">
-                                            <img src={article.images[0]} alt="Ipad"></img>
-                                        </div>
-                                        <div className="col d-flex flex-column gap-1 py-3 pe-4">
-                                            <h5 className="adv__category">{article.category}</h5>
-                                            <h4>{article.title}</h4>
-                                            <UserRate mail={article.seller} />
-                                        </div>
+                    <div className="container-sm">
+                        <div className="row main content mb-3" >
+                            <div className="col d-flex flex-column gap-3">
+                                <h4>Il tuo acquisto</h4>
+                                <div className="row adv__info align-items-center">
+                                    <div className="col-auto">
+                                        <img src={article.images[0]} alt="Ipad"></img>
                                     </div>
-                                    <div className="row border-top pt-2 justify-content-between">
-                                        <div className="col d-flex justify-content-between">
-                                            <h4>Prezzo</h4>
-                                            <h3 style={{ color: "var(--primary)" }}>{article.price},00€</h3>
-                                        </div>
+                                    <div className="col d-flex flex-column gap-1 py-3 ">
+                                        <h5 className="adv__category">{article.category}</h5>
+                                        <h4>{article.title}</h4>
+                                        <UserRate mail={article.seller} />
                                     </div>
                                 </div>
-                                <div className="row mt-4">
-                                    {!isLogin ? (<Button className="btn--primary" wide={true} onClick={handleLogin} >Accedi per poter effettuare l'acquisto</Button>)
-                                        : (
-                                            <>{article.shipping && (
-                                                <div className="col d-flex flex-column gap-2">
-                                                    <label>Acquisto a distanza</label>
-                                                    <Button className="btn--disabled" wide={true} >Checkout</Button>
-                                                    {/* <Button className="btn--disabled" wide={true} onClick={() => onSwitch('secondo')} >Checkout</Button> */}
-                                                    <div className="col d-flex gap-2 adv__shipping">
-                                                        <p>spedizione disponibile:</p>
-                                                        <b>{article.shippingPrice}€</b>
-                                                    </div>
-                                                </div>
-                                            )}
-                                                <div className="col">
-                                                    <label>Scambio a mano</label>
-                                                    <Button className="btn--primary" wide={true} onClick={handlePurchase}>Acquista con scambio a mano</Button>
-                                                    <p>Completa subito l'acquisto ed effettua lo scambio di persona</p>
-                                                </div></>)}
+                                <div className="row border-top pt-2 ">
+                                    <div className="col d-flex justify-content-between align-items-center">
+                                        <h4>Prezzo</h4>
+                                        <h3 style={{ color: "var(--primary)" }}>{article.price},00€</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="row" >
+                            {!isLogin ? (<Button className="btn--primary" wide={true} onClick={handleLogin} >Accedi per poter effettuare l'acquisto</Button>)
+                                : (
+                                    <>{article.shipping && (
+                                        <div className="col-6" >
+                                            <label>Acquisto a distanza</label>
+                                            <div className="row">
+                                                <div className="col" >
+                                                    <Button className="btn--disabled" wide={true} >Checkout</Button>
+                                                </div>
+                                            </div>
+                                            <div className="row mt-2">
+                                                <div className="col" >
+                                                    <div className=" col d-flex adv__shipping gap-2">
+                                                        <p>spedizione</p>
+                                                        <b>{article.shippingPrice}€</b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                        <div className="col-6" >
+                                            <label>Scambio a mano</label>
+                                            <div className="row">
+                                                <div className="col" >
+                                                    <Button className="btn--primary" wide={true} onClick={handlePurchase}>Acquista con scambio a mano</Button>
+                                                </div>
+                                            </div>
+                                            <div className="row mt-1">
+                                                <div className="col" >
+                                                    <p>Completa subito l'acquisto ed effettua lo scambio di persona</p>
+                                                </div>
+                                            </div>
+                                        </div></>)}
+                        </div>
                     </div>
+
                 </Modal.Body>
             </Modal>
         </div >

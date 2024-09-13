@@ -2,3 +2,18 @@
 /* .pop-up{
    height: 40em;
 } */
+
+.content{
+   padding: 4em;
+}
+
+
+
+@media screen and (max-width: 760px) {
+   .content{
+      padding: 1em;
+   }
+
+   
+   
+ }
