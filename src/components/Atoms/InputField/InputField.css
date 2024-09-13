@@ -39,7 +39,6 @@ input{
 
 .field__error{
     margin: 0;
-    font-size: var(--font-size-p);
     color: var(--errors);
     font-weight: var(--font-weight-SemiBold);
 }

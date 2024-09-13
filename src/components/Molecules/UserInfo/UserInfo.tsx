@@ -199,7 +199,7 @@ export default function UserInfo({ user, isActual }: Props) {
                         <img src="./images/help-circle.svg" alt="Icon" />
                     </div>
                 </div>
-                <div className="row px-5 mx-5">
+                <div className="row content">
                     <div className="col d-flex flex-column gap-3 main p-3">
                         <div className="row">
                             <div className="col">

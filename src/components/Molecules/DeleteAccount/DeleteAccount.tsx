@@ -44,7 +44,7 @@ export function DeleteAccount({ user }: Props) {
                         <img src={help} alt="confermare" />
                     </div>
                 </div>
-                <div className="row px-5 mx-5">
+                <div className="row content">
                     <div className="col d-flex flex-column gap-3 main p-3">
                         <div className="row">
                             <div className="col">
@@ -69,7 +69,7 @@ export function DeleteAccount({ user }: Props) {
                             <img src={check} alt="Successo" />
                         </div>
                     </div>
-                    <div className="row px-5 mx-5">
+                    <div className="row content">
                         <div className="col d-flex flex-column gap-3 main p-3">
                             <div className="row">
                                 <div className="col">
