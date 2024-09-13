@@ -144,6 +144,21 @@ button{
     text-decoration: underline;
 }
 
+.btn--primary--small{
+    align-items: center;
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-size: var(--font-size-p);
+    height: 3em;
+    justify-content: center;
+    padding: 0em 5em 0em 5em;
+    text-decoration: none;
+    transition: 0.5s;
+    width: fit-content!important;
+}
 @media screen and (max-width: 516px) {
     .btn--secondary{
         font-size: 12px;

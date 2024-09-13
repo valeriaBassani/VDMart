@@ -57,10 +57,10 @@ export default function PriceFilter({ onClick }: Props) {
             <form onSubmit={handleSubmit} className="filter">
                 <h4>{t('price-filter.title')}</h4>
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-6 pe-0">
                         <InputField type="number" value={data.min} name="min" placeholder="min" onChange={handleChange}></InputField>
                     </div>
-                    <div className="col-6 ps-0">
+                    <div className="col-6">
                         <InputField type="number" value={data.max} name="max" placeholder="max" onChange={handleChange}></InputField>
                     </div>
                 </div>

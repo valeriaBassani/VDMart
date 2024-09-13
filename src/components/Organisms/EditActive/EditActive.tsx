@@ -7,6 +7,7 @@ import { DeleteAdv } from "../../Molecules/DeleteAdv/DeleteAdv"
 import EditAdvImages from "../../Molecules/EditAdvImages/EditAdvImages"
 import { AdvData, updateAdv } from "../../../storesData/products"
 import Submit from "../../Atoms/SubmitButton/Submit"
+import AdvImages from "../../Molecules/AdvImages/AdvImages"
 
 type Props = {
     adv: AdvData,
@@ -15,6 +16,55 @@ type Props = {
 export default function EditActive({ adv }: Props) {
     const [checked, setIsChecked] = useState(adv.shipping);
     const navigate = useNavigate();
+
+    const [errors, setErrors] = useState({
+        title: "",
+        price: "",
+        shipping: "",
+        description: "",
+        shippingPrice: "",
+    })
+
+    const validateForm = (adv: any): boolean => { //in store
+        let errors = false
+        setErrors({
+            title: "",
+            price: "",
+            shipping: "",
+            description: "",
+            shippingPrice: "",
+        })
+
+        if (adv.title === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                title: 'Campo obbligatorio'
+            }));
+        }
+        if (adv.price === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                price: 'Campo obbligatorio'
+            }));
+        }
+        if (adv.description === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                description: 'Campo obbligatorio'
+            }));
+        }
+        if (adv.shipping === true && adv.shippingPrice === "") {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                shippingPrice: 'Campo obbligatorio'
+            }));
+        }
+        return errors
+    }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -40,9 +90,11 @@ export default function EditActive({ adv }: Props) {
             images: adv.images
         }
 
-        updateAdv(parseAdv)
-
-        navigate('/dettagli-annuncio-attivo');
+        let error = validateForm(parseAdv)
+        if (!error) {
+            navigate('/dettagli-annuncio-attivo');
+            updateAdv(parseAdv)
+        }
     }
 
     return (
@@ -53,7 +105,8 @@ export default function EditActive({ adv }: Props) {
                     <div className="main__section mt-2 p-4">
                         <div className="row">
                             <div className="col">
-                                <EditAdvImages adv={adv} />
+                                <AdvImages adv={adv} />
+                                {/* <EditAdvImages adv={adv} /> */}
                             </div>
                             <div className="col d-flex flex-column gap-5 mt-5">
                                 <div className="row gap-2">
@@ -63,10 +116,10 @@ export default function EditActive({ adv }: Props) {
                                             <h5 className="adv__category">{adv.category}</h5>
                                         </div>
                                     </div>
-                                    <InputField label="nome articolo" type="text" value={adv.title} name="title" placeholder="nome articolo" />
+                                    <InputField label="nome articolo" type="text" value={adv.title} name="title" error={errors.title} placeholder="nome articolo" />
                                     <div className="row align-items-center">
                                         <div className="col">
-                                            <InputField label="Prezzo di vendita" type="number" value={adv.price} name="price" placeholder="prezzo"></InputField>
+                                            <InputField label="Prezzo di vendita" type="number" value={adv.price} name="price" error={errors.price} placeholder="prezzo"></InputField>
                                         </div>
                                         <div className="col-1 pt-4 px-0">
                                             <h4>€</h4>
@@ -87,7 +140,7 @@ export default function EditActive({ adv }: Props) {
                                         <div className={checked ? "" : "create__shipping--invisible"}>
                                             <div className="row align-items-center">
                                                 <div className="col">
-                                                    <InputField label="Costo spedizione" type="number" name="shippingPrice" placeholder="000,00" required={true}></InputField>
+                                                    <InputField label="Costo spedizione" type="number" name="shippingPrice" error={errors.shippingPrice} placeholder="000,00" required={true}></InputField>
                                                 </div>
                                                 <div className="col-1 pt-4 px-0">
                                                     <h4>€</h4>
@@ -100,13 +153,13 @@ export default function EditActive({ adv }: Props) {
                         </div>
                         <div className="row">
                             <div className="col adv__description">
-                                <TextArea label="Descrizione" name="description" value={adv.description} maxLength={200} />
+                                <TextArea label="Descrizione" name="description" error={errors.description} value={adv.description} maxLength={200} />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-end">
                                 <DeleteAdv adv={adv} />
-                                <Submit label="salva modifiche" className="btn--primary" />
+                                <Submit label="Salva modifiche" className="btn--primary--small" />
                                 {/* <Button className="btn--secondary" onClick={handleSave}>Salva modifiche</Button> */}
                             </div>
                         </div>
