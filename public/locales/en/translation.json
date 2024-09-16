@@ -70,7 +70,7 @@
         "state":"PV",
         "confirm-psw":"Confirm Password",
         "register":"Register",
-        "obbligatory-field":"obbligatory field",
+        "obbligatory-field":"mandatory field",
         "already":"already signed up? "
     },
 
