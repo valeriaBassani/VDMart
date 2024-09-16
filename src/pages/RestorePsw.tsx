@@ -26,10 +26,10 @@ export default function Restore() {
             <div className="container-fluid d-flex justify-content-center" style={{ height: "70vh" }}>
                 <div className="row my-5 mx-3 justify-content-center">
                     <div className="col d-flex justify-content-center">
-                        <div className="input">
+                        <div className="input ">
                             <h4>Recupero password</h4>
-                            <form onSubmit={handleSubmit} className="form ">
-                                <div className="container-md main p-3 col d-flex flex-column gap-3">
+                            <form onSubmit={handleSubmit} className="form  ">
+                                <div className="container-md main__section p-3 col d-flex flex-column gap-3">
                                     <p>Inserisci la mail con cui ha registrato il tuo account. Riceverai le istruzioni per creare una nuova password</p>
                                     <InputField label="Email*" type="text" name="mail" error={error} placeholder="Email" />
                                 </div>
