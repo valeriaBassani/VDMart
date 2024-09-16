@@ -4,7 +4,6 @@ import Home from "../../../pages/Home/Home";
 import SignUp from "../../../pages/SignUp";
 import Create from "../../../pages/Create";
 import Favourites from "../../../pages/Favourites";
-import Restore from "../RestorePswForm/Restore";
 import Support from "../../../pages/Support";
 import AdvDetails from "../../../pages/EditActiveAdv";
 import ActiveAdvDetails from "../../../pages/ActiveAdvDetails";
@@ -22,6 +21,7 @@ import NavBar from "../NavBar/NavBar";
 
 import { useContext } from "react";
 import { CurrentUserContext } from "../../../App";
+import Restore from "../../../pages/RestorePsw";
 
 export default function Router() {
     const { userState } = useContext(CurrentUserContext);
