@@ -112,7 +112,7 @@ export default function UserInfo({ user, isActual }: Props) {
             provincia: us.provincia,
             phone: us.phone,
         }
-        console.log(parseUser);
+        //console.log(parseUser);
 
         let error = validateForm(parseUser)
         if (!error) {

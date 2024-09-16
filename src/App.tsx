@@ -114,7 +114,6 @@ export default function App() {
 
   useEffect(() => {
     const userString = localStorage.getItem('users');
-
     if (!userString) {
       fillLs();
       createFirstUser();
@@ -134,10 +133,10 @@ export default function App() {
       try {
         const user = (await getActualUser())
         if (user.email !== '') {
-          setUserState(await getActualUser())
+          setUserState(user)
         }
       } catch (error) {
-        console.error("Errore durante il recupero dell'annuncio", (error as Error).message);
+        console.error("Errore durante il recupero dell'account", (error as Error).message);
       }
     };
     fetchAds();

@@ -20,7 +20,6 @@ export default function PurchasedAdvDetails() {
     useEffect(() => {
         if (userState !== null) {
             SetIsLogin(true)
-            console.log("ciao");
             const adsString = localStorage.getItem('actualAdv');
             const adv: AdvData = adsString ? JSON.parse(adsString) : emptyAds;
             setAdv(adv)

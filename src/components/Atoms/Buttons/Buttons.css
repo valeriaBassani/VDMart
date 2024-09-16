@@ -129,6 +129,10 @@ button{
     color: var(--errors);
 }
 
+.btn--edit--delete:hover{
+    text-decoration: underline;
+}
+
 .btn--delete{
     align-items: center;
     background-color: rgba(255, 255, 255, 0);

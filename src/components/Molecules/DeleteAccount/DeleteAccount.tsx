@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../../Atoms/Buttons/Buttons"
 import Dialog from "../../Template/DialogPopUp/Dialog";
 import help from "./help-circle.svg"
@@ -6,13 +6,14 @@ import check from "./check-circle 1.svg"
 import { Link } from "react-router-dom";
 import { User } from "../../../storesData/account";
 import { deleteAccount } from "../../../storesData/users";
+import { CurrentUserContext } from "../../../App";
 
 type Props = {
     user: User
 }
 
 export function DeleteAccount({ user }: Props) {
-
+    const { setUserState } = useContext(CurrentUserContext);
     const [show, setShow] = useState(false)
     const showDialog = () => {
         setShow(!show)
@@ -23,7 +24,8 @@ export function DeleteAccount({ user }: Props) {
     const switchModals = async () => {
         try {
             await deleteAccount(user);
-            console.log('User deleted successfully');
+            setUserState(null)
+            //console.log('User deleted successfully');
         } catch (error) {
             console.error('Error deleting user:', error);
         }
