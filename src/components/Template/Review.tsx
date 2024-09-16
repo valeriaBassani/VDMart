@@ -29,7 +29,28 @@ export default function Review({ article, show, onSwitch, onHide }: Props) {
         fetchAds();
     }, [article.seller]);
 
-    const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    const [errors, setErrors] = useState({
+        rate: "",
+        text: "",
+    })
+
+    const validateForm = async (user: any): Promise<boolean> => { //in store
+        let errors = false
+        setErrors({
+            rate: "",
+            text: "",
+        })
+        if (user.content === '') {
+            errors = true
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                text: 'Campo obbligatorio'
+            }));
+        }
+        return errors
+    }
+
+    const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
@@ -49,13 +70,17 @@ export default function Review({ article, show, onSwitch, onHide }: Props) {
                 productId: article.id
             }
 
-            saveReview(rev, seller)
+            let error = validateForm(rev)
+
+            if (!(await error)) {
+                saveReview(rev, seller)
+                onSwitch('secondo')
+            }
         }
 
-        onSwitch('secondo')
     }, [article.id, onSwitch, seller, userState])
 
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(1);
     const [hover, setHover] = useState<number | null>(null);
 
     return (
@@ -119,7 +144,7 @@ export default function Review({ article, show, onSwitch, onHide }: Props) {
 
                                                 </div>
                                             </div>
-                                            <TextArea label="Scrivi la tua recensione" name='text' maxLength={200} required={true} />
+                                            <TextArea label="Scrivi la tua recensione" error={errors.text} name='text' maxLength={200} required={true} />
                                         </div>
                                     </div>
                                     <div className="row mt-4">
