@@ -110,18 +110,23 @@ export default function App() {
 
   const [userState, setUserState] = useState<User | null>(null);
 
+  const [isFilled, setIsFilled] = useState(false);
+
   useEffect(() => {
     const userString = localStorage.getItem('users');
-    //console.log(userString);
+
     if (!userString) {
-      fillLs()
-      createFirstUser()
+      fillLs();
+      createFirstUser();
+      setIsFilled(true);
     }
+  }, []);
 
-    //localStorage.clear();
-
-  }, [])
-
+  useEffect(() => {
+    // if (isFilled) {
+    //   console.log("Il localStorage è stato riempito e App è stata renderizzata di nuovo");
+    // }
+  }, [isFilled]);
 
   useEffect(() => {
     const fetchAds = async () => {
