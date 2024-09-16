@@ -123,9 +123,10 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    // if (isFilled) {
-    //   console.log("Il localStorage è stato riempito e App è stata renderizzata di nuovo");
-    // }
+    if (isFilled) {
+      window.location.reload();
+      //console.log("Il localStorage è stato riempito e App è stata renderizzata di nuovo");
+    }
   }, [isFilled]);
 
   useEffect(() => {
