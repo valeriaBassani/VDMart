@@ -1,32 +1,3 @@
-// import './App.css';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import { User } from './storesData/account';
-// import { createContext, useState } from "react";
-// import Router from './components/Organisms/Router/Router';
-
-// export interface CurrentUserContextType {
-//   userState: User | null;
-//   setUserState: (userState: User | null) => void;
-// }
-
-// export const CurrentUserContext = createContext<CurrentUserContextType>({
-//   userState: null,
-//   setUserState: () => { },
-// });
-
-// export default function App() {
-
-//   const [userState, setUserState] = useState<User | null>(null);
-
-//   return (
-//     <CurrentUserContext.Provider value={{ userState, setUserState }}>
-//       <Router />
-//     </CurrentUserContext.Provider>
-//   );
-
-// }
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
