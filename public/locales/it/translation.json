@@ -5,7 +5,8 @@
         "signIn":"Registrati",
         "messages":"Messaggi",
         "favourites":"Preferiti",
-        "private-area":"Area riservata"
+        "private-area":"Area riservata",
+        "map-site":"Mappa del sito"
     },
 
     "home":{

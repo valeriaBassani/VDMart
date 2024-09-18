@@ -5,7 +5,8 @@
         "signIn":"Sign Up",
         "messages":"Messages",
         "favourites":"Favourites",
-        "private-area":"Private area"
+        "private-area":"Private area",
+        "map-site":"Site map"
     },
 
     "home":{
