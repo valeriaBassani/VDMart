@@ -44,7 +44,7 @@ export default function AdvDetails() {
                                     </div>
                                 </div>
                                 <h4>{adv.title}</h4>
-                                <p className="adv__date">07/10/2023</p>
+                                <p className="adv__date">{adv.publishData}</p>
                                 <h3 className="adv__price">{adv.price},00€</h3>
                                 <div className="row">
                                     <div className="col-auto ">

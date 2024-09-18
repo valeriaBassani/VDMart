@@ -4,9 +4,11 @@ import { AdvData, emptyAds, getActualAdv, getBuyer } from "../storesData/product
 import { emptyUser } from "../storesData/users";
 import { User } from "../storesData/account";
 import UserRate from "../components/Molecules/UserRate/UserRate";
+import { useTranslation } from "react-i18next";
 
 export default function SoldAdvDetails() {
     const [adv, setAdv] = useState<AdvData>(emptyAds)
+    const { t } = useTranslation();
     const [buyer, setBuyer] = useState<User | null>(emptyUser)
 
     useEffect(() => {
@@ -29,7 +31,7 @@ export default function SoldAdvDetails() {
     return (
         <>
             <div className="container-lg mb-5">
-                <h4>Dettagli annuncio venduto</h4>
+                <h4>{t('sold.title')}</h4>
                 <div className="main__section mt-2 p-4">
                     <div className="row">
                         <div className="col">
@@ -48,7 +50,7 @@ export default function SoldAdvDetails() {
                                 <div className="row">
                                     <div className="col-auto ">
                                         <div className="col d-flex gap-2" id="shipping">
-                                            <p>Acquistato online da</p>
+                                            <p>{t('sold.purchased')}</p>
                                             {buyer && (<UserRate mail={buyer.email} />)}
                                         </div>
                                     </div>
@@ -59,7 +61,7 @@ export default function SoldAdvDetails() {
                     </div>
                     <div className="row">
                         <div className="col adv__description">
-                            <h4>Descrizione</h4>
+                            <h4>{t('activeAds.descriptionTitle')}</h4>
                             <p>{adv.description}</p>
                         </div>
                     </div>

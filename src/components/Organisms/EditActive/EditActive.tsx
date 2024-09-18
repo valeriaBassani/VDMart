@@ -8,12 +8,14 @@ import EditAdvImages from "../../Molecules/EditAdvImages/EditAdvImages"
 import { AdvData, updateAdv } from "../../../storesData/products"
 import Submit from "../../Atoms/SubmitButton/Submit"
 import AdvImages from "../../Molecules/AdvImages/AdvImages"
+import { useTranslation } from "react-i18next"
 
 type Props = {
     adv: AdvData,
 }
 
 export default function EditActive({ adv }: Props) {
+    const { t } = useTranslation();
     const [checked, setIsChecked] = useState(adv.shipping);
     const navigate = useNavigate();
 
@@ -100,7 +102,7 @@ export default function EditActive({ adv }: Props) {
     return (
         <>
             <div className="container-lg mb-5">
-                <h4>Motifica annuncio</h4>
+                <h4>{t('edit.title')}</h4>
                 <form onSubmit={handleSubmit}>
                     <div className="main__section mt-2 p-4">
                         <div className="row">
@@ -116,10 +118,10 @@ export default function EditActive({ adv }: Props) {
                                             <h5 className="adv__category">{adv.category}</h5>
                                         </div>
                                     </div>
-                                    <InputField label="nome articolo" type="text" value={adv.title} name="title" error={errors.title} placeholder="nome articolo" />
+                                    <InputField label={t('create.article')} type="text" value={adv.title} name="title" error={errors.title} placeholder="nome articolo" />
                                     <div className="row align-items-center">
                                         <div className="col">
-                                            <InputField label="Prezzo di vendita" type="number" value={adv.price} name="price" error={errors.price} placeholder="prezzo"></InputField>
+                                            <InputField label={t('create.price')} type="number" value={adv.price} name="price" error={errors.price} placeholder="prezzo"></InputField>
                                         </div>
                                         <div className="col-1 pt-4 px-0">
                                             <h4>€</h4>
@@ -128,9 +130,9 @@ export default function EditActive({ adv }: Props) {
                                     <div className="row my-2 gap-2">
                                         <div className="col-auto">
                                             <div className="field" >
-                                                <label>Disponibile per la spedizione*</label>
+                                                <label>{t('create.shipping')}*</label>
                                                 <label className="field__suggestion">
-                                                    Scegli se fornire l’opzione di spedizione o se preferisci lo scambio a mano
+                                                    {t('create.shipping-description')}
                                                 </label>
                                             </div>
                                         </div>
@@ -153,13 +155,13 @@ export default function EditActive({ adv }: Props) {
                         </div>
                         <div className="row">
                             <div className="col adv__description">
-                                <TextArea label="Descrizione" name="description" error={errors.description} value={adv.description} maxLength={200} />
+                                <TextArea label={t('create.description')} name="description" error={errors.description} value={adv.description} maxLength={200} />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-end">
                                 <DeleteAdv adv={adv} />
-                                <Submit label="Salva modifiche" className="btn--primary--small" />
+                                <Submit label={t('create.save')} className="btn--primary--small" />
                                 {/* <Button className="btn--secondary" onClick={handleSave}>Salva modifiche</Button> */}
                             </div>
                         </div>

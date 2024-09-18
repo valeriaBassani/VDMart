@@ -5,13 +5,14 @@ import help from "./help-circle.svg"
 import check from "./check-circle 1.svg"
 import { Link } from "react-router-dom";
 import { AdvData, deleteAdv } from "../../../storesData/products";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     adv: AdvData
 }
 
 export function DeleteAdv({ adv }: Props) {
-
+    const { t } = useTranslation();
     const [show, setShow] = useState(false)
     const showDialog = () => {
         setShow(!show)
@@ -30,7 +31,7 @@ export function DeleteAdv({ adv }: Props) {
     }
     return (
         <>
-            <Button className="btn--delete" onClick={showDialog}>Elimina annuncio</Button>
+            <Button className="btn--delete" onClick={showDialog}>{t('create.delete')}</Button>
 
             {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
                 <div className="row">

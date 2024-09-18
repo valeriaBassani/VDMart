@@ -4,6 +4,7 @@ import Icon from "../../Atoms/Icon";
 import "./AdvSmallPreview.css"
 import { useCallback } from "react";
 import { AdvData } from "../../../storesData/products";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     adv: AdvData
@@ -12,6 +13,7 @@ type Props = {
 }
 
 export default function AdvSmallPreview({ adv, type, isActual }: Props) {
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const handleEdit = (e: React.SyntheticEvent): void => {
@@ -67,7 +69,7 @@ export default function AdvSmallPreview({ adv, type, isActual }: Props) {
             <div className="advsmallpreview" onClick={handleClick}>
                 <div className="col-auto advsmallpreview__image">
                     {adv.images && adv.images.length > 0 && (
-                        <img src={adv.images[0]} alt="Immagine principale" />
+                        <img src={adv.images[0]} alt={t('advPrev.imageAlt')} />
                     )}
                 </div>
                 <div className="col">
@@ -77,19 +79,19 @@ export default function AdvSmallPreview({ adv, type, isActual }: Props) {
                                 <div className="d-flex justify-content-between align-items-start">
                                     <div>
                                         <h5 className="adv__category">{adv.category}</h5>
-                                        <p className="adv__date">07/10/2023</p>
+                                        <p className="adv__date">{adv.publishData}</p>
                                     </div>
                                 </div>
                                 <div className="col d-flex flex-column gap-1">
                                     <h4>{adv.title}</h4>
                                     <h3 className="adv__price">{adv.price}€</h3>
-                                    {adv.shipping && (<><p className="adv__shipping">spedizione disponibile
+                                    {adv.shipping && (<><p className="adv__shipping">{t('advPrev.shippingAvailable')}
                                     </p></>)}
                                 </div>
                             </div>
                             {type === "active" && isActual === true && (
                                 <div className="col-auto">
-                                    <button className="btn--edit" onClick={handleEdit}><Icon url={edit} alt="modifica" /></button>
+                                    <button className="btn--edit" onClick={handleEdit}><Icon url={edit} alt={t('advPrev.edit')} /></button>
                                 </div>
                             )}
                         </div>

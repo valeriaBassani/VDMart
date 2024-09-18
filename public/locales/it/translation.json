@@ -97,8 +97,30 @@
         "images-description":"Puoi caricare da un minimo di 2 ad un massimo di 6 immagini",
         "images-loaded":"Caricate",
         "description":"Descrizione",
-        "public":"Pubblica l'annuncio"
+        "public":"Pubblica l'annuncio",
+        "save":"Salva modifiche",
+        "delete":"Elimina annuncio"
     },
+
+    "edit":{
+      "title":"Modifica annuncio"
+    },
+
+    "sold":{
+      "title":"Dettagli annuncio venduto",
+      "purchased":"Acquistato online da:"
+    },
+
+    "purchased":{
+      "title":"Dettagli annuncio acquistato",
+      "purchased":"Acquistato online da:"
+    },
+
+    "advPrev":{
+        "imageAlt": "Immagine principale",
+        "shippingAvailable": "Spedizione disponibile",
+        "edit":"modifica"
+      },
 
     "support":{
         "title": "Contattaci",
@@ -160,5 +182,10 @@
         "Title": "Dettagli annuncio",
         "buy":"Acquista questo articolo",
         "message":"Contatta il venditore"
+      },
+
+      "dialog":{
+        "review":"Rivedi la tua recensione insieme a quelle di altri utenti o torna all’area riservata ",
+        "sended":"Recensione inviata"
       }
 }

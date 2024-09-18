@@ -5,6 +5,7 @@ import UserRate from "../../Molecules/UserRate/UserRate";
 import { AdvData } from "../../../storesData/products"
 import { useContext, useEffect, useState } from "react";
 import { CurrentUserContext } from "../../../App";
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     adv: AdvData
@@ -12,6 +13,7 @@ type Props = {
 
 export default function Adv({ adv }: Props) {
 
+    const { t } = useTranslation();
     const { userState } = useContext(CurrentUserContext);
     const navigate = useNavigate();
     const [isLogin, SetIsLogin] = useState(false)
@@ -35,7 +37,7 @@ export default function Adv({ adv }: Props) {
                 <div className="row adv__info">
                     <div className="col-auto pe-0">
                         {adv.images && adv.images.length > 0 && (
-                            <img src={adv.images[0]} alt="Immagine principale" />
+                            <img src={adv.images[0]} alt={t('advPrev.imageAlt')} />
                         )}
                     </div>
                     <div className="col d-flex flex-column gap-4 py-3 pe-4">
@@ -50,7 +52,7 @@ export default function Adv({ adv }: Props) {
                             <div className="col d-flex flex-column gap-2">
                                 <h4>{adv.title}</h4>
                                 <h3 className="adv__price">{adv.price},00€</h3>
-                                {adv.shipping && (<><p className="adv__shipping">spedizione disponibile
+                                {adv.shipping && (<><p className="adv__shipping">{t('advPrev.shippingAvailable')}
                                 </p></>)}
                             </div>
                         </div>
