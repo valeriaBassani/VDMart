@@ -4,6 +4,7 @@ import "./UserRate.css"
 import { useCallback, useEffect, useState } from "react";
 import { emptyUser, getUserByEmail } from "../../../storesData/users";
 import { getRatingVote, User } from "../../../storesData/account";
+import { useTranslation } from "react-i18next";
 type Props = {
     mail: string,
 }
@@ -11,6 +12,7 @@ export default function UserRate({ mail }: Props) {
 
     const [user, setUser] = useState<User>(emptyUser)
     const [totRate, setTotRate] = useState(0)
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
     const handleClick = useCallback((e: React.SyntheticEvent) => {
@@ -40,7 +42,7 @@ export default function UserRate({ mail }: Props) {
                 <button className="link" onClick={handleClick} ><p>{user.name}</p></button>
                 <div className="rating__stars">
                     {totRate === 0 ?
-                        (<p style={{ color: 'grey' }}>ancora nessuna recensione</p>
+                        (<p style={{ color: 'grey' }}>{t('userRev.norev')}</p>
                         ) : (
                             <><label style={{ color: '#880D1E' }} >{totRate}</label>
                                 {totRate > 0 && (

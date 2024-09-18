@@ -83,6 +83,10 @@
         "remove":"Added"
     },
 
+    "userRev":{
+      "norev":"no review yet"
+    },
+
     "create":{
         "title":"Create Your Advertisement",
         "article":"Title",
@@ -186,7 +190,27 @@
 
       "dialog":{
         "review":"Review your feedback along with others' or return to the members' area",
-        "sended":"Review Sent"
-      }
+        "sended":"Review Sent",
+        "purchase-completed":"Purchase Completed",
+        "purchase-completed-1":"Your purchase was successful.",
+        "purchase-completed-2":"Review the details from your members' area or see other listings"
+      },
+
+      "epilogue":{
+        "title": "Summary",
+        "purchaseTitle": "Your Purchase",
+        "priceLabel": "Price",
+        "purchaseButton": "Log in to make the purchase",
+        "remotePurchase": {
+          "label": "Remote Purchase",
+          "checkoutButton": "Checkout",
+          "shipping": "Shipping",
+          "shippingPrice": "Shipping Price"
+      }, 
+      "handPickup": {
+        "label": "In-Person Pickup",
+        "purchaseButton": "Buy with In-Person Pickup",
+        "pickupNote": "Complete your purchase and arrange the pickup in person"
+      }}
       
 }

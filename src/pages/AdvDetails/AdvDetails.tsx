@@ -115,14 +115,14 @@ export default function AdvDetails({ details }: Props) {
                     <div className="col d-flex flex-column gap-3 main p-3">
                         <div className="row">
                             <div className="col">
-                                <label>Acquisto completato!</label>
-                                <p>L’acquisto del tuo articolo è andato a buon fine. <br></br> Rivedi i dettagli dalla tua area riservata o vedi altri annunci</p>
+                                <label>{t('dialog.purchase-completed')}!</label>
+                                <p>{t('dialog.purchase-completed-1')}. <br></br>{t('dialog.purchase-completed-2')}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
                                 <Link to={"/"} className="btn--secondary">Home</Link>
-                                <Link to={"/area-riservata"} className="btn--primary">Area riservata</Link>
+                                <Link to={"/area-riservata"} className="btn--primary">{t('navbar.private-area')}</Link>
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,7 @@ import { AdvData, purchaseAdv } from "../../../storesData/products";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../../../App";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     article: AdvData
@@ -15,7 +16,7 @@ type Props = {
     onHide: () => void;
 }
 export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
-
+    const { t } = useTranslation();
     const { userState } = useContext(CurrentUserContext);
     const navigate = useNavigate();
     const [isLogin, SetIsLogin] = useState(false)
@@ -49,17 +50,17 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
             >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        <h4>Riepologo</h4>
+                        <h4>{t('epilogue.title')}</h4>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="container-sm">
                         <div className="row main content mb-3" >
                             <div className="col d-flex flex-column gap-3">
-                                <h4>Il tuo acquisto</h4>
+                                <h4>{t('epilogue.purchaseTitle')}</h4>
                                 <div className="row adv__info align-items-center">
                                     <div className="col-auto">
-                                        <img src={article.images[0]} alt="Ipad"></img>
+                                        <img src={article.images[0]} alt={t('advPrev.imageAlt')}></img>
                                     </div>
                                     <div className="col d-flex flex-column gap-1 py-3 ">
                                         <h5 className="adv__category">{article.category}</h5>
@@ -69,7 +70,7 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                 </div>
                                 <div className="row border-top pt-2 ">
                                     <div className="col d-flex justify-content-between align-items-center">
-                                        <h4>Prezzo</h4>
+                                        <h4>{t('epilogue.priceLabel')}</h4>
                                         <h3 style={{ color: "var(--primary)" }}>{article.price},00€</h3>
                                     </div>
                                 </div>
@@ -80,7 +81,7 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                 : (
                                     <>{article.shipping && (
                                         <div className="col-6" >
-                                            <label>Acquisto a distanza</label>
+                                            <label>{t('epilogue.remotePurchase.label')}</label>
                                             <div className="row">
                                                 <div className="col" >
                                                     <Button className="btn--disabled" wide={true} >Checkout</Button>
@@ -89,7 +90,7 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                             <div className="row mt-2">
                                                 <div className="col" >
                                                     <div className=" col d-flex adv__shipping gap-2">
-                                                        <p>spedizione</p>
+                                                        <p>{t('epilogue.remotePurchase.shipping')}</p>
                                                         <b>{article.shippingPrice}€</b>
                                                     </div>
                                                 </div>
@@ -97,15 +98,15 @@ export default function Epilogue({ article, show, onSwitch, onHide }: Props) {
                                         </div>
                                     )}
                                         <div className="col-6" >
-                                            <label>Scambio a mano</label>
+                                            <label>{t('epilogue.handPickup.label')}</label>
                                             <div className="row">
                                                 <div className="col" >
-                                                    <Button className="btn--primary" wide={true} onClick={handlePurchase}>Acquista con scambio a mano</Button>
+                                                    <Button className="btn--primary" wide={true} onClick={handlePurchase}>{t('epilogue.handPickup.purchaseButton')}</Button>
                                                 </div>
                                             </div>
                                             <div className="row mt-1">
                                                 <div className="col" >
-                                                    <p>Completa subito l'acquisto ed effettua lo scambio di persona</p>
+                                                    <p>{t('epilogue.handPickup.pickupNote')}</p>
                                                 </div>
                                             </div>
                                         </div></>)}

@@ -83,6 +83,10 @@
         "remove":"Aggiunto"
     },
 
+    "userRev":{
+      "norev":"ancora nessuna recensione"
+    },
+
     "create":{
         "title":"Crea il tuo annuncio",
         "article":"Titolo",
@@ -186,6 +190,25 @@
 
       "dialog":{
         "review":"Rivedi la tua recensione insieme a quelle di altri utenti o torna all’area riservata ",
-        "sended":"Recensione inviata"
+        "sended":"Recensione inviata",
+        "purchase-complete":"Acquisto completato"
+      },
+
+      "epilogue": {
+        "title": "Riepilogo",
+        "purchaseTitle": "Il tuo acquisto",
+        "priceLabel": "Prezzo",
+        "purchaseButton": "Accedi per completare l'acquisto",
+        "remotePurchase": {
+          "label": "Acquisto a distanza",
+          "checkoutButton": "Checkout",
+          "shipping": "Spedizione",
+          "shippingPrice": "Prezzo spedizione"
+        },
+        "handPickup": {
+          "label": "Scambio a mano",
+          "purchaseButton": "Acquista con scambio a mano",
+          "pickupNote": "Completa l'acquisto e organizza lo scambio di persona"
+        }
       }
 }
