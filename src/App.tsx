@@ -84,6 +84,7 @@ export default function App() {
   const [isFilled, setIsFilled] = useState(false);
 
   useEffect(() => {
+    document.title = 'VDMart';
     const userString = localStorage.getItem('users');
     if (!userString) {
       fillLs();
