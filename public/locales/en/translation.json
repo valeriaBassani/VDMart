@@ -9,6 +9,11 @@
         "map-site":"Site map"
     },
 
+    "order":{
+      "most-recent": "From the most recent",
+      "less-recent": "From the least recent"
+    },
+
     "home":{
         "filters":"Search filters",
         "adv":"Advertisements",

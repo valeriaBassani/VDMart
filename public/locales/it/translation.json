@@ -9,6 +9,11 @@
         "map-site":"Mappa del sito"
     },
 
+    "order":{
+      "most-recent":"Dal più recente",
+      "less-recent":"Dal più recente"
+    },
+
     "home":{
         "filters":"Filtri di ricerca",
         "adv":"Annunci",
