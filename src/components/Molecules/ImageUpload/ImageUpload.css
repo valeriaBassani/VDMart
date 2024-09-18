@@ -5,13 +5,13 @@ input[type="file"]{
     width: 5em;
     height: 5em;
     background-color: white;
-    border: solid 1px var(--lightGrey);
+    border: solid 2px var(--lightGrey);
     border-radius: var(--border-radius);
-    background-image: url(plus.svg);
+    background-image: url(camera.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-origin: content-box;
-    padding: 2em;
+    padding: 1.9em;
 }
 
 .item--loaded{
@@ -21,7 +21,7 @@ input[type="file"]{
     position: relative;
     width: 5em;
     height: 5em;
-    border: solid 1px var(--lightGrey);
+    border: solid 2px var(--lightGrey);
     border-radius: var(--border-radius);
     object-fit: contain;
 }
@@ -42,23 +42,32 @@ input[type="file"]{
     width: 1.8em;
     height: 1.8em;
     border-radius: 100%;
-    border: solid 1px var(--lightGrey);
+    border: solid 2px var(--lightGrey);
     padding: 0.3em;
     background-origin: content-box;
     background-color: white;
+    transition: 0.3s;
 }
 
 .item--loaded__delete:hover{
-    border: solid 1px var(--accentHover);
+    border: solid 2px var(--accentHover);
+    background-color: #ffe8eb;
 }
 
 .item--next{
-    border: solid 1px var(--accent);
-    background-image: url(camera.svg);
+    background-color: #ffe8eb;
+    border: solid 2px var(--lightGrey);
+    background-image: url(plus.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-origin: content-box;
-    padding: 1.8em;
+    padding: 1.6em;
+    transition: 0.3s;
+}
+
+.item--next:hover{
+    border: solid 2px var(--accent);
+    background-color: #ffe8eb;
 }
 
 .item__preview img{
