@@ -64,11 +64,11 @@ export default function PriceFilter({ onClick }: Props) {
                         <InputField type="number" value={data.max} name="max" placeholder="max" onChange={handleChange}></InputField>
                     </div>
                 </div>
-                <div className="row gap-1">
-                    <div className="col">
+                <div className="row">
+                    <div className="col-6 pe-0">
                         <Submit label={t('buttons.confirm')} className='btn--confirm' />
                     </div>
-                    <div className="col">
+                    <div className="col-6">
                         <Submit label={t('buttons.reset')} onClick={handleReset} className='btn--reset' />
                     </div>
                 </div>
