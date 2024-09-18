@@ -24,7 +24,7 @@ export default function OrderBy({ onClick }: Props) {
         if (value === "Dal più recente") {
             onClick(true)
         }
-        if (value == "Dal meno recente") {
+        if (value === "Dal meno recente") {
             onClick(false)
         }
     }, [onClick, value, visible]);
