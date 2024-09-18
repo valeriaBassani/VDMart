@@ -13,6 +13,7 @@ i18n
     fallbackLng: 'en',
     debug: true,
 
+    load: 'languageOnly', 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     }
@@ -20,3 +21,4 @@ i18n
 
 
 export default i18n;
+
