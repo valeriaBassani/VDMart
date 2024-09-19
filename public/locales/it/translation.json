@@ -230,5 +230,36 @@
           "purchaseButton": "Acquista con scambio a mano",
           "pickupNote": "Completa l'acquisto e organizza lo scambio di persona"
         }
+      },
+
+
+      "private-area":{
+        "title":"Il tuo profilo",
+        "userProfile": {
+          "activeAdsSingle": "annuncio attivo",
+          "activeAdsMultiple": "annunci attivi",
+          "edit": "Modifica",
+          "logout": "Esci",
+          "save": "Salva",
+          "cancel": "Annulla",
+          "phone": "tel: ",
+          "delete":"Elimina accout"
+        },
+        "logoutDialog": {
+            "title": "Logout",
+            "question": "Uscire dal tuo profilo?",
+            "description": "Potrai sempre accedere di nuovo e avere accesso alle tue informazioni",
+            "logoutButton": "Esci",
+            "cancelButton": "Annulla"
+        }
+      },
+
+      "deleteProfile": {
+        "title": "Eliminare il tuo profilo utente?",
+        "description": "L’azione è irreversibile e perderai tutte le informazioni associate al tuo account",
+        "deleteButton": "Elimina",
+        "cancelButton": "Annulla",
+        "successTitle": "Account eliminato correttamente.",
+        "successDescription": "Potrai registrarti di nuovo con la tua mail o con una nuova mail"
       }
 }

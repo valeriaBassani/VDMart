@@ -228,6 +228,36 @@
         "label": "In-Person Pickup",
         "purchaseButton": "Buy with In-Person Pickup",
         "pickupNote": "Complete your purchase and arrange the pickup in person"
-      }}
+      }},
+
+      "private-area":{
+        "title":"Youre profile",
+        "userProfile": {
+          "activeAdsSingle": "active ad",
+          "activeAdsMultiple": "active ads",
+          "edit": "Edit",
+          "logout": "Logout",
+          "save": "Save",
+          "cancel": "Cancel",
+          "phone": "Phone:",
+          "delete":"Delete accout"
+        },
+        "logoutDialog": {
+            "title": "Logout",
+            "question": "Log out of your profile?",
+            "description": "You can always log in again and access your information",
+            "logoutButton": "Logout",
+            "cancelButton": "Cancel"
+        }
+      },
+
+      "deleteProfile": {
+        "title": "Delete your user profile?",
+        "description": "This action is irreversible and you will lose all the information associated with your account",
+        "deleteButton": "Delete",
+        "cancelButton": "Cancel",
+        "successTitle": "Account successfully deleted.",
+        "successDescription": "You can register again with your email or a new one"
+      }
       
 }

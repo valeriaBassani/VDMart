@@ -56,7 +56,6 @@ export function DeleteAdv({ adv }: Props) {
                     </div>
                 </div>
             </Dialog >}
-
             {
                 currentModal === 'secondo' && <Dialog show={show} title={t('removeAd.title')} >
                     <div className="row">

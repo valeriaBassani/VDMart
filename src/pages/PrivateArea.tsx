@@ -4,9 +4,10 @@ import { emptyUser, getActualUser } from "../storesData/users";
 import { User } from "../storesData/account";
 import UserArea from "../components/Organisms/UserArea/UserArea";
 import { UserInfo } from "../components/Molecules/UserInfo";
+import { useTranslation } from "react-i18next";
 
 export default function PrivateArea() {
-
+    const { t } = useTranslation();
     const [user, setUser] = useState<User>(emptyUser)
 
     useEffect(() => {
@@ -24,7 +25,7 @@ export default function PrivateArea() {
     return (
         <>
             <div className="container-sm">
-                <h4>Il tuo profilo</h4>
+                <h4>{t('private-area.title')}</h4>
                 <div className="row">
                     <div className="col">
                         <div className="main__section p-4 my-3">

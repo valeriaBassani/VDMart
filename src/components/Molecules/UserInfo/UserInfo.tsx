@@ -10,6 +10,7 @@ import { User } from "../../../storesData/account"
 import { CurrentUserContext } from "../../../App"
 import Submit from "../../Atoms/SubmitButton/Submit"
 import { updateActualUser } from "../../../storesData/users"
+import { useTranslation } from "react-i18next"
 
 type Props = {
     user: User
@@ -20,6 +21,7 @@ export default function UserInfo({ user, isActual }: Props) {
     const { setUserState } = useContext(CurrentUserContext);
     const [visible, setVisible] = useState(false);
     const [userUpdated, setUserUpdated] = useState(user)
+    const { t } = useTranslation();
 
     useEffect(() => {
         setUserUpdated(user)
@@ -141,30 +143,30 @@ export default function UserInfo({ user, isActual }: Props) {
                 <div className="col">
                     <div className={`row gap-3 ${visible ? 'profile--show' : ''}`}>
                         <div className="col d-flex flex-column gap-2" >
-                            {user.actives.length !== 1 ? (<p className="profie__active">{user.actives.length} annunci attivi</p>) : (<p className="profie__active">{user.actives.length} annuncio attivo</p>)}
+                            {user.actives.length !== 1 ? (<p className="profie__active">{user.actives.length} {t('private-area.userProfile.activeAdsMultiple')}</p>) : (<p className="profie__active">{user.actives.length} {t('private-area.userProfile.activeAdsSingle')}</p>)}
                             <h4>{user.name} {user.lastName}</h4>
                             <p>{user.email}</p>
-                            <p>tel: {userUpdated.phone}</p>
+                            <p>{t('private-area.userProfile.phone')} {userUpdated.phone}</p>
                             {isActual && (
                                 <p>{userUpdated.street} {userUpdated.number} - {userUpdated.city}, {userUpdated.provincia}</p>
                             )}
                         </div>
                         {isActual && (
                             <div className="col-auto d-flex align-items-start" >
-                                <Button className="btn--edit" onClick={() => setVisible(true)}><Icon url="./images/edit.svg" margin="0.5em" alt="modifica" />Modifica</Button>
-                                <Button className="btn--edit" onClick={showDialog}><Icon url="./images/log-out.svg" margin="0.5em" alt="esci" />Esci</Button>
+                                <Button className="btn--edit" onClick={() => setVisible(true)}><Icon url="./images/edit.svg" margin="0.5em" alt="modifica" />{t('private-area.userProfile.edit')}</Button>
+                                <Button className="btn--edit" onClick={showDialog}><Icon url="./images/log-out.svg" margin="0.5em" alt="esci" />{t('private-area.userProfile.logout')}</Button>
                             </div>
                         )}
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className={`row gap-3 ${visible ? '' : 'profile--show'}`}>
                             <div className="col d-flex flex-column gap-2">
-                                <p id="category">3 annunci attivi</p>
+                                {user.actives.length !== 1 ? (<p className="profie__active">{user.actives.length} {t('private-area.userProfile.activeAdsMultiple')}</p>) : (<p className="profie__active">{user.actives.length} {t('private-area.userProfile.activeAdsSingle')}</p>)}
                                 <h4>{user.name} {user.lastName}</h4>
                                 <p>{user.email}</p>
                                 <div className="row">
                                     <div className="col">
-                                        <InputField label="Indirizzo" value={user.street} type="text" name="street" placeholder="Via" error={errors.street} required={true}></InputField>
+                                        <InputField label={t('signUp.address')} value={user.street} type="text" name="street" placeholder="Via" error={errors.street} required={true}></InputField>
                                     </div>
                                     <div className="col-4">
                                         <InputField label="N." type="number" value={user.number} name="number" error={errors.number} placeholder="N." required={true}></InputField>
@@ -172,20 +174,20 @@ export default function UserInfo({ user, isActual }: Props) {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <InputField label="Città" value={user.city} type="text" name="city" error={errors.city} placeholder="Città" required={true}></InputField>
+                                        <InputField label={t('signUp.city')} value={user.city} type="text" name="city" error={errors.city} placeholder="Città" required={true}></InputField>
                                     </div>
                                     <div className="col-4">
                                         <InputField label="Pv" value={user.provincia} type="text" name="provincia" error={errors.pv} placeholder="Pv" required={true}></InputField>
                                     </div>
                                 </div>
-                                <InputField label="Telefono" type="tel" value={user.phone} name="phone" placeholder="Tel." error={errors.phone} required={true}></InputField>
+                                <InputField label={t('signUp.phone')} type="tel" value={user.phone} name="phone" placeholder="Tel." error={errors.phone} required={true}></InputField>
                                 <DeleteAccount user={user} />
                             </div>
                             <div className="col d-flex align-items-start justify-content-end" >
                                 <div className="row">
                                     <div className="col d-flex gap-2">
-                                        <Submit label="Salva" className="btn--confirm" />
-                                        <button className="btn--edit" onClick={handleClick}>Annulla</button>
+                                        <Submit label={t('private-area.userProfile.save')} className="btn--confirm" />
+                                        <button className="btn--edit" onClick={handleClick}>{t('private-area.userProfile.cancel')}</button>
                                     </div>
                                 </div>
                             </div>
@@ -203,14 +205,14 @@ export default function UserInfo({ user, isActual }: Props) {
                     <div className="col d-flex flex-column gap-3 main p-3">
                         <div className="row">
                             <div className="col">
-                                <label>Uscire dal tuo profilo?  </label>
-                                <p>Potrai sempre accedere di nuovo e avere accesso alle tue informazioni</p>
+                                <label>{t('private-area.logoutDialog.question')}  </label>
+                                <p>{t('private-area.logoutDialog.description')}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
-                                <Link to={"/"} className="btn--primary" onClick={handleLogOut}>Esci</Link>
-                                <Link to={"/area-riservata"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
+                                <Link to={"/"} className="btn--primary" onClick={handleLogOut}>{t('private-area.logoutDialog.logoutButton')} </Link>
+                                <Link to={"/area-riservata"} className="btn--secondary" onClick={showDialog}>{t('private-area.logoutDialog.cancelButton')} </Link>
                             </div>
                         </div>
                     </div>

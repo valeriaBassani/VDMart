@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 import { User } from "../../../storesData/account";
 import { deleteAccount } from "../../../storesData/users";
 import { CurrentUserContext } from "../../../App";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     user: User
 }
 
 export function DeleteAccount({ user }: Props) {
+    const { t } = useTranslation();
     const { setUserState } = useContext(CurrentUserContext);
     const [show, setShow] = useState(false)
     const showDialog = () => {
@@ -25,7 +27,6 @@ export function DeleteAccount({ user }: Props) {
         try {
             await deleteAccount(user);
             setUserState(null)
-            //console.log('User deleted successfully');
         } catch (error) {
             console.error('Error deleting user:', error);
         }
@@ -39,8 +40,8 @@ export function DeleteAccount({ user }: Props) {
 
     return (
         <>
-            <Button className="btn--edit--delete" onClick={showDialog}>Elimina account</Button>
-            {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina account" >
+            <Button className="btn--edit--delete" onClick={showDialog}>{t('private-area.userProfile.delete')}</Button>
+            {currentModal === 'primo' && <Dialog show={show} onHide={close} title={t('private-area.userProfile.delete')} >
                 <div className="row">
                     <div className="col">
                         <img src={help} alt="confermare" />
@@ -50,14 +51,14 @@ export function DeleteAccount({ user }: Props) {
                     <div className="col d-flex flex-column gap-3 main p-3">
                         <div className="row">
                             <div className="col">
-                                <label>Eliminare il tuo profilo utente? </label>
-                                <p>L’azione è irreversibile e perderai tutte le informazioni associate al tuo account</p>
+                                <label>{t('deleteProfile.title')} </label>
+                                <p>{t('deleteProfile.description')}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
-                                <Button className="btn--delete" onClick={switchModals}>Elimina</Button>
-                                <Link to={"/area-riservata"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
+                                <Button className="btn--delete" onClick={switchModals}>{t('deleteProfile.deleteButton')}</Button>
+                                <Link to={"/area-riservata"} className="btn--secondary" onClick={showDialog}>{t('deleteProfile.cancelButton')}</Link>
                             </div>
                         </div>
                     </div>
@@ -65,7 +66,7 @@ export function DeleteAccount({ user }: Props) {
             </Dialog >}
 
             {
-                currentModal === 'secondo' && <Dialog show={show} onHide={close} title="Elimina account" >
+                currentModal === 'secondo' && <Dialog show={show} onHide={close} title={t('private-area.userProfile.delete')} >
                     <div className="row">
                         <div className="col">
                             <img src={check} alt="Successo" />
@@ -75,8 +76,8 @@ export function DeleteAccount({ user }: Props) {
                         <div className="col d-flex flex-column gap-3 main p-3">
                             <div className="row">
                                 <div className="col">
-                                    <label>Account eliminato correttamente.</label>
-                                    <p>Potrai registrarti di nuovo con la tua mail o con una nuova mail</p>
+                                    <label>{t('deleteProfile.successTitle')}</label>
+                                    <p>{t('deleteProfile.successDescription')}</p>
                                 </div>
                             </div>
                             <div className="row">
