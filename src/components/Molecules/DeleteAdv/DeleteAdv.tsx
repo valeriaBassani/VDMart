@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../Atoms/Buttons/Buttons"
 import Dialog from "../../Template/DialogPopUp/Dialog";
 import help from "./help-circle.svg"
@@ -14,6 +14,7 @@ type Props = {
 export function DeleteAdv({ adv }: Props) {
     const { t } = useTranslation();
     const [show, setShow] = useState(false)
+
     const showDialog = () => {
         setShow(!show)
     }
@@ -32,7 +33,6 @@ export function DeleteAdv({ adv }: Props) {
     return (
         <>
             <Button className="btn--delete" onClick={showDialog}>{t('create.delete')}</Button>
-
             {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
                 <div className="row">
                     <div className="col">

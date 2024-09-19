@@ -1,14 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import InputField from "../../Atoms/InputField/InputField"
 import Toggle from "../../Atoms/Toggle/Toggle"
 import TextArea from "../../Atoms/textArea/textArea"
 import { useNavigate } from "react-router-dom"
-import { DeleteAdv } from "../../Molecules/DeleteAdv/DeleteAdv"
 import EditAdvImages from "../../Molecules/EditAdvImages/EditAdvImages"
 import { AdvData, updateAdv } from "../../../storesData/products"
 import Submit from "../../Atoms/SubmitButton/Submit"
 import AdvImages from "../../Molecules/AdvImages/AdvImages"
 import { useTranslation } from "react-i18next"
+import { DeleteAdv } from "../../Molecules/DeleteAdv/DeleteAdv"
+import { log } from "util"
 
 type Props = {
     adv: AdvData,
@@ -18,6 +19,10 @@ export default function EditActive({ adv }: Props) {
     const { t } = useTranslation();
     const [checked, setIsChecked] = useState(adv.shipping);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        setIsChecked(adv.shipping)
+    }, [adv.shipping])
 
     const [errors, setErrors] = useState({
         title: "",
@@ -76,14 +81,19 @@ export default function EditActive({ adv }: Props) {
         const ad: any = {}
 
         formData.forEach((value, key) => {
-            ad[key] = value;
+            if (key !== "shipping") {
+                ad[key] = value;
+            }
         });
+
+        ad["shipping"] = checked
+
         const parseAdv: AdvData = {
             id: adv.id,
             title: ad.title,
             price: ad.price,
             category: adv.category,
-            shipping: ad.shipping === 'on',
+            shipping: ad.shipping,
             shippingPrice: ad.shippingPrice,
             publishData: adv.publishData,
             seller: adv.seller,
@@ -94,8 +104,8 @@ export default function EditActive({ adv }: Props) {
 
         let error = validateForm(parseAdv)
         if (!error) {
-            navigate('/dettagli-annuncio-attivo');
             updateAdv(parseAdv)
+            navigate('/dettagli-annuncio-attivo');
         }
     }
 
@@ -142,7 +152,7 @@ export default function EditActive({ adv }: Props) {
                                         <div className={checked ? "" : "create__shipping--invisible"}>
                                             <div className="row align-items-center">
                                                 <div className="col">
-                                                    <InputField label="Costo spedizione" type="number" name="shippingPrice" error={errors.shippingPrice} placeholder="000,00" required={true}></InputField>
+                                                    <InputField label="Costo spedizione" value={adv.shippingPrice} type="number" name="shippingPrice" error={errors.shippingPrice} placeholder="000,00" required={true}></InputField>
                                                 </div>
                                                 <div className="col-1 pt-4 px-0">
                                                     <h4>€</h4>
