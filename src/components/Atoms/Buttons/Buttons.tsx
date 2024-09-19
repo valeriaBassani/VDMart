@@ -10,7 +10,7 @@ type Props = {
 export default function Button({ className, onClick, children, wide }: Props) {
     return (
         <>
-            <button className={className} onClick={onClick} style={{ width: wide ? "100%" : "fit-content" }}>{children}</button>
+            <button type="button" className={className} onClick={onClick} style={{ width: wide ? "100%" : "fit-content" }}>{children}</button>
         </>
     )
 }

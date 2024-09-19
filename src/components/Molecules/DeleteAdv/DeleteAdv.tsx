@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../../Atoms/Buttons/Buttons"
 import Dialog from "../../Template/DialogPopUp/Dialog";
 import help from "./help-circle.svg"
@@ -50,7 +50,7 @@ export function DeleteAdv({ adv }: Props) {
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
                                 <Button className="btn--delete" onClick={handleDelete}>{t('removeAd.deleteButton')}</Button>
-                                <Link to={"/dettagli-annuncio-attivo"} className="btn--secondary" onClick={showDialog}>{t('removeAd.cancelButton')}</Link>
+                                <Button className="btn--secondary" onClick={showDialog}>{t('removeAd.cancelButton')}</Button>
                             </div>
                         </div>
                     </div>
