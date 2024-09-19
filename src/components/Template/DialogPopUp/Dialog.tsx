@@ -8,7 +8,7 @@ type Props = {
     show: boolean,
     onSwitch?: (modale: string) => void;
     children?: React.ReactNode;
-    onHide: () => void;
+    onHide?: () => void;
 }
 export default function Dialog({ title, show, children, onSwitch, onHide }: Props) {
     const { t } = useTranslation();
@@ -21,7 +21,7 @@ export default function Dialog({ title, show, children, onSwitch, onHide }: Prop
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton={!!onHide}>
                     <Modal.Title>
                         <h4>{title}</h4>
                     </Modal.Title>

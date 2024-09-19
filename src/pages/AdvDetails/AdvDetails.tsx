@@ -105,7 +105,7 @@ export default function AdvDetails({ details }: Props) {
             </div>
             {currentModal === 'primo' && <Epilogue show={show} onHide={showEpilogue} article={adv} onSwitch={switchModals} />}
             {currentModal === 'secondo' && <Checkout show={show} onHide={showEpilogue} article={adv} onSwitch={switchModals} />}
-            {currentModal === 'terzo' && <Dialog show={show} onHide={showEpilogue} title="Acquisto compleato" >
+            {currentModal === 'terzo' && <Dialog show={show} title="Acquisto compleato" >
                 <div className="row">
                     <div className="col">
                         <img src={check} alt="successo" />
@@ -116,7 +116,7 @@ export default function AdvDetails({ details }: Props) {
                         <div className="row">
                             <div className="col">
                                 <label>{t('dialog.purchase-completed')}!</label>
-                                <p>{t('dialog.purchase-completed-1')}. <br></br>{t('dialog.purchase-completed-2')}</p>
+                                <p>{t('dialog.purchase-completed-1')} <br></br>{t('dialog.purchase-completed-2')}</p>
                             </div>
                         </div>
                         <div className="row">

@@ -197,7 +197,9 @@
       "dialog":{
         "review":"Rivedi la tua recensione insieme a quelle di altri utenti o torna all’area riservata ",
         "sended":"Recensione inviata",
-        "purchase-complete":"Acquisto completato"
+        "purchase-completed":"Acquisto completato",
+        "purchase-completed-1":"Acquisto completato con successo.",
+        "purchase-completed-2":"Rivedi i dettagli nella tua area riservata o torna alla home"
       },
 
       "epilogue": {
