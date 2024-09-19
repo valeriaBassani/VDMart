@@ -3,9 +3,9 @@
   "name": "Vidiemme buy and sell webApp",
   "icons": [
     {
-      "src": "icon144.png",
+      "src": "favicon.ico",
       "sizes": "144x144",
-      "type": "image/png",
+      "type": "image/x-icon",  
       "purpose": "any"
     },
     {
