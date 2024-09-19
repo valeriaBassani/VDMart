@@ -258,6 +258,14 @@
         "cancelButton": "Cancel",
         "successTitle": "Account successfully deleted.",
         "successDescription": "You can register again with your email or a new one"
+      },
+
+      "reviews": {
+        "title": "Reviews from other users",
+        "overallScore": "Overall score:",
+        "totalReviews": "reviews",
+        "noReviews": "No reviews",
+        "seeAllReviews": "See all"
       }
       
 }

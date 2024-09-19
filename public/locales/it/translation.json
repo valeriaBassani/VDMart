@@ -261,5 +261,13 @@
         "cancelButton": "Annulla",
         "successTitle": "Account eliminato correttamente.",
         "successDescription": "Potrai registrarti di nuovo con la tua mail o con una nuova mail"
+      },
+
+      "reviews": {
+        "title": "Recensioni da altri utenti",
+        "overallScore": "Punteggio complessivo:",
+        "totalReviews": "recensioni",
+        "noReviews": "Nessuna recensione",
+        "seeAllReviews": "Vedi tutte"
       }
 }
