@@ -9,7 +9,6 @@ import Submit from "../../Atoms/SubmitButton/Submit"
 import AdvImages from "../../Molecules/AdvImages/AdvImages"
 import { useTranslation } from "react-i18next"
 import { DeleteAdv } from "../../Molecules/DeleteAdv/DeleteAdv"
-import { log } from "util"
 
 type Props = {
     adv: AdvData,

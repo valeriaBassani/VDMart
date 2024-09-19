@@ -202,6 +202,17 @@
         "purchase-completed-2":"Review the details from your members' area or see other listings"
       },
 
+      "removeAd": {
+        "title":"Delete Advertisement",
+        "label": "Remove this ad?",
+        "description": "The ad will no longer be visible to other users, and you will lose the information about your item.",
+        "deleteButton": "Delete",
+        "cancelButton": "Cancel",
+        "label2": "Ad successfully deleted.",
+        "description2": "It will no longer be visible to other users on the notice board.",
+        "returnButton": "Return to reserved area" 
+      },
+
       "epilogue":{
         "title": "Summary",
         "purchaseTitle": "Your Purchase",

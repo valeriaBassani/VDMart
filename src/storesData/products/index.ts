@@ -208,7 +208,7 @@ export const deleteAdv = async (adv: AdvData) => {
     const updatedAds = (await user).actives.filter(ad => ad.id !== adv.id);
     const updatedUser = { ...user, ads: updatedAds };
     updateActualUser(await updatedUser);
-    updateUsers(await updatedUser);
+    //updateUsers(await updatedUser);
 }
 
 export function getDate() {

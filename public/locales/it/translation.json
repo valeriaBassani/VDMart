@@ -202,6 +202,18 @@
         "purchase-completed-2":"Rivedi i dettagli nella tua area riservata o torna alla home"
       },
 
+      
+      "removeAd": {
+        "title":"Elimina annuncio",
+        "label": "Rimuovere questo annuncio?",
+        "description": "L'annuncio non sarà più visibile agli altri utenti e perderai le informazioni sul tuo articolo.",
+        "deleteButton": "Elimina",
+        "cancelButton": "Annulla",
+        "label2": "Annuncio eliminato correttamente.",
+        "description2": "Non sarà più visibile dagli altri utenti nella bacheca degli annunci.",
+        "returnButton": "Torna all'area riservata"
+      },
+
       "epilogue": {
         "title": "Riepilogo",
         "purchaseTitle": "Il tuo acquisto",

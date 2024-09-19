@@ -33,7 +33,7 @@ export function DeleteAdv({ adv }: Props) {
     return (
         <>
             <Button className="btn--delete" onClick={showDialog}>{t('create.delete')}</Button>
-            {currentModal === 'primo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
+            {currentModal === 'primo' && <Dialog show={show} onHide={close} title={t('removeAd.title')} >
                 <div className="row">
                     <div className="col">
                         <img src={help} alt="confermare" />
@@ -43,14 +43,14 @@ export function DeleteAdv({ adv }: Props) {
                     <div className="col d-flex flex-column gap-3 main p-3">
                         <div className="row">
                             <div className="col">
-                                <label>Rimuovere questo annuncio? </label>
-                                <p>L'annuncio non sarà più visibile agli altri utenti e perderai le informazioni sul tuo articolo</p>
+                                <label>{t('removeAd.label')} </label>
+                                <p>{t('removeAd.description')}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col d-flex gap-2 justify-content-center">
-                                <Button className="btn--delete" onClick={handleDelete}>Elimina</Button>
-                                <Link to={"/dettagli-annuncio-attivo"} className="btn--secondary" onClick={showDialog}>Annulla</Link>
+                                <Button className="btn--delete" onClick={handleDelete}>{t('removeAd.deleteButton')}</Button>
+                                <Link to={"/dettagli-annuncio-attivo"} className="btn--secondary" onClick={showDialog}>{t('removeAd.cancelButton')}</Link>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ export function DeleteAdv({ adv }: Props) {
             </Dialog >}
 
             {
-                currentModal === 'secondo' && <Dialog show={show} onHide={close} title="Elimina annuncio" >
+                currentModal === 'secondo' && <Dialog show={show} title={t('removeAd.title')} >
                     <div className="row">
                         <div className="col">
                             <img src={check} alt="successo" />
@@ -68,13 +68,13 @@ export function DeleteAdv({ adv }: Props) {
                         <div className="col d-flex flex-column gap-3 main p-3">
                             <div className="row">
                                 <div className="col">
-                                    <label>Annuncio eliminato correttamente. </label>
-                                    <p>Non sarà più visibile dagli altri utenti nella bacheca degli annunci</p>
+                                    <label>{t('removeAd.label2')} </label>
+                                    <p>{t('removeAd.description2')}</p>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col d-flex gap-2 justify-content-center">
-                                    <Link to={"/area-riservata"} className="btn--primary">Torna all'area riservata</Link>
+                                    <Link to={"/area-riservata"} className="btn--primary">{t('removeAd.returnButton')}</Link>
                                 </div>
                             </div>
                         </div>
